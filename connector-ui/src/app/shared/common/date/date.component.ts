@@ -1,0 +1,21 @@
+/*
+ *  Copyright (c) 2024 sovity GmbH
+ *
+ *  This program and the accompanying materials are made available under the
+ *  terms of the Apache License, Version 2.0 which is available at
+ *  https://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  SPDX-License-Identifier: Apache-2.0
+ */
+import {Component, Input} from '@angular/core';
+
+@Component({
+  selector: 'date',
+  template: `<span [title]="date | date : 'EEEE yyyy-MM-dd hh:mm'">{{
+    date | date : 'yyyy-MM-dd'
+  }}</span>`,
+})
+export class DateComponent {
+  @Input()
+  date?: Date | null;
+}

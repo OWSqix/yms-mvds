@@ -1,0 +1,65 @@
+# From: org.eclipse.edc/control-api-configuration/0.7.2.1/10ece3afb89ac1e202eebe1d5fc9a52771f4e927/control-api-configuration-0.7.2.1.jar
+org.eclipse.edc.connector.api.control.configuration.ControlApiConfigurationExtension
+
+# From: org.eclipse.edc/data-plane-core/0.7.2.1/34d974d3fb0c812ba907db53d6944c522758a507/data-plane-core-0.7.2.1.jar
+org.eclipse.edc.connector.dataplane.framework.DataPlaneFrameworkExtension
+org.eclipse.edc.connector.dataplane.framework.DataPlaneDefaultServicesExtension
+org.eclipse.edc.connector.dataplane.framework.DataPlaneDefaultIamServicesExtension
+
+# From: org.eclipse.edc/data-plane-public-api-v2/0.7.2.1/2f0e64977f88461061dd2f590b6c9f143dcc452c/data-plane-public-api-v2-0.7.2.1.jar
+org.eclipse.edc.connector.dataplane.api.DataPlanePublicApiV2Extension
+
+# From: org.eclipse.edc/control-plane-api-client/0.7.2.1/484dd3dfdb1c42149e09c6aa4a6dc3ecf2b310ca/control-plane-api-client-0.7.2.1.jar
+org.eclipse.edc.connector.controlplane.api.client.ControlPlaneApiClientExtension
+
+# From: org.eclipse.edc/data-plane-signaling-api/0.7.2.1/3d317726a4d2244f3509269dbbd21f2d58d1b04b/data-plane-signaling-api-0.7.2.1.jar
+org.eclipse.edc.connector.dataplane.api.DataPlaneSignalingApiExtension
+
+# From: org.eclipse.tractusx.edc/pipeline-service/0.7.7/f72d014b508eab00dc85535b1cb33bbb288f87dc/pipeline-service-0.7.7.jar
+org.eclipse.tractusx.edc.dataplane.pipeline.PipelineServiceExtension
+
+# From: org.eclipse.edc/data-plane-http/0.7.2.1/1b4b06865c3542bef6890322378ba2199162bfb/data-plane-http-0.7.2.1.jar
+org.eclipse.edc.connector.dataplane.http.DataPlaneHttpExtension
+
+# From: org.eclipse.edc.azure/data-plane-azure-storage/0.7.2/4b3588d9be61ed983b617354684944c29b4b9836/data-plane-azure-storage-0.7.2.jar
+org.eclipse.edc.connector.dataplane.azure.storage.DataPlaneAzureStorageExtension
+
+# From: org.eclipse.edc.aws/data-plane-aws-s3/0.7.2/aebd56ee2f925cfd23830a993d6b3a3cb1ca5b71/data-plane-aws-s3-0.7.2.jar
+org.eclipse.edc.connector.dataplane.aws.s3.DataPlaneS3Extension
+
+# From: org.eclipse.edc/data-plane-store-sql/0.7.2.1/d24b7e1a68c954ee6b1af1aca8919b93047ebefc/data-plane-store-sql-0.7.2.1.jar
+org.eclipse.edc.connector.dataplane.store.sql.SqlDataPlaneStoreExtension
+
+# From: org.eclipse.edc/accesstokendata-store-sql/0.7.2.1/1619972e7df169530382077b97cfb8386e5f0f7a/accesstokendata-store-sql-0.7.2.1.jar
+org.eclipse.edc.connector.dataplane.store.sql.SqlAccessTokenDataStoreExtension
+
+# From: org.eclipse.edc/api-core/0.7.2.1/fc7bc1fe508f0f5672235bd1fe6e3038cd07819b/api-core-0.7.2.1.jar
+org.eclipse.edc.api.ApiCoreExtension
+org.eclipse.edc.api.ApiCoreDefaultServicesExtension
+
+# From: org.eclipse.edc/jersey-core/0.7.2.1/4f718109147b85fe5ace108e611f66198f29783/jersey-core-0.7.2.1.jar
+org.eclipse.edc.web.jersey.JerseyExtension
+
+# From: org.eclipse.edc/connector-core/0.7.2.1/e2588f8e7a9cd2a99056677e5dc591cbd3f5449d/connector-core-0.7.2.1.jar
+org.eclipse.edc.connector.core.CoreServicesExtension
+org.eclipse.edc.connector.core.CoreDefaultServicesExtension
+org.eclipse.edc.connector.core.SecurityDefaultServicesExtension
+org.eclipse.edc.connector.core.LocalPublicKeyDefaultExtension
+
+# From: org.eclipse.edc/jetty-core/0.7.2.1/5024e89ad1c9719c1d6af7bc6d85168daa875f39/jetty-core-0.7.2.1.jar
+org.eclipse.edc.web.jetty.JettyExtension
+
+# From: org.eclipse.edc.aws/aws-s3-core/0.7.2/283e1b7574592d42d3ab033dc02edfabb30e28da/aws-s3-core-0.7.2.jar
+org.eclipse.edc.aws.s3.S3CoreExtension
+
+# From: org.eclipse.edc.azure/azure-blob-core/0.7.2/82432b8767c55761a3ba0b9cec7f2e291ab965e6/azure-blob-core-0.7.2.jar
+org.eclipse.edc.azure.blob.BlobStoreCoreExtension
+
+# From: org.eclipse.edc/token-core/0.7.2.1/c72d9c113d1ff727f34855a7ba4902b346bdf310/token-core-0.7.2.1.jar
+org.eclipse.edc.token.TokenServicesExtension
+
+# From: org.eclipse.edc/boot/0.7.2.1/f512e9c40fbce24280f3f51a00629d349ea7e2d/boot-0.7.2.1.jar
+org.eclipse.edc.boot.BootServicesExtension
+
+# From: org.eclipse.edc/sql-core/0.7.2.1/53f1cb169a887845f21ca075cdb6fe0e740441cc/sql-core-0.7.2.1.jar
+org.eclipse.edc.sql.SqlCoreExtension

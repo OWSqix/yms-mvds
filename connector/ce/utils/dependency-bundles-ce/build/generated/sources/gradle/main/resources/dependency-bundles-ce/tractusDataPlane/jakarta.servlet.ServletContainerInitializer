@@ -1,0 +1,8 @@
+# From: org.eclipse.jetty.websocket/websocket-jakarta-server/11.0.21/2a00f9fa2db3605d18368ebfcd2f28647a6f02d7/websocket-jakarta-server-11.0.21.jar
+org.eclipse.jetty.websocket.jakarta.server.config.JakartaWebSocketServletContainerInitializer
+
+# From: org.eclipse.jetty.websocket/websocket-jakarta-client/11.0.21/513546052f13673046efc6fce148870c6fea672f/websocket-jakarta-client-11.0.21.jar
+org.eclipse.jetty.websocket.jakarta.client.JakartaWebSocketShutdownContainer
+
+# From: org.glassfish.jersey.containers/jersey-container-servlet/3.1.7/f36a8515058761fab5e646f1a628adced417bae8/jersey-container-servlet-3.1.7.jar
+org.glassfish.jersey.servlet.init.JerseyServletContainerInitializer

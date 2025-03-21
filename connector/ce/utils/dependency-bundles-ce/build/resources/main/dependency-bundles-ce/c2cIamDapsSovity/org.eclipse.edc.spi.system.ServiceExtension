@@ -1,0 +1,9 @@
+# From: org.eclipse.edc/oauth2-core/0.7.2.1/e65b44c978327c2fe08572c4c07f0d22e9ba59f3/oauth2-core-0.7.2.1.jar
+org.eclipse.edc.iam.oauth2.Oauth2ServiceExtension
+org.eclipse.edc.iam.oauth2.Oauth2ServiceDefaultServicesExtension
+
+# From: org.eclipse.edc/token-core/0.7.2.1/c72d9c113d1ff727f34855a7ba4902b346bdf310/token-core-0.7.2.1.jar
+org.eclipse.edc.token.TokenServicesExtension
+
+# From: org.eclipse.edc/oauth2-client/0.7.2.1/8f0c8a7b1f0e3a2e1c371ca63062b4e32fd90f2c/oauth2-client-0.7.2.1.jar
+org.eclipse.edc.iam.oauth2.client.Oauth2ClientExtension

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="de.sovity.edc.ce.dependency_bundles.CeDependencyBundlesTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-03-19T08:35:16" hostname="DESKTOP-P8E06B6" time="0.785">
+  <properties/>
+  <testcase name="testIamMockBundle()" classname="de.sovity.edc.ce.dependency_bundles.CeDependencyBundlesTest" time="0.785"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

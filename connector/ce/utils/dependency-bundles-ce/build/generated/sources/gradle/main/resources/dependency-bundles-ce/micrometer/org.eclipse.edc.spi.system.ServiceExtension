@@ -1,0 +1,17 @@
+# From: org.eclipse.edc/api-observability/0.7.2.1/23817594e3961ae1865a324f981e90f5efd4a217/api-observability-0.7.2.1.jar
+org.eclipse.edc.api.observability.ObservabilityApiExtension
+
+# From: org.eclipse.edc/micrometer-core/0.7.2.1/ba14e615b249d0a27ec950fad9d6f26604913a99/micrometer-core-0.7.2.1.jar
+org.eclipse.edc.metrics.micrometer.MicrometerExtension
+
+# From: org.eclipse.edc/jersey-micrometer/0.7.2.1/3d59c017f58aeb3f57bd84150868eecdad301a63/jersey-micrometer-0.7.2.1.jar
+org.eclipse.edc.web.jersey.micrometer.JerseyMicrometerExtension
+
+# From: org.eclipse.edc/jetty-micrometer/0.7.2.1/3e20b727bc40a5a868e14eb233b0964357a302f0/jetty-micrometer-0.7.2.1.jar
+org.eclipse.edc.web.jetty.micrometer.JettyMicrometerExtension
+
+# From: org.eclipse.edc/jersey-core/0.7.2.1/4f718109147b85fe5ace108e611f66198f29783/jersey-core-0.7.2.1.jar
+org.eclipse.edc.web.jersey.JerseyExtension
+
+# From: org.eclipse.edc/jetty-core/0.7.2.1/5024e89ad1c9719c1d6af7bc6d85168daa875f39/jetty-core-0.7.2.1.jar
+org.eclipse.edc.web.jetty.JettyExtension

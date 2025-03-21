@@ -1,0 +1,5 @@
+# From: org.glassfish.jersey.core/jersey-server/3.1.7/fed4e119e3502b83ecb019ddf694b8b74c495a05/jersey-server-3.1.7.jar
+org.glassfish.jersey.server.internal.RuntimeDelegateImpl
+
+# From: org.glassfish.jersey.core/jersey-common/3.1.7/1d8d9a904de672674286af92b0f63251e6694ce5/jersey-common-3.1.7.jar
+org.glassfish.jersey.internal.RuntimeDelegateImpl

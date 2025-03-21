@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="de.sovity.edc.runtime.modules.evaluation.utils.ConfigPropErrorListTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2025-03-19T08:33:53" hostname="DESKTOP-P8E06B6" time="0.462">
+  <properties/>
+  <testcase name="test ordering()" classname="de.sovity.edc.runtime.modules.evaluation.utils.ConfigPropErrorListTest" time="0.38"/>
+  <testcase name="test no errors or warnings()" classname="de.sovity.edc.runtime.modules.evaluation.utils.ConfigPropErrorListTest" time="0.001"/>
+  <testcase name="test error()" classname="de.sovity.edc.runtime.modules.evaluation.utils.ConfigPropErrorListTest" time="0.002"/>
+  <testcase name="test warning()" classname="de.sovity.edc.runtime.modules.evaluation.utils.ConfigPropErrorListTest" time="0.078"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

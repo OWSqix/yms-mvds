@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="de.sovity.edc.runtime.config.UrlPathUtilsTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2025-03-19T08:35:14" hostname="DESKTOP-P8E06B6" time="0.007">
+  <properties/>
+  <testcase name="urlPathJoin_protocol_overruling_not_enabled()" classname="de.sovity.edc.runtime.config.UrlPathUtilsTest" time="0.0"/>
+  <testcase name="urlPathJoin_protocol()" classname="de.sovity.edc.runtime.config.UrlPathUtilsTest" time="0.0"/>
+  <testcase name="urlPathJoin_relative()" classname="de.sovity.edc.runtime.config.UrlPathUtilsTest" time="0.001"/>
+  <testcase name="urlPathJoin_empty()" classname="de.sovity.edc.runtime.config.UrlPathUtilsTest" time="0.001"/>
+  <testcase name="urlPathJoin_immediate_protocol()" classname="de.sovity.edc.runtime.config.UrlPathUtilsTest" time="0.001"/>
+  <testcase name="urlPathJoin_absolute()" classname="de.sovity.edc.runtime.config.UrlPathUtilsTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="de.sovity.edc.runtime.modules.evaluation.utils.ConfigPropQueueTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2025-03-19T08:33:54" hostname="DESKTOP-P8E06B6" time="0.227">
+  <properties/>
+  <testcase name="test_addAll()" classname="de.sovity.edc.runtime.modules.evaluation.utils.ConfigPropQueueTest" time="0.219"/>
+  <testcase name="readVisited()" classname="de.sovity.edc.runtime.modules.evaluation.utils.ConfigPropQueueTest" time="0.003"/>
+  <testcase name="testRevisitCompleted()" classname="de.sovity.edc.runtime.modules.evaluation.utils.ConfigPropQueueTest" time="0.002"/>
+  <testcase name="testVisitUndefined()" classname="de.sovity.edc.runtime.modules.evaluation.utils.ConfigPropQueueTest" time="0.001"/>
+  <testcase name="testRevisitVisited()" classname="de.sovity.edc.runtime.modules.evaluation.utils.ConfigPropQueueTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

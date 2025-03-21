@@ -1,0 +1,3 @@
+# From: org.eclipse.edc/auth-tokenbased/0.7.2.1/7fffcc5db6ae1921a210c65a66ca161e29ab64c4/auth-tokenbased-0.7.2.1.jar
+ #
+org.eclipse.edc.api.auth.token.TokenBasedAuthenticationExtension

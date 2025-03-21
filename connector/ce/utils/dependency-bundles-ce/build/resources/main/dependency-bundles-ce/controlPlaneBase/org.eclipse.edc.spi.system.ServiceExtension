@@ -1,0 +1,189 @@
+# From: org.eclipse.edc/contract-definition-api/0.7.2.1/c2cc549bfe8d1e5b8d3cb371191f6d6f4cf8cc2/contract-definition-api-0.7.2.1.jar
+org.eclipse.edc.connector.controlplane.api.management.contractdefinition.ContractDefinitionApiExtension
+
+# From: org.eclipse.edc/control-api-configuration/0.7.2.1/10ece3afb89ac1e202eebe1d5fc9a52771f4e927/control-api-configuration-0.7.2.1.jar
+org.eclipse.edc.connector.api.control.configuration.ControlApiConfigurationExtension
+
+# From: org.eclipse.edc/management-api-configuration/0.7.2.1/cbb5457e99ff3489ef88bd3ad27b0ee0612575a8/management-api-configuration-0.7.2.1.jar
+org.eclipse.edc.connector.api.management.configuration.ManagementApiConfigurationExtension
+
+# From: org.eclipse.edc/policy-definition-api/0.7.2.1/738a5f5ccfe4e7b4f42cf192edc3e38bbd84d736/policy-definition-api-0.7.2.1.jar
+org.eclipse.edc.connector.controlplane.api.management.policy.PolicyDefinitionApiExtension
+
+# From: org.eclipse.edc/secrets-api/0.7.2.1/5daa64d178a7dd51e6bc6cc25e9500e10c9b1b83/secrets-api-0.7.2.1.jar
+org.eclipse.edc.connector.api.management.secret.SecretsApiExtension
+
+# From: org.eclipse.edc/transfer-process-api/0.7.2.1/98270711ce33f91fd58f9f5baebae8d02e98a171/transfer-process-api-0.7.2.1.jar
+org.eclipse.edc.connector.controlplane.api.management.transferprocess.TransferProcessApiExtension
+
+# From: org.eclipse.edc/data-plane-selector-api/0.7.2.1/7f068acc09e22fca64cb9b55a81c1c6f23f094be/data-plane-selector-api-0.7.2.1.jar
+org.eclipse.edc.connector.dataplane.selector.DataPlaneSelectorApiExtension
+
+# From: org.eclipse.edc/asset-api/0.7.2.1/e6bd221aa636cc50c0ca775bfae206c2463377f/asset-api-0.7.2.1.jar
+org.eclipse.edc.connector.controlplane.api.management.asset.AssetApiExtension
+
+# From: org.eclipse.edc/catalog-api/0.7.2.1/4ed33e99c497244b61e49adb65c8c24462d57b8c/catalog-api-0.7.2.1.jar
+org.eclipse.edc.connector.controlplane.api.management.catalog.CatalogApiExtension
+
+# From: org.eclipse.edc/contract-agreement-api/0.7.2.1/2df1fd082e3bc21e7dc2312319fc81c799185ea1/contract-agreement-api-0.7.2.1.jar
+org.eclipse.edc.connector.controlplane.api.management.contractagreement.ContractAgreementApiExtension
+
+# From: org.eclipse.edc/contract-negotiation-api/0.7.2.1/47d0c554f8bf73905f687ac1097613a517f82415/contract-negotiation-api-0.7.2.1.jar
+org.eclipse.edc.connector.controlplane.api.management.contractnegotiation.ContractNegotiationApiExtension
+
+# From: org.eclipse.edc/api-core/0.7.2.1/fc7bc1fe508f0f5672235bd1fe6e3038cd07819b/api-core-0.7.2.1.jar
+org.eclipse.edc.api.ApiCoreExtension
+org.eclipse.edc.api.ApiCoreDefaultServicesExtension
+
+# From: org.eclipse.edc/connector-core/0.7.2.1/e2588f8e7a9cd2a99056677e5dc591cbd3f5449d/connector-core-0.7.2.1.jar
+org.eclipse.edc.connector.core.CoreServicesExtension
+org.eclipse.edc.connector.core.CoreDefaultServicesExtension
+org.eclipse.edc.connector.core.SecurityDefaultServicesExtension
+org.eclipse.edc.connector.core.LocalPublicKeyDefaultExtension
+
+# From: org.eclipse.edc/control-plane-api/0.7.2.1/fdf5aead9ad704816e23dd1b7f429cbaa2d7aeb4/control-plane-api-0.7.2.1.jar
+org.eclipse.edc.connector.controlplane.api.ControlPlaneApiExtension
+
+# From: org.eclipse.edc/control-plane-core/0.7.2.1/e9457f3103cc01a70fe843e6bbd46cd939ed58d/control-plane-core-0.7.2.1.jar
+org.eclipse.edc.connector.controlplane.ControlPlaneDefaultServicesExtension
+
+# From: org.eclipse.edc/control-plane-contract/0.7.2.1/bb23f13bea43e95a37a71ad8e94167d4f7ff2dec/control-plane-contract-0.7.2.1.jar
+org.eclipse.edc.connector.controlplane.contract.ContractCoreExtension
+org.eclipse.edc.connector.controlplane.contract.ContractNegotiationCommandExtension
+org.eclipse.edc.connector.controlplane.contract.ContractNegotiationDefaultServicesExtension
+
+# From: org.eclipse.edc/data-plane-selector-core/0.7.2.1/5ad2687b3deb33c0a8f883d0f3630aadc8a26e1c/data-plane-selector-core-0.7.2.1.jar
+org.eclipse.edc.connector.dataplane.selector.DataPlaneSelectorExtension
+org.eclipse.edc.connector.dataplane.selector.DataPlaneSelectorDefaultServicesExtension
+
+# From: org.eclipse.edc/dsp-http-api-configuration/0.7.2.1/723cebe746592808303b03a36d59c98a514f59bd/dsp-http-api-configuration-0.7.2.1.jar
+org.eclipse.edc.protocol.dsp.http.api.configuration.DspApiConfigurationExtension
+
+# From: org.eclipse.edc/dsp-catalog-http-dispatcher/0.7.2.1/1026a187859bef712e7815f571c8dd1b4ca767f6/dsp-catalog-http-dispatcher-0.7.2.1.jar
+org.eclipse.edc.protocol.dsp.catalog.http.dispatcher.DspCatalogHttpDispatcherExtension
+
+# From: org.eclipse.edc/dsp-negotiation-http-dispatcher/0.7.2.1/631aa6341626de799f7e5ee5694d6f157739fab0/dsp-negotiation-http-dispatcher-0.7.2.1.jar
+org.eclipse.edc.protocol.dsp.negotiation.http.dispatcher.DspNegotiationHttpDispatcherExtension
+
+# From: org.eclipse.edc/dsp-transfer-process-http-dispatcher/0.7.2.1/61adb0047476e6412dd3612c20986b183066c683/dsp-transfer-process-http-dispatcher-0.7.2.1.jar
+org.eclipse.edc.protocol.dsp.transferprocess.http.dispatcher.DspTransferProcessDispatcherExtension
+
+# From: org.eclipse.edc/dsp-http-core/0.7.2.1/791e65fa1db2bf746f5eafe154086f36b4e6e592/dsp-http-core-0.7.2.1.jar
+org.eclipse.edc.protocol.dsp.http.DspHttpCoreExtension
+
+# From: org.eclipse.edc/dsp-negotiation-transform/0.7.2.1/d1fe37fef305ebfb80fa2bde909503437ad0cc4/dsp-negotiation-transform-0.7.2.1.jar
+org.eclipse.edc.protocol.dsp.negotiation.transform.DspNegotiationTransformExtension
+
+# From: org.eclipse.edc/dsp-version-http-api/0.7.2.1/3fe94fa91d805d829976cbdcebdee43657d0e79a/dsp-version-http-api-0.7.2.1.jar
+org.eclipse.edc.protocol.dsp.version.http.api.DspVersionApiExtension
+
+# From: org.eclipse.edc/dsp-catalog-http-api/0.7.2.1/df9f242d0db71fa6aa8c8001eff9fc34c0795589/dsp-catalog-http-api-0.7.2.1.jar
+org.eclipse.edc.protocol.dsp.catalog.http.api.DspCatalogApiExtension
+
+# From: org.eclipse.edc/dsp-catalog-transform/0.7.2.1/4f629fdab613584668cac55ffdd13f964de650c/dsp-catalog-transform-0.7.2.1.jar
+org.eclipse.edc.protocol.dsp.catalog.transform.DspCatalogTransformExtension
+
+# From: org.eclipse.edc/dsp-negotiation-http-api/0.7.2.1/5db9f6448f8e99e4ac106a103cb966823ebcb503/dsp-negotiation-http-api-0.7.2.1.jar
+org.eclipse.edc.protocol.dsp.negotiation.http.api.DspNegotiationApiExtension
+
+# From: org.eclipse.edc/dsp-transfer-process-http-api/0.7.2.1/95de896449c2bf130290e3b62de854a9bde686fe/dsp-transfer-process-http-api-0.7.2.1.jar
+org.eclipse.edc.protocol.dsp.transferprocess.http.api.DspTransferProcessApiExtension
+
+# From: org.eclipse.edc/dsp-transfer-process-transform/0.7.2.1/e68eba5d5f173e8e0b211416d5d95d592abb35c6/dsp-transfer-process-transform-0.7.2.1.jar
+org.eclipse.edc.protocol.dsp.transferprocess.transform.DspTransferProcessTransformExtension
+
+# From: org.eclipse.edc/json-ld/0.7.2.1/279778390da3d1e90c6c7585402558bdb813bd5b/json-ld-0.7.2.1.jar
+org.eclipse.edc.jsonld.JsonLdExtension
+
+# From: org.eclipse.edc/token-core/0.7.2.1/c72d9c113d1ff727f34855a7ba4902b346bdf310/token-core-0.7.2.1.jar
+org.eclipse.edc.token.TokenServicesExtension
+
+# From: org.eclipse.edc/data-plane-instance-store-sql/0.7.2.1/ec372247af3de4f2f2be7880423882cdbcce7d41/data-plane-instance-store-sql-0.7.2.1.jar
+org.eclipse.edc.connector.dataplane.selector.store.sql.SqlDataPlaneInstanceStoreExtension
+
+# From: org.eclipse.edc/edr-index-sql/0.7.2.1/3f5f3fc2376e22d2b036e48a1bbafa7ab2101946/edr-index-sql-0.7.2.1.jar
+org.eclipse.edc.edr.store.index.SqlEndpointDataReferenceEntryIndexExtension
+
+# From: org.eclipse.edc/policy-monitor-store-sql/0.7.2.1/eb9fc76baafbdb45e10ccac5b0701339dd8f9b5c/policy-monitor-store-sql-0.7.2.1.jar
+org.eclipse.edc.connector.policy.monitor.store.sql.SqlPolicyMonitorStoreExtension
+
+# From: org.eclipse.edc/contract-negotiation-store-sql/0.7.2.1/1e6d78e79912788f9bc1c46c525f51191d4658e0/contract-negotiation-store-sql-0.7.2.1.jar
+org.eclipse.edc.connector.controlplane.store.sql.contractnegotiation.SqlContractNegotiationStoreExtension
+
+# From: org.eclipse.edc/transfer-process-store-sql/0.7.2.1/db2c76241d142cf716a694387df5f527d1e448cf/transfer-process-store-sql-0.7.2.1.jar
+org.eclipse.edc.connector.controlplane.store.sql.transferprocess.SqlTransferProcessStoreExtension
+
+# From: org.eclipse.edc/asset-index-sql/0.7.2.1/162c1e5874e2aae1cfc99b3b92d85d8f402710d0/asset-index-sql-0.7.2.1.jar
+org.eclipse.edc.connector.controlplane.store.sql.assetindex.SqlAssetIndexServiceExtension
+
+# From: org.eclipse.edc/contract-definition-store-sql/0.7.2.1/2d577f63f5a3d407f9e4f6b9f0f69da939e377a8/contract-definition-store-sql-0.7.2.1.jar
+org.eclipse.edc.connector.controlplane.store.sql.contractdefinition.SqlContractDefinitionStoreExtension
+
+# From: org.eclipse.edc/policy-definition-store-sql/0.7.2.1/7abae7d51b960f7ce979bca4c6816686df2cfcae/policy-definition-store-sql-0.7.2.1.jar
+org.eclipse.edc.connector.controlplane.store.sql.policydefinition.SqlPolicyStoreExtension
+
+# From: org.eclipse.edc/sql-core/0.7.2.1/53f1cb169a887845f21ca075cdb6fe0e740441cc/sql-core-0.7.2.1.jar
+org.eclipse.edc.sql.SqlCoreExtension
+
+# From: org.eclipse.edc/policy-monitor-core/0.7.2.1/7fea6e42b58a279d1ea314cc273ab2cece3d0e0b/policy-monitor-core-0.7.2.1.jar
+org.eclipse.edc.connector.policy.monitor.PolicyMonitorDefaultServicesExtension
+org.eclipse.edc.connector.policy.monitor.PolicyMonitorExtension
+
+# From: org.eclipse.edc/validator-data-address-http-data/0.7.2.1/9bc5b481b306612b0fd71b2bd3ad405ee1ad7d74/validator-data-address-http-data-0.7.2.1.jar
+org.eclipse.edc.validator.dataaddress.httpdata.HttpDataDataAddressValidatorExtension
+
+# From: org.eclipse.edc/callback-event-dispatcher/0.7.2.1/127316d1466fb7f19de18b9497fda873c009bd04/callback-event-dispatcher-0.7.2.1.jar
+org.eclipse.edc.connector.controlplane.callback.dispatcher.CallbackEventDispatcherExtension
+
+# From: org.eclipse.edc/callback-http-dispatcher/0.7.2.1/f03cd41a51a44adf26cb475c1809c2ada53b7d9e/callback-http-dispatcher-0.7.2.1.jar
+org.eclipse.edc.connector.controlplane.callback.dispatcher.http.CallbackEventDispatcherHttpExtension
+
+# From: org.eclipse.edc/callback-static-endpoint/0.7.2.1/976f5f1a73e47e3706c9624b43e3e78c3504ffab/callback-static-endpoint-0.7.2.1.jar
+org.eclipse.edc.connector.controlplane.callback.staticendpoint.CallbackStaticEndpointExtension
+
+# From: org.eclipse.edc/transfer-pull-http-dynamic-receiver/0.7.2.1/da5aeca3cd4ac1c23c3a6f4c48bf6678ee11731c/transfer-pull-http-dynamic-receiver-0.7.2.1.jar
+org.eclipse.edc.connector.controlplane.receiver.http.dynamic.HttpDynamicEndpointDataReferenceReceiverExtension
+
+# From: org.eclipse.edc/edr-store-core/0.7.2.1/6c4d250c0028eebcca7ee48afd3795b5fe94793e/edr-store-core-0.7.2.1.jar
+org.eclipse.edc.edr.store.EndpointDataReferenceStoreExtension
+org.eclipse.edc.edr.store.EndpointDataReferenceStoreDefaultServicesExtension
+
+# From: org.eclipse.edc/edr-store-receiver/0.7.2.1/201826f901af43fc0a0c6dba4c333dca3ddf7452/edr-store-receiver-0.7.2.1.jar
+org.eclipse.edc.connector.controlplane.edr.store.receiver.EndpointDataReferenceStoreReceiverExtension
+
+# From: org.eclipse.tractusx.edc/transfer-dataplane-signaling/0.7.7/88a1bce113ea577fba99c70767c594e1f7a5e7d4/transfer-dataplane-signaling-0.7.7.jar
+org.eclipse.tractusx.edc.dataplane.transfer.signaling.TransferDataPlaneSignalingExtension
+
+# From: org.eclipse.tractusx.edc/azblob-provisioner/0.7.7/ea2a29304a7795d983bc54448c242627aa420867/azblob-provisioner-0.7.7.jar
+org.eclipse.edc.connector.provision.azure.AzureProvisionExtension
+
+# From: org.eclipse.tractusx.edc/dataset-bugfix/0.7.7/8c4f96a5d75ab5df43e287367cf5db03685c6f8a/dataset-bugfix-0.7.7.jar
+org.eclipse.tractusx.edc.dataset.fix.DatasetFixExtension
+
+# From: org.eclipse.edc/data-plane-signaling-client/0.7.2/d47dc540e85f5197eb76d8b870ae787cc3df5598/data-plane-signaling-client-0.7.2.jar
+org.eclipse.edc.connector.dataplane.client.DataPlaneSignalingClientExtension
+org.eclipse.edc.connector.dataplane.client.DataPlaneSignalingClientTransformExtension
+
+# From: org.eclipse.edc/control-plane-transfer/0.7.2.1/11498910a8169574cc52eed746969ace074c84f1/control-plane-transfer-0.7.2.1.jar
+org.eclipse.edc.connector.controlplane.transfer.TransferCoreExtension
+org.eclipse.edc.connector.controlplane.transfer.TransferProcessCommandExtension
+org.eclipse.edc.connector.controlplane.transfer.TransferProcessDefaultServicesExtension
+
+# From: org.eclipse.edc/control-plane-aggregate-services/0.7.2.1/72976c33e86b19eb4bf695028737fc63ab857a4/control-plane-aggregate-services-0.7.2.1.jar
+org.eclipse.edc.connector.controlplane.services.ControlPlaneServicesExtension
+
+# From: org.eclipse.edc.azure/azure-blob-core/0.7.2/82432b8767c55761a3ba0b9cec7f2e291ab965e6/azure-blob-core-0.7.2.jar
+org.eclipse.edc.azure.blob.BlobStoreCoreExtension
+
+# From: org.eclipse.edc/jersey-core/0.7.2.1/4f718109147b85fe5ace108e611f66198f29783/jersey-core-0.7.2.1.jar
+org.eclipse.edc.web.jersey.JerseyExtension
+
+# From: org.eclipse.edc/jetty-core/0.7.2.1/5024e89ad1c9719c1d6af7bc6d85168daa875f39/jetty-core-0.7.2.1.jar
+org.eclipse.edc.web.jetty.JettyExtension
+
+# From: org.eclipse.edc/control-plane-catalog/0.7.2.1/e132538c1ee6c9323cc01d30cd340bc7e04acf1a/control-plane-catalog-0.7.2.1.jar
+org.eclipse.edc.connector.controlplane.catalog.CatalogCoreExtension
+org.eclipse.edc.connector.controlplane.catalog.CatalogDefaultServicesExtension
+
+# From: org.eclipse.edc/boot/0.7.2.1/f512e9c40fbce24280f3f51a00629d349ea7e2d/boot-0.7.2.1.jar
+org.eclipse.edc.boot.BootServicesExtension

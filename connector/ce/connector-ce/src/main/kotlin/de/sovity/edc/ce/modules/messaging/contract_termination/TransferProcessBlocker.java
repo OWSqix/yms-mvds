@@ -1,0 +1,39 @@
+/*
+ *  Copyright (c) 2024 sovity GmbH
+ *
+ *  This program and the accompanying materials are made available under the
+ *  terms of the Apache License, Version 2.0 which is available at
+ *  https://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  SPDX-License-Identifier: Apache-2.0
+ */
+package de.sovity.edc.ce.modules.messaging.contract_termination;
+
+import de.sovity.edc.ce.modules.db.DslContextFactory;
+import de.sovity.edc.ce.modules.messaging.contract_termination.query.ContractAgreementIsTerminatedQuery;
+import lombok.RequiredArgsConstructor;
+import lombok.val;
+import org.eclipse.edc.connector.controlplane.transfer.spi.observe.TransferProcessListener;
+import org.eclipse.edc.connector.controlplane.transfer.spi.types.TransferProcess;
+
+@RequiredArgsConstructor
+public class TransferProcessBlocker implements TransferProcessListener {
+
+    private final DslContextFactory dslContextFactory;
+    private final ContractAgreementIsTerminatedQuery contractAgreementIsTerminated;
+
+    private void stopIt(TransferProcess process) {
+        val terminated = dslContextFactory.transactionResult(dsl ->
+            contractAgreementIsTerminated.isTerminated(dsl, process.getContractId()));
+
+        if (terminated) {
+            val message = "Interrupted: the contract agreement %s is terminated.".formatted(process.getContractId());
+            throw new IllegalStateException(message);
+        }
+    }
+
+    @Override
+    public void preCreated(TransferProcess process) {
+        stopIt(process);
+    }
+}

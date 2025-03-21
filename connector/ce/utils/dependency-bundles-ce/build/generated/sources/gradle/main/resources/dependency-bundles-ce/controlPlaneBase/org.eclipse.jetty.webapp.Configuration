@@ -1,0 +1,23 @@
+# From: org.eclipse.jetty.websocket/websocket-jakarta-server/11.0.21/2a00f9fa2db3605d18368ebfcd2f28647a6f02d7/websocket-jakarta-server-11.0.21.jar
+org.eclipse.jetty.websocket.jakarta.server.config.JakartaWebSocketConfiguration
+
+# From: org.eclipse.jetty/jetty-annotations/11.0.21/686889e183ba2adcf2335cb2d783af8544cda6ee/jetty-annotations-11.0.21.jar
+org.eclipse.jetty.annotations.AnnotationConfiguration
+
+# From: org.eclipse.jetty/jetty-plus/11.0.21/419d74e00a71904c464ce71563cd5c78a4d30d8c/jetty-plus-11.0.21.jar
+org.eclipse.jetty.plus.webapp.PlusConfiguration
+org.eclipse.jetty.plus.webapp.EnvConfiguration
+
+# From: org.eclipse.jetty/jetty-webapp/11.0.21/520719f3ee03bdccd9f7bb320250c512626696fd/jetty-webapp-11.0.21.jar
+org.eclipse.jetty.webapp.FragmentConfiguration
+org.eclipse.jetty.webapp.JettyWebXmlConfiguration
+org.eclipse.jetty.webapp.JaasConfiguration
+org.eclipse.jetty.webapp.JaspiConfiguration
+org.eclipse.jetty.webapp.JmxConfiguration
+org.eclipse.jetty.webapp.JndiConfiguration
+org.eclipse.jetty.webapp.JspConfiguration
+org.eclipse.jetty.webapp.MetaInfConfiguration
+org.eclipse.jetty.webapp.ServletsConfiguration
+org.eclipse.jetty.webapp.WebAppConfiguration
+org.eclipse.jetty.webapp.WebInfConfiguration
+org.eclipse.jetty.webapp.WebXmlConfiguration

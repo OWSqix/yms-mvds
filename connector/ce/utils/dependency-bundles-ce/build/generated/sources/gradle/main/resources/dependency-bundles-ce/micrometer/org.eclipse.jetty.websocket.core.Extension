@@ -1,0 +1,6 @@
+# From: org.eclipse.jetty.websocket/websocket-core-common/11.0.21/e6592bc2291d39f4eb68f2996438849d9a538bed/websocket-core-common-11.0.21.jar
+org.eclipse.jetty.websocket.core.internal.IdentityExtension
+org.eclipse.jetty.websocket.core.internal.FragmentExtension
+org.eclipse.jetty.websocket.core.internal.PerMessageDeflateExtension
+org.eclipse.jetty.websocket.core.internal.ValidationExtension
+org.eclipse.jetty.websocket.core.internal.FrameCaptureExtension

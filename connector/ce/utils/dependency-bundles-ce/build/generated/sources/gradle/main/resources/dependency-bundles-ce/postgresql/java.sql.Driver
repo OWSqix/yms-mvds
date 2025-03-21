@@ -1,0 +1,5 @@
+# From: org.postgresql/postgresql/42.4.5/622a3dd54cfb3142736eb188b8b2ca3071eecc13/postgresql-42.4.5.jar
+org.postgresql.Driver
+
+# From: org.testcontainers/jdbc/1.19.1/64330b3d52218aff60f8abd13803932cc445d8f/jdbc-1.19.1.jar
+org.testcontainers.jdbc.ContainerDatabaseDriver

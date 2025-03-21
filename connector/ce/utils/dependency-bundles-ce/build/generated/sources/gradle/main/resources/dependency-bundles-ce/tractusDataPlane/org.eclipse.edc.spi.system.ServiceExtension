@@ -1,0 +1,51 @@
+# From: org.eclipse.edc/edr-store-core/0.7.2.1/6c4d250c0028eebcca7ee48afd3795b5fe94793e/edr-store-core-0.7.2.1.jar
+org.eclipse.edc.edr.store.EndpointDataReferenceStoreExtension
+org.eclipse.edc.edr.store.EndpointDataReferenceStoreDefaultServicesExtension
+
+# From: org.eclipse.edc/identity-did-core/0.7.2.1/fc0b9ef6a6a438e22d19154b8ae13ec95121080a/identity-did-core-0.7.2.1.jar
+org.eclipse.edc.iam.did.IdentityDidCoreExtension
+
+# From: org.eclipse.edc/identity-did-web/0.7.2.1/c11bfd16195e2168573e35b0dd486f5248bf21b1/identity-did-web-0.7.2.1.jar
+org.eclipse.edc.iam.did.web.WebDidExtension
+
+# From: org.eclipse.tractusx.edc/edc-dataplane-proxy-consumer-api/0.7.7/1e711d5e9bd0673aea8f82665bb71fe18298359f/edc-dataplane-proxy-consumer-api-0.7.7.jar
+ org.eclipse.tractusx.edc.dataplane.proxy.consumer.api.DataPlaneProxyConsumerApiExtension
+
+# From: org.eclipse.tractusx.edc/edr-core/0.7.7/47b292f1e36b2d823fb9e95eb6c204c7fb7880e/edr-core-0.7.7.jar
+org.eclipse.tractusx.edc.edr.core.EdrCoreServiceExtension
+org.eclipse.tractusx.edc.edr.core.lock.DefaultEdrLockProviderExtension
+
+# From: org.eclipse.tractusx.edc/json-ld-core/0.7.7/f444dc0e0719122a3f378987c4d8dcf676e729af/json-ld-core-0.7.7.jar
+org.eclipse.tractusx.edc.jsonld.JsonLdExtension
+
+# From: org.eclipse.tractusx.edc/token-refresh-api/0.7.7/ff6dfcad7f506f8113397510aa19b596b89175cc/token-refresh-api-0.7.7.jar
+org.eclipse.tractusx.edc.dataplane.tokenrefresh.api.TokenRefreshApiExtension
+
+# From: org.eclipse.tractusx.edc/token-refresh-core/0.7.7/fa882dee0fa5aa7bc8b62f9ea86198f528b48186/token-refresh-core-0.7.7.jar
+org.eclipse.tractusx.edc.dataplane.tokenrefresh.core.DataPlaneTokenRefreshServiceExtension
+
+# From: org.eclipse.tractusx.edc/tokenrefresh-handler/0.7.7/475dc0818fc2abf232b2b1841570786a0910d7b7/tokenrefresh-handler-0.7.7.jar
+org.eclipse.tractusx.edc.common.tokenrefresh.TokenRefreshHandlerExtension
+
+# From: org.eclipse.tractusx.edc/tx-iatp-sts-dim/0.7.7/1931d78d0f55694971dd35fa48fabb0483a10f9a/tx-iatp-sts-dim-0.7.7.jar
+org.eclipse.tractusx.edc.iam.iatp.sts.dim.DimOauthClientExtension
+org.eclipse.tractusx.edc.iam.iatp.sts.dim.DimSecureTokenServiceExtension
+org.eclipse.tractusx.edc.iam.iatp.sts.dim.DimStsConfigurationExtension
+
+# From: org.eclipse.edc/edr-index-sql/0.7.2.1/3f5f3fc2376e22d2b036e48a1bbafa7ab2101946/edr-index-sql-0.7.2.1.jar
+org.eclipse.edc.edr.store.index.SqlEndpointDataReferenceEntryIndexExtension
+
+# From: org.eclipse.edc/sql-core/0.7.2.1/53f1cb169a887845f21ca075cdb6fe0e740441cc/sql-core-0.7.2.1.jar
+org.eclipse.edc.sql.SqlCoreExtension
+
+# From: org.eclipse.edc/token-core/0.7.2/2b239f9ff80a28c6516f7af68b4ed8687136fc08/token-core-0.7.2.jar
+org.eclipse.edc.token.TokenServicesExtension
+
+# From: org.eclipse.edc/oauth2-client/0.7.2/40cc8adc574705d0cb6dd598fcd6a0d302cf6053/oauth2-client-0.7.2.jar
+org.eclipse.edc.iam.oauth2.client.Oauth2ClientExtension
+
+# From: org.eclipse.edc/jersey-core/0.7.2/3436e1e9e702cc52e995e16cdea30c986af2fc2b/jersey-core-0.7.2.jar
+org.eclipse.edc.web.jersey.JerseyExtension
+
+# From: org.eclipse.edc/jetty-core/0.7.2/d139fab06a49b2d64b7ada3adbbaabeba71d634f/jetty-core-0.7.2.jar
+org.eclipse.edc.web.jetty.JettyExtension

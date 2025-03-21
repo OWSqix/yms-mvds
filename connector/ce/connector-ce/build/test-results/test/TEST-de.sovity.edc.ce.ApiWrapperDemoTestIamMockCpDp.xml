@@ -1,0 +1,1184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="de.sovity.edc.ce.ApiWrapperDemoTestIamMockCpDp" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-03-19T08:42:08" hostname="DESKTOP-P8E06B6" time="16.143">
+  <properties/>
+  <testcase name="provide_and_consume()" classname="de.sovity.edc.ce.ApiWrapperDemoTestIamMockCpDp" time="16.143"/>
+  <system-out><![CDATA[?[0;32m[provider] INFO 2025-03-19T17:41:52.866841446 Data Plane Public API will be available under port=16694, path=/api/public?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:52.888552824 Initialized Data Plane Public API?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:52.918099651 Initialized DataPlane Signaling API extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:52.935703966 Initialized Data Plane S3 Storage?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:52.952426541 Initialized Data Plane Azure Storage?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:52.994377463 Initialized Data Plane HTTP?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:52.999025708 Prepared de.sovity.edc.ce.modules.vault.inmemory.InMemoryVaultExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:52.999328183 Prepared Boot Services?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:52.999608897 Prepared Core Default Services?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.004882701 Prepared Core Services?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.005215368 Prepared JSON-LD Extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.005584686 Prepared Control Plane Default Services?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.006923054 Prepared SQL Core?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.007850459 Prepared Local Transaction?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.007957839 Prepared org.eclipse.edc.connector.controlplane.store.sql.contractdefinition.SqlContractDefinitionStoreExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.008026948 Prepared org.eclipse.edc.connector.controlplane.store.sql.contractnegotiation.SqlContractNegotiationStoreExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.008207398 Prepared org.eclipse.edc.connector.controlplane.store.sql.policydefinition.SqlPolicyStoreExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.008310701 Prepared org.eclipse.edc.connector.controlplane.contract.ContractNegotiationDefaultServicesExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.0086206 Prepared org.eclipse.edc.connector.controlplane.store.sql.assetindex.SqlAssetIndexServiceExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.009022623 Prepared Jetty Service?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.009173919 Prepared Jersey Web Service?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.009297248 Prepared Dataspace Protocol API Configuration Extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.009570041 Prepared Contract Core?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.009857301 Prepared Contract Negotiation command handlers?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.009966153 Prepared org.eclipse.edc.connector.controlplane.store.sql.transferprocess.SqlTransferProcessStoreExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.010075259 Prepared Transfer Process Default Services?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.010148572 Prepared Transfer Core?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.010196597 Prepared org.eclipse.edc.connector.controlplane.transfer.TransferProcessCommandExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.010482627 Prepared Test Backend Controller?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.011081066 Prepared de.sovity.edc.ce.modules.config_utils.ConfigUtilsExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.011323413 Prepared Catalog Default Services?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.011381095 Prepared Catalog Core?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.011534541 Prepared Mock IAM?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.011608616 Prepared Control Plane Services?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.011847712 Prepared de.sovity.edc.ce.modules.policy_utils.always_true.AlwaysTruePolicyDefinitionExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.012025684 Prepared Dataspace Protocol Core Extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.012212519 Prepared SovityMessenger?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.012311237 Prepared de.sovity.edc.ce.modules.db.testcontainers.PostgresTestcontainerExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.012397862 Prepared Postgres + Flyway?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.01247952 Prepared de.sovity.edc.ce.modules.messaging.contract_termination.ContractTerminationExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.012549571 Prepared WrapperExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.012651677 Prepared EdcUiConfigExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.012717461 Prepared de.sovity.edc.ce.modules.policy_utils.creator.SimplePolicyCreatorExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.012758539 Prepared de.sovity.edc.ce.modules.dataspaces.sovity.policies.evaluation_time.EvaluationTimePolicyExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.012793835 Prepared de.sovity.edc.ce.modules.dataspaces.sovity.policies.referring_connector.ReferringConnectorPolicyExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.012821527 Prepared Control Plane HTTP API client?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.012846519 Prepared org.eclipse.edc.connector.core.SecurityDefaultServicesExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.014040304 Prepared org.eclipse.edc.connector.core.LocalPublicKeyDefaultExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.014268651 Prepared org.eclipse.edc.token.TokenServicesExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.014329807 Prepared Data Plane Framework Default Services?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.014369011 Prepared Sql AccessTokenData Store?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.014394935 Prepared Data Plane Framework Default IAM Services?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.014417364 Prepared Sql Data Plane Store?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.014626829 Prepared org.eclipse.tractusx.edc.dataplane.pipeline.PipelineServiceExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.014771793 Prepared Data Plane Framework?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.015142626 Prepared Data Plane Signaling Client?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.015309753 Prepared Data Plane Selector Default Services?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.015588836 Prepared Sql Data Plane Instance Store?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.01610207 Prepared Data Plane Selector core?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.016492843 Prepared Data-Plane Registration (Embedded)?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.016582496 Prepared Observability API?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.016765276 Prepared Api Core Default Services?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.016839129 Prepared API Core?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.016885247 Prepared Azure BlobStore Core?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.017210269 Prepared Control API configuration?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.017257944 Prepared Management API configuration?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.01731874 Prepared Management API: Secret?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.017507354 Prepared Control Plane API?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.017556417 Prepared Management API: Asset?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.017581716 Prepared Management API: Catalog?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.017629031 Prepared Management API: Contract Agreement?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.017783239 Prepared Management API: Contract Definition?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.017829273 Prepared Management API: Contract Negotiation?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.018006101 Prepared Management API: Policy Definition?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.018144075 Prepared Management API: Transfer Process?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.018225743 Prepared Callback dispatcher extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.018352852 Prepared Callback dispatcher http extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.018407083 Prepared Static callbacks extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.018432869 Prepared org.eclipse.edc.edr.store.EndpointDataReferenceStoreDefaultServicesExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.018458623 Prepared org.eclipse.edc.edr.store.index.SqlEndpointDataReferenceEntryIndexExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.018628504 Prepared org.eclipse.edc.edr.store.EndpointDataReferenceStoreExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.018707144 Prepared Endpoint Data Reference Store Receiver Extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.018921968 Prepared Http Dynamic Endpoint Data Reference Receiver?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.018972439 Prepared Data Plane Signaling transform Client?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.018997749 Prepared org.eclipse.edc.connector.dataplane.selector.DataPlaneSelectorApiExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.019017117 Prepared PolicyMonitor Default Services?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.019201221 Prepared org.eclipse.edc.connector.policy.monitor.store.sql.SqlPolicyMonitorStoreExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.019541331 Prepared org.eclipse.edc.connector.policy.monitor.PolicyMonitorExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.019954196 Prepared Azure Provision?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.020003057 Prepared Dataspace Protocol Catalog Extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.020064425 Prepared Dataspace Protocol Catalog HTTP Dispatcher Extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.020244483 Prepared Dataspace Protocol Catalog Transform Extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.020318601 Prepared Dataspace Protocol Negotiation Api?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.020362295 Prepared Dataspace Protocol Negotiation HTTP Dispatcher Extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.020385296 Prepared Dataspace Protocol Negotiation Transform Extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.020429127 Prepared org.eclipse.edc.protocol.dsp.transferprocess.http.api.DspTransferProcessApiExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.020469908 Prepared Dataspace Protocol Transfer HTTP Dispatcher Extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.020492284 Prepared Dataspace Protocol Transfer Process Transform Extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.020667693 Prepared Dataspace Protocol Version Api?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.020708665 Prepared org.eclipse.edc.validator.dataaddress.httpdata.HttpDataDataAddressValidatorExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.020851913 Prepared org.eclipse.tractusx.edc.dataplane.transfer.signaling.TransferDataPlaneSignalingExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.02092709 Prepared org.eclipse.tractusx.edc.dataset.fix.DatasetFixExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.020971059 Prepared Static token API Authentication?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.020993625 Prepared S3?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.021010728 Prepared Data Plane Public API?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.021025257 Prepared DataPlane Signaling API extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.021294068 Prepared Data Plane S3 Storage?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.021514558 Prepared Data Plane Azure Storage?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.021618306 Prepared Data Plane HTTP?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.022360512 Started de.sovity.edc.ce.modules.vault.inmemory.InMemoryVaultExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.022525289 Started Boot Services?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.022566568 Started Core Default Services?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.022826111 Started Core Services?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.023117888 Started JSON-LD Extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.023172446 Started Control Plane Default Services?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.023200721 Started SQL Core?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.023369374 Started Local Transaction?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.02383095 Started org.eclipse.edc.connector.controlplane.store.sql.contractdefinition.SqlContractDefinitionStoreExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.023926915 Started org.eclipse.edc.connector.controlplane.store.sql.contractnegotiation.SqlContractNegotiationStoreExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.024021344 Started org.eclipse.edc.connector.controlplane.store.sql.policydefinition.SqlPolicyStoreExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.024120539 Started org.eclipse.edc.connector.controlplane.contract.ContractNegotiationDefaultServicesExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.024183357 Started org.eclipse.edc.connector.controlplane.store.sql.assetindex.SqlAssetIndexServiceExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.38219068 HTTP context 'control' listening on port 16693?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.38371692 HTTP context 'management' listening on port 16691?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.384157286 HTTP context 'protocol' listening on port 16692?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.384512678 HTTP context 'default' listening on port 16690?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.385168227 HTTP context 'public' listening on port 16694?[0m
+?[0;34m[provider] DEBUG 2025-03-19T17:41:53.785756456 Port mappings: {alias='control', port=16693, path='/api/control'}, {alias='management', port=16691, path='/api/management'}, {alias='protocol', port=16692, path='/api/dsp'}, {alias='default', port=16690, path='/api'}, {alias='public', port=16694, path='/api/public'}?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:53.78592279 Started Jetty Service?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:58.643384538 Registered Web API context alias: default?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:58.85302734 Registered Web API context alias: protocol?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:59.026591432 Registered Web API context alias: public?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:59.527527256 Registered Web API context alias: management?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:59.683188844 Registered Web API context alias: control?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:59.683330485 Started Jersey Web Service?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:59.683368351 Started Dataspace Protocol API Configuration Extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:59.717545054 Started Contract Core?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:59.718046198 Started Contract Negotiation command handlers?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:59.718278394 Started org.eclipse.edc.connector.controlplane.store.sql.transferprocess.SqlTransferProcessStoreExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:59.718532438 Started Transfer Process Default Services?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:59.725601827 Started Transfer Core?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:59.725814357 Started org.eclipse.edc.connector.controlplane.transfer.TransferProcessCommandExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:59.725846149 Started Test Backend Controller?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:59.725856014 Started de.sovity.edc.ce.modules.config_utils.ConfigUtilsExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:59.725864392 Started Catalog Default Services?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:59.725871082 Started Catalog Core?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:59.725877878 Started Mock IAM?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:59.725883909 Started Control Plane Services?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:59.933461757 Creating Always True Policy Definition.?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.356570252 Started de.sovity.edc.ce.modules.policy_utils.always_true.AlwaysTruePolicyDefinitionExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.356714494 Started Dataspace Protocol Core Extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.356761428 Started SovityMessenger?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.356773693 Started de.sovity.edc.ce.modules.db.testcontainers.PostgresTestcontainerExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.356783674 Started Postgres + Flyway?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.356795185 Started de.sovity.edc.ce.modules.messaging.contract_termination.ContractTerminationExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.356853895 Started WrapperExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.356902931 Started EdcUiConfigExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.356961334 Started de.sovity.edc.ce.modules.policy_utils.creator.SimplePolicyCreatorExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.357003309 Started de.sovity.edc.ce.modules.dataspaces.sovity.policies.evaluation_time.EvaluationTimePolicyExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.357051368 Started de.sovity.edc.ce.modules.dataspaces.sovity.policies.referring_connector.ReferringConnectorPolicyExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.357070397 Started Control Plane HTTP API client?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.357081907 Started org.eclipse.edc.connector.core.SecurityDefaultServicesExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.357091305 Started org.eclipse.edc.connector.core.LocalPublicKeyDefaultExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.357101456 Started org.eclipse.edc.token.TokenServicesExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.357111905 Started Data Plane Framework Default Services?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.357121196 Started Sql AccessTokenData Store?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.357131263 Started Data Plane Framework Default IAM Services?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.357141456 Started Sql Data Plane Store?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.357149972 Started org.eclipse.tractusx.edc.dataplane.pipeline.PipelineServiceExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.361757159 Started Data Plane Framework?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.361821582 Started Data Plane Signaling Client?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.361849212 Started Data Plane Selector Default Services?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.361859501 Started Sql Data Plane Instance Store?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.36638833 Started Data Plane Selector core?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.420411433 Data Plane Instance created: 'DataPlaneInstanceDto(id=http://localhost:16694/api/public, allowedTransferTypes=[HttpData-PUSH, HttpData-PULL, AmazonS3-PUSH], allowedSourceTypes=[HttpData, HttpProxy, HttpPush, AzureStorage, AmazonS3], allowedDestTypes=[HttpData, HttpProxy, HttpPush, AzureStorage, AmazonS3], dpPublicApiUrl=http://localhost:16694/api/public, dpDataflowsEndpoint=http://localhost:16693/api/control/v1/dataflows)?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.420530138 Started Data-Plane Registration (Embedded)?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.420559987 Started Observability API?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.420573016 Started Api Core Default Services?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.420580406 Started API Core?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.420586332 Started Azure BlobStore Core?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.420592257 Started Control API configuration?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.420598352 Started Management API configuration?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.420604107 Started Management API: Secret?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.420610255 Started Control Plane API?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.420615862 Started Management API: Asset?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.420621607 Started Management API: Catalog?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.420627128 Started Management API: Contract Agreement?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.420633595 Started Management API: Contract Definition?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.420639244 Started Management API: Contract Negotiation?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.420645318 Started Management API: Policy Definition?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.420650882 Started Management API: Transfer Process?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.420765297 Started Callback dispatcher extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.420792077 Started Callback dispatcher http extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.420801177 Started Static callbacks extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.420808069 Started org.eclipse.edc.edr.store.EndpointDataReferenceStoreDefaultServicesExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.420814355 Started org.eclipse.edc.edr.store.index.SqlEndpointDataReferenceEntryIndexExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.420820429 Started org.eclipse.edc.edr.store.EndpointDataReferenceStoreExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.420826566 Started Endpoint Data Reference Store Receiver Extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.420836781 Started Http Dynamic Endpoint Data Reference Receiver?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.420843439 Started Data Plane Signaling transform Client?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.420849343 Started org.eclipse.edc.connector.dataplane.selector.DataPlaneSelectorApiExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.420855714 Started PolicyMonitor Default Services?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.420861077 Started org.eclipse.edc.connector.policy.monitor.store.sql.SqlPolicyMonitorStoreExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.425362953 Started org.eclipse.edc.connector.policy.monitor.PolicyMonitorExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.425444238 Started Azure Provision?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.425470275 Started Dataspace Protocol Catalog Extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.425481361 Started Dataspace Protocol Catalog HTTP Dispatcher Extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.425488794 Started Dataspace Protocol Catalog Transform Extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.425495282 Started Dataspace Protocol Negotiation Api?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.425501525 Started Dataspace Protocol Negotiation HTTP Dispatcher Extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.425507854 Started Dataspace Protocol Negotiation Transform Extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.425513854 Started org.eclipse.edc.protocol.dsp.transferprocess.http.api.DspTransferProcessApiExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.42552323 Started Dataspace Protocol Transfer HTTP Dispatcher Extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.425530695 Started Dataspace Protocol Transfer Process Transform Extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.425538754 Started Dataspace Protocol Version Api?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.425545104 Started org.eclipse.edc.validator.dataaddress.httpdata.HttpDataDataAddressValidatorExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.425551061 Started org.eclipse.tractusx.edc.dataplane.transfer.signaling.TransferDataPlaneSignalingExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.425558335 Started org.eclipse.tractusx.edc.dataset.fix.DatasetFixExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.425565428 Started Static token API Authentication?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.425571629 Started S3?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.425579604 Started Data Plane Public API?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.425586378 Started DataPlane Signaling API extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.425592611 Started Data Plane S3 Storage?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.42559876 Started Data Plane Azure Storage?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.425604876 Started Data Plane HTTP?[0m
+?[0;32m[provider] INFO 2025-03-19T17:42:00.429891132 Runtime provider ready?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:00.430008191 TestMonitor#createMonitor: Whatever monitor would have been used, we are overriding it with a ConsoleMonitor, so we can prefix the runtime?[0m
+?[0;33m[provider-cp] WARNING 2025-03-19T17:42:00.431962916 Warnings occurred during configuration evaluation:     - WARN sovity.base.path: Property set to 'warn if overriden' value=/control. Documentation: Optional prefix to be added before all API paths     - WARN sovity.environment: Property set to 'warn if overriden' value=UNIT_TEST. Documentation: Deployment Environment as required for either defaulting or requiring config such as FQDN. Available options:   * `production`: EDC Connectors running in an environment behind a reverse proxy with TLS  * `local-demo-docker-compose`: EDC Connectors running in a Docker Compose setup without TLS  * `unit-test`: EDC Connectors started for JUnit tests     - WARN sovity.first.port: Property set to 'warn if overriden' value=41442. Documentation: The first port of several ports to be used for the several API endpoints. If set to 11000, the Management API will be on 11002, etc.  During tests it can be set to 'auto' for the test framework to auto find a free port-range.?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:00.468472137 Initialized de.sovity.edc.ce.modules.vault.inmemory.InMemoryVaultExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:00.468693651 Initialized Boot Services?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:00.473361077 Initialized Core Default Services?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:00.473632604 HTTPS enforcement it not enabled, please enable it in a production environment?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:00.47449684 HTTPS enforcement it not enabled, please enable it in a production environment?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:00.474890141 Initialized Core Services?[0m
+?[0;33m[provider-cp] WARNING 2025-03-19T17:42:00.475155797 Settings: No setting found for key 'edc.hostname'. Using default value 'localhost'?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:00.480340571 Initialized JSON-LD Extension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:00.490178037 Initialized Control Plane Default Services?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:00.490264526 Initialized SQL Core?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:00.490332952 Initialized Local Transaction?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:00.490373684 Initialized org.eclipse.edc.connector.controlplane.store.sql.contractdefinition.SqlContractDefinitionStoreExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:00.490494853 Initialized org.eclipse.edc.connector.controlplane.store.sql.contractnegotiation.SqlContractNegotiationStoreExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:00.490583879 Initialized org.eclipse.edc.connector.controlplane.store.sql.policydefinition.SqlPolicyStoreExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:00.490659632 Initialized org.eclipse.edc.connector.controlplane.contract.ContractNegotiationDefaultServicesExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:00.490773888 Initialized org.eclipse.edc.connector.controlplane.store.sql.assetindex.SqlAssetIndexServiceExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:00.490971149 Initialized Jetty Service?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:00.491067895 Initialized Jersey Web Service?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:00.491160245 Protocol API will be available under port=41445, path=/control/api/dsp?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:00.496129219 Initialized Dataspace Protocol API Configuration Extension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:00.496329762 Initialized Contract Core?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:00.496371323 Initialized Contract Negotiation command handlers?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:00.496405493 Initialized org.eclipse.edc.connector.controlplane.store.sql.transferprocess.SqlTransferProcessStoreExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:00.49646002 Initialized Transfer Process Default Services?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:00.496668324 Initialized Transfer Core?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:00.496721428 Initialized org.eclipse.edc.connector.controlplane.transfer.TransferProcessCommandExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:00.496773799 Initialized Test Backend Controller?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:00.496904152 Initialized de.sovity.edc.ce.modules.config_utils.ConfigUtilsExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:00.497004721 Initialized Catalog Default Services?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:00.49709672 Initialized Catalog Core?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:00.497189887 Initialized Mock IAM?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:00.497332728 Initialized Control Plane Services?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:00.497508487 Initialized de.sovity.edc.ce.modules.policy_utils.always_true.AlwaysTruePolicyDefinitionExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:00.497598087 Initialized Dataspace Protocol Core Extension?[0m
+?[0;33m[provider-cp] WARNING 2025-03-19T17:42:00.497689481 No TokenDecorator was registered. The 'scope' field of outgoing protocol messages will be empty?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:00.498089875 Initialized SovityMessenger?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:00.498154245 Starting PostgreSQL Testcontainer?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.370911491 PostgreSQL Testcontainer started!?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.371158765 Initialized de.sovity.edc.ce.modules.db.testcontainers.PostgresTestcontainerExtension?[0m
+2025-03-19 17:42:01,387 [INFO] VersionPrinter - Flyway Community Edition 9.0.1 by Redgate
+2025-03-19 17:42:01,387 [INFO] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#9.0.1
+2025-03-19 17:42:01,388 [INFO] VersionPrinter - 
+2025-03-19 17:42:01,408 [INFO] BaseDatabaseType - Database: jdbc:postgresql://localhost:32779/edc (PostgreSQL 16.8)
+2025-03-19 17:42:01,410 [WARN] Database - Flyway upgrade recommended: PostgreSQL 16.8 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 14.
+2025-03-19 17:42:01,421 [INFO] DbValidate - Successfully validated 1 migration (execution time 00:00.008s)
+2025-03-19 17:42:01,425 [INFO] JdbcTableSchemaHistory - Creating Schema History table "public"."flyway_schema_history_sovity" ...
+2025-03-19 17:42:01,440 [INFO] DbMigrate - Current version of schema "public": << Empty Schema >>
+2025-03-19 17:42:01,451 [INFO] DbMigrate - Migrating schema "public" to version "11.0.0 - Release 11.0.0 CE"
+2025-03-19 17:42:01,486 [INFO] DbMigrate - Successfully applied 1 migration to schema "public", now at version v11.0.0 (execution time 00:00.049s)
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.487766361 Initialized Postgres + Flyway?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.488398813 Initialized de.sovity.edc.ce.modules.messaging.contract_termination.ContractTerminationExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.492279663 Initialized WrapperExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.492425392 Initialized EdcUiConfigExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.492553611 Initialized de.sovity.edc.ce.modules.policy_utils.creator.SimplePolicyCreatorExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.492654424 Initialized de.sovity.edc.ce.modules.dataspaces.sovity.policies.evaluation_time.EvaluationTimePolicyExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.492841608 Initialized de.sovity.edc.ce.modules.dataspaces.sovity.policies.referring_connector.ReferringConnectorPolicyExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.496029201 Initialized Observability API?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.496096873 Initialized Api Core Default Services?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.499942937 Initialized API Core?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.500046872 Initialized org.eclipse.edc.connector.core.SecurityDefaultServicesExtension?[0m
+?[0;33m[provider-cp] WARNING 2025-03-19T17:42:01.500172872 There were missing service registrations in extension class org.eclipse.edc.connector.core.LocalPublicKeyDefaultExtension: org.eclipse.edc.keys.spi.LocalPublicKeyService?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.500219222 Initialized org.eclipse.edc.connector.core.LocalPublicKeyDefaultExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.500270298 Initialized Azure BlobStore Core?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.500309523 Control API will be available under port=41446, path=/control/api/control?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.503300567 Initialized Control API configuration?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.50339658 Management API will be available under port=41444, path=/control/api/management?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.510024294 Initialized Management API configuration?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.513083669 Initialized Management API: Secret?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.513166812 Initialized Control Plane API?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.513411719 Initialized Management API: Asset?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.513974482 Initialized Management API: Catalog?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.514039978 Initialized Management API: Contract Agreement?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.517630248 Initialized Management API: Contract Definition?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.521459259 Initialized Management API: Contract Negotiation?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.525333642 Initialized Management API: Policy Definition?[0m
+?[0;34m[provider] DEBUG 2025-03-19T17:42:01.528830187 [DataPlaneSelectorManagerImpl] DataPlaneInstance http://localhost:16694/api/public is now in state AVAILABLE?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.531112819 Initialized Management API: Transfer Process?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.531223655 Initialized Callback dispatcher extension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.531500085 Initialized Callback dispatcher http extension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.531562087 Initialized Static callbacks extension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.531609329 Initialized org.eclipse.edc.edr.store.EndpointDataReferenceStoreDefaultServicesExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.531665204 Initialized org.eclipse.edc.edr.store.index.SqlEndpointDataReferenceEntryIndexExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.531726378 Initialized org.eclipse.edc.edr.store.EndpointDataReferenceStoreExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.531780288 Initialized Endpoint Data Reference Store Receiver Extension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.531810328 Initialized Http Dynamic Endpoint Data Reference Receiver?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.531914082 Initialized Data Plane Signaling Client?[0m
+?[0;34m[provider-cp] DEBUG 2025-03-19T17:42:01.532071747 Using remote Data Plane client.?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.537542887 Initialized Data Plane Signaling transform Client?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.537681639 Initialized Data Plane Selector Default Services?[0m
+?[0;33m[provider-cp] WARNING 2025-03-19T17:42:01.537826148 There were missing service registrations in extension class org.eclipse.edc.connector.dataplane.selector.store.sql.SqlDataPlaneInstanceStoreExtension: org.eclipse.edc.connector.dataplane.selector.spi.store.DataPlaneInstanceStore?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.537880387 Initialized Sql Data Plane Instance Store?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.538028177 Initialized Data Plane Selector core?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.543056623 Initialized org.eclipse.edc.connector.dataplane.selector.DataPlaneSelectorApiExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.54329622 Initialized PolicyMonitor Default Services?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.543333396 Initialized org.eclipse.edc.connector.policy.monitor.store.sql.SqlPolicyMonitorStoreExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.54347149 Initialized org.eclipse.edc.connector.policy.monitor.PolicyMonitorExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.543574809 Initialized Azure Provision?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.54428835 Initialized Dataspace Protocol Catalog Extension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.544359941 Initialized Dataspace Protocol Catalog HTTP Dispatcher Extension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.548977809 Initialized Dataspace Protocol Catalog Transform Extension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.549323189 Initialized Dataspace Protocol Negotiation Api?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.54939942 Initialized Dataspace Protocol Negotiation HTTP Dispatcher Extension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.554428878 Initialized Dataspace Protocol Negotiation Transform Extension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.55452333 Initialized org.eclipse.edc.protocol.dsp.transferprocess.http.api.DspTransferProcessApiExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.554592935 Initialized Dataspace Protocol Transfer HTTP Dispatcher Extension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.559350774 Initialized Dataspace Protocol Transfer Process Transform Extension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.559432155 Initialized Dataspace Protocol Version Api?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.559454709 Initialized org.eclipse.edc.token.TokenServicesExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.559498446 Initialized org.eclipse.edc.validator.dataaddress.httpdata.HttpDataDataAddressValidatorExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.559669692 Initialized org.eclipse.tractusx.edc.dataplane.transfer.signaling.TransferDataPlaneSignalingExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.559728944 Initialized org.eclipse.tractusx.edc.dataset.fix.DatasetFixExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.55982569 Initialized Static token API Authentication?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.560045855 Prepared de.sovity.edc.ce.modules.vault.inmemory.InMemoryVaultExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.560078645 Prepared Boot Services?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.560120185 Prepared Core Default Services?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.560179585 Prepared Core Services?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.560211207 Prepared JSON-LD Extension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.560228356 Prepared Control Plane Default Services?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.56023442 Prepared SQL Core?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.560239102 Prepared Local Transaction?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.560244274 Prepared org.eclipse.edc.connector.controlplane.store.sql.contractdefinition.SqlContractDefinitionStoreExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.560248999 Prepared org.eclipse.edc.connector.controlplane.store.sql.contractnegotiation.SqlContractNegotiationStoreExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.560254085 Prepared org.eclipse.edc.connector.controlplane.store.sql.policydefinition.SqlPolicyStoreExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.560523139 Prepared org.eclipse.edc.connector.controlplane.contract.ContractNegotiationDefaultServicesExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.560546032 Prepared org.eclipse.edc.connector.controlplane.store.sql.assetindex.SqlAssetIndexServiceExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.560556184 Prepared Jetty Service?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.56057174 Prepared Jersey Web Service?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.560590821 Prepared Dataspace Protocol API Configuration Extension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.560601015 Prepared Contract Core?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.56065071 Prepared Contract Negotiation command handlers?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.560672701 Prepared org.eclipse.edc.connector.controlplane.store.sql.transferprocess.SqlTransferProcessStoreExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.56069019 Prepared Transfer Process Default Services?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.560708135 Prepared Transfer Core?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.560717374 Prepared org.eclipse.edc.connector.controlplane.transfer.TransferProcessCommandExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.560730636 Prepared Test Backend Controller?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.560739566 Prepared de.sovity.edc.ce.modules.config_utils.ConfigUtilsExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.560748964 Prepared Catalog Default Services?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.560755855 Prepared Catalog Core?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.560787562 Prepared Mock IAM?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.560810817 Prepared Control Plane Services?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.560830398 Prepared de.sovity.edc.ce.modules.policy_utils.always_true.AlwaysTruePolicyDefinitionExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.560865683 Prepared Dataspace Protocol Core Extension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.560894513 Prepared SovityMessenger?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.560918139 Prepared de.sovity.edc.ce.modules.db.testcontainers.PostgresTestcontainerExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561173827 Prepared Postgres + Flyway?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561198919 Prepared de.sovity.edc.ce.modules.messaging.contract_termination.ContractTerminationExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561208348 Prepared WrapperExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561215834 Prepared EdcUiConfigExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561225444 Prepared de.sovity.edc.ce.modules.policy_utils.creator.SimplePolicyCreatorExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561232633 Prepared de.sovity.edc.ce.modules.dataspaces.sovity.policies.evaluation_time.EvaluationTimePolicyExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561237878 Prepared de.sovity.edc.ce.modules.dataspaces.sovity.policies.referring_connector.ReferringConnectorPolicyExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561245683 Prepared Observability API?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561256153 Prepared Api Core Default Services?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561261642 Prepared API Core?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.56129215 Prepared org.eclipse.edc.connector.core.SecurityDefaultServicesExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561348184 Prepared org.eclipse.edc.connector.core.LocalPublicKeyDefaultExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561385965 Prepared Azure BlobStore Core?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561407935 Prepared Control API configuration?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561420316 Prepared Management API configuration?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561438123 Prepared Management API: Secret?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.56145128 Prepared Control Plane API?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561459233 Prepared Management API: Asset?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561466029 Prepared Management API: Catalog?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561474269 Prepared Management API: Contract Agreement?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561490218 Prepared Management API: Contract Definition?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561505657 Prepared Management API: Contract Negotiation?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561513929 Prepared Management API: Policy Definition?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561523125 Prepared Management API: Transfer Process?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561543353 Prepared Callback dispatcher extension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561552644 Prepared Callback dispatcher http extension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561560003 Prepared Static callbacks extension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561568424 Prepared org.eclipse.edc.edr.store.EndpointDataReferenceStoreDefaultServicesExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561577694 Prepared org.eclipse.edc.edr.store.index.SqlEndpointDataReferenceEntryIndexExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561585636 Prepared org.eclipse.edc.edr.store.EndpointDataReferenceStoreExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561593653 Prepared Endpoint Data Reference Store Receiver Extension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561601012 Prepared Http Dynamic Endpoint Data Reference Receiver?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561624691 Prepared Data Plane Signaling Client?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561635172 Prepared Data Plane Signaling transform Client?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561653967 Prepared Data Plane Selector Default Services?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561668546 Prepared Sql Data Plane Instance Store?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561679972 Prepared Data Plane Selector core?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561687139 Prepared org.eclipse.edc.connector.dataplane.selector.DataPlaneSelectorApiExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561720896 Prepared PolicyMonitor Default Services?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561745467 Prepared org.eclipse.edc.connector.policy.monitor.store.sql.SqlPolicyMonitorStoreExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561769497 Prepared org.eclipse.edc.connector.policy.monitor.PolicyMonitorExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561781857 Prepared Azure Provision?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561787219 Prepared Dataspace Protocol Catalog Extension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561791785 Prepared Dataspace Protocol Catalog HTTP Dispatcher Extension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561804188 Prepared Dataspace Protocol Catalog Transform Extension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.56180886 Prepared Dataspace Protocol Negotiation Api?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561813479 Prepared Dataspace Protocol Negotiation HTTP Dispatcher Extension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.5618207 Prepared Dataspace Protocol Negotiation Transform Extension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561825223 Prepared org.eclipse.edc.protocol.dsp.transferprocess.http.api.DspTransferProcessApiExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.56183015 Prepared Dataspace Protocol Transfer HTTP Dispatcher Extension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561834801 Prepared Dataspace Protocol Transfer Process Transform Extension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561888903 Prepared Dataspace Protocol Version Api?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561910766 Prepared org.eclipse.edc.token.TokenServicesExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.56193349 Prepared org.eclipse.edc.validator.dataaddress.httpdata.HttpDataDataAddressValidatorExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.561974839 Prepared org.eclipse.tractusx.edc.dataplane.transfer.signaling.TransferDataPlaneSignalingExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.562020637 Prepared org.eclipse.tractusx.edc.dataset.fix.DatasetFixExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.562076883 Prepared Static token API Authentication?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.562101879 Started de.sovity.edc.ce.modules.vault.inmemory.InMemoryVaultExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.562117436 Started Boot Services?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.562156024 Started Core Default Services?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.562178025 Started Core Services?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.562184577 Started JSON-LD Extension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.562188877 Started Control Plane Default Services?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.562192764 Started SQL Core?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.562198997 Started Local Transaction?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.562206451 Started org.eclipse.edc.connector.controlplane.store.sql.contractdefinition.SqlContractDefinitionStoreExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.562233571 Started org.eclipse.edc.connector.controlplane.store.sql.contractnegotiation.SqlContractNegotiationStoreExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.562257537 Started org.eclipse.edc.connector.controlplane.store.sql.policydefinition.SqlPolicyStoreExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.562281259 Started org.eclipse.edc.connector.controlplane.contract.ContractNegotiationDefaultServicesExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.562290954 Started org.eclipse.edc.connector.controlplane.store.sql.assetindex.SqlAssetIndexServiceExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.562688651 HTTP context 'management' listening on port 41444?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.562856053 HTTP context 'protocol' listening on port 41445?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.562977901 HTTP context 'control' listening on port 41446?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.563099866 HTTP context 'default' listening on port 41443?[0m
+?[0;34m[provider-cp] DEBUG 2025-03-19T17:42:01.577857852 Port mappings: {alias='management', port=41444, path='/control/api/management'}, {alias='protocol', port=41445, path='/control/api/dsp'}, {alias='control', port=41446, path='/control/api/control'}, {alias='default', port=41443, path='/control/api'}?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.577965025 Started Jetty Service?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.727244691 Registered Web API context alias: default?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:01.871512849 Registered Web API context alias: protocol?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.035811955 Registered Web API context alias: management?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.170339751 Registered Web API context alias: control?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.170434926 Started Jersey Web Service?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.170469999 Started Dataspace Protocol API Configuration Extension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.170883125 Started Contract Core?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.170936993 Started Contract Negotiation command handlers?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.17096011 Started org.eclipse.edc.connector.controlplane.store.sql.transferprocess.SqlTransferProcessStoreExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.170967681 Started Transfer Process Default Services?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.171181858 Started Transfer Core?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.17123477 Started org.eclipse.edc.connector.controlplane.transfer.TransferProcessCommandExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.171259256 Started Test Backend Controller?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.171266934 Started de.sovity.edc.ce.modules.config_utils.ConfigUtilsExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.171274919 Started Catalog Default Services?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.17128816 Started Catalog Core?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.171304226 Started Mock IAM?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.171637963 Started Control Plane Services?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.179379128 Creating Always True Policy Definition.?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.186279878 Started de.sovity.edc.ce.modules.policy_utils.always_true.AlwaysTruePolicyDefinitionExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.186367874 Started Dataspace Protocol Core Extension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.186398487 Started SovityMessenger?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.186423579 Started de.sovity.edc.ce.modules.db.testcontainers.PostgresTestcontainerExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.186444073 Started Postgres + Flyway?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.186487652 Started de.sovity.edc.ce.modules.messaging.contract_termination.ContractTerminationExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.186535117 Started WrapperExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.186556885 Started EdcUiConfigExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.186573407 Started de.sovity.edc.ce.modules.policy_utils.creator.SimplePolicyCreatorExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.18658204 Started de.sovity.edc.ce.modules.dataspaces.sovity.policies.evaluation_time.EvaluationTimePolicyExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.186592627 Started de.sovity.edc.ce.modules.dataspaces.sovity.policies.referring_connector.ReferringConnectorPolicyExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.186602152 Started Observability API?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.186713647 Started Api Core Default Services?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.186738568 Started API Core?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.186752606 Started org.eclipse.edc.connector.core.SecurityDefaultServicesExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.186757926 Started org.eclipse.edc.connector.core.LocalPublicKeyDefaultExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.186762885 Started Azure BlobStore Core?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.186767069 Started Control API configuration?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.186771582 Started Management API configuration?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.186776126 Started Management API: Secret?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.18679421 Started Control Plane API?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.186840305 Started Management API: Asset?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.186862838 Started Management API: Catalog?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.186884478 Started Management API: Contract Agreement?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.18690391 Started Management API: Contract Definition?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.186932941 Started Management API: Contract Negotiation?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.186951577 Started Management API: Policy Definition?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.186962312 Started Management API: Transfer Process?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.186968514 Started Callback dispatcher extension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.187003693 Started Callback dispatcher http extension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.187027786 Started Static callbacks extension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.187045275 Started org.eclipse.edc.edr.store.EndpointDataReferenceStoreDefaultServicesExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.187175565 Started org.eclipse.edc.edr.store.index.SqlEndpointDataReferenceEntryIndexExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.187200009 Started org.eclipse.edc.edr.store.EndpointDataReferenceStoreExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.187210575 Started Endpoint Data Reference Store Receiver Extension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.187217434 Started Http Dynamic Endpoint Data Reference Receiver?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.187224379 Started Data Plane Signaling Client?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.187258125 Started Data Plane Signaling transform Client?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.187302531 Started Data Plane Selector Default Services?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.187325733 Started Sql Data Plane Instance Store?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.187593282 Started Data Plane Selector core?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.187646768 Started org.eclipse.edc.connector.dataplane.selector.DataPlaneSelectorApiExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.187672167 Started PolicyMonitor Default Services?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.18769487 Started org.eclipse.edc.connector.policy.monitor.store.sql.SqlPolicyMonitorStoreExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.187986596 Started org.eclipse.edc.connector.policy.monitor.PolicyMonitorExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.188037108 Started Azure Provision?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.188057188 Started Dataspace Protocol Catalog Extension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.188065789 Started Dataspace Protocol Catalog HTTP Dispatcher Extension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.188076259 Started Dataspace Protocol Catalog Transform Extension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.188082609 Started Dataspace Protocol Negotiation Api?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.188090806 Started Dataspace Protocol Negotiation HTTP Dispatcher Extension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.188101308 Started Dataspace Protocol Negotiation Transform Extension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.188118107 Started org.eclipse.edc.protocol.dsp.transferprocess.http.api.DspTransferProcessApiExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.188124319 Started Dataspace Protocol Transfer HTTP Dispatcher Extension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.188130297 Started Dataspace Protocol Transfer Process Transform Extension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.188134735 Started Dataspace Protocol Version Api?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.188139747 Started org.eclipse.edc.token.TokenServicesExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.188143613 Started org.eclipse.edc.validator.dataaddress.httpdata.HttpDataDataAddressValidatorExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.188147796 Started org.eclipse.tractusx.edc.dataplane.transfer.signaling.TransferDataPlaneSignalingExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.188152044 Started org.eclipse.tractusx.edc.dataset.fix.DatasetFixExtension?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.188156482 Started Static token API Authentication?[0m
+?[0;32m[provider-cp] INFO 2025-03-19T17:42:02.188191502 Runtime provider ready?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:02.2167922 TestMonitor#createMonitor: Whatever monitor would have been used, we are overriding it with a ConsoleMonitor, so we can prefix the runtime?[0m
+?[0;33m[provider-dp] WARNING 2025-03-19T17:42:02.21858801 Warnings occurred during configuration evaluation:     - WARN sovity.base.path: Property set to 'warn if overriden' value=/data. Documentation: Optional prefix to be added before all API paths     - WARN sovity.environment: Property set to 'warn if overriden' value=UNIT_TEST. Documentation: Deployment Environment as required for either defaulting or requiring config such as FQDN. Available options:   * `production`: EDC Connectors running in an environment behind a reverse proxy with TLS  * `local-demo-docker-compose`: EDC Connectors running in a Docker Compose setup without TLS  * `unit-test`: EDC Connectors started for JUnit tests     - WARN sovity.first.port: Property set to 'warn if overriden' value=42031. Documentation: The first port of several ports to be used for the several API endpoints. If set to 11000, the Management API will be on 11002, etc.  During tests it can be set to 'auto' for the test framework to auto find a free port-range.?[0m
+?[0;33m[provider-dp] WARNING 2025-03-19T17:42:02.218733176 The runtime is configured as an anonymous participant. DO NOT DO THIS IN PRODUCTION.?[0m
+?[0;33m[provider-dp] WARNING 2025-03-19T17:42:02.218795666 edc.runtime.id is not configured so a random UUID is used. It is recommended to provide a static one.?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:02.255373536 Initialized de.sovity.edc.ce.modules.vault.inmemory.InMemoryVaultExtension?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:02.255483067 Initialized Boot Services?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:02.260280584 Initialized Core Default Services?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:02.260422204 HTTPS enforcement it not enabled, please enable it in a production environment?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:02.260793832 HTTPS enforcement it not enabled, please enable it in a production environment?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:02.261215645 Initialized Core Services?[0m
+?[0;33m[provider-dp] WARNING 2025-03-19T17:42:02.261632923 Settings: No setting found for key 'edc.hostname'. Using default value 'localhost'?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:02.26685742 Initialized JSON-LD Extension?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:02.275855584 Initialized Jetty Service?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:02.276006898 Initialized Jersey Web Service?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:02.276058271 Initialized Test Backend Controller?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:02.276181691 Initialized de.sovity.edc.ce.modules.config_utils.ConfigUtilsExtension?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:02.361104868 Registering DataPlaneInstance. Calling POST http://localhost:41444/control/api/management/v2/dataplanes with body {"@id":"http://localhost:42036/data/api/public","https://w3id.org/edc/v0.0.1/ns/url":"http://localhost:42035/data/api/control/v1/dataflows","https://w3id.org/edc/v0.0.1/ns/allowedSourceTypes":["HttpData","HttpProxy","HttpPush","AzureStorage","AmazonS3"],"https://w3id.org/edc/v0.0.1/ns/allowedDestTypes":["HttpData","HttpProxy","HttpPush","AzureStorage","AmazonS3"],"https://w3id.org/edc/v0.0.1/ns/allowedTransferTypes":["HttpData-PUSH","HttpData-PULL","AmazonS3-PUSH"],"https://w3id.org/edc/v0.0.1/ns/properties":{"https://w3id.org/edc/v0.0.1/ns/publicApiUrl":"http://localhost:42036/data/api/public"}}?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:03.870038624 Successfully registered Data Plane.?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:03.870169886 Initialized Data-Plane Registration (Standalone)?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:03.870237545 Starting PostgreSQL Testcontainer?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.765440965 PostgreSQL Testcontainer started!?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.765585727 Initialized de.sovity.edc.ce.modules.db.testcontainers.PostgresTestcontainerExtension?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.765647057 Initialized SQL Core?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.765726935 Initialized Local Transaction?[0m
+2025-03-19 17:42:04,785 [INFO] VersionPrinter - Flyway Community Edition 9.0.1 by Redgate
+2025-03-19 17:42:04,785 [INFO] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#9.0.1
+2025-03-19 17:42:04,785 [INFO] VersionPrinter - 
+2025-03-19 17:42:04,810 [INFO] BaseDatabaseType - Database: jdbc:postgresql://localhost:32780/edc (PostgreSQL 16.8)
+2025-03-19 17:42:04,812 [WARN] Database - Flyway upgrade recommended: PostgreSQL 16.8 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 14.
+2025-03-19 17:42:04,824 [INFO] DbValidate - Successfully validated 1 migration (execution time 00:00.009s)
+2025-03-19 17:42:04,828 [INFO] JdbcTableSchemaHistory - Creating Schema History table "public"."flyway_schema_history_sovity" ...
+2025-03-19 17:42:04,835 [INFO] DbMigrate - Current version of schema "public": << Empty Schema >>
+2025-03-19 17:42:04,844 [INFO] DbMigrate - Migrating schema "public" to version "11.0.0 - Release 11.0.0 CE"
+2025-03-19 17:42:04,876 [INFO] DbMigrate - Successfully applied 1 migration to schema "public", now at version v11.0.0 (execution time 00:00.042s)
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.877386611 Initialized Postgres + Flyway?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.88272197 Initialized Observability API?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.88282493 Initialized Api Core Default Services?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.887827998 Initialized API Core?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.887907716 Initialized org.eclipse.edc.connector.core.SecurityDefaultServicesExtension?[0m
+?[0;33m[provider-dp] WARNING 2025-03-19T17:42:04.887996185 There were missing service registrations in extension class org.eclipse.edc.connector.core.LocalPublicKeyDefaultExtension: org.eclipse.edc.keys.spi.LocalPublicKeyService?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.88802613 Initialized org.eclipse.edc.connector.core.LocalPublicKeyDefaultExtension?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.88815657 Initialized S3?[0m
+?[0;34m[provider-dp] DEBUG 2025-03-19T17:42:04.888237739 Resolving secret edc.aws.access.key?[0m
+?[0;34m[provider-dp] DEBUG 2025-03-19T17:42:04.88828081 Resolving secret edc.aws.secret.access.key?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.888302122 S3: edc.aws.access.key and edc.aws.secret.access.key were not found in the vault, DefaultCredentialsProvider will be used?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.897847548 Initialized Azure BlobStore Core?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.898004124 Control API will be available under port=42035, path=/data/api/control?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.902229787 Initialized Control API configuration?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.90230497 Initialized Control Plane HTTP API client?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.902370537 Initialized Data Plane Framework Default Services?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.902424781 Initialized Sql AccessTokenData Store?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.902516249 Initialized org.eclipse.edc.token.TokenServicesExtension?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.902611238 Initialized Data Plane Framework Default IAM Services?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.902670423 Initialized Sql Data Plane Store?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.902707892 Initialized org.eclipse.tractusx.edc.dataplane.pipeline.PipelineServiceExtension?[0m
+?[0;34m[provider-dp] DEBUG 2025-03-19T17:42:04.902768379 DataPlane Access Control: default implementation is used, will always return Result.success()?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.903008589 Initialized Data Plane Framework?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.903097517 Data Plane Public API will be available under port=42036, path=/data/api/public?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.903160736 Initialized Data Plane Public API?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.908023367 Initialized DataPlane Signaling API extension?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.908111228 Initialized Data Plane S3 Storage?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.908180573 Initialized Data Plane Azure Storage?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.908258071 Initialized Data Plane HTTP?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.908313286 Prepared de.sovity.edc.ce.modules.vault.inmemory.InMemoryVaultExtension?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.908332389 Prepared Boot Services?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.908338279 Prepared Core Default Services?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.908372216 Prepared Core Services?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.908399343 Prepared JSON-LD Extension?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.908414465 Prepared Jetty Service?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.908419438 Prepared Jersey Web Service?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.908425137 Prepared Test Backend Controller?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.908429459 Prepared de.sovity.edc.ce.modules.config_utils.ConfigUtilsExtension?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.908434186 Prepared Data-Plane Registration (Standalone)?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.908438818 Prepared de.sovity.edc.ce.modules.db.testcontainers.PostgresTestcontainerExtension?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.908443268 Prepared SQL Core?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.908447345 Prepared Local Transaction?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.908454751 Prepared Postgres + Flyway?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.908459404 Prepared Observability API?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.908463053 Prepared Api Core Default Services?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.908467194 Prepared API Core?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.908470524 Prepared org.eclipse.edc.connector.core.SecurityDefaultServicesExtension?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.908581734 Prepared org.eclipse.edc.connector.core.LocalPublicKeyDefaultExtension?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.908619426 Prepared S3?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.90863426 Prepared Azure BlobStore Core?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.908638603 Prepared Control API configuration?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.908642371 Prepared Control Plane HTTP API client?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.908645711 Prepared Data Plane Framework Default Services?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.908648966 Prepared Sql AccessTokenData Store?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.908667556 Prepared org.eclipse.edc.token.TokenServicesExtension?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.908671216 Prepared Data Plane Framework Default IAM Services?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.908674855 Prepared Sql Data Plane Store?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.90868113 Prepared org.eclipse.tractusx.edc.dataplane.pipeline.PipelineServiceExtension?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.908684748 Prepared Data Plane Framework?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.908688654 Prepared Data Plane Public API?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.908691813 Prepared DataPlane Signaling API extension?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.90871703 Prepared Data Plane S3 Storage?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.908731565 Prepared Data Plane Azure Storage?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.908735791 Prepared Data Plane HTTP?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.908742162 Started de.sovity.edc.ce.modules.vault.inmemory.InMemoryVaultExtension?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.90876692 Started Boot Services?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.908782362 Started Core Default Services?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.908787613 Started Core Services?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.908790644 Started JSON-LD Extension?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.908971903 HTTP context 'default' listening on port 42032?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.909171187 HTTP context 'control' listening on port 42035?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.909282056 HTTP context 'public' listening on port 42036?[0m
+?[0;34m[provider-dp] DEBUG 2025-03-19T17:42:04.918499476 Port mappings: {alias='default', port=42032, path='/data/api'}, {alias='control', port=42035, path='/data/api/control'}, {alias='public', port=42036, path='/data/api/public'}?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:04.918567775 Started Jetty Service?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:05.05257911 Registered Web API context alias: default?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:05.184040394 Registered Web API context alias: public?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:05.316796176 Registered Web API context alias: control?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:05.31689617 Started Jersey Web Service?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:05.316924226 Started Test Backend Controller?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:05.317055595 Started de.sovity.edc.ce.modules.config_utils.ConfigUtilsExtension?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:05.317076981 Started Data-Plane Registration (Standalone)?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:05.317086639 Started de.sovity.edc.ce.modules.db.testcontainers.PostgresTestcontainerExtension?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:05.317093629 Started SQL Core?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:05.317125805 Started Local Transaction?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:05.317141556 Started Postgres + Flyway?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:05.317146636 Started Observability API?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:05.317150969 Started Api Core Default Services?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:05.317155291 Started API Core?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:05.317159463 Started org.eclipse.edc.connector.core.SecurityDefaultServicesExtension?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:05.31716386 Started org.eclipse.edc.connector.core.LocalPublicKeyDefaultExtension?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:05.317169057 Started S3?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:05.317173774 Started Azure BlobStore Core?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:05.317178587 Started Control API configuration?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:05.317184926 Started Control Plane HTTP API client?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:05.317189782 Started Data Plane Framework Default Services?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:05.317197839 Started Sql AccessTokenData Store?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:05.317204359 Started org.eclipse.edc.token.TokenServicesExtension?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:05.317232437 Started Data Plane Framework Default IAM Services?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:05.317247185 Started Sql Data Plane Store?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:05.317252009 Started org.eclipse.tractusx.edc.dataplane.pipeline.PipelineServiceExtension?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:05.317485858 Started Data Plane Framework?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:05.31753688 Started Data Plane Public API?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:05.31755356 Started DataPlane Signaling API extension?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:05.317560326 Started Data Plane S3 Storage?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:05.317566686 Started Data Plane Azure Storage?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:05.31774913 Started Data Plane HTTP?[0m
+?[0;32m[provider-dp] INFO 2025-03-19T17:42:05.3177933 Runtime 4f17c78f-4a2e-443b-aab7-4decc966f664 ready?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:05.318979182 TestMonitor#createMonitor: Whatever monitor would have been used, we are overriding it with a ConsoleMonitor, so we can prefix the runtime?[0m
+?[0;33m[consumer-cp] WARNING 2025-03-19T17:42:05.319925301 Warnings occurred during configuration evaluation:     - WARN sovity.base.path: Property set to 'warn if overriden' value=/control. Documentation: Optional prefix to be added before all API paths     - WARN sovity.environment: Property set to 'warn if overriden' value=UNIT_TEST. Documentation: Deployment Environment as required for either defaulting or requiring config such as FQDN. Available options:   * `production`: EDC Connectors running in an environment behind a reverse proxy with TLS  * `local-demo-docker-compose`: EDC Connectors running in a Docker Compose setup without TLS  * `unit-test`: EDC Connectors started for JUnit tests     - WARN sovity.first.port: Property set to 'warn if overriden' value=23337. Documentation: The first port of several ports to be used for the several API endpoints. If set to 11000, the Management API will be on 11002, etc.  During tests it can be set to 'auto' for the test framework to auto find a free port-range.?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:05.347513763 Initialized de.sovity.edc.ce.modules.vault.inmemory.InMemoryVaultExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:05.347724551 Initialized Boot Services?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:05.35272002 Initialized Core Default Services?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:05.352849618 HTTPS enforcement it not enabled, please enable it in a production environment?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:05.35323793 HTTPS enforcement it not enabled, please enable it in a production environment?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:05.353669537 Initialized Core Services?[0m
+?[0;33m[consumer-cp] WARNING 2025-03-19T17:42:05.353773875 Settings: No setting found for key 'edc.hostname'. Using default value 'localhost'?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:05.358817125 Initialized JSON-LD Extension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:05.367165599 Initialized Control Plane Default Services?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:05.367228722 Initialized SQL Core?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:05.367275785 Initialized Local Transaction?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:05.367330669 Initialized org.eclipse.edc.connector.controlplane.store.sql.contractdefinition.SqlContractDefinitionStoreExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:05.367394252 Initialized org.eclipse.edc.connector.controlplane.store.sql.contractnegotiation.SqlContractNegotiationStoreExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:05.367462103 Initialized org.eclipse.edc.connector.controlplane.store.sql.policydefinition.SqlPolicyStoreExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:05.367512431 Initialized org.eclipse.edc.connector.controlplane.contract.ContractNegotiationDefaultServicesExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:05.367562353 Initialized org.eclipse.edc.connector.controlplane.store.sql.assetindex.SqlAssetIndexServiceExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:05.367670511 Initialized Jetty Service?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:05.367971112 Initialized Jersey Web Service?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:05.368058066 Protocol API will be available under port=23340, path=/control/api/dsp?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:05.372929331 Initialized Dataspace Protocol API Configuration Extension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:05.373092128 Initialized Contract Core?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:05.373146874 Initialized Contract Negotiation command handlers?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:05.373185207 Initialized org.eclipse.edc.connector.controlplane.store.sql.transferprocess.SqlTransferProcessStoreExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:05.373239654 Initialized Transfer Process Default Services?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:05.373463835 Initialized Transfer Core?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:05.373525304 Initialized org.eclipse.edc.connector.controlplane.transfer.TransferProcessCommandExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:05.373577148 Initialized Test Backend Controller?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:05.373681186 Initialized de.sovity.edc.ce.modules.config_utils.ConfigUtilsExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:05.373731322 Initialized Catalog Default Services?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:05.373765354 Initialized Catalog Core?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:05.373786143 Initialized Mock IAM?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:05.373820762 Initialized Control Plane Services?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:05.374133632 Initialized de.sovity.edc.ce.modules.policy_utils.always_true.AlwaysTruePolicyDefinitionExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:05.374207459 Initialized Dataspace Protocol Core Extension?[0m
+?[0;33m[consumer-cp] WARNING 2025-03-19T17:42:05.374245344 No TokenDecorator was registered. The 'scope' field of outgoing protocol messages will be empty?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:05.374432366 Initialized SovityMessenger?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:05.374497442 Starting PostgreSQL Testcontainer?[0m
+?[0;34m[provider-cp] DEBUG 2025-03-19T17:42:05.785660404 [DataPlaneSelectorManagerImpl] DataPlaneInstance http://localhost:42036/data/api/public is now in state AVAILABLE?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.251837714 PostgreSQL Testcontainer started!?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.251970866 Initialized de.sovity.edc.ce.modules.db.testcontainers.PostgresTestcontainerExtension?[0m
+2025-03-19 17:42:06,269 [INFO] VersionPrinter - Flyway Community Edition 9.0.1 by Redgate
+2025-03-19 17:42:06,269 [INFO] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#9.0.1
+2025-03-19 17:42:06,269 [INFO] VersionPrinter - 
+2025-03-19 17:42:06,294 [INFO] BaseDatabaseType - Database: jdbc:postgresql://localhost:32781/edc (PostgreSQL 16.8)
+2025-03-19 17:42:06,296 [WARN] Database - Flyway upgrade recommended: PostgreSQL 16.8 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 14.
+2025-03-19 17:42:06,307 [INFO] DbValidate - Successfully validated 1 migration (execution time 00:00.009s)
+2025-03-19 17:42:06,312 [INFO] JdbcTableSchemaHistory - Creating Schema History table "public"."flyway_schema_history_sovity" ...
+2025-03-19 17:42:06,318 [INFO] DbMigrate - Current version of schema "public": << Empty Schema >>
+2025-03-19 17:42:06,325 [INFO] DbMigrate - Migrating schema "public" to version "11.0.0 - Release 11.0.0 CE"
+2025-03-19 17:42:06,364 [INFO] DbMigrate - Successfully applied 1 migration to schema "public", now at version v11.0.0 (execution time 00:00.047s)
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.365266855 Initialized Postgres + Flyway?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.365454219 Initialized de.sovity.edc.ce.modules.messaging.contract_termination.ContractTerminationExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.367480862 Initialized WrapperExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.367579671 Initialized EdcUiConfigExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.367652154 Initialized de.sovity.edc.ce.modules.policy_utils.creator.SimplePolicyCreatorExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.367721947 Initialized de.sovity.edc.ce.modules.dataspaces.sovity.policies.evaluation_time.EvaluationTimePolicyExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.367762905 Initialized de.sovity.edc.ce.modules.dataspaces.sovity.policies.referring_connector.ReferringConnectorPolicyExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.373345763 Initialized Observability API?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.373427562 Initialized Api Core Default Services?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.378374016 Initialized API Core?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.378446381 Initialized org.eclipse.edc.connector.core.SecurityDefaultServicesExtension?[0m
+?[0;33m[consumer-cp] WARNING 2025-03-19T17:42:06.378551669 There were missing service registrations in extension class org.eclipse.edc.connector.core.LocalPublicKeyDefaultExtension: org.eclipse.edc.keys.spi.LocalPublicKeyService?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.378582147 Initialized org.eclipse.edc.connector.core.LocalPublicKeyDefaultExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.378628815 Initialized Azure BlobStore Core?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.378691863 Control API will be available under port=23341, path=/control/api/control?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.382721221 Initialized Control API configuration?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.382805623 Management API will be available under port=23339, path=/control/api/management?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.391544075 Initialized Management API configuration?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.396900505 Initialized Management API: Secret?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.397016752 Initialized Control Plane API?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.39712666 Initialized Management API: Asset?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.39731937 Initialized Management API: Catalog?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.39738133 Initialized Management API: Contract Agreement?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.401905189 Initialized Management API: Contract Definition?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.406681421 Initialized Management API: Contract Negotiation?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.411280234 Initialized Management API: Policy Definition?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.41615518 Initialized Management API: Transfer Process?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.416242283 Initialized Callback dispatcher extension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.416300444 Initialized Callback dispatcher http extension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.416358263 Initialized Static callbacks extension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.416395102 Initialized org.eclipse.edc.edr.store.EndpointDataReferenceStoreDefaultServicesExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.416442805 Initialized org.eclipse.edc.edr.store.index.SqlEndpointDataReferenceEntryIndexExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.416606616 Initialized org.eclipse.edc.edr.store.EndpointDataReferenceStoreExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.416654553 Initialized Endpoint Data Reference Store Receiver Extension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.416710068 Initialized Http Dynamic Endpoint Data Reference Receiver?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.416760267 Initialized Data Plane Signaling Client?[0m
+?[0;34m[consumer-cp] DEBUG 2025-03-19T17:42:06.416812815 Using remote Data Plane client.?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.421489424 Initialized Data Plane Signaling transform Client?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.421575086 Initialized Data Plane Selector Default Services?[0m
+?[0;33m[consumer-cp] WARNING 2025-03-19T17:42:06.421630056 There were missing service registrations in extension class org.eclipse.edc.connector.dataplane.selector.store.sql.SqlDataPlaneInstanceStoreExtension: org.eclipse.edc.connector.dataplane.selector.spi.store.DataPlaneInstanceStore?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.421660598 Initialized Sql Data Plane Instance Store?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.421778105 Initialized Data Plane Selector core?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.426669921 Initialized org.eclipse.edc.connector.dataplane.selector.DataPlaneSelectorApiExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.426725264 Initialized PolicyMonitor Default Services?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.426750439 Initialized org.eclipse.edc.connector.policy.monitor.store.sql.SqlPolicyMonitorStoreExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.426912308 Initialized org.eclipse.edc.connector.policy.monitor.PolicyMonitorExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.426976327 Initialized Azure Provision?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.427063291 Initialized Dataspace Protocol Catalog Extension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.427109948 Initialized Dataspace Protocol Catalog HTTP Dispatcher Extension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.43170065 Initialized Dataspace Protocol Catalog Transform Extension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.431793462 Initialized Dataspace Protocol Negotiation Api?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.431851847 Initialized Dataspace Protocol Negotiation HTTP Dispatcher Extension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.436718689 Initialized Dataspace Protocol Negotiation Transform Extension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.436796998 Initialized org.eclipse.edc.protocol.dsp.transferprocess.http.api.DspTransferProcessApiExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.436861113 Initialized Dataspace Protocol Transfer HTTP Dispatcher Extension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.441546016 Initialized Dataspace Protocol Transfer Process Transform Extension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.441605372 Initialized Dataspace Protocol Version Api?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.4416244 Initialized org.eclipse.edc.token.TokenServicesExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.441654473 Initialized org.eclipse.edc.validator.dataaddress.httpdata.HttpDataDataAddressValidatorExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.44171034 Initialized org.eclipse.tractusx.edc.dataplane.transfer.signaling.TransferDataPlaneSignalingExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.441733369 Initialized org.eclipse.tractusx.edc.dataset.fix.DatasetFixExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.441828433 Initialized Static token API Authentication?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.44187731 Prepared de.sovity.edc.ce.modules.vault.inmemory.InMemoryVaultExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.442021442 Prepared Boot Services?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.442038186 Prepared Core Default Services?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.442161871 Prepared Core Services?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.442198113 Prepared JSON-LD Extension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.442213629 Prepared Control Plane Default Services?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.442218922 Prepared SQL Core?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.44222269 Prepared Local Transaction?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.442227257 Prepared org.eclipse.edc.connector.controlplane.store.sql.contractdefinition.SqlContractDefinitionStoreExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.44223175 Prepared org.eclipse.edc.connector.controlplane.store.sql.contractnegotiation.SqlContractNegotiationStoreExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.442239892 Prepared org.eclipse.edc.connector.controlplane.store.sql.policydefinition.SqlPolicyStoreExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.442244471 Prepared org.eclipse.edc.connector.controlplane.contract.ContractNegotiationDefaultServicesExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.442250746 Prepared org.eclipse.edc.connector.controlplane.store.sql.assetindex.SqlAssetIndexServiceExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.442255388 Prepared Jetty Service?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.442259891 Prepared Jersey Web Service?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.442283913 Prepared Dataspace Protocol API Configuration Extension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.442298811 Prepared Contract Core?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.442303709 Prepared Contract Negotiation command handlers?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.442307946 Prepared org.eclipse.edc.connector.controlplane.store.sql.transferprocess.SqlTransferProcessStoreExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.442312663 Prepared Transfer Process Default Services?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.442316814 Prepared Transfer Core?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.442320325 Prepared org.eclipse.edc.connector.controlplane.transfer.TransferProcessCommandExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.442325341 Prepared Test Backend Controller?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.44232898 Prepared de.sovity.edc.ce.modules.config_utils.ConfigUtilsExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.442333174 Prepared Catalog Default Services?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.442336984 Prepared Catalog Core?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.442344689 Prepared Mock IAM?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.442478523 Prepared Control Plane Services?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.442584707 Prepared de.sovity.edc.ce.modules.policy_utils.always_true.AlwaysTruePolicyDefinitionExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.442649634 Prepared Dataspace Protocol Core Extension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.442693142 Prepared SovityMessenger?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.442716268 Prepared de.sovity.edc.ce.modules.db.testcontainers.PostgresTestcontainerExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.442765956 Prepared Postgres + Flyway?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.442794492 Prepared de.sovity.edc.ce.modules.messaging.contract_termination.ContractTerminationExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.442857284 Prepared WrapperExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.442935828 Prepared EdcUiConfigExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.4429735 Prepared de.sovity.edc.ce.modules.policy_utils.creator.SimplePolicyCreatorExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.44298892 Prepared de.sovity.edc.ce.modules.dataspaces.sovity.policies.evaluation_time.EvaluationTimePolicyExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443002068 Prepared de.sovity.edc.ce.modules.dataspaces.sovity.policies.referring_connector.ReferringConnectorPolicyExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443046932 Prepared Observability API?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443067912 Prepared Api Core Default Services?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443073761 Prepared API Core?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443078456 Prepared org.eclipse.edc.connector.core.SecurityDefaultServicesExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443106971 Prepared org.eclipse.edc.connector.core.LocalPublicKeyDefaultExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443132925 Prepared Azure BlobStore Core?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443310897 Prepared Control API configuration?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443326393 Prepared Management API configuration?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443331088 Prepared Management API: Secret?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.44333541 Prepared Control Plane API?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443339369 Prepared Management API: Asset?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443343414 Prepared Management API: Catalog?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443347672 Prepared Management API: Contract Agreement?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.44335146 Prepared Management API: Contract Definition?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443355217 Prepared Management API: Contract Negotiation?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443358771 Prepared Management API: Policy Definition?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443362047 Prepared Management API: Transfer Process?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443365387 Prepared Callback dispatcher extension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443369186 Prepared Callback dispatcher http extension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443376859 Prepared Static callbacks extension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443380904 Prepared org.eclipse.edc.edr.store.EndpointDataReferenceStoreDefaultServicesExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443407146 Prepared org.eclipse.edc.edr.store.index.SqlEndpointDataReferenceEntryIndexExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443421094 Prepared org.eclipse.edc.edr.store.EndpointDataReferenceStoreExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443426579 Prepared Endpoint Data Reference Store Receiver Extension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443432149 Prepared Http Dynamic Endpoint Data Reference Receiver?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443457324 Prepared Data Plane Signaling Client?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443494003 Prepared Data Plane Signaling transform Client?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443515144 Prepared Data Plane Selector Default Services?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443527608 Prepared Sql Data Plane Instance Store?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443565397 Prepared Data Plane Selector core?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443582834 Prepared org.eclipse.edc.connector.dataplane.selector.DataPlaneSelectorApiExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443598575 Prepared PolicyMonitor Default Services?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443607732 Prepared org.eclipse.edc.connector.policy.monitor.store.sql.SqlPolicyMonitorStoreExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443613857 Prepared org.eclipse.edc.connector.policy.monitor.PolicyMonitorExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443647708 Prepared Azure Provision?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443662595 Prepared Dataspace Protocol Catalog Extension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443667045 Prepared Dataspace Protocol Catalog HTTP Dispatcher Extension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.44367078 Prepared Dataspace Protocol Catalog Transform Extension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443674547 Prepared Dataspace Protocol Negotiation Api?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443678784 Prepared Dataspace Protocol Negotiation HTTP Dispatcher Extension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443682242 Prepared Dataspace Protocol Negotiation Transform Extension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443686137 Prepared org.eclipse.edc.protocol.dsp.transferprocess.http.api.DspTransferProcessApiExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443691515 Prepared Dataspace Protocol Transfer HTTP Dispatcher Extension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443695165 Prepared Dataspace Protocol Transfer Process Transform Extension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443739698 Prepared Dataspace Protocol Version Api?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443759089 Prepared org.eclipse.edc.token.TokenServicesExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443763293 Prepared org.eclipse.edc.validator.dataaddress.httpdata.HttpDataDataAddressValidatorExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443767029 Prepared org.eclipse.tractusx.edc.dataplane.transfer.signaling.TransferDataPlaneSignalingExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443770454 Prepared org.eclipse.tractusx.edc.dataset.fix.DatasetFixExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443773645 Prepared Static token API Authentication?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443781393 Started de.sovity.edc.ce.modules.vault.inmemory.InMemoryVaultExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443784893 Started Boot Services?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.4437893 Started Core Default Services?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443792406 Started Core Services?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443799332 Started JSON-LD Extension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443802299 Started Control Plane Default Services?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443806311 Started SQL Core?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443828615 Started Local Transaction?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443842616 Started org.eclipse.edc.connector.controlplane.store.sql.contractdefinition.SqlContractDefinitionStoreExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.4438476 Started org.eclipse.edc.connector.controlplane.store.sql.contractnegotiation.SqlContractNegotiationStoreExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443851367 Started org.eclipse.edc.connector.controlplane.store.sql.policydefinition.SqlPolicyStoreExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443854996 Started org.eclipse.edc.connector.controlplane.contract.ContractNegotiationDefaultServicesExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.443858571 Started org.eclipse.edc.connector.controlplane.store.sql.assetindex.SqlAssetIndexServiceExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.444172672 HTTP context 'management' listening on port 23339?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.444482056 HTTP context 'protocol' listening on port 23340?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.444592135 HTTP context 'default' listening on port 23338?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.444687188 HTTP context 'control' listening on port 23341?[0m
+?[0;34m[consumer-cp] DEBUG 2025-03-19T17:42:06.466311405 Port mappings: {alias='management', port=23339, path='/control/api/management'}, {alias='protocol', port=23340, path='/control/api/dsp'}, {alias='default', port=23338, path='/control/api'}, {alias='control', port=23341, path='/control/api/control'}?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.466417087 Started Jetty Service?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.596047215 Registered Web API context alias: default?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.731902443 Registered Web API context alias: protocol?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:06.877174336 Registered Web API context alias: management?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.019052863 Registered Web API context alias: control?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.019135751 Started Jersey Web Service?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.019157137 Started Dataspace Protocol API Configuration Extension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.019764561 Started Contract Core?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.019860276 Started Contract Negotiation command handlers?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.019887532 Started org.eclipse.edc.connector.controlplane.store.sql.transferprocess.SqlTransferProcessStoreExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.019918042 Started Transfer Process Default Services?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.020181975 Started Transfer Core?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.020239357 Started org.eclipse.edc.connector.controlplane.transfer.TransferProcessCommandExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.020261789 Started Test Backend Controller?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.020270006 Started de.sovity.edc.ce.modules.config_utils.ConfigUtilsExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.020274585 Started Catalog Default Services?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.020278256 Started Catalog Core?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.020282033 Started Mock IAM?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.020286163 Started Control Plane Services?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.02749734 Creating Always True Policy Definition.?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.033811377 Started de.sovity.edc.ce.modules.policy_utils.always_true.AlwaysTruePolicyDefinitionExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.033930975 Started Dataspace Protocol Core Extension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.033962062 Started SovityMessenger?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.033980652 Started de.sovity.edc.ce.modules.db.testcontainers.PostgresTestcontainerExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.033989958 Started Postgres + Flyway?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.034027394 Started de.sovity.edc.ce.modules.messaging.contract_termination.ContractTerminationExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.034048545 Started WrapperExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.034090965 Started EdcUiConfigExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.034113035 Started de.sovity.edc.ce.modules.policy_utils.creator.SimplePolicyCreatorExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.034150759 Started de.sovity.edc.ce.modules.dataspaces.sovity.policies.evaluation_time.EvaluationTimePolicyExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.034174365 Started de.sovity.edc.ce.modules.dataspaces.sovity.policies.referring_connector.ReferringConnectorPolicyExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.034210926 Started Observability API?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.03423132 Started Api Core Default Services?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.034268532 Started API Core?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.034310515 Started org.eclipse.edc.connector.core.SecurityDefaultServicesExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.034328796 Started org.eclipse.edc.connector.core.LocalPublicKeyDefaultExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.034333843 Started Azure BlobStore Core?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.034337568 Started Control API configuration?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.034341399 Started Management API configuration?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.034344889 Started Management API: Secret?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.034349125 Started Control Plane API?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.034354483 Started Management API: Asset?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.034358047 Started Management API: Catalog?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.034372048 Started Management API: Contract Agreement?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.034472064 Started Management API: Contract Definition?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.034515786 Started Management API: Contract Negotiation?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.034533554 Started Management API: Policy Definition?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.034539061 Started Management API: Transfer Process?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.034543041 Started Callback dispatcher extension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.034548665 Started Callback dispatcher http extension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.034552934 Started Static callbacks extension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.034557117 Started org.eclipse.edc.edr.store.EndpointDataReferenceStoreDefaultServicesExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.034560895 Started org.eclipse.edc.edr.store.index.SqlEndpointDataReferenceEntryIndexExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.03456463 Started org.eclipse.edc.edr.store.EndpointDataReferenceStoreExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.0345686 Started Endpoint Data Reference Store Receiver Extension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.034572335 Started Http Dynamic Endpoint Data Reference Receiver?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.034576551 Started Data Plane Signaling Client?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.034580873 Started Data Plane Signaling transform Client?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.034589826 Started Data Plane Selector Default Services?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.0346053 Started Sql Data Plane Instance Store?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.035085982 Started Data Plane Selector core?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.035129672 Started org.eclipse.edc.connector.dataplane.selector.DataPlaneSelectorApiExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.035144132 Started PolicyMonitor Default Services?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.035149532 Started org.eclipse.edc.connector.policy.monitor.store.sql.SqlPolicyMonitorStoreExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.035331976 Started org.eclipse.edc.connector.policy.monitor.PolicyMonitorExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.035357705 Started Azure Provision?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.035363596 Started Dataspace Protocol Catalog Extension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.03536763 Started Dataspace Protocol Catalog HTTP Dispatcher Extension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.035371707 Started Dataspace Protocol Catalog Transform Extension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.035375623 Started Dataspace Protocol Negotiation Api?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.035379689 Started Dataspace Protocol Negotiation HTTP Dispatcher Extension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.035383488 Started Dataspace Protocol Negotiation Transform Extension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.035387458 Started org.eclipse.edc.protocol.dsp.transferprocess.http.api.DspTransferProcessApiExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.035393456 Started Dataspace Protocol Transfer HTTP Dispatcher Extension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.035408844 Started Dataspace Protocol Transfer Process Transform Extension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.035418833 Started Dataspace Protocol Version Api?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.035432877 Started org.eclipse.edc.token.TokenServicesExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.035444499 Started org.eclipse.edc.validator.dataaddress.httpdata.HttpDataDataAddressValidatorExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.03545103 Started org.eclipse.tractusx.edc.dataplane.transfer.signaling.TransferDataPlaneSignalingExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.035459108 Started org.eclipse.tractusx.edc.dataset.fix.DatasetFixExtension?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.035501731 Started Static token API Authentication?[0m
+?[0;32m[consumer-cp] INFO 2025-03-19T17:42:07.035616015 Runtime consumer ready?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:07.040647645 TestMonitor#createMonitor: Whatever monitor would have been used, we are overriding it with a ConsoleMonitor, so we can prefix the runtime?[0m
+?[0;33m[consumer-dp] WARNING 2025-03-19T17:42:07.041827703 Warnings occurred during configuration evaluation:     - WARN sovity.base.path: Property set to 'warn if overriden' value=/data. Documentation: Optional prefix to be added before all API paths     - WARN sovity.environment: Property set to 'warn if overriden' value=UNIT_TEST. Documentation: Deployment Environment as required for either defaulting or requiring config such as FQDN. Available options:   * `production`: EDC Connectors running in an environment behind a reverse proxy with TLS  * `local-demo-docker-compose`: EDC Connectors running in a Docker Compose setup without TLS  * `unit-test`: EDC Connectors started for JUnit tests     - WARN sovity.first.port: Property set to 'warn if overriden' value=25629. Documentation: The first port of several ports to be used for the several API endpoints. If set to 11000, the Management API will be on 11002, etc.  During tests it can be set to 'auto' for the test framework to auto find a free port-range.?[0m
+?[0;33m[consumer-dp] WARNING 2025-03-19T17:42:07.042227253 The runtime is configured as an anonymous participant. DO NOT DO THIS IN PRODUCTION.?[0m
+?[0;33m[consumer-dp] WARNING 2025-03-19T17:42:07.042292244 edc.runtime.id is not configured so a random UUID is used. It is recommended to provide a static one.?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:07.064123602 Initialized de.sovity.edc.ce.modules.vault.inmemory.InMemoryVaultExtension?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:07.064278513 Initialized Boot Services?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:07.068986553 Initialized Core Default Services?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:07.069159467 HTTPS enforcement it not enabled, please enable it in a production environment?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:07.069615588 HTTPS enforcement it not enabled, please enable it in a production environment?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:07.069830836 Initialized Core Services?[0m
+?[0;33m[consumer-dp] WARNING 2025-03-19T17:42:07.070048604 Settings: No setting found for key 'edc.hostname'. Using default value 'localhost'?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:07.07521544 Initialized JSON-LD Extension?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:07.083470088 Initialized Jetty Service?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:07.083547031 Initialized Jersey Web Service?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:07.083573294 Initialized Test Backend Controller?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:07.083632362 Initialized de.sovity.edc.ce.modules.config_utils.ConfigUtilsExtension?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:07.107403321 Registering DataPlaneInstance. Calling POST http://localhost:23339/control/api/management/v2/dataplanes with body {"@id":"http://localhost:25634/data/api/public","https://w3id.org/edc/v0.0.1/ns/url":"http://localhost:25633/data/api/control/v1/dataflows","https://w3id.org/edc/v0.0.1/ns/allowedSourceTypes":["HttpData","HttpProxy","HttpPush","AzureStorage","AmazonS3"],"https://w3id.org/edc/v0.0.1/ns/allowedDestTypes":["HttpData","HttpProxy","HttpPush","AzureStorage","AmazonS3"],"https://w3id.org/edc/v0.0.1/ns/allowedTransferTypes":["HttpData-PUSH","HttpData-PULL","AmazonS3-PUSH"],"https://w3id.org/edc/v0.0.1/ns/properties":{"https://w3id.org/edc/v0.0.1/ns/publicApiUrl":"http://localhost:25634/data/api/public"}}?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:07.136709228 Successfully registered Data Plane.?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:07.136887467 Initialized Data-Plane Registration (Standalone)?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:07.136923121 Starting PostgreSQL Testcontainer?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.032382386 PostgreSQL Testcontainer started!?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.032503809 Initialized de.sovity.edc.ce.modules.db.testcontainers.PostgresTestcontainerExtension?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.032554265 Initialized SQL Core?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.032920782 Initialized Local Transaction?[0m
+2025-03-19 17:42:08,053 [INFO] VersionPrinter - Flyway Community Edition 9.0.1 by Redgate
+2025-03-19 17:42:08,053 [INFO] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#9.0.1
+2025-03-19 17:42:08,053 [INFO] VersionPrinter - 
+2025-03-19 17:42:08,077 [INFO] BaseDatabaseType - Database: jdbc:postgresql://localhost:32782/edc (PostgreSQL 16.8)
+2025-03-19 17:42:08,079 [WARN] Database - Flyway upgrade recommended: PostgreSQL 16.8 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 14.
+2025-03-19 17:42:08,091 [INFO] DbValidate - Successfully validated 1 migration (execution time 00:00.009s)
+2025-03-19 17:42:08,095 [INFO] JdbcTableSchemaHistory - Creating Schema History table "public"."flyway_schema_history_sovity" ...
+2025-03-19 17:42:08,101 [INFO] DbMigrate - Current version of schema "public": << Empty Schema >>
+2025-03-19 17:42:08,107 [INFO] DbMigrate - Migrating schema "public" to version "11.0.0 - Release 11.0.0 CE"
+2025-03-19 17:42:08,138 [INFO] DbMigrate - Successfully applied 1 migration to schema "public", now at version v11.0.0 (execution time 00:00.038s)
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.139058525 Initialized Postgres + Flyway?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.144496023 Initialized Observability API?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.144628545 Initialized Api Core Default Services?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.149566467 Initialized API Core?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.149673696 Initialized org.eclipse.edc.connector.core.SecurityDefaultServicesExtension?[0m
+?[0;33m[consumer-dp] WARNING 2025-03-19T17:42:08.149769966 There were missing service registrations in extension class org.eclipse.edc.connector.core.LocalPublicKeyDefaultExtension: org.eclipse.edc.keys.spi.LocalPublicKeyService?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.149801885 Initialized org.eclipse.edc.connector.core.LocalPublicKeyDefaultExtension?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.14984978 Initialized S3?[0m
+?[0;34m[consumer-dp] DEBUG 2025-03-19T17:42:08.149945655 Resolving secret edc.aws.access.key?[0m
+?[0;34m[consumer-dp] DEBUG 2025-03-19T17:42:08.149989537 Resolving secret edc.aws.secret.access.key?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.150005192 S3: edc.aws.access.key and edc.aws.secret.access.key were not found in the vault, DefaultCredentialsProvider will be used?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.159493402 Initialized Azure BlobStore Core?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.159636328 Control API will be available under port=25633, path=/data/api/control?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.163992348 Initialized Control API configuration?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.164087443 Initialized Control Plane HTTP API client?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.164147109 Initialized Data Plane Framework Default Services?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.164195697 Initialized Sql AccessTokenData Store?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.164265448 Initialized org.eclipse.edc.token.TokenServicesExtension?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.164315317 Initialized Data Plane Framework Default IAM Services?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.164360693 Initialized Sql Data Plane Store?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.164492372 Initialized org.eclipse.tractusx.edc.dataplane.pipeline.PipelineServiceExtension?[0m
+?[0;34m[consumer-dp] DEBUG 2025-03-19T17:42:08.164568941 DataPlane Access Control: default implementation is used, will always return Result.success()?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.164679671 Initialized Data Plane Framework?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.164753135 Data Plane Public API will be available under port=25634, path=/data/api/public?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.164812086 Initialized Data Plane Public API?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.169566839 Initialized DataPlane Signaling API extension?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.169780167 Initialized Data Plane S3 Storage?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.169869169 Initialized Data Plane Azure Storage?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.169947681 Initialized Data Plane HTTP?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.170005586 Prepared de.sovity.edc.ce.modules.vault.inmemory.InMemoryVaultExtension?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.170028615 Prepared Boot Services?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.170034474 Prepared Core Default Services?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.170068624 Prepared Core Services?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.170074098 Prepared JSON-LD Extension?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.170077588 Prepared Jetty Service?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.170081067 Prepared Jersey Web Service?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.170085058 Prepared Test Backend Controller?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.170088825 Prepared de.sovity.edc.ce.modules.config_utils.ConfigUtilsExtension?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.170094246 Prepared Data-Plane Registration (Standalone)?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.170098088 Prepared de.sovity.edc.ce.modules.db.testcontainers.PostgresTestcontainerExtension?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.170102528 Prepared SQL Core?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.170109443 Prepared Local Transaction?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.17011352 Prepared Postgres + Flyway?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.170120712 Prepared Observability API?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.170123914 Prepared Api Core Default Services?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.170127596 Prepared API Core?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.170130797 Prepared org.eclipse.edc.connector.core.SecurityDefaultServicesExtension?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.170160144 Prepared org.eclipse.edc.connector.core.LocalPublicKeyDefaultExtension?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.17018661 Prepared S3?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.170199235 Prepared Azure BlobStore Core?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.170203322 Prepared Control API configuration?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.170206534 Prepared Control Plane HTTP API client?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.170209715 Prepared Data Plane Framework Default Services?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.170212799 Prepared Sql AccessTokenData Store?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.170216096 Prepared org.eclipse.edc.token.TokenServicesExtension?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.170219404 Prepared Data Plane Framework Default IAM Services?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.170223022 Prepared Sql Data Plane Store?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.170225882 Prepared org.eclipse.tractusx.edc.dataplane.pipeline.PipelineServiceExtension?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.170233971 Prepared Data Plane Framework?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.170236735 Prepared Data Plane Public API?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.170240033 Prepared DataPlane Signaling API extension?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.170243085 Prepared Data Plane S3 Storage?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.170247727 Prepared Data Plane Azure Storage?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.170250267 Prepared Data Plane HTTP?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.170258922 Started de.sovity.edc.ce.modules.vault.inmemory.InMemoryVaultExtension?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.170282122 Started Boot Services?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.170318257 Started Core Default Services?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.170330337 Started Core Services?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.170333709 Started JSON-LD Extension?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.170531457 HTTP context 'control' listening on port 25633?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.170666732 HTTP context 'default' listening on port 25630?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.170767195 HTTP context 'public' listening on port 25634?[0m
+?[0;34m[consumer-dp] DEBUG 2025-03-19T17:42:08.263219366 Port mappings: {alias='control', port=25633, path='/data/api/control'}, {alias='default', port=25630, path='/data/api'}, {alias='public', port=25634, path='/data/api/public'}?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.26331363 Started Jetty Service?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.392485936 Registered Web API context alias: default?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.522760244 Registered Web API context alias: public?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.641414234 Registered Web API context alias: control?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.641528902 Started Jersey Web Service?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.641558889 Started Test Backend Controller?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.641566946 Started de.sovity.edc.ce.modules.config_utils.ConfigUtilsExtension?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.641572282 Started Data-Plane Registration (Standalone)?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.641576124 Started de.sovity.edc.ce.modules.db.testcontainers.PostgresTestcontainerExtension?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.641581086 Started SQL Core?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.6415848 Started Local Transaction?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.64158941 Started Postgres + Flyway?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.64159306 Started Observability API?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.641596656 Started Api Core Default Services?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.641600392 Started API Core?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.64160402 Started org.eclipse.edc.connector.core.SecurityDefaultServicesExtension?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.641607584 Started org.eclipse.edc.connector.core.LocalPublicKeyDefaultExtension?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.641611864 Started S3?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.641619355 Started Azure BlobStore Core?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.641623304 Started Control API configuration?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.6416288 Started Control Plane HTTP API client?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.641637529 Started Data Plane Framework Default Services?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.641643537 Started Sql AccessTokenData Store?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.64166773 Started org.eclipse.edc.token.TokenServicesExtension?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.641684421 Started Data Plane Framework Default IAM Services?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.641721943 Started Sql Data Plane Store?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.641740031 Started org.eclipse.tractusx.edc.dataplane.pipeline.PipelineServiceExtension?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.641987829 Started Data Plane Framework?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.642025094 Started Data Plane Public API?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.642038893 Started DataPlane Signaling API extension?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.642044517 Started Data Plane S3 Storage?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.64204886 Started Data Plane Azure Storage?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.642052916 Started Data Plane HTTP?[0m
+?[0;32m[consumer-dp] INFO 2025-03-19T17:42:08.642087428 Runtime f26dfcb5-6f45-4b00-8090-f003a615a4ca ready?[0m
+?[0;34m[consumer-cp] DEBUG 2025-03-19T17:42:09.573933926 [DataPlaneSelectorManagerImpl] DataPlaneInstance http://localhost:25634/data/api/public is now in state AVAILABLE?[0m
+?[0;34m[provider-cp] DEBUG 2025-03-19T17:42:13.859063814 DSP: Incoming CatalogRequestMessage for class org.eclipse.edc.connector.controlplane.catalog.spi.Catalog process?[0m
+?[0;34m[consumer-cp] DEBUG 2025-03-19T17:42:16.261627872 [ConsumerContractNegotiationManagerImpl] ContractNegotiation 0195ad91-4f33-7943-9f5c-de67947d95b6 is now in state INITIAL?[0m
+?[0;34m[consumer-cp] DEBUG 2025-03-19T17:42:17.114058101 [ConsumerContractNegotiationManagerImpl] ContractNegotiation 0195ad91-4f33-7943-9f5c-de67947d95b6 is now in state REQUESTING?[0m
+?[0;34m[consumer-cp] DEBUG 2025-03-19T17:42:17.135219646 ContractNegotiation: ID 0195ad91-4f33-7943-9f5c-de67947d95b6. [Consumer] send request?[0m
+?[0;34m[provider-cp] DEBUG 2025-03-19T17:42:17.187401732 DSP: Incoming ContractRequestMessage for class org.eclipse.edc.connector.controlplane.contract.spi.types.negotiation.ContractNegotiation process?[0m
+?[0;34m[provider-cp] DEBUG 2025-03-19T17:42:17.243928915 [PROVIDER] ContractNegotiation 0195ad91-5313-7a2e-a454-0cd6c13e32e5 is now in state REQUESTED.?[0m
+?[0;34m[consumer-cp] DEBUG 2025-03-19T17:42:17.286304499 ContractNegotiation: ID 0195ad91-4f33-7943-9f5c-de67947d95b6. [Consumer] send request?[0m
+?[0;34m[consumer-cp] DEBUG 2025-03-19T17:42:17.289316739 [ConsumerContractNegotiationManagerImpl] ContractNegotiation 0195ad91-4f33-7943-9f5c-de67947d95b6 is now in state REQUESTED?[0m
+?[0;34m[provider-cp] DEBUG 2025-03-19T17:42:17.320424114 [ProviderContractNegotiationManagerImpl] ContractNegotiation 0195ad91-5313-7a2e-a454-0cd6c13e32e5 is now in state AGREEING?[0m
+?[0;34m[provider-cp] DEBUG 2025-03-19T17:42:17.328680388 ContractNegotiation: ID 0195ad91-5313-7a2e-a454-0cd6c13e32e5. [Provider] send agreement?[0m
+?[0;34m[consumer-cp] DEBUG 2025-03-19T17:42:17.38087379 DSP: Incoming ContractAgreementMessage for class org.eclipse.edc.connector.controlplane.contract.spi.types.negotiation.ContractNegotiation process: 0195ad91-4f33-7943-9f5c-de67947d95b6?[0m
+?[0;34m[consumer-cp] DEBUG 2025-03-19T17:42:17.429959556 [CONSUMER] ContractNegotiation 0195ad91-4f33-7943-9f5c-de67947d95b6 is now in state AGREED.?[0m
+?[0;34m[provider-cp] DEBUG 2025-03-19T17:42:17.431629243 ContractNegotiation: ID 0195ad91-5313-7a2e-a454-0cd6c13e32e5. [Provider] send agreement?[0m
+?[0;34m[provider-cp] DEBUG 2025-03-19T17:42:17.435977925 [ProviderContractNegotiationManagerImpl] ContractNegotiation 0195ad91-5313-7a2e-a454-0cd6c13e32e5 is now in state AGREED?[0m
+?[0;34m[consumer-cp] DEBUG 2025-03-19T17:42:18.196951997 [ConsumerContractNegotiationManagerImpl] ContractNegotiation 0195ad91-4f33-7943-9f5c-de67947d95b6 is now in state VERIFYING?[0m
+?[0;34m[consumer-cp] DEBUG 2025-03-19T17:42:18.200383628 ContractNegotiation: ID 0195ad91-4f33-7943-9f5c-de67947d95b6. [consumer] send verification?[0m
+?[0;34m[provider-cp] DEBUG 2025-03-19T17:42:18.232787176 DSP: Incoming ContractAgreementVerificationMessage for class org.eclipse.edc.connector.controlplane.contract.spi.types.negotiation.ContractNegotiation process: 0195ad91-5313-7a2e-a454-0cd6c13e32e5?[0m
+?[0;34m[provider-cp] DEBUG 2025-03-19T17:42:18.250230836 [PROVIDER] ContractNegotiation 0195ad91-5313-7a2e-a454-0cd6c13e32e5 is now in state VERIFIED.?[0m
+?[0;34m[consumer-cp] DEBUG 2025-03-19T17:42:18.251450048 ContractNegotiation: ID 0195ad91-4f33-7943-9f5c-de67947d95b6. [consumer] send verification?[0m
+?[0;34m[consumer-cp] DEBUG 2025-03-19T17:42:18.259085264 [ConsumerContractNegotiationManagerImpl] ContractNegotiation 0195ad91-4f33-7943-9f5c-de67947d95b6 is now in state VERIFIED?[0m
+?[0;34m[provider-cp] DEBUG 2025-03-19T17:42:18.388925512 [ProviderContractNegotiationManagerImpl] ContractNegotiation 0195ad91-5313-7a2e-a454-0cd6c13e32e5 is now in state FINALIZING?[0m
+?[0;34m[provider-cp] DEBUG 2025-03-19T17:42:18.395625159 ContractNegotiation: ID 0195ad91-5313-7a2e-a454-0cd6c13e32e5. [Provider] send finalization?[0m
+?[0;34m[consumer-cp] DEBUG 2025-03-19T17:42:18.431889458 DSP: Incoming ContractNegotiationEventMessage for class org.eclipse.edc.connector.controlplane.contract.spi.types.negotiation.ContractNegotiation process: 0195ad91-4f33-7943-9f5c-de67947d95b6?[0m
+?[0;34m[consumer-cp] DEBUG 2025-03-19T17:42:18.451976839 [CONSUMER] ContractNegotiation 0195ad91-4f33-7943-9f5c-de67947d95b6 is now in state FINALIZED.?[0m
+?[0;34m[provider-cp] DEBUG 2025-03-19T17:42:18.454113993 ContractNegotiation: ID 0195ad91-5313-7a2e-a454-0cd6c13e32e5. [Provider] send finalization?[0m
+?[0;34m[provider-cp] DEBUG 2025-03-19T17:42:18.458814999 [ProviderContractNegotiationManagerImpl] ContractNegotiation 0195ad91-5313-7a2e-a454-0cd6c13e32e5 is now in state FINALIZED?[0m
+?[0;34m[consumer-cp] DEBUG 2025-03-19T17:42:18.468880409 [TransferProcessManagerImpl] TransferProcess c4611689-bfd5-4acf-8669-f086f4930e10 is now in state INITIAL?[0m
+?[0;34m[consumer-cp] DEBUG 2025-03-19T17:42:19.41499268 [TransferProcessManagerImpl] TransferProcess c4611689-bfd5-4acf-8669-f086f4930e10 is now in state PROVISIONING?[0m
+?[0;34m[consumer-cp] DEBUG 2025-03-19T17:42:19.42157993 TransferProcess: ID c4611689-bfd5-4acf-8669-f086f4930e10. Provisioning?[0m
+?[0;34m[consumer-cp] DEBUG 2025-03-19T17:42:19.436125573 [TransferProcessManagerImpl] TransferProcess c4611689-bfd5-4acf-8669-f086f4930e10 is now in state PROVISIONED?[0m
+?[0;34m[consumer-cp] DEBUG 2025-03-19T17:42:19.44201342 [TransferProcessManagerImpl] TransferProcess c4611689-bfd5-4acf-8669-f086f4930e10 is now in state REQUESTING?[0m
+?[0;34m[consumer-cp] DEBUG 2025-03-19T17:42:19.445899062 TransferProcess: ID c4611689-bfd5-4acf-8669-f086f4930e10. send transfer request to http://localhost:41445/control/api/dsp?[0m
+?[0;34m[provider-cp] DEBUG 2025-03-19T17:42:19.475315509 DSP: Incoming TransferRequestMessage for class org.eclipse.edc.connector.controlplane.transfer.spi.types.TransferProcess process?[0m
+?[0;34m[provider-cp] DEBUG 2025-03-19T17:42:19.504979836 TransferProcess 65878212-b173-4662-93db-15da5b7b7294 is now in state INITIAL?[0m
+?[0;34m[consumer-cp] DEBUG 2025-03-19T17:42:19.52311781 TransferProcess: ID c4611689-bfd5-4acf-8669-f086f4930e10. send transfer request to http://localhost:41445/control/api/dsp?[0m
+?[0;34m[consumer-cp] DEBUG 2025-03-19T17:42:19.526090417 [TransferProcessManagerImpl] TransferProcess c4611689-bfd5-4acf-8669-f086f4930e10 is now in state REQUESTED?[0m
+?[0;34m[provider-cp] DEBUG 2025-03-19T17:42:19.60368656 [TransferProcessManagerImpl] TransferProcess 65878212-b173-4662-93db-15da5b7b7294 is now in state PROVISIONING?[0m
+?[0;34m[provider-cp] DEBUG 2025-03-19T17:42:19.607879429 TransferProcess: ID 65878212-b173-4662-93db-15da5b7b7294. Provisioning?[0m
+?[0;34m[provider-cp] DEBUG 2025-03-19T17:42:19.610363084 [TransferProcessManagerImpl] TransferProcess 65878212-b173-4662-93db-15da5b7b7294 is now in state PROVISIONED?[0m
+?[0;34m[provider-cp] DEBUG 2025-03-19T17:42:19.616721487 [TransferProcessManagerImpl] TransferProcess 65878212-b173-4662-93db-15da5b7b7294 is now in state STARTING?[0m
+?[0;34m[provider-cp] DEBUG 2025-03-19T17:42:19.624401586 TransferProcess: ID 65878212-b173-4662-93db-15da5b7b7294. Initiate data flow?[0m
+?[0;34m[provider-dp] DEBUG 2025-03-19T17:42:19.711358058 [DataPlaneManagerImpl] DataFlow 65878212-b173-4662-93db-15da5b7b7294 is now in state RECEIVED?[0m
+?[0;34m[provider-cp] DEBUG 2025-03-19T17:42:19.730153415 TransferProcess: ID 65878212-b173-4662-93db-15da5b7b7294. send transfer start to http://localhost:23340/control/api/dsp?[0m
+?[0;34m[consumer-cp] DEBUG 2025-03-19T17:42:19.754955883 DSP: Incoming TransferStartMessage for class org.eclipse.edc.connector.controlplane.transfer.spi.types.TransferProcess process: c4611689-bfd5-4acf-8669-f086f4930e10?[0m
+?[0;34m[consumer-cp] DEBUG 2025-03-19T17:42:19.770900054 TransferProcess c4611689-bfd5-4acf-8669-f086f4930e10 is now in state STARTED?[0m
+?[0;34m[provider-cp] DEBUG 2025-03-19T17:42:19.77697939 TransferProcess: ID 65878212-b173-4662-93db-15da5b7b7294. send transfer start to http://localhost:23340/control/api/dsp?[0m
+?[0;34m[provider-cp] DEBUG 2025-03-19T17:42:19.780066079 [TransferProcessManagerImpl] TransferProcess 65878212-b173-4662-93db-15da5b7b7294 is now in state STARTED?[0m
+?[0;34m[provider-cp] DEBUG 2025-03-19T17:42:19.784272238 [PolicyMonitorManagerImpl] PolicyMonitorEntry 65878212-b173-4662-93db-15da5b7b7294 is now in state STARTED?[0m
+?[0;34m[provider-dp] DEBUG 2025-03-19T17:42:20.581401196 DataFlow: ID 65878212-b173-4662-93db-15da5b7b7294. start data flow?[0m
+?[0;34m[provider-dp] DEBUG 2025-03-19T17:42:20.581776259 Transferring from HttpData to HttpData.?[0m
+?[0;34m[provider-dp] DEBUG 2025-03-19T17:42:20.585144691 Executing HTTP request: http://localhost:23338/control/api/test-backend/data-source?data=expected%20data%20123?[0m
+?[0;34m[provider-dp] DEBUG 2025-03-19T17:42:20.615244213 [DataPlaneManagerImpl] DataFlow 65878212-b173-4662-93db-15da5b7b7294 is now in state COMPLETED?[0m
+?[0;34m[provider-dp] DEBUG 2025-03-19T17:42:21.631263653 [DataPlaneManagerImpl] DataFlow 65878212-b173-4662-93db-15da5b7b7294 is now in state NOTIFIED?[0m
+?[0;34m[provider-cp] DEBUG 2025-03-19T17:42:21.787307329 TransferProcess: ID 65878212-b173-4662-93db-15da5b7b7294. send transfer completion to http://localhost:23340/control/api/dsp?[0m
+?[0;34m[consumer-cp] DEBUG 2025-03-19T17:42:21.81043908 DSP: Incoming TransferCompletionMessage for class org.eclipse.edc.connector.controlplane.transfer.spi.types.TransferProcess process: c4611689-bfd5-4acf-8669-f086f4930e10?[0m
+?[0;34m[consumer-cp] DEBUG 2025-03-19T17:42:21.823060751 TransferProcess c4611689-bfd5-4acf-8669-f086f4930e10 is now in state COMPLETED?[0m
+?[0;34m[provider-cp] DEBUG 2025-03-19T17:42:21.824494415 TransferProcess: ID 65878212-b173-4662-93db-15da5b7b7294. send transfer completion to http://localhost:23340/control/api/dsp?[0m
+?[0;34m[provider-cp] DEBUG 2025-03-19T17:42:21.827249143 [TransferProcessManagerImpl] TransferProcess 65878212-b173-4662-93db-15da5b7b7294 is now in state COMPLETED?[0m
+?[0;34m[provider-cp] DEBUG 2025-03-19T17:42:21.829590428 [TransferProcessManagerImpl] TransferProcess 65878212-b173-4662-93db-15da5b7b7294 is now in state DEPROVISIONING?[0m
+?[0;34m[provider-cp] DEBUG 2025-03-19T17:42:22.461306171 [PolicyMonitorManagerImpl] PolicyMonitorEntry 65878212-b173-4662-93db-15da5b7b7294 is now in state COMPLETED?[0m
+?[0;34m[provider-cp] DEBUG 2025-03-19T17:42:22.827869478 TransferProcess: ID 65878212-b173-4662-93db-15da5b7b7294. deprovisioning?[0m
+?[0;34m[provider-cp] DEBUG 2025-03-19T17:42:22.831353755 [TransferProcessManagerImpl] TransferProcess 65878212-b173-4662-93db-15da5b7b7294 is now in state DEPROVISIONED?[0m
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="de.sovity.edc.ce.ApiWrapperDemoTestIamMock" tests="1" skipped="0" failures="1" errors="0" timestamp="2025-03-19T08:41:52" hostname="DESKTOP-P8E06B6" time="0.001">
+  <properties/>
+  <testcase name="initializationError" classname="de.sovity.edc.ce.ApiWrapperDemoTestIamMock" time="0.001">
+    <failure message="org.eclipse.edc.spi.EdcException: Failed to run deferred function in PT20S" type="org.eclipse.edc.spi.EdcException">org.eclipse.edc.spi.EdcException: Failed to run deferred function in PT20S
+	at app//de.sovity.edc.extension.e2e.junit.edc.TimeoutUtils.runDeferred(TimeoutUtils.kt:37)
+	at app//de.sovity.edc.extension.e2e.junit.edc.SovityEdcTestRuntimeExtension.beforeAll(SovityEdcTestRuntimeExtension.kt:42)
+	at app//de.sovity.edc.extension.e2e.junit.IntegrationTestExtension.beforeAll$lambda$2(IntegrationTestExtension.kt:56)
+	at app//de.sovity.edc.extension.e2e.junit.edc.EdcPortFinder.withAutoPortHandling$lambda$1(EdcPortFinder.kt:36)
+	at app//de.sovity.edc.extension.e2e.junit.edc.PortFinder.retryFindingPorts(PortFinder.kt:26)
+	at app//de.sovity.edc.extension.e2e.junit.edc.EdcPortFinder.withAutoPortHandling(EdcPortFinder.kt:34)
+	at app//de.sovity.edc.extension.e2e.junit.edc.EdcPortFinder.withAutoPortHandling$default(EdcPortFinder.kt:22)
+	at app//de.sovity.edc.extension.e2e.junit.IntegrationTestExtension.beforeAll(IntegrationTestExtension.kt:49)
+	at app//de.sovity.edc.extension.e2e.junit.IntegrationTest2xExtension.beforeAll(IntegrationTest2xExtension.kt:82)
+	at java.base@17.0.14/java.util.ArrayList.forEach(ArrayList.java:1511)
+	Suppressed: org.junit.jupiter.api.extension.ParameterResolutionException: No resolver found for type class de.sovity.edc.extension.e2e.junit.edc.SovityEdcTestRuntimeExtension in list of resolvers and instances
+		at app//de.sovity.edc.extension.e2e.junit.utils.InstancesForJunitTest.lambda$resolveParameter$4(InstancesForJunitTest.java:94)
+		at java.base@17.0.14/java.util.Optional.orElseThrow(Optional.java:403)
+		at app//de.sovity.edc.extension.e2e.junit.utils.InstancesForJunitTest.lambda$resolveParameter$5(InstancesForJunitTest.java:93)
+		at java.base@17.0.14/java.util.Optional.orElseGet(Optional.java:364)
+		at app//de.sovity.edc.extension.e2e.junit.utils.InstancesForJunitTest.resolveParameter(InstancesForJunitTest.java:90)
+		at app//de.sovity.edc.extension.e2e.junit.utils.InstancesForJunitTest.get(InstancesForJunitTest.java:54)
+		at app//de.sovity.edc.extension.e2e.junit.IntegrationTestExtension.afterAll(IntegrationTestExtension.kt:75)
+		at app//de.sovity.edc.extension.e2e.junit.IntegrationTest2xExtension.afterAll(IntegrationTest2xExtension.kt:110)
+		... 1 more
+</failure>
+  </testcase>
+  <system-out><![CDATA[?[0;32m[provider] INFO 2025-03-19T17:41:30.033728135 TestMonitor#createMonitor: Whatever monitor would have been used, we are overriding it with a ConsoleMonitor, so we can prefix the runtime?[0m
+?[0;33m[provider] WARNING 2025-03-19T17:41:30.289916305 Warnings occurred during configuration evaluation:     - WARN sovity.environment: Property set to 'warn if overriden' value=UNIT_TEST. Documentation: Deployment Environment as required for either defaulting or requiring config such as FQDN. Available options:   * `production`: EDC Connectors running in an environment behind a reverse proxy with TLS  * `local-demo-docker-compose`: EDC Connectors running in a Docker Compose setup without TLS  * `unit-test`: EDC Connectors started for JUnit tests     - WARN sovity.first.port: Property set to 'warn if overriden' value=16689. Documentation: The first port of several ports to be used for the several API endpoints. If set to 11000, the Management API will be on 11002, etc.  During tests it can be set to 'auto' for the test framework to auto find a free port-range.?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:32.089556725 Initialized de.sovity.edc.ce.modules.vault.inmemory.InMemoryVaultExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:32.094585904 Initialized Boot Services?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:32.145397245 Initialized Core Default Services?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:32.445079694 HTTPS enforcement it not enabled, please enable it in a production environment?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:32.654375589 HTTPS enforcement it not enabled, please enable it in a production environment?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:32.659604513 Initialized Core Services?[0m
+?[0;33m[provider] WARNING 2025-03-19T17:41:32.743737381 Settings: No setting found for key 'edc.hostname'. Using default value 'localhost'?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:34.705963408 Initialized JSON-LD Extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:34.975088 Initialized Control Plane Default Services?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:34.975400066 Initialized SQL Core?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:35.001782348 Initialized Local Transaction?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:35.049329801 Initialized org.eclipse.edc.connector.controlplane.store.sql.contractdefinition.SqlContractDefinitionStoreExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:35.088666617 Initialized org.eclipse.edc.connector.controlplane.store.sql.contractnegotiation.SqlContractNegotiationStoreExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:35.134195063 Initialized org.eclipse.edc.connector.controlplane.store.sql.policydefinition.SqlPolicyStoreExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:35.134418909 Initialized org.eclipse.edc.connector.controlplane.contract.ContractNegotiationDefaultServicesExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:35.171514804 Initialized org.eclipse.edc.connector.controlplane.store.sql.assetindex.SqlAssetIndexServiceExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:35.632826184 Initialized Jetty Service?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:35.652597866 Initialized Jersey Web Service?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:35.658544756 Protocol API will be available under port=16692, path=/api/dsp?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:35.842224854 Initialized Dataspace Protocol API Configuration Extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:36.007070056 Initialized Contract Core?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:36.023102799 Initialized Contract Negotiation command handlers?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:36.048061133 Initialized org.eclipse.edc.connector.controlplane.store.sql.transferprocess.SqlTransferProcessStoreExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:36.048289681 Initialized Transfer Process Default Services?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:36.252194804 Initialized Transfer Core?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:36.292226471 Initialized org.eclipse.edc.connector.controlplane.transfer.TransferProcessCommandExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:36.307909408 Initialized Test Backend Controller?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:36.308391563 Initialized de.sovity.edc.ce.modules.config_utils.ConfigUtilsExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:36.312535932 Initialized Catalog Default Services?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:36.316910103 Initialized Catalog Core?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:36.325401338 Initialized Mock IAM?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:36.330111409 Initialized Control Plane Services?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:36.520615401 Initialized de.sovity.edc.ce.modules.policy_utils.always_true.AlwaysTruePolicyDefinitionExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:36.521123089 Initialized Dataspace Protocol Core Extension?[0m
+?[0;33m[provider] WARNING 2025-03-19T17:41:36.521329343 No TokenDecorator was registered. The 'scope' field of outgoing protocol messages will be empty?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:36.649251921 Initialized SovityMessenger?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:36.649530174 Starting PostgreSQL Testcontainer?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:43.433710725 PostgreSQL Testcontainer started!?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:43.43406448 Initialized de.sovity.edc.ce.modules.db.testcontainers.PostgresTestcontainerExtension?[0m
+2025-03-19 17:41:47,187 [INFO] VersionPrinter - Flyway Community Edition 9.0.1 by Redgate
+2025-03-19 17:41:47,235 [INFO] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#9.0.1
+2025-03-19 17:41:47,235 [INFO] VersionPrinter - 
+2025-03-19 17:41:48,161 [INFO] BaseDatabaseType - Database: jdbc:postgresql://localhost:32778/edc (PostgreSQL 16.8)
+2025-03-19 17:41:48,225 [WARN] Database - Flyway upgrade recommended: PostgreSQL 16.8 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 14.
+2025-03-19 17:41:48,434 [INFO] DbValidate - Successfully validated 1 migration (execution time 00:00.149s)
+2025-03-19 17:41:48,473 [INFO] JdbcTableSchemaHistory - Creating Schema History table "public"."flyway_schema_history_sovity" ...
+2025-03-19 17:41:48,567 [INFO] DbMigrate - Current version of schema "public": << Empty Schema >>
+2025-03-19 17:41:48,586 [INFO] DbMigrate - Migrating schema "public" to version "11.0.0 - Release 11.0.0 CE"
+2025-03-19 17:41:48,654 [INFO] DbMigrate - Successfully applied 1 migration to schema "public", now at version v11.0.0 (execution time 00:00.097s)
+?[0;32m[provider] INFO 2025-03-19T17:41:48.671051998 Initialized Postgres + Flyway?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:48.855031185 Initialized de.sovity.edc.ce.modules.messaging.contract_termination.ContractTerminationExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:49.784909538 Initialized WrapperExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:49.810875037 Initialized EdcUiConfigExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:49.811470744 Initialized de.sovity.edc.ce.modules.policy_utils.creator.SimplePolicyCreatorExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:48.076402517 Initialized de.sovity.edc.ce.modules.dataspaces.sovity.policies.evaluation_time.EvaluationTimePolicyExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:48.093091325 Initialized de.sovity.edc.ce.modules.dataspaces.sovity.policies.referring_connector.ReferringConnectorPolicyExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:48.093304053 Initialized Control Plane HTTP API client?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:48.109151571 Initialized org.eclipse.edc.connector.core.SecurityDefaultServicesExtension?[0m
+?[0;33m[provider] WARNING 2025-03-19T17:41:48.239271046 There were missing service registrations in extension class org.eclipse.edc.connector.core.LocalPublicKeyDefaultExtension: org.eclipse.edc.keys.spi.LocalPublicKeyService?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:48.239660209 Initialized org.eclipse.edc.connector.core.LocalPublicKeyDefaultExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:48.240059709 Initialized org.eclipse.edc.token.TokenServicesExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:48.248620335 Initialized Data Plane Framework Default Services?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:48.248777593 Initialized Sql AccessTokenData Store?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:48.265942657 Initialized Data Plane Framework Default IAM Services?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:48.26659594 Initialized Sql Data Plane Store?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:48.279062427 Initialized org.eclipse.tractusx.edc.dataplane.pipeline.PipelineServiceExtension?[0m
+?[0;34m[provider] DEBUG 2025-03-19T17:41:48.282530563 DataPlane Access Control: default implementation is used, will always return Result.success()?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:48.308065702 Initialized Data Plane Framework?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:48.308301134 Initialized Data Plane Signaling Client?[0m
+?[0;34m[provider] DEBUG 2025-03-19T17:41:48.308835838 Using embedded Data Plane client.?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:48.309211543 Initialized Data Plane Selector Default Services?[0m
+?[0;33m[provider] WARNING 2025-03-19T17:41:48.309378596 There were missing service registrations in extension class org.eclipse.edc.connector.dataplane.selector.store.sql.SqlDataPlaneInstanceStoreExtension: org.eclipse.edc.connector.dataplane.selector.spi.store.DataPlaneInstanceStore?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:48.30972771 Initialized Sql Data Plane Instance Store?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:48.33577914 Initialized Data Plane Selector core?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:48.33847159 Initialized Data-Plane Registration (Embedded)?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:48.733692519 Initialized Observability API?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:48.733953504 Initialized Api Core Default Services?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:48.77814682 Initialized API Core?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:48.793474229 Initialized Azure BlobStore Core?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:48.793862292 Control API will be available under port=16693, path=/api/control?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:48.805381872 Initialized Control API configuration?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:48.805918816 Management API will be available under port=16691, path=/api/management?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:48.8215688 Initialized Management API configuration?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:48.853821077 Initialized Management API: Secret?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:48.863905657 Initialized Control Plane API?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:48.8801093 Initialized Management API: Asset?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:48.913262528 Initialized Management API: Catalog?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:48.927494205 Initialized Management API: Contract Agreement?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:48.949049291 Initialized Management API: Contract Definition?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:48.990044146 Initialized Management API: Contract Negotiation?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:49.032453889 Initialized Management API: Policy Definition?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:49.074837533 Initialized Management API: Transfer Process?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:49.081268785 Initialized Callback dispatcher extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:49.093348982 Initialized Callback dispatcher http extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:49.094164913 Initialized Static callbacks extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:49.094307653 Initialized org.eclipse.edc.edr.store.EndpointDataReferenceStoreDefaultServicesExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:49.105205759 Initialized org.eclipse.edc.edr.store.index.SqlEndpointDataReferenceEntryIndexExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:49.107935412 Initialized org.eclipse.edc.edr.store.EndpointDataReferenceStoreExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:49.113769214 Initialized Endpoint Data Reference Store Receiver Extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:49.11902799 Initialized Http Dynamic Endpoint Data Reference Receiver?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:49.139668727 Initialized Data Plane Signaling transform Client?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:49.164512689 Initialized org.eclipse.edc.connector.dataplane.selector.DataPlaneSelectorApiExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:49.164680971 Initialized PolicyMonitor Default Services?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:49.164820767 Initialized org.eclipse.edc.connector.policy.monitor.store.sql.SqlPolicyMonitorStoreExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:49.187960986 Initialized org.eclipse.edc.connector.policy.monitor.PolicyMonitorExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:49.203786834 Initialized Azure Provision?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:49.226656072 Initialized Dataspace Protocol Catalog Extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:49.236045052 Initialized Dataspace Protocol Catalog HTTP Dispatcher Extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:49.265048869 Initialized Dataspace Protocol Catalog Transform Extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:49.285563344 Initialized Dataspace Protocol Negotiation Api?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:49.291990982 Initialized Dataspace Protocol Negotiation HTTP Dispatcher Extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:49.328619828 Initialized Dataspace Protocol Negotiation Transform Extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:49.342037799 Initialized org.eclipse.edc.protocol.dsp.transferprocess.http.api.DspTransferProcessApiExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:49.344286765 Initialized Dataspace Protocol Transfer HTTP Dispatcher Extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:49.380100469 Initialized Dataspace Protocol Transfer Process Transform Extension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:49.388634894 Initialized Dataspace Protocol Version Api?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:49.391497402 Initialized org.eclipse.edc.validator.dataaddress.httpdata.HttpDataDataAddressValidatorExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:49.397079135 Initialized org.eclipse.tractusx.edc.dataplane.transfer.signaling.TransferDataPlaneSignalingExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:49.407461732 Initialized org.eclipse.tractusx.edc.dataset.fix.DatasetFixExtension?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:49.435480883 Initialized Static token API Authentication?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:49.43566037 Initialized S3?[0m
+?[0;34m[provider] DEBUG 2025-03-19T17:41:49.442425229 Resolving secret edc.aws.access.key?[0m
+?[0;34m[provider] DEBUG 2025-03-19T17:41:49.442553461 Resolving secret edc.aws.secret.access.key?[0m
+?[0;32m[provider] INFO 2025-03-19T17:41:49.442682402 S3: edc.aws.access.key and edc.aws.secret.access.key were not found in the vault, DefaultCredentialsProvider will be used?[0m
+]]></system-out>
+  <system-err><![CDATA[SLF4J(W): No SLF4J providers were found.
+SLF4J(W): Defaulting to no-operation (NOP) logger implementation
+SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
+]]></system-err>
+</testsuite>

@@ -1,0 +1,8 @@
+# From: org.eclipse.edc/sql-pool-apache-commons/0.7.2.1/e9823be87d6a6524126f05b8337bcb3b38eb0e40/sql-pool-apache-commons-0.7.2.1.jar
+org.eclipse.edc.sql.pool.commons.CommonsConnectionPoolServiceExtension
+
+# From: org.eclipse.edc/sql-core/0.7.2.1/53f1cb169a887845f21ca075cdb6fe0e740441cc/sql-core-0.7.2.1.jar
+org.eclipse.edc.sql.SqlCoreExtension
+
+# From: org.eclipse.edc/transaction-local/0.7.2.1/e7cee835fa883b2ca54abd50cef8671d42fd3a6/transaction-local-0.7.2.1.jar
+org.eclipse.edc.transaction.local.LocalTransactionExtension

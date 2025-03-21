@@ -1,0 +1,5 @@
+# From: io.projectreactor/reactor-core/3.4.36/6f29a4f68e4156358f64f6a060c5e55ad42f5231/reactor-core-3.4.36.jar
+reactor.core.scheduler.ReactorBlockHoundIntegration
+
+# From: io.netty/netty-common/4.1.108.Final/30617b39cc6f850ca3807459fe726fbcd63989f2/netty-common-4.1.108.Final.jar
+io.netty.util.internal.Hidden$NettyBlockHoundIntegration

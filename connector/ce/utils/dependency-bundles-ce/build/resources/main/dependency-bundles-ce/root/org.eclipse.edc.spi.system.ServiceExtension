@@ -1,0 +1,5 @@
+# From: org.eclipse.edc/api-observability/0.7.2.1/23817594e3961ae1865a324f981e90f5efd4a217/api-observability-0.7.2.1.jar
+org.eclipse.edc.api.observability.ObservabilityApiExtension
+
+# From: org.eclipse.edc/jetty-core/0.7.2.1/5024e89ad1c9719c1d6af7bc6d85168daa875f39/jetty-core-0.7.2.1.jar
+org.eclipse.edc.web.jetty.JettyExtension

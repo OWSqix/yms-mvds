@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="de.sovity.edc.runtime.modules.evaluation.utils.ConfigPropSafeEvaluatorTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2025-03-19T08:33:54" hostname="DESKTOP-P8E06B6" time="0.219">
+  <properties/>
+  <testcase name="test wrong property()" classname="de.sovity.edc.runtime.modules.evaluation.utils.ConfigPropSafeEvaluatorTest" time="0.019"/>
+  <testcase name="test warnIfOverridden set()" classname="de.sovity.edc.runtime.modules.evaluation.utils.ConfigPropSafeEvaluatorTest" time="0.002"/>
+  <testcase name="test warnIfOverridden unset()" classname="de.sovity.edc.runtime.modules.evaluation.utils.ConfigPropSafeEvaluatorTest" time="0.001"/>
+  <testcase name="test multiple definitions - non-conflicting by same value()" classname="de.sovity.edc.runtime.modules.evaluation.utils.ConfigPropSafeEvaluatorTest" time="0.002"/>
+  <testcase name="test defaultValue()" classname="de.sovity.edc.runtime.modules.evaluation.utils.ConfigPropSafeEvaluatorTest" time="0.001"/>
+  <testcase name="test defaultValueFn()" classname="de.sovity.edc.runtime.modules.evaluation.utils.ConfigPropSafeEvaluatorTest" time="0.002"/>
+  <testcase name="test multiple definitions - non-conflicting by only one applying a default()" classname="de.sovity.edc.runtime.modules.evaluation.utils.ConfigPropSafeEvaluatorTest" time="0.002"/>
+  <testcase name="test warnIfUnset unset()" classname="de.sovity.edc.runtime.modules.evaluation.utils.ConfigPropSafeEvaluatorTest" time="0.002"/>
+  <testcase name="test warnIfUnset set()" classname="de.sovity.edc.runtime.modules.evaluation.utils.ConfigPropSafeEvaluatorTest" time="0.001"/>
+  <testcase name="test multiple definitions - conflicting()" classname="de.sovity.edc.runtime.modules.evaluation.utils.ConfigPropSafeEvaluatorTest" time="0.002"/>
+  <testcase name="test configPropDefs empty()" classname="de.sovity.edc.runtime.modules.evaluation.utils.ConfigPropSafeEvaluatorTest" time="0.181"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

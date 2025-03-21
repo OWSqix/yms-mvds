@@ -1,0 +1,42 @@
+/*
+ *  Copyright (c) 2024 sovity GmbH
+ *
+ *  This program and the accompanying materials are made available under the
+ *  terms of the Apache License, Version 2.0 which is available at
+ *  https://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  SPDX-License-Identifier: Apache-2.0
+ */
+package de.sovity.edc.ce.modules.messaging.contract_termination;
+
+import de.sovity.edc.ce.db.jooq.enums.ContractTerminatedBy;
+import lombok.Builder;
+import org.eclipse.edc.connector.controlplane.contract.spi.types.negotiation.ContractNegotiation;
+
+import java.time.OffsetDateTime;
+
+@Builder(toBuilder = true)
+public record ContractAgreementTerminationDetails(
+    String contractAgreementId,
+    String counterpartyId,
+    String counterpartyAddress,
+    ContractNegotiation.Type type,
+    String providerAgentId,
+    String consumerAgentId,
+    String reason,
+    String detail,
+    OffsetDateTime terminatedAt,
+    ContractTerminatedBy terminatedBy
+) {
+    public boolean isTerminated() {
+        return terminatedAt != null;
+    }
+
+    boolean thisEdcIsTheConsumer() {
+        return type.equals(ContractNegotiation.Type.CONSUMER);
+    }
+
+    boolean thisEdcIsTheProvider() {
+        return type.equals(ContractNegotiation.Type.PROVIDER);
+    }
+}

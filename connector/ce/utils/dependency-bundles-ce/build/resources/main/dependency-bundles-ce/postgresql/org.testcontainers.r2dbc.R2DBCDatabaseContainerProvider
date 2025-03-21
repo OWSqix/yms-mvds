@@ -1,0 +1,2 @@
+# From: org.testcontainers/postgresql/1.19.1/ac7c21ffe1191e9abf49f20e7fddf4c7a74f8ecd/postgresql-1.19.1.jar
+org.testcontainers.containers.PostgreSQLR2DBCDatabaseContainerProvider

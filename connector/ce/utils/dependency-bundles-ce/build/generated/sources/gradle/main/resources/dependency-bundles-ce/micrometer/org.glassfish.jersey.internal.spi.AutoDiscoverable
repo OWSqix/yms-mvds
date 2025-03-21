@@ -1,0 +1,11 @@
+# From: org.glassfish.jersey.core/jersey-server/3.1.7/fed4e119e3502b83ecb019ddf694b8b74c495a05/jersey-server-3.1.7.jar
+org.glassfish.jersey.server.filter.internal.ServerFiltersAutoDiscoverable
+
+# From: org.glassfish.jersey.media/jersey-media-json-jackson/3.1.7/9c415137c1f36ee525977eec9580e23a269602b2/jersey-media-json-jackson-3.1.7.jar
+org.glassfish.jersey.jackson.internal.JacksonAutoDiscoverable
+
+# From: org.glassfish.jersey.media/jersey-media-multipart/3.1.7/d0b3d3dd3f166a7df07f1e78f2a89c12fddf346f/jersey-media-multipart-3.1.7.jar
+org.glassfish.jersey.media.multipart.MultiPartFeatureAutodiscoverable
+
+# From: org.glassfish.jersey.core/jersey-common/3.1.7/1d8d9a904de672674286af92b0f63251e6694ce5/jersey-common-3.1.7.jar
+org.glassfish.jersey.logging.LoggingFeatureAutoDiscoverable

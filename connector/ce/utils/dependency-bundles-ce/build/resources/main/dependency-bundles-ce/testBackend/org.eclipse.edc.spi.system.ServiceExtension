@@ -1,0 +1,21 @@
+# From: org.eclipse.edc/api-core/0.7.2.1/fc7bc1fe508f0f5672235bd1fe6e3038cd07819b/api-core-0.7.2.1.jar
+org.eclipse.edc.api.ApiCoreExtension
+org.eclipse.edc.api.ApiCoreDefaultServicesExtension
+
+# From: org.eclipse.edc/boot/0.7.2.1/f512e9c40fbce24280f3f51a00629d349ea7e2d/boot-0.7.2.1.jar
+org.eclipse.edc.boot.BootServicesExtension
+
+# From: org.eclipse.edc/json-ld/0.7.2.1/279778390da3d1e90c6c7585402558bdb813bd5b/json-ld-0.7.2.1.jar
+org.eclipse.edc.jsonld.JsonLdExtension
+
+# From: org.eclipse.edc/connector-core/0.7.2.1/e2588f8e7a9cd2a99056677e5dc591cbd3f5449d/connector-core-0.7.2.1.jar
+org.eclipse.edc.connector.core.CoreServicesExtension
+org.eclipse.edc.connector.core.CoreDefaultServicesExtension
+org.eclipse.edc.connector.core.SecurityDefaultServicesExtension
+org.eclipse.edc.connector.core.LocalPublicKeyDefaultExtension
+
+# From: org.eclipse.edc/jersey-core/0.7.2.1/4f718109147b85fe5ace108e611f66198f29783/jersey-core-0.7.2.1.jar
+org.eclipse.edc.web.jersey.JerseyExtension
+
+# From: org.eclipse.edc/jetty-core/0.7.2.1/5024e89ad1c9719c1d6af7bc6d85168daa875f39/jetty-core-0.7.2.1.jar
+org.eclipse.edc.web.jetty.JettyExtension

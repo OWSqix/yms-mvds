@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="de.sovity.edc.runtime.simple_di.SimpleDiTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2025-03-19T08:35:14" hostname="DESKTOP-P8E06B6" time="0.305">
+  <properties/>
+  <testcase name="test otherDiContainer()" classname="de.sovity.edc.runtime.simple_di.SimpleDiTest" time="0.19"/>
+  <testcase name="test circular dependency()" classname="de.sovity.edc.runtime.simple_di.SimpleDiTest" time="0.014"/>
+  <testcase name="prevent instantiation of classes that are not in allowed packages()" classname="de.sovity.edc.runtime.simple_di.SimpleDiTest" time="0.032"/>
+  <testcase name="test instance created interceptor()" classname="de.sovity.edc.runtime.simple_di.SimpleDiTest" time="0.054"/>
+  <testcase name="test implementation missing()" classname="de.sovity.edc.runtime.simple_di.SimpleDiTest" time="0.003"/>
+  <testcase name="test implementation provided()" classname="de.sovity.edc.runtime.simple_di.SimpleDiTest" time="0.001"/>
+  <testcase name="test two constructors()" classname="de.sovity.edc.runtime.simple_di.SimpleDiTest" time="0.002"/>
+  <testcase name="test missing @Service annotation()" classname="de.sovity.edc.runtime.simple_di.SimpleDiTest" time="0.001"/>
+  <testcase name="test instantiation()" classname="de.sovity.edc.runtime.simple_di.SimpleDiTest" time="0.001"/>
+  <testcase name="test primitive()" classname="de.sovity.edc.runtime.simple_di.SimpleDiTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

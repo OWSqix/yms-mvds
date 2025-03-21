@@ -1,0 +1,3 @@
+# From: org.bouncycastle/bcprov-jdk18on/1.78.1/39e9e45359e20998eb79c1828751f94a818d25f8/bcprov-jdk18on-1.78.1.jar
+org.bouncycastle.jce.provider.BouncyCastleProvider
+org.bouncycastle.pqc.jcajce.provider.BouncyCastlePQCProvider

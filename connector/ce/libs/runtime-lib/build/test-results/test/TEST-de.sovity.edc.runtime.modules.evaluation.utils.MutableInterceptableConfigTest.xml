@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="de.sovity.edc.runtime.modules.evaluation.utils.MutableInterceptableConfigTest" tests="36" skipped="0" failures="0" errors="0" timestamp="2025-03-19T08:33:54" hostname="DESKTOP-P8E06B6" time="0.044">
+  <properties/>
+  <testcase name="getBoolean2_exists()" classname="de.sovity.edc.runtime.modules.evaluation.utils.MutableInterceptableConfigTest" time="0.001"/>
+  <testcase name="partition()" classname="de.sovity.edc.runtime.modules.evaluation.utils.MutableInterceptableConfigTest" time="0.001"/>
+  <testcase name="getLong2_doesNotExist()" classname="de.sovity.edc.runtime.modules.evaluation.utils.MutableInterceptableConfigTest" time="0.012"/>
+  <testcase name="getInteger1_doesNotExist()" classname="de.sovity.edc.runtime.modules.evaluation.utils.MutableInterceptableConfigTest" time="0.001"/>
+  <testcase name="hasKey()" classname="de.sovity.edc.runtime.modules.evaluation.utils.MutableInterceptableConfigTest" time="0.001"/>
+  <testcase name="getLong1_doesNotExist()" classname="de.sovity.edc.runtime.modules.evaluation.utils.MutableInterceptableConfigTest" time="0.001"/>
+  <testcase name="isLeaf()" classname="de.sovity.edc.runtime.modules.evaluation.utils.MutableInterceptableConfigTest" time="0.0"/>
+  <testcase name="getString1_exists()" classname="de.sovity.edc.runtime.modules.evaluation.utils.MutableInterceptableConfigTest" time="0.0"/>
+  <testcase name="getInteger2_exists()" classname="de.sovity.edc.runtime.modules.evaluation.utils.MutableInterceptableConfigTest" time="0.004"/>
+  <testcase name="getBoolean2_doesNotExist()" classname="de.sovity.edc.runtime.modules.evaluation.utils.MutableInterceptableConfigTest" time="0.0"/>
+  <testcase name="getEntries()" classname="de.sovity.edc.runtime.modules.evaluation.utils.MutableInterceptableConfigTest" time="0.0"/>
+  <testcase name="getBoolean1_doesNotExist()" classname="de.sovity.edc.runtime.modules.evaluation.utils.MutableInterceptableConfigTest" time="0.001"/>
+  <testcase name="set()" classname="de.sovity.edc.runtime.modules.evaluation.utils.MutableInterceptableConfigTest" time="0.001"/>
+  <testcase name="root()" classname="de.sovity.edc.runtime.modules.evaluation.utils.MutableInterceptableConfigTest" time="0.0"/>
+  <testcase name="getLong1_exists()" classname="de.sovity.edc.runtime.modules.evaluation.utils.MutableInterceptableConfigTest" time="0.0"/>
+  <testcase name="merge()" classname="de.sovity.edc.runtime.modules.evaluation.utils.MutableInterceptableConfigTest" time="0.001"/>
+  <testcase name="getConfig()" classname="de.sovity.edc.runtime.modules.evaluation.utils.MutableInterceptableConfigTest" time="0.001"/>
+  <testcase name="getBoolean1_exists()" classname="de.sovity.edc.runtime.modules.evaluation.utils.MutableInterceptableConfigTest" time="0.001"/>
+  <testcase name="currentNode()" classname="de.sovity.edc.runtime.modules.evaluation.utils.MutableInterceptableConfigTest" time="0.001"/>
+  <testcase name="hasPath()" classname="de.sovity.edc.runtime.modules.evaluation.utils.MutableInterceptableConfigTest" time="0.0"/>
+  <testcase name="getLong2_failedParse()" classname="de.sovity.edc.runtime.modules.evaluation.utils.MutableInterceptableConfigTest" time="0.001"/>
+  <testcase name="getString2_doesNotExist()" classname="de.sovity.edc.runtime.modules.evaluation.utils.MutableInterceptableConfigTest" time="0.001"/>
+  <testcase name="toImmutableConfig()" classname="de.sovity.edc.runtime.modules.evaluation.utils.MutableInterceptableConfigTest" time="0.0"/>
+  <testcase name="getString2_exists()" classname="de.sovity.edc.runtime.modules.evaluation.utils.MutableInterceptableConfigTest" time="0.001"/>
+  <testcase name="getLong1_failedParse()" classname="de.sovity.edc.runtime.modules.evaluation.utils.MutableInterceptableConfigTest" time="0.001"/>
+  <testcase name="getInteger2_failedParse()" classname="de.sovity.edc.runtime.modules.evaluation.utils.MutableInterceptableConfigTest" time="0.0"/>
+  <testcase name="getString1_doesNotExist()" classname="de.sovity.edc.runtime.modules.evaluation.utils.MutableInterceptableConfigTest" time="0.001"/>
+  <testcase name="getInteger1_failedParse()" classname="de.sovity.edc.runtime.modules.evaluation.utils.MutableInterceptableConfigTest" time="0.0"/>
+  <testcase name="getRelativeEntries0()" classname="de.sovity.edc.runtime.modules.evaluation.utils.MutableInterceptableConfigTest" time="0.0"/>
+  <testcase name="getRelativeEntries1()" classname="de.sovity.edc.runtime.modules.evaluation.utils.MutableInterceptableConfigTest" time="0.0"/>
+  <testcase name="getBoolean2_failedParse()" classname="de.sovity.edc.runtime.modules.evaluation.utils.MutableInterceptableConfigTest" time="0.0"/>
+  <testcase name="getLong2_exists()" classname="de.sovity.edc.runtime.modules.evaluation.utils.MutableInterceptableConfigTest" time="0.001"/>
+  <testcase name="getInteger1_exists()" classname="de.sovity.edc.runtime.modules.evaluation.utils.MutableInterceptableConfigTest" time="0.001"/>
+  <testcase name="withInterceptor()" classname="de.sovity.edc.runtime.modules.evaluation.utils.MutableInterceptableConfigTest" time="0.001"/>
+  <testcase name="getBoolean1_failedParse()" classname="de.sovity.edc.runtime.modules.evaluation.utils.MutableInterceptableConfigTest" time="0.001"/>
+  <testcase name="getInteger2_doesNotExist()" classname="de.sovity.edc.runtime.modules.evaluation.utils.MutableInterceptableConfigTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

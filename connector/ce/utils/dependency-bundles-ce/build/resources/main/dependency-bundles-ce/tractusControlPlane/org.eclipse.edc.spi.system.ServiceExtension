@@ -1,0 +1,124 @@
+# From: org.eclipse.tractusx.edc/transfer-dataplane-signaling/0.7.7/88a1bce113ea577fba99c70767c594e1f7a5e7d4/transfer-dataplane-signaling-0.7.7.jar
+org.eclipse.tractusx.edc.dataplane.transfer.signaling.TransferDataPlaneSignalingExtension
+
+# From: org.eclipse.tractusx.edc/azblob-provisioner/0.7.7/ea2a29304a7795d983bc54448c242627aa420867/azblob-provisioner-0.7.7.jar
+org.eclipse.edc.connector.provision.azure.AzureProvisionExtension
+
+# From: org.eclipse.tractusx.edc/json-ld-core/0.7.7/f444dc0e0719122a3f378987c4d8dcf676e729af/json-ld-core-0.7.7.jar
+org.eclipse.tractusx.edc.jsonld.JsonLdExtension
+
+# From: org.eclipse.edc/identity-did-core/0.7.2.1/fc0b9ef6a6a438e22d19154b8ae13ec95121080a/identity-did-core-0.7.2.1.jar
+org.eclipse.edc.iam.did.IdentityDidCoreExtension
+
+# From: org.eclipse.edc/identity-did-web/0.7.2.1/c11bfd16195e2168573e35b0dd486f5248bf21b1/identity-did-web-0.7.2.1.jar
+org.eclipse.edc.iam.did.web.WebDidExtension
+
+# From: org.eclipse.edc/identity-trust-core/0.7.2.1/152b663683115a8e8196a2b4a322d2162fb586ca/identity-trust-core-0.7.2.1.jar
+org.eclipse.edc.iam.identitytrust.core.DcpDefaultServicesExtension
+org.eclipse.edc.iam.identitytrust.core.DcpScopeExtractorExtension
+org.eclipse.edc.iam.identitytrust.core.IdentityAndTrustExtension
+org.eclipse.edc.iam.identitytrust.core.IdentityTrustTransformExtension
+
+# From: org.eclipse.edc/identity-trust-issuers-configuration/0.7.2.1/7b9eba94e0d73b6b0d3a2e40a7b753e2dcc638ef/identity-trust-issuers-configuration-0.7.2.1.jar
+org.eclipse.edc.iam.identitytrust.issuer.configuration.TrustedIssuerConfigurationExtension
+
+# From: org.eclipse.tractusx.edc/tokenrefresh-handler/0.7.7/475dc0818fc2abf232b2b1841570786a0910d7b7/tokenrefresh-handler-0.7.7.jar
+org.eclipse.tractusx.edc.common.tokenrefresh.TokenRefreshHandlerExtension
+
+# From: org.eclipse.tractusx.edc/tx-iatp/0.7.7/1c216164c0d5af8c63033e8d7b9a5375275b7850/tx-iatp-0.7.7.jar
+org.eclipse.tractusx.edc.iam.iatp.IatpDefaultScopeExtension
+org.eclipse.tractusx.edc.iam.iatp.IatpIdentityExtension
+org.eclipse.tractusx.edc.iam.iatp.IatpScopeExtractorExtension
+
+# From: org.eclipse.tractusx.edc/tx-iatp-sts-dim/0.7.7/1931d78d0f55694971dd35fa48fabb0483a10f9a/tx-iatp-sts-dim-0.7.7.jar
+org.eclipse.tractusx.edc.iam.iatp.sts.dim.DimOauthClientExtension
+org.eclipse.tractusx.edc.iam.iatp.sts.dim.DimSecureTokenServiceExtension
+org.eclipse.tractusx.edc.iam.iatp.sts.dim.DimStsConfigurationExtension
+
+# From: org.eclipse.tractusx.edc/edr-core/0.7.7/47b292f1e36b2d823fb9e95eb6c204c7fb7880e/edr-core-0.7.7.jar
+org.eclipse.tractusx.edc.edr.core.EdrCoreServiceExtension
+org.eclipse.tractusx.edc.edr.core.lock.DefaultEdrLockProviderExtension
+
+# From: org.eclipse.tractusx.edc/edr-api-v2/0.7.7/a5b96653e9c5417cc0cb80ed945d892e4b70e40a/edr-api-v2-0.7.7.jar
+org.eclipse.tractusx.edc.api.edr.v2.EdrCacheApiExtension
+
+# From: org.eclipse.tractusx.edc/edr-callback/0.7.7/30828208d73ddd795287af0184b417b0097f72cc/edr-callback-0.7.7.jar
+org.eclipse.tractusx.edc.callback.InProcessCallbackRegistryExtension
+org.eclipse.tractusx.edc.callback.LocalCallbackExtension
+
+# From: org.eclipse.tractusx.edc/data-flow-properties-provider/0.7.7/5c90c83df94fa02b6fe0ae88410096fe6ed8064/data-flow-properties-provider-0.7.7.jar
+org.eclipse.tractusx.edc.flow.TxDataFlowPropertiesProviderExtension
+
+# From: org.eclipse.tractusx.edc/bdrs-client/0.7.7/b8d400054c8e2d50e532b067182c7e788de94a7b/bdrs-client-0.7.7.jar
+org.eclipse.tractusx.edc.identity.mapper.BdrsClientExtension
+org.eclipse.tractusx.edc.identity.mapper.BdrsClientMapperExtension
+
+# From: org.eclipse.tractusx.edc/provision-additional-headers/0.7.7/82fb37acda8b8038eb405b7898309f64ecb3b249/provision-additional-headers-0.7.7.jar
+org.eclipse.tractusx.edc.provision.additionalheaders.ProvisionAdditionalHeadersExtension
+
+# From: org.eclipse.tractusx.edc/cx-policy/0.7.7/83b7c28f73712f43f81dc07f76d2a99515ced19/cx-policy-0.7.7.jar
+org.eclipse.tractusx.edc.policy.cx.CxPolicyExtension
+
+# From: org.eclipse.tractusx.edc/business-partner-store-sql/0.7.7/982f92ed3d21615a6b524a890e1312525e1ea6e0/business-partner-store-sql-0.7.7.jar
+org.eclipse.tractusx.edc.validation.businesspartner.store.SqlBusinessPartnerGroupStoreExtension
+
+# From: org.eclipse.tractusx.edc/edr-index-lock-sql/0.7.7/fc841596acb12338e944cc1808e08cffb423a5ae/edr-index-lock-sql-0.7.7.jar
+org.eclipse.tractusx.edc.edr.index.sql.lock.SqlEdrLockExtension
+
+# From: org.eclipse.tractusx.edc/bpn-validation-api/0.7.7/dc7f60f5634564a80da4fdd59137f5d30282b8b7/bpn-validation-api-0.7.7.jar
+org.eclipse.tractusx.edc.api.bpn.BusinessPartnerGroupApiExtension
+
+# From: org.eclipse.tractusx.edc/bpn-validation-core/0.7.7/3478ee54dbfdf0698673f2295affbc3a213d92bf/bpn-validation-core-0.7.7.jar
+org.eclipse.tractusx.edc.validation.businesspartner.BusinessPartnerValidationExtension
+org.eclipse.tractusx.edc.validation.businesspartner.defaults.DefaultStoreProviderExtension
+org.eclipse.tractusx.edc.validation.businesspartner.BusinessPartnerNumberValidationExtension
+
+# From: org.eclipse.edc.azure/azure-blob-core/0.7.2/82432b8767c55761a3ba0b9cec7f2e291ab965e6/azure-blob-core-0.7.2.jar
+org.eclipse.edc.azure.blob.BlobStoreCoreExtension
+
+# From: org.eclipse.edc/management-api-configuration/0.7.2/b1b40b593dde6f67a6e17652dcb62c64624e743b/management-api-configuration-0.7.2.jar
+org.eclipse.edc.connector.api.management.configuration.ManagementApiConfigurationExtension
+
+# From: org.eclipse.edc/asset-api/0.7.2/64ec19eadf8b74e4a7417cf8fb913505918cd782/asset-api-0.7.2.jar
+org.eclipse.edc.connector.controlplane.api.management.asset.AssetApiExtension
+
+# From: org.eclipse.edc/catalog-api/0.7.2/7c4d43e09770c6442af9feb489490c9a2a186eca/catalog-api-0.7.2.jar
+org.eclipse.edc.connector.controlplane.api.management.catalog.CatalogApiExtension
+
+# From: org.eclipse.edc/contract-agreement-api/0.7.2/684f4a8d083ea697710f638f3afb59fd89557100/contract-agreement-api-0.7.2.jar
+org.eclipse.edc.connector.controlplane.api.management.contractagreement.ContractAgreementApiExtension
+
+# From: org.eclipse.edc/contract-definition-api/0.7.2/c69fa7f0d92329c29337dc1beae1c74752a9f0ea/contract-definition-api-0.7.2.jar
+org.eclipse.edc.connector.controlplane.api.management.contractdefinition.ContractDefinitionApiExtension
+
+# From: org.eclipse.edc/contract-negotiation-api/0.7.2/21a95508a6518c900a80859d5f7a85a52bd6e55d/contract-negotiation-api-0.7.2.jar
+org.eclipse.edc.connector.controlplane.api.management.contractnegotiation.ContractNegotiationApiExtension
+
+# From: org.eclipse.edc/policy-definition-api/0.7.2/3aef8111c2fe53dc9994b5e6a2ff025421f0368a/policy-definition-api-0.7.2.jar
+org.eclipse.edc.connector.controlplane.api.management.policy.PolicyDefinitionApiExtension
+
+# From: org.eclipse.edc/transfer-process-api/0.7.2/9115e5319f4d30475aaa6024ae7bbf0fb057988f/transfer-process-api-0.7.2.jar
+org.eclipse.edc.connector.controlplane.api.management.transferprocess.TransferProcessApiExtension
+
+# From: org.eclipse.edc/api-core/0.7.2/a18dd68cb76f1b4865248a307b193375fc4c0eff/api-core-0.7.2.jar
+org.eclipse.edc.api.ApiCoreExtension
+org.eclipse.edc.api.ApiCoreDefaultServicesExtension
+
+# From: org.eclipse.edc/data-plane-signaling-client/0.7.2/d47dc540e85f5197eb76d8b870ae787cc3df5598/data-plane-signaling-client-0.7.2.jar
+org.eclipse.edc.connector.dataplane.client.DataPlaneSignalingClientExtension
+org.eclipse.edc.connector.dataplane.client.DataPlaneSignalingClientTransformExtension
+
+# From: org.eclipse.edc/token-core/0.7.2.1/c72d9c113d1ff727f34855a7ba4902b346bdf310/token-core-0.7.2.1.jar
+org.eclipse.edc.token.TokenServicesExtension
+
+# From: org.eclipse.edc/oauth2-client/0.7.2/40cc8adc574705d0cb6dd598fcd6a0d302cf6053/oauth2-client-0.7.2.jar
+org.eclipse.edc.iam.oauth2.client.Oauth2ClientExtension
+
+# From: org.eclipse.edc/json-ld/0.7.2.1/279778390da3d1e90c6c7585402558bdb813bd5b/json-ld-0.7.2.1.jar
+org.eclipse.edc.jsonld.JsonLdExtension
+
+# From: org.eclipse.edc/edr-index-sql/0.7.2/272884e505880d6610127a1c66b73fcd37ffe71d/edr-index-sql-0.7.2.jar
+org.eclipse.edc.edr.store.index.SqlEndpointDataReferenceEntryIndexExtension
+
+# From: org.eclipse.edc/sql-core/0.7.2/2bf29b8e9b592b03fc19e672562257e1eef58ea7/sql-core-0.7.2.jar
+org.eclipse.edc.sql.SqlCoreExtension
