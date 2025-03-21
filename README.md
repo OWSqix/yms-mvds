@@ -1,24 +1,17 @@
 <a name="readme-top"></a>
-
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url] [![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![Apache 2.0][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
 <br />
 <div align="center">
-<a href="https://github.com/sovity/edc-ce">
-<img src="https://raw.githubusercontent.com/sovity/edc-ui/main/src/assets/images/ymatics_logo.svg" alt="Logo" width="300">
+<a href="https://github.com/YMSAISolutionDev1/yms-mvds">
+<img src="connector-ui/src/assets/images/ymatics_logo.svg" alt="Logo" width="300">
 </a>
 
-<h3 align="center">sovity Community Edition EDC</h3>
+<h3 align="center">Ymatics Connector</h3>
 <p align="center" style="padding-bottom:16px">
-Extended EDC Connector by sovity.
+Extended EDC Connector by Ymatics.
 <br />
-<a href="https://github.com/sovity/edc-ce/issues/new?template=bug_report.md">Report Bug</a>
+<a href="https://github.com/YMSAISolutionDev1/yms-mvds/issues/new?template=bug_report.md">Report Bug</a>
 ·
-<a href="https://github.com/sovity/edc-ce/issues/new?template=feature_request.md">Request Feature</a>
+<a href="https://github.com/YMSAISolutionDev1/yms-mvds/new?template=feature_request.md">Request Feature</a>
 </p>
 </div>
 
@@ -43,17 +36,11 @@ for building dataspaces, exchanging data securely with ensured data sovereignty.
 enterprise-ready managed services like "Connector-as-a-Service", out-of-the-box fully configured DAPS
 and integrations to existing other dataspace technologies.
 
-This repository contains our sovity Community Edition EDCs, providing a self-hostable sovity EDC Connector.
+This repository contains our Ymatics Connector.
 
-Check out our [Getting Started Section](#getting-started) on how to run a local sovity Community Edition EDC.
+Check out our [Getting Started Section](#getting-started) on how to run a local Ymatics Connector.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<div>
-  <img src="docs/images/screenshot-dashboard.png" width="30%" />
-  <img src="docs/images/screenshot-contracts.png" width="30%" />
-  <img src="docs/images/screenshot-assets.png" width="30%" />
-</div>
 
 ## Getting Started
 
@@ -63,12 +50,9 @@ The fastest way to get started is our [Getting Started Guide](docs/getting-start
 
 ## Compatibility
 
-Our sovity Community Edition EDC is compatible with productive Tractus-X versions. We stay in sync with the Eclipse EDC that Tractus-X is using.
+Our Ymatics Connector is compatible with productive Tractus-X versions. We stay in sync with the Eclipse EDC that Tractus-X is using.
 
 Some parallel versions might be maintained, although done as sparingly as possible.
-
-Each sovity Enterprise Edition EDC release also releases a sovity Community Edition with the same
-version ensuring same version usage and naming across API Clients, Connector and Connector UI.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -79,18 +63,12 @@ learn, inspire, and create. Any contributions you make are **greatly
 appreciated**.
 
 If you have a suggestion that would improve this project, feel free to open
-a [feature request](https://github.com/sovity/edc-ce/issues/new?template=feature_request.md). Don't forget to
+a [feature request](https://github.com/YMSAISolutionDev1/yms-mvds/issues/new?template=feature_request.md). Don't forget to
 leave the project a ⭐, if you like the effort put into this version!
 
 Our contribution guideline can be found in [CONTRIBUTING.md](CONTRIBUTING.md).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-## Development
-
-Please note that our sovity Community Edition EDC gets automatically released with our
-sovity Enterprise Edition EDC. Because of this, most of the tooling and development processes are not public,
-such as our E2E Test suite and most of our JUnit Integration tests are not present here.
 
 #### Requirements
 
@@ -149,34 +127,3 @@ Distributed under the `LICENSE`. Some deliverables such as APIs, API Clients and
 contact@ymatics.com
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-[contributors-shield]:
-https://img.shields.io/github/contributors/sovity/edc-ce.svg?style=for-the-badge
-
-[contributors-url]: https://github.com/sovity/edc-ce/graphs/contributors
-
-[forks-shield]:
-https://img.shields.io/github/forks/sovity/edc-ce.svg?style=for-the-badge
-
-[forks-url]: https://github.com/sovity/edc-ce/network/members
-
-[stars-shield]:
-https://img.shields.io/github/stars/sovity/edc-ce.svg?style=for-the-badge
-
-[stars-url]: https://github.com/sovity/edc-ce/stargazers
-
-[issues-shield]:
-https://img.shields.io/github/issues/sovity/edc-ce.svg?style=for-the-badge
-
-[issues-url]: https://github.com/sovity/edc-ce/issues
-
-[license-shield]:
-https://img.shields.io/github/license/sovity/edc-ce.svg?style=for-the-badge
-
-[license-url]: https://github.com/sovity/edc-ce/blob/main/LICENSE
-
-[linkedin-shield]:
-https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-
-[linkedin-url]: https://www.linkedin.com/company/sovity

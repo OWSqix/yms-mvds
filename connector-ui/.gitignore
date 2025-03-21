@@ -1,3 +1,4 @@
 node_modules
 .angular
 dist
+connector/ce/docker-image-ce/build
