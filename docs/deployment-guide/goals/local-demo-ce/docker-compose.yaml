@@ -18,7 +18,7 @@ services:
       EDC_UI_CONFIG_URL: 'edc-ui-config'
       NGINX_ACCESS_LOG: 'off'
   consumer-connector:
-    image: 'ghcr.io/sovity/edc-ce:11.0.0'
+    image: 'ghcr.io/sovity/edc-ce:latest'
     restart: 'always'
     depends_on:
       consumer-connector-db:
@@ -84,7 +84,7 @@ services:
       EDC_UI_CONFIG_URL: 'edc-ui-config'
       NGINX_ACCESS_LOG: 'off'
   provider-connector:
-    image: 'ghcr.io/sovity/edc-ce:11.0.0'
+    image: 'ghcr.io/sovity/edc-ce:latest'
     restart: 'always'
     depends_on:
       provider-connector-db:
