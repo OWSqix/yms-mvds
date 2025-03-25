@@ -9,8 +9,6 @@ services:
     environment:
       CONNECTOR_UPSTREAM_HOST: 'consumer-connector'
       FRONTEND_UPSTREAM_HOST: 'consumer-ui'
-    networks:
-      - edc-network
   consumer-ui:
     image: 'ymslogoui:1.0'
     restart: 'always'
@@ -19,8 +17,6 @@ services:
       EDC_UI_MANAGEMENT_API_KEY: 'SomeOtherApiKey'
       EDC_UI_CONFIG_URL: 'edc-ui-config'
       NGINX_ACCESS_LOG: 'off'
-    networks:
-      - edc-network
   consumer-connector:
     image: 'ghcr.io/sovity/edc-ce:11.0.0'
     restart: 'always'
@@ -30,14 +26,14 @@ services:
     environment:
       sovity.deployment.kind: 'control-plane-with-integrated-data-plane'
       sovity.edc.fqdn.public: 'consumer'
-      sovity.edc.fqdn.internal: 'localhost'
+      sovity.edc.fqdn.internal: 'consumer-connector'
+      edc.control.endpoint: 'http://consumer-connector:11004/api/control'
       sovity.jdbc.url: 'jdbc:postgresql://consumer-connector-db:5432/db-name'
       sovity.jdbc.user: 'db-user'
       sovity.jdbc.password: 'db-pass'
       edc.ui.active.profile: 'sovity-open-source'
       edc.ui.logout.url: 'https://example.com'
       edc.ui.catalog.urls: 'http://provider/api/dsp'
-      edc.control.endpoint: 'http://localhost:8183/control'
       sovity.management.api.iam.kind: 'management-iam-api-key'
       edc.api.auth.key: 'SomeOtherApiKey'
       sovity.edc.title: 'consumer Title'
@@ -53,8 +49,6 @@ services:
       sovity.logging.level: 'DEBUG'
       sovity.logging.kind: 'console'
       sovity.micrometer.enabled: 'true'
-    networks:
-      - edc-network
   consumer-connector-db:
     image: 'docker.io/postgres:16-alpine'
     restart: 'always'
@@ -71,8 +65,6 @@ services:
       retries: 10
     volumes:
       - 'consumer-connector-db-data:/var/lib/postgresql/data'
-    networks:
-      - edc-network
   provider:
     image: 'caddy:2.8'
     restart: 'always'
@@ -83,8 +75,6 @@ services:
     environment:
       CONNECTOR_UPSTREAM_HOST: 'provider-connector'
       FRONTEND_UPSTREAM_HOST: 'provider-ui'
-    networks:
-      - edc-network
   provider-ui:
     image: 'ymslogoui:1.0'
     restart: 'always'
@@ -93,8 +83,6 @@ services:
       EDC_UI_MANAGEMENT_API_KEY: 'SomeOtherApiKey'
       EDC_UI_CONFIG_URL: 'edc-ui-config'
       NGINX_ACCESS_LOG: 'off'
-    networks:
-      - edc-network
   provider-connector:
     image: 'ghcr.io/sovity/edc-ce:11.0.0'
     restart: 'always'
@@ -104,14 +92,14 @@ services:
     environment:
       sovity.deployment.kind: 'control-plane-with-integrated-data-plane'
       sovity.edc.fqdn.public: 'provider'
-      sovity.edc.fqdn.internal: 'localhost'
+      sovity.edc.fqdn.internal: 'provider-connector'
+      edc.control.endpoint: 'http://provider-connector:11004/api/control'
       sovity.jdbc.url: 'jdbc:postgresql://provider-connector-db:5432/db-name'
       sovity.jdbc.user: 'db-user'
       sovity.jdbc.password: 'db-pass'
       edc.ui.active.profile: 'sovity-open-source'
       edc.ui.logout.url: 'https://example.com'
       edc.ui.catalog.urls: 'http://consumer/api/dsp'
-      edc.control.endpoint: 'http://localhost:8183/control'
       sovity.management.api.iam.kind: 'management-iam-api-key'
       edc.api.auth.key: 'SomeOtherApiKey'
       sovity.edc.title: 'provider Title'
@@ -127,8 +115,6 @@ services:
       sovity.logging.level: 'DEBUG'
       sovity.logging.kind: 'console'
       sovity.micrometer.enabled: 'true'
-    networks:
-      - edc-network
   provider-connector-db:
     image: 'docker.io/postgres:16-alpine'
     restart: 'always'
@@ -145,8 +131,6 @@ services:
       retries: 10
     volumes:
       - 'provider-connector-db-data:/var/lib/postgresql/data'
-    networks:
-      - edc-network
 
   # 데이터 소스/싱크 백엔드 추가
   data-source-backend:
@@ -156,8 +140,6 @@ services:
     restart: always
     ports:
       - '8001:8001'
-    networks:
-      - edc-network
 
   data-sink-backend:
     build:
@@ -166,15 +148,9 @@ services:
     restart: always
     ports:
       - '8000:8000'
-    networks:
-      - edc-network
 
 volumes:
   consumer-connector-db-data:
     driver: 'local'
   provider-connector-db-data:
     driver: 'local'
-
-networks:
-  edc-network:
-    driver: bridge
