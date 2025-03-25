@@ -1,3 +1,6 @@
+# data-sink-server.py
+import uuid
+from datetime import datetime
 from fastapi import FastAPI
 from typing import Dict, Any
 import uvicorn
@@ -11,10 +14,13 @@ async def receive_data(data: Dict[str, Any]):
     """데이터를 수신하여 저장하는 엔드포인트"""
     global received_data
     received_data = data
+    print("received data:", json.dumps(data, indent=2, ensure_ascii=False))
     return {
-      "message": "Data received successfully",
-      "timestamp": data.get("timestamp") if isinstance(data, dict) else None,
-      "data": json.dumps(data) if isinstance(data, dict) else None
+        "status": "completed",
+        "success": True,
+        "message": "Data transfer completed successfully",
+        "id": str(uuid.uuid4()),  # 고유 ID 생성
+        "receivedAt": datetime.now().isoformat()
     }
 
 @app.get("/view-data")
