@@ -149,6 +149,46 @@ services:
     ports:
       - '8000:8000'
 
+#  provider-backend:
+#    image: 'sovity-ce-local-demo-datasource-and-datasink-backend:latest'
+#    restart: always
+#    ports:
+#      - "8000:8002"  # Data Sink API
+#      - "8001:8003"  # Data Source API
+#    volumes:
+#      - ./provider/data:/app/data
+#      - ./provider/backend/logs:/app/backend/logs
+#    environment:
+#      - LOG_LEVEL=debug
+#      - HOST=0.0.0.0
+#
+#  provider-frontend:
+#    image: 'sovity-ce-local-demo-datasource-and-datasink-frontend:latest'
+#    ports:
+#      - "4200:4200"
+#    depends_on:
+#      - provider-backend
+#
+#  consumer-backend:
+#    image: 'sovity-ce-local-demo-datasource-and-datasink-backend:latest'
+#    restart: always
+#    ports:
+#      - "8002:8002"  # Data Sink API
+#      - "8003:8003"  # Data Source API
+#    volumes:
+#      - ./consumer/data:/app/data
+#      - ./consumer/backend/logs:/app/backend/logs
+#    environment:
+#      - LOG_LEVEL=debug
+#      - HOST=0.0.0.0
+#
+#  consumer-frontend:
+#    image: 'sovity-ce-local-demo-datasource-and-datasink-frontend:latest'
+#    ports:
+#      - "4201:4200"
+#    depends_on:
+#      - consumer-backend
+
 volumes:
   consumer-connector-db-data:
     driver: 'local'
