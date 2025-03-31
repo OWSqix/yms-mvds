@@ -1,0 +1,54 @@
+<mat-toolbar color="primary" class="app-header">
+  <div class="brand-container">
+    <span class="app-title">Data space connector Data Source/Sink</span>
+  </div>
+
+  <span class="spacer"></span>
+
+  <div *ngIf="auth.isLoggedIn()" class="nav-links">
+    <button mat-button routerLink="/files" routerLinkActive="active-link">
+      <mat-icon>folder</mat-icon>
+      <span>My Files</span>
+    </button>
+
+    <button mat-button routerLink="/received" routerLinkActive="active-link">
+      <mat-icon>download</mat-icon>
+      <span>Received Files</span>
+    </button>
+
+    <button mat-button [matMenuTriggerFor]="userMenu">
+      <mat-icon>account_circle</mat-icon>
+      <span>{{ username }}</span>
+      <mat-icon>arrow_drop_down</mat-icon>
+    </button>
+
+    <mat-menu #userMenu="matMenu">
+      <button mat-menu-item (click)="openUserProfile()">
+        <mat-icon>person</mat-icon>
+        <span>Profile</span>
+      </button>
+      <button mat-menu-item (click)="confirmLogout()">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+  </div>
+</mat-toolbar>
+
+<div class="app-container">
+  <div *ngIf="!auth.isLoggedIn()" class="login-prompt">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Welcome to Data Space Connector Data Source/Sink</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Please log in to access your data connector dashboard.</p>
+        <button mat-raised-button color="primary" routerLink="/login">
+          Login
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <router-outlet></router-outlet>
+</div>

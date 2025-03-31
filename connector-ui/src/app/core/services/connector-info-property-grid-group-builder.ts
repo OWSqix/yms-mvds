@@ -197,7 +197,7 @@ export class ConnectorInfoPropertyGridGroupBuilder {
       {
         icon: 'link',
         label: 'Connector Version',
-        text: buildInfo.dataOrUndefined?.buildVersion,
+        text: 'v0.12.0',
         tooltip: formatDateAgo(buildInfo.dataOrUndefined?.buildDate),
         copyButton: true,
       },
