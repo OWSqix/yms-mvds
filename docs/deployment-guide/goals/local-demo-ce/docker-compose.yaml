@@ -132,62 +132,69 @@ services:
     volumes:
       - 'provider-connector-db-data:/var/lib/postgresql/data'
 
-  # 데이터 소스/싱크 백엔드 추가
-  data-source-backend:
+  provider-backend:
     build:
-      context: ./data-source-backend
+      context: ./backend
       dockerfile: Dockerfile
+    image: 'sovity-ce-local-demo-datasource-and-datasink-backend:latest'
     restart: always
     ports:
-      - '8001:8001'
+      - "8000:8002"  # Data Sink API
+      - "8001:8003"  # Data Source API
+    volumes:
+      - ./provider/data:/app/data
+      - ./provider/backend/logs:/app/backend/logs
+    environment:
+      - LOG_LEVEL=debug
+      - HOST=0.0.0.0
 
-  data-sink-backend:
+  provider-frontend:
     build:
-      context: ./data-sink-backend
+      context: ./frontend
       dockerfile: Dockerfile
+      args:
+        - DATA_SINK_API_URL=http://localhost:8000
+        - DATA_SOURCE_API_URL=http://localhost:8001
+    image: 'sovity-ce-local-demo-datasource-and-datasink-provider-frontend:latest'
+    ports:
+      - "4200:4200"
+    environment:
+      - DATA_SINK_API_URL=http://localhost:8000
+      - DATA_SOURCE_API_URL=http://localhost:8001
+    depends_on:
+      - provider-backend
+
+  consumer-backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: 'sovity-ce-local-demo-datasource-and-datasink-backend:latest'
     restart: always
     ports:
-      - '8000:8000'
+      - "8002:8002"  # Data Sink API
+      - "8003:8003"  # Data Source API
+    volumes:
+      - ./consumer/data:/app/data
+      - ./consumer/backend/logs:/app/backend/logs
+    environment:
+      - LOG_LEVEL=debug
+      - HOST=0.0.0.0
 
-#  provider-backend:
-#    image: 'sovity-ce-local-demo-datasource-and-datasink-backend:latest'
-#    restart: always
-#    ports:
-#      - "8000:8002"  # Data Sink API
-#      - "8001:8003"  # Data Source API
-#    volumes:
-#      - ./provider/data:/app/data
-#      - ./provider/backend/logs:/app/backend/logs
-#    environment:
-#      - LOG_LEVEL=debug
-#      - HOST=0.0.0.0
-#
-#  provider-frontend:
-#    image: 'sovity-ce-local-demo-datasource-and-datasink-frontend:latest'
-#    ports:
-#      - "4200:4200"
-#    depends_on:
-#      - provider-backend
-#
-#  consumer-backend:
-#    image: 'sovity-ce-local-demo-datasource-and-datasink-backend:latest'
-#    restart: always
-#    ports:
-#      - "8002:8002"  # Data Sink API
-#      - "8003:8003"  # Data Source API
-#    volumes:
-#      - ./consumer/data:/app/data
-#      - ./consumer/backend/logs:/app/backend/logs
-#    environment:
-#      - LOG_LEVEL=debug
-#      - HOST=0.0.0.0
-#
-#  consumer-frontend:
-#    image: 'sovity-ce-local-demo-datasource-and-datasink-frontend:latest'
-#    ports:
-#      - "4201:4200"
-#    depends_on:
-#      - consumer-backend
+  consumer-frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        - DATA_SINK_API_URL=http://localhost:8002
+        - DATA_SOURCE_API_URL=http://localhost:8003
+    image: 'sovity-ce-local-demo-datasource-and-datasink-consumer-frontend:latest'
+    ports:
+      - "4201:4200"
+    environment:
+      - DATA_SINK_API_URL=http://localhost:8002
+      - DATA_SOURCE_API_URL=http://localhost:8003
+    depends_on:
+      - consumer-backend
 
 volumes:
   consumer-connector-db-data:

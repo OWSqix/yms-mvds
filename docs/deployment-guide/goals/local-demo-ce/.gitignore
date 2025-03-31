@@ -1,0 +1,5 @@
+./consumer
+./provider
+./frontend/node_modules
+./frontend/.angular
+./frontend/.vscode
