@@ -4,6 +4,7 @@
 <a href="https://github.com/YMSAISolutionDev1/yms-mvds">
 <img src="connector-ui/src/assets/images/ymatics_logo.svg" alt="Logo" width="300">
 </a>
+</div>
 
 <h3 align="center">Ymatics Connector</h3>
 <p align="center" style="padding-bottom:16px">
