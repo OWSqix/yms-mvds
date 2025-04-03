@@ -71,13 +71,10 @@ then, happy sharing!
 
 ## Requirements
 ```
-Docker Environment
-
+Docker Environment(with docker compose)
 JDK 17
-
 GitHub Maven Registry Access
-
-Node 20
+Node (>20)
 ```
 To access the GitHub Maven Registry you need to provide the following properties, e.g. by providing
 a `~/.gradle/gradle.properties`.
