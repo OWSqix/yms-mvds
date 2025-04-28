@@ -12,6 +12,13 @@ import {EdcUiThemeConfig} from './edc-ui-theme-config';
 export const SOVITY_THEME: EdcUiThemeConfig = {
   theme: 'theme-sovity',
   brandFaviconSrc: '/assets/images/sovity_favicon-192x192.png',
+  brandLogoSrc: '/assets/images/sovity_logo.svg',
+  brandLogoStyle: 'width: 70%;',
+};
+
+export const YMATICS_THEME: EdcUiThemeConfig = {
+  theme: 'theme-ymatics',
+  brandFaviconSrc: '/assets/images/ymatics_favicon.png',
   brandLogoSrc: '/assets/images/ymatics_logo.svg',
   brandLogoStyle: 'width: 70%;',
 };
@@ -21,4 +28,11 @@ export const MDS_THEME: EdcUiThemeConfig = {
   brandFaviconSrc: '/assets/images/mds_favicon.ico',
   brandLogoSrc: '/assets/images/mds_logo.svg',
   brandLogoStyle: 'height: 57px; margin-top: 5px; margin-left: 5px;',
+};
+
+export const KOTI_THEME: EdcUiThemeConfig = {
+  theme: 'theme-koti',
+  brandFaviconSrc: '/assets/images/koti_favicon.png',
+  brandLogoSrc: '/assets/images/koti_logo.svg',
+  brandLogoStyle: 'width: 70%;',
 };

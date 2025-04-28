@@ -23,6 +23,9 @@ ENV EDC_UI_BUILD_VERSION=$EDC_UI_BUILD_VERSION_ARG
 ARG EDC_UI_BUILD_DATE_ARG="The docker container was built outside of github actions and you didn't provide the build arg EDC_UI_BUILD_DATE_ARG, so there's no build date."
 ENV EDC_UI_BUILD_DATE=$EDC_UI_BUILD_DATE_ARG
 
+ARG EDC_UI_ACTIVE_PROFILE
+ENV EDC_UI_ACTIVE_PROFILE=$EDC_UI_ACTIVE_PROFILE
+
 # Switch back to unprivileged user for runtime
 USER nginx:nginx
 

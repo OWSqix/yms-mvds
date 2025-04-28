@@ -7,4 +7,4 @@
  *
  *  SPDX-License-Identifier: Apache-2.0
  */
-export type EdcUiColorTheme = 'theme-sovity' | 'theme-mds';
+export type EdcUiColorTheme = 'theme-sovity' | 'theme-mds' | 'theme-ymatics' | 'theme-koti';

@@ -1,5 +1,7 @@
 @use '@angular/material' as mat;
 @use 'theme-colors' as sovityColors;
+@use 'theme-colors.koti' as kotiColors;
+@use 'theme-colors.ymatics' as ymaticsColors;
 @use 'theme-colors.mds' as mdsColors;
 @use 'theme-generated-variables' as themeGeneratedVars;
 
@@ -90,6 +92,22 @@ $custom-typography: mat.define-typography-config(
   @include themeGeneratedVars.theme-vars(
     mdsColors.$theme,
     mdsColors.$link-color
+  );
+}
+
+.theme-koti {
+  @include mat.all-component-themes(kotiColors.$theme);
+  @include themeGeneratedVars.theme-vars(
+    kotiColors.$theme,
+    kotiColors.$link-color
+  );
+}
+
+.theme-ymatics {
+  @include mat.all-component-themes(ymaticsColors.$theme);
+  @include themeGeneratedVars.theme-vars(
+    ymaticsColors.$theme,
+    ymaticsColors.$link-color
   );
 }
 
