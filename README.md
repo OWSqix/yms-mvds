@@ -4,6 +4,7 @@
 <a href="https://github.com/YMSAISolutionDev1/yms-mvds">
 <img src="connector-ui/src/assets/images/ymatics_logo.svg" alt="Logo" width="300">
 </a>
+</div>
 
 <h3 align="center">Ymatics Connector</h3>
 <p align="center" style="padding-bottom:16px">
@@ -70,13 +71,10 @@ then, happy sharing!
 
 ## Requirements
 ```
-Docker Environment
-
+Docker Environment(with docker compose)
 JDK 17
-
 GitHub Maven Registry Access
-
-Node 20
+Node (>20)
 ```
 To access the GitHub Maven Registry you need to provide the following properties, e.g. by providing
 a `~/.gradle/gradle.properties`.
