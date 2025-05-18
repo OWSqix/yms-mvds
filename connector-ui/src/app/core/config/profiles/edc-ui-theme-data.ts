@@ -40,6 +40,6 @@ export const KOTI_THEME: EdcUiThemeConfig = {
 export const KALDA_THEME: EdcUiThemeConfig = {
   theme: 'theme-kalda',
   brandFaviconSrc: '/assets/images/kalda_favicon.ico',
-  brandLogoSrc: '/assets/images/kalda_frame_purple.svg',
-  brandLogoStyle: 'width: 70%;',
+  brandLogoSrc: '/assets/images/kalda_logo.svg',
+  brandLogoStyle: 'height: 40px; width: auto;',
 };
