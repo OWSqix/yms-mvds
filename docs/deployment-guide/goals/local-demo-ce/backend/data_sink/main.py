@@ -49,12 +49,16 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:4200",  # Local development for provider frontend
         "http://localhost:4201",  # Local development for consumer frontend
+        "http://localhost:4202",  # Added for consumer2-frontend
         "http://host.docker.internal:4200",  # Docker internal access for provider frontend
         "http://host.docker.internal:4201",  # Docker internal access for consumer frontend
+        "http://host.docker.internal:4202", # Added for consumer2-frontend (Docker internal)
         "http://provider-frontend:4200",  # Docker service name for provider frontend
         "http://consumer-frontend:4200",  # Docker service name for consumer frontend (internal port)
+        "http://consumer2-frontend:4200", # Added for consumer2-frontend (service name)
         "http://provider:11000",  # Caddy proxy for provider
         "http://consumer:22000",  # Caddy proxy for consumer
+        "http://consumer2:23000",  # Added for consumer2 caddy proxy
     ],
     allow_credentials=True,
     allow_methods=["*"],

@@ -23,6 +23,26 @@ This repository contains our Ymatics Connector.
 
 Check out our [Getting Started Section](#getting-started) on how to run a local Ymatics Connector.
 
+## Requirements
+```
+Docker Environment(with docker compose)
+JDK 17
+GitHub Maven Registry Access
+Node (>20)
+```
+To access the GitHub Maven Registry you need to provide the following properties, e.g. by providing
+a `~/.gradle/gradle.properties`.
+
+```properties
+gpr.user={your github username}
+gpr.key={your github pat with packages.read}
+```
+
+if you use npm, then do npm install before start
+```
+cd ./connector-ui/
+npm install
+```
 
 ## Getting Started(Local Demo)
 You need Docker and Docker Compose to start local demo.
@@ -55,46 +75,64 @@ Clone our repository first
 ```angular2html
 git clone https://github.com/Ymatics-Co/yms-mvds.git
 ```
-Then, build frontend.
-```angular2html
+Then, build the themed frontend UIs.
+Navigate to the `connector-ui` directory. These scripts will build the Angular application for each theme and then build the corresponding Docker image.
+
+```bash
 cd connector-ui
-chmod +x ./build-front.sh
-source ./build-front.sh
+
+# build Angular app
+ng build
+
+# Give execute permissions to the build scripts (e.g., in WSL/Linux)
+# These scripts build the Angular app and the themed Docker image.
+chmod +x ./build-yms-front.sh
+chmod +x ./build-koti-front.sh
+chmod +x ./build-kalda-front.sh
+
+# Run the build scripts for each theme
+# For Ymatics theme (Consumer UI)
+bash ./build-yms-front.sh
+
+# For Koti theme (Provider UI)
+bash ./build-koti-front.sh
+
+# For Kalda theme (Consumer2 UI)
+bash ./build-kalda-front.sh
+
+# After building, navigate back to the workspace root or proceed to the compose directory
+cd ..
 ```
+
 After then, go to docs/deployment-guide/goals/local-demo-ce, and activate docker compose
 ```angular2html
-cd ../docs/deployment-guide/goals/local-demo-ce
+cd docs/deployment-guide/goals/local-demo-ce # Corrected path if building from connector-ui and then cd ..
 docker compose up -d --build
 docker compose logs -f
 ```
 then, happy sharing!
 
-## Requirements
-```
-Docker Environment(with docker compose)
-JDK 17
-GitHub Maven Registry Access
-Node (>20)
-```
-To access the GitHub Maven Registry you need to provide the following properties, e.g. by providing
-a `~/.gradle/gradle.properties`.
+## Accessing UIs and Services
 
-```properties
-gpr.user={your github username}
-gpr.key={your github pat with packages.read}
-```
+Once the Docker containers are up and running, you can access the services at the following URLs:
 
-## Start GUI
-```angular2html
-- localhost:11000 : Provider connector ui
-- localhost:22000 : Consumer connector ui
-- localhost:4200 : Provider Datasource/sink ui
-- localhost:4201 : Consumer Datasource/sink ui
-- localhost:8000 : Provider Datasink Backend
-- localhost:8001 : Provider Datasource Backend
-- localhost:8002 : Consumer Datasink Backend
-- localhost:8003 : Consumer Datasource Backend
-``` 
+**Connector UIs:**
+- Provider Connector UI (Koti Theme): [http://localhost:11000](http://localhost:11000)
+- Consumer Connector UI (Ymatics Theme): [http://localhost:22000](http://localhost:22000)
+- Consumer2 Connector UI (Kalda Theme): [http://localhost:23000](http://localhost:23000)
+
+**Supporting Service UIs (Data Management):**
+- Provider Datasource/Sink UI: [http://localhost:4200](http://localhost:4200)
+- Consumer Datasource/Sink UI: [http://localhost:4201](http://localhost:4201)
+- Consumer2 Datasource/Sink UI : [http://localhost:4202](http://localhost:4202)
+
+**Backend Service Endpoints (API):**
+- Provider Datasink Backend: `http://localhost:8000`
+- Provider Datasource Backend: `http://localhost:8001`
+- Consumer Datasink Backend: `http://localhost:8002`
+- Consumer Datasource Backend: `http://localhost:8003`
+- Consumer2 Datasink Backend: `http://localhost:8004`
+- Consumer2 Datasource Backend: `http://localhost:8005`
 
 ## License
 

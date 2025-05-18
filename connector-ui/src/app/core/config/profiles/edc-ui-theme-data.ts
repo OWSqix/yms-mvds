@@ -18,7 +18,7 @@ export const SOVITY_THEME: EdcUiThemeConfig = {
 
 export const YMATICS_THEME: EdcUiThemeConfig = {
   theme: 'theme-ymatics',
-  brandFaviconSrc: '/assets/images/ymatics_favicon.png',
+  brandFaviconSrc: '/assets/images/ymatics_favicon.ico',
   brandLogoSrc: '/assets/images/ymatics_logo.svg',
   brandLogoStyle: 'width: 70%;',
 };
@@ -32,7 +32,14 @@ export const MDS_THEME: EdcUiThemeConfig = {
 
 export const KOTI_THEME: EdcUiThemeConfig = {
   theme: 'theme-koti',
-  brandFaviconSrc: '/assets/images/koti_favicon.png',
+  brandFaviconSrc: '/assets/images/koti_favicon.ico',
   brandLogoSrc: '/assets/images/koti_logo.svg',
+  brandLogoStyle: 'width: 70%;',
+};
+
+export const KALDA_THEME: EdcUiThemeConfig = {
+  theme: 'theme-kalda',
+  brandFaviconSrc: '/assets/images/kalda_favicon.ico',
+  brandLogoSrc: '/assets/images/kalda_frame_purple.svg',
   brandLogoStyle: 'width: 70%;',
 };

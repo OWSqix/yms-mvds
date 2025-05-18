@@ -34,7 +34,7 @@ services:
       sovity.jdbc.password: 'db-pass'
       edc.ui.active.profile: 'ymatics-edc-connector'
       edc.ui.logout.url: 'https://example.com'
-      edc.ui.catalog.urls: 'http://provider/api/dsp'
+      edc.ui.catalog.urls: 'http://provider/api/dsp,http://consumer2/api/dsp'
       sovity.management.api.iam.kind: 'management-iam-api-key'
       edc.api.auth.key: 'SomeOtherApiKey'
       sovity.edc.title: 'consumer Title'
@@ -101,7 +101,7 @@ services:
       sovity.jdbc.password: 'db-pass'
       edc.ui.active.profile: 'koti-edc-connector'
       edc.ui.logout.url: 'https://example.com'
-      edc.ui.catalog.urls: 'http://consumer/api/dsp'
+      edc.ui.catalog.urls: 'http://consumer/api/dsp,http://consumer2/api/dsp'
       sovity.management.api.iam.kind: 'management-iam-api-key'
       edc.api.auth.key: 'SomeOtherApiKey'
       sovity.edc.title: 'provider Title'
@@ -198,8 +198,110 @@ services:
     depends_on:
       - consumer-backend
 
+  consumer2:
+    image: 'caddy:2.8'
+    restart: 'always'
+    ports:
+      - '23000:80'
+    volumes:
+      - './caddyfiles/Caddyfile.cp-with-integrated-dp:/etc/caddy/Caddyfile'
+    environment:
+      CONNECTOR_UPSTREAM_HOST: 'consumer2-connector'
+      FRONTEND_UPSTREAM_HOST: 'consumer2-ui'
+  consumer2-ui:
+    image: 'kaldalogoui:1.0'
+    restart: 'always'
+    environment:
+      EDC_UI_MANAGEMENT_API_URL: '/api/management'
+      EDC_UI_MANAGEMENT_API_KEY: 'SomeOtherApiKey'
+      EDC_UI_CONFIG_URL: 'false'
+      NGINX_ACCESS_LOG: 'off'
+      EDC_UI_ACTIVE_PROFILE: 'kalda-edc-connector'
+  consumer2-connector:
+    image: 'ghcr.io/sovity/edc-ce:latest'
+    restart: 'always'
+    depends_on:
+      consumer2-connector-db:
+        condition: 'service_healthy'
+    environment:
+      sovity.deployment.kind: 'control-plane-with-integrated-data-plane'
+      sovity.edc.fqdn.public: 'consumer2'
+      sovity.edc.fqdn.internal: 'consumer2-connector'
+      edc.control.endpoint: 'http://consumer2-connector:11004/api/control'
+      sovity.jdbc.url: 'jdbc:postgresql://consumer2-connector-db:5432/db-name'
+      sovity.jdbc.user: 'db-user'
+      sovity.jdbc.password: 'db-pass'
+      edc.ui.active.profile: 'kalda-edc-connector'
+      edc.ui.logout.url: 'https://example.com'
+      edc.ui.catalog.urls: 'http://provider/api/dsp,http://consumer/api/dsp'
+      sovity.management.api.iam.kind: 'management-iam-api-key'
+      edc.api.auth.key: 'SomeOtherApiKey'
+      sovity.edc.title: 'consumer2 Title'
+      sovity.edc.description: 'consumer2 Description'
+      sovity.edc.maintainer.name: 'consumer2 Maintainer'
+      sovity.edc.maintainer.url: 'https://consumer2/maintainer'
+      sovity.edc.curator.name: 'consumer2 Curator'
+      sovity.edc.curator.url: 'https://consumer2/curator'
+      sovity.dataspace.kind: 'sovity-mock-iam'
+      edc.participant.id: 'consumer2'
+      sovity.http.protocol: 'http://'
+      sovity.print.config: 'true'
+      sovity.logging.level: 'DEBUG'
+      sovity.logging.kind: 'console'
+      sovity.micrometer.enabled: 'true'
+  consumer2-connector-db:
+    image: 'docker.io/postgres:16-alpine'
+    restart: 'always'
+    environment:
+      POSTGRES_USER: 'db-user'
+      POSTGRES_PASSWORD: 'db-pass'
+      POSTGRES_DB: 'db-name'
+    healthcheck:
+      test:
+        - 'CMD-SHELL'
+        - 'pg_isready -U db-user --dbname=db-name'
+      interval: '1s'
+      timeout: '5s'
+      retries: 10
+    volumes:
+      - 'consumer2-connector-db-data:/var/lib/postgresql/data'
+
+  consumer2-backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: 'sovity-ce-local-demo-datasource-and-datasink-backend:latest'
+    restart: always
+    ports:
+      - "8004:8002"  # Data Sink API for consumer2
+      - "8005:8003"  # Data Source API for consumer2
+    volumes:
+      - ./consumer2/data:/app/data
+      - ./consumer2/backend/logs:/app/backend/logs
+    environment:
+      - LOG_LEVEL=debug
+      - HOST=0.0.0.0
+
+  consumer2-frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        - DATA_SINK_API_URL=http://localhost:8004
+        - DATA_SOURCE_API_URL=http://localhost:8005
+    image: 'sovity-ce-local-demo-datasource-and-datasink-consumer2-frontend:latest'
+    ports:
+      - "4202:4200"
+    environment:
+      - DATA_SINK_API_URL=http://localhost:8004
+      - DATA_SOURCE_API_URL=http://localhost:8005
+    depends_on:
+      - consumer2-backend
+
 volumes:
   consumer-connector-db-data:
     driver: 'local'
   provider-connector-db-data:
+    driver: 'local'
+  consumer2-connector-db-data:
     driver: 'local'
