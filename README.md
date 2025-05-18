@@ -94,10 +94,10 @@ chmod +x ./build-kalda-front.sh
 # For Ymatics theme (Consumer UI)
 bash ./build-yms-front.sh
 
-# For Koti theme (Provider UI)
+# For KOTI theme (Provider UI)
 bash ./build-koti-front.sh
 
-# For Kalda theme (Consumer2 UI)
+# For KALDA theme (Consumer2 UI)
 bash ./build-kalda-front.sh
 
 # After building, navigate back to the workspace root or proceed to the compose directory
@@ -117,9 +117,9 @@ then, happy sharing!
 Once the Docker containers are up and running, you can access the services at the following URLs:
 
 **Connector UIs:**
-- Provider Connector UI (Koti Theme): [http://localhost:11000](http://localhost:11000)
+- Provider Connector UI (KOTI Theme): [http://localhost:11000](http://localhost:11000)
 - Consumer Connector UI (Ymatics Theme): [http://localhost:22000](http://localhost:22000)
-- Consumer2 Connector UI (Kalda Theme): [http://localhost:23000](http://localhost:23000)
+- Consumer2 Connector UI (KALDA Theme): [http://localhost:23000](http://localhost:23000)
 
 **Supporting Service UIs (Data Management):**
 - Provider Datasource/Sink UI: [http://localhost:4200](http://localhost:4200)
