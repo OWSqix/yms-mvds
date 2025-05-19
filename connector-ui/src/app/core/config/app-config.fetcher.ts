@@ -50,14 +50,17 @@ export class AppConfigFetcher {
     apiKey: string | null,
   ): Promise<Record<string, string | null>> {
     const headers = apiKey ? {'X-API-KEY': apiKey} : undefined;
-
-    // We fetch the config using the Fetch API because we want to fetch it before application initialization
-    // At this time the Angular Http Client is not ready yet
-    return fetch(path, {headers})
+    
+    // 경로가 상대 경로인 경우 window.location.origin과 결합
+    const absolutePath = path.startsWith('/') 
+      ? window.location.origin + path 
+      : path;
+    
+    return fetch(absolutePath, {headers})
       .then((response) => response.json())
       .catch((err) => {
         console.error(
-          `Could not fetch app-configuration.json from ${path}`,
+          `Could not fetch app-configuration.json from ${absolutePath}`,
           err,
         );
         return {};

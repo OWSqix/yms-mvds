@@ -81,7 +81,8 @@
           },
           "options": {
             "extraWebpackConfig": "webpack.config.js",
-            "browserTarget": "project-name:build"
+            "browserTarget": "project-name:build",
+            "host": "0.0.0.0"
           },
           "defaultConfiguration": "development"
         },
