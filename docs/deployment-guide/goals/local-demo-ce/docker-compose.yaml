@@ -18,6 +18,9 @@ services:
       EDC_UI_CONFIG_URL: 'false'
       NGINX_ACCESS_LOG: 'off'
       EDC_UI_ACTIVE_PROFILE: 'ymatics-edc-connector'
+      EDC_UI_USE_FAKE_BACKEND: 'false'
+      EDC_UI_CONNECTOR_ENDPOINT: '/api/dsp'
+      EDC_UI_MANAGEMENT_API_URL_SHOWN_IN_DASHBOARD: '/api/management'
   consumer-connector:
     image: 'ghcr.io/sovity/edc-ce:latest'
     restart: 'always'
@@ -85,6 +88,9 @@ services:
       EDC_UI_CONFIG_URL: 'false'
       NGINX_ACCESS_LOG: 'off'
       EDC_UI_ACTIVE_PROFILE: 'koti-edc-connector'
+      EDC_UI_USE_FAKE_BACKEND: 'false'
+      EDC_UI_CONNECTOR_ENDPOINT: '/api/dsp'
+      EDC_UI_MANAGEMENT_API_URL_SHOWN_IN_DASHBOARD: '/api/management'
   provider-connector:
     image: 'ghcr.io/sovity/edc-ce:latest'
     restart: 'always'
@@ -217,6 +223,9 @@ services:
       EDC_UI_CONFIG_URL: 'false'
       NGINX_ACCESS_LOG: 'off'
       EDC_UI_ACTIVE_PROFILE: 'kalda-edc-connector'
+      EDC_UI_USE_FAKE_BACKEND: 'false'
+      EDC_UI_CONNECTOR_ENDPOINT: '/api/dsp'
+      EDC_UI_MANAGEMENT_API_URL_SHOWN_IN_DASHBOARD: '/api/management'
   consumer2-connector:
     image: 'ghcr.io/sovity/edc-ce:latest'
     restart: 'always'
