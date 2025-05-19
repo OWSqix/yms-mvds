@@ -1,4 +1,4 @@
-http://* {
+:80 {
   map {path} {target_host} {target_port} {
     ~^/api/management($|/.*) {$CONNECTOR_UPSTREAM_HOST}      11002
     ~^/api/dsp($|/.*)        {$CONNECTOR_UPSTREAM_HOST}      11003
