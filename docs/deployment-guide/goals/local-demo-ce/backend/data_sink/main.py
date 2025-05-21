@@ -60,6 +60,7 @@ app.add_middleware(
         "http://consumer:22000",  # Caddy proxy for consumer
         "http://consumer2:23000",  # Added for consumer2 caddy proxy
     ],
+    allow_origin_regex=r"^http://192\.168\.0\.\d{1,3}(:\d+)?$",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
