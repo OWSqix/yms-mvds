@@ -1,6 +1,7 @@
 import os
 import sys
 import shutil
+from urllib.parse import unquote
 from fastapi import APIRouter, UploadFile, File, Form, Depends, HTTPException
 from backend.data_source.models import DirectoryContents, FileInfo, DATA_DIR, DirectoryRequest
 from backend.data_source.auth import get_current_user
@@ -136,9 +137,10 @@ def delete_item(path: str, user: str = Depends(get_current_user)):
 
 @router.get("/download")
 def download_file(path: str, user: str = Depends(get_current_user)):
-    logger.debug(f"File download request: '{path}' (user: {user})")
+    decoded_path = unquote(path)
+    logger.debug(f"File download request: '{decoded_path}' (user: {user})")
 
-    file_path = safe_path(path)
+    file_path = safe_path(decoded_path)
     if not os.path.isfile(file_path):
         logger.warning(f"Attempt to download non-existent file: {path}")
         raise HTTPException(status_code=404, detail="File not found")

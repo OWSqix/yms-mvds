@@ -6,7 +6,7 @@ import sys
 
 from backend.data_sink import files as files_router
 from backend.data_sink import receive as receive_router
-from backend.data_source.auth import router as auth_router
+from backend.data_sink.auth import router as auth_router
 
 from fastapi import FastAPI, Request
 
@@ -59,8 +59,10 @@ app.add_middleware(
         "http://provider:11000",  # Caddy proxy for provider
         "http://consumer:22000",  # Caddy proxy for consumer
         "http://consumer2:23000",  # Added for consumer2 caddy proxy
+        "*",  # Allow all origins temporarily for testing
     ],
-    allow_origin_regex=r"^http://192\.168\.0\.\d{1,3}(:\d+)?$",
+    # 모든 IP 주소를 허용하도록 정규식 패턴 수정
+    allow_origin_regex=r"^http://.*$",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

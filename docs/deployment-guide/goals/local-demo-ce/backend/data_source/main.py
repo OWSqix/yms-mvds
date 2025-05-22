@@ -54,8 +54,10 @@ app.add_middleware(
         "http://provider:11000",
         "http://consumer:22000",
         "http://consumer2:23000",
+        "*",  # Allow all origins temporarily for testing
     ],
-    allow_origin_regex=r"^http://192\.168\.0\.\d{1,3}(:\d+)?$",
+    # 모든 IP 주소를 허용하도록 정규식 패턴 수정
+    allow_origin_regex=r"^http://.*$",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
