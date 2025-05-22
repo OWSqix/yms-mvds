@@ -163,14 +163,14 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
       args:
-        - DATA_SINK_API_URL=http://localhost:8000
-        - DATA_SOURCE_API_URL=http://localhost:8001
+        - DATA_SINK_API_URL=http://192.168.0.220:8000
+        - DATA_SOURCE_API_URL=http://192.168.0.220:8001
     image: 'sovity-ce-local-demo-datasource-and-datasink-provider-frontend:latest'
     ports:
       - "4200:4200"
     environment:
-      - DATA_SINK_API_URL=http://localhost:8000
-      - DATA_SOURCE_API_URL=http://localhost:8001
+      - DATA_SINK_API_URL=http://192.168.0.220:8000
+      - DATA_SOURCE_API_URL=http://192.168.0.220:8001
     depends_on:
       - provider-backend
 
@@ -195,14 +195,14 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
       args:
-        - DATA_SINK_API_URL=http://localhost:8002
-        - DATA_SOURCE_API_URL=http://localhost:8003
+        - DATA_SINK_API_URL=http://192.168.0.220:8002
+        - DATA_SOURCE_API_URL=http://192.168.0.220:8003
     image: 'sovity-ce-local-demo-datasource-and-datasink-consumer-frontend:latest'
     ports:
       - "4201:4200"
     environment:
-      - DATA_SINK_API_URL=http://localhost:8002
-      - DATA_SOURCE_API_URL=http://localhost:8003
+      - DATA_SINK_API_URL=http://192.168.0.220:8002
+      - DATA_SOURCE_API_URL=http://192.168.0.220:8003
     depends_on:
       - consumer-backend
 
@@ -299,14 +299,14 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
       args:
-        - DATA_SINK_API_URL=http://localhost:8004
-        - DATA_SOURCE_API_URL=http://localhost:8005
+        - DATA_SINK_API_URL=http://192.168.0.220:8004
+        - DATA_SOURCE_API_URL=http://192.168.0.220:8005
     image: 'sovity-ce-local-demo-datasource-and-datasink-consumer2-frontend:latest'
     ports:
       - "4202:4200"
     environment:
-      - DATA_SINK_API_URL=http://localhost:8004
-      - DATA_SOURCE_API_URL=http://localhost:8005
+      - DATA_SINK_API_URL=http://192.168.0.220:8004
+      - DATA_SOURCE_API_URL=http://192.168.0.220:8005
     depends_on:
       - consumer2-backend
 
