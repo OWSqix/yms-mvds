@@ -1,0 +1,1 @@
+docker buildx build --no-cache --build-arg EDC_UI_ACTIVE_PROFILE=khu-edc-connector -t khulogoui:1.0 -f docker/Dockerfile .

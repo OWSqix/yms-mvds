@@ -62,7 +62,7 @@ export class NavItemsBuilder {
       ],
     },
     {
-      title: 'sidebar.title',
+      title: '데이터 자산 관리',
       items: [
         {
           testId: 'nav-link-create-data-offer',

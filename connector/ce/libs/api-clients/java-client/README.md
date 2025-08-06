@@ -44,7 +44,7 @@ Java API Client Library to be imported and used in arbitrary applications like u
 <dependency>
   <groupId>de.sovity.edc</groupId>
   <artifactId>client</artifactId>
-  <version>${sovity-edc-ce.version}</version>
+  <version>${integrated-connector.version}</version>
 </dependency>
 ```
 

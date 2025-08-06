@@ -1,87 +1,180 @@
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav
-    class="sidenav"
-    data-testid="sidenav"
-    #drawer
-    fixedInViewport
-    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'"
-    [opened]="(isHandset$ | async) === false">
-    <mat-toolbar class="custom-toolbar shrink-0">
-      <img
-        width="70%"
-        alt="Logo"
-        [attr.src]="config.brandLogoSrc"
-        [style]="config.brandLogoStyle" />
-    </mat-toolbar>
-    <div class="flex flex-col gap-8">
-      <div *ngFor="let navItemGroup of navItemGroups">
-        <h3
-          *ngIf="navItemGroup.title"
-          class="!ml-5 !my-0 !p-0 !font-medium !text-gray-500 !uppercase !tracking-wide !text-xs">
-          {{ navItemGroup.title }}
-        </h3>
-        <mat-nav-list>
-          <a
-            *ngFor="let navItem of navItemGroup.items"
-            [routerLink]="[navItem.path]">
-            <mat-list-item
-              [routerLinkActive]="['is-active']"
-              [attr.data-testid]="navItem.testId">
-              <mat-icon mat-list-icon>{{ navItem.icon }}</mat-icon>
-              <span matLine>{{ navItem.title | translate }}</span>
-            </mat-list-item>
-          </a>
-        </mat-nav-list>
+<div class="app-container">
+  <!-- Top Navigation Bar -->
+  <mat-toolbar class="top-navbar" color="primary">
+    <!-- Background Image Layer -->
+    <div class="navbar-background" [style.background-image]="'url(' + config.brandBannerSrc + ')'"></div>
+    <!-- Overlay for better text readability -->
+    <div class="navbar-overlay"></div>
+    <!-- Mobile Layout: Single Row -->
+    <div class="navbar-content mobile-layout" *ngIf="isHandset$ | async">
+      <!-- Left: Mobile Menu Button -->
+      <div class="navbar-start">
+        <button
+          mat-icon-button
+          class="mobile-menu-button"
+          (click)="drawer.toggle()"
+          aria-label="Toggle navigation">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+
+      <!-- Center: Mobile Current Page Title -->
+      <div class="navbar-center">
+        <div class="current-page-title">
+          <mat-icon class="page-icon">{{ getCurrentPageIcon() }}</mat-icon>
+          <span class="page-text">{{ getCurrentPageTitle() | translate }}</span>
+        </div>
+      </div>
+
+      <!-- Right: Logo and Actions -->
+      <div class="navbar-end">
+        <div class="navbar-brand">
+          <img
+            class="brand-logo mobile-logo"
+            alt="Logo"
+            [attr.src]="config.brandLogoSrc"
+            [style]="config.brandLogoStyle"
+            [routerLink]="['/dashboard']"
+            style="cursor: pointer;"/>
+        </div>
+        
+        <button mat-icon-button
+                *ngIf="'logout-button' | isActiveFeature"
+                [matTooltip]="'logout_page.title' | translate"
+                [routerLink]="['/logout']">
+          <mat-icon>account_circle</mat-icon>
+        </button>
       </div>
     </div>
-    <div
-      *ngIf="'sovity-zammad-integration' | isActiveFeature"
-      id="contact-form"
-      class="align-to-bottom shrink-0 mt-auto">
-      <strong>Do you have feedback or need help?</strong>
-      <p><em>Select &nbsp;<kbd>SAML</kbd>&nbsp; login on following page</em></p>
-      <a
-        href="https://sovity.zammad.com/#customer_ticket_new"
-        target="_blank"
-        mat-raised-button
-        color="primary">
-        CREATE TICKET
-      </a>
-      <a
-        href="https://sovity.zammad.com/#knowledge_base/1/locale/en-us"
-        target="_blank"
-        mat-raised-button
-        color="primary">
-        TUTORIAL & FAQ
-      </a>
+
+    <!-- Desktop Layout: Two Row Structure -->
+    <div class="navbar-content desktop-layout" *ngIf="!(isHandset$ | async)">
+      <!-- Top Row: Logo and Actions -->
+      <div class="navbar-top-row">
+        <div class="navbar-brand">
+          <img
+            class="brand-logo desktop-logo"
+            alt="Logo"
+            [attr.src]="config.brandLogoSrc"
+            [style]="config.brandLogoStyle"
+            [routerLink]="['/dashboard']"
+            style="cursor: pointer;"/>
+        </div>
+        
+        <div class="navbar-actions">
+          <button mat-icon-button
+                  *ngIf="'logout-button' | isActiveFeature"
+                  [matTooltip]="'logout_page.title' | translate"
+                  [routerLink]="['/logout']">
+            <mat-icon>account_circle</mat-icon>
+          </button>
+        </div>
+      </div>
+
+      <!-- Bottom Row: Navigation Menu -->
+      <div class="navbar-bottom-row">
+        <nav class="navbar-menu desktop-menu">
+          <!-- Main Menu Items -->
+          <ng-container *ngFor="let navItemGroup of navItemGroups">
+            <ng-container *ngIf="!navItemGroup.title">
+              <a *ngFor="let navItem of navItemGroup.items"
+                 class="nav-item"
+                 [routerLink]="[navItem.path]"
+                 routerLinkActive="active"
+                 [attr.data-testid]="navItem.testId">
+                <mat-icon>{{ navItem.icon }}</mat-icon>
+                <span>{{ navItem.title | translate }}</span>
+              </a>
+            </ng-container>
+          </ng-container>
+
+          <!-- Dropdown for Asset Management -->
+          <ng-container *ngFor="let navItemGroup of navItemGroups">
+            <ng-container *ngIf="navItemGroup.title">
+              <button mat-button [matMenuTriggerFor]="assetMenu" class="nav-dropdown">
+                <span>{{ navItemGroup.title }}</span>
+                <mat-icon>arrow_drop_down</mat-icon>
+              </button>
+              <mat-menu #assetMenu="matMenu">
+                <button *ngFor="let navItem of navItemGroup.items"
+                        mat-menu-item
+                        [routerLink]="[navItem.path]"
+                        [attr.data-testid]="navItem.testId">
+                  <mat-icon>{{ navItem.icon }}</mat-icon>
+                  <span>{{ navItem.title | translate }}</span>
+                </button>
+              </mat-menu>
+            </ng-container>
+          </ng-container>
+        </nav>
+
+      </div>
     </div>
-    <div
-      *ngIf="('mds-marketing' | isActiveFeature) && config.showEeBasicMarketing"
-      class="flex flex-row items-center mx-auto pr-4 pb-4">
-      <i>powered by</i>
-      <img
-        class="h-6 ml-[0.42rem] mt-[0.17rem]"
-        src="/assets/images/koti_logo.svg"
-        alt="sovity logo" />
-    </div>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar class="flex items-center" color="primary">
-      <button
-        *ngIf="isHandset$ | async"
-        type="button"
-        mat-icon-button
-        aria-label="Toggle sidenav"
-        (click)="drawer.toggle()">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      <span class="flex-grow">{{
-        titleService.getTitle() || '' | translate
-      }}</span>
-    </mat-toolbar>
-    <main class="container">
+  </mat-toolbar>
+
+  <!-- Mobile Sidenav -->
+  <mat-sidenav-container class="mobile-sidenav-container" *ngIf="isHandset$ | async">
+    <mat-sidenav
+      #drawer
+      class="mobile-sidenav"
+      position="start"
+      [mode]="'over'"
+      [opened]="false">
+      <mat-toolbar color="primary">
+        <span>메뉴</span>
+        <span class="flex-grow"></span>
+        <button mat-icon-button (click)="drawer.close()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-toolbar>
+      <mat-nav-list>
+        <div *ngFor="let navItemGroup of navItemGroups">
+          <h3 mat-subheader *ngIf="navItemGroup.title">
+            {{ navItemGroup.title }}
+          </h3>
+          <a *ngFor="let navItem of navItemGroup.items"
+             mat-list-item
+             [routerLink]="[navItem.path]"
+             (click)="drawer.close()"
+             routerLinkActive="active"
+             [attr.data-testid]="navItem.testId">
+            <mat-icon mat-list-icon>{{ navItem.icon }}</mat-icon>
+            <span matLine>{{ navItem.title | translate }}</span>
+          </a>
+          <mat-divider *ngIf="navItemGroup.title"></mat-divider>
+        </div>
+      </mat-nav-list>
+
+      <!-- Support Links (if enabled) -->
+      <div *ngIf="'sovity-zammad-integration' | isActiveFeature"
+           class="mobile-support-section">
+        <mat-divider></mat-divider>
+        <div class="support-content">
+          <strong>Do you have feedback or need help?</strong>
+          <p><em>Select &nbsp;<kbd>SAML</kbd>&nbsp; login on following page</em></p>
+          <a href="https://sovity.zammad.com/#customer_ticket_new"
+             target="_blank"
+             mat-raised-button
+             color="primary"
+             class="support-button">
+            CREATE TICKET
+          </a>
+          <a href="https://sovity.zammad.com/#knowledge_base/1/locale/en-us"
+             target="_blank"
+             mat-raised-button
+             color="primary"
+             class="support-button">
+            TUTORIAL & FAQ
+          </a>
+        </div>
+      </div>
+    </mat-sidenav>
+  </mat-sidenav-container>
+
+  <!-- Main Content Area -->
+  <main class="main-content">
+    <div class="container">
       <router-outlet></router-outlet>
-    </main>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+    </div>
+  </main>
+</div>

@@ -100,6 +100,9 @@ bash ./build-koti-front.sh
 # For KALDA theme (Consumer2 UI)
 bash ./build-kalda-front.sh
 
+# For KHU theme
+bash ./build-khu-front.sh
+
 # After building, navigate back to the workspace root or proceed to the compose directory
 cd ..
 ```
@@ -120,11 +123,13 @@ Once the Docker containers are up and running, you can access the services at th
 - Provider Connector UI (KOTI Theme): [http://localhost:11000](http://localhost:11000)
 - Consumer Connector UI (Ymatics Theme): [http://localhost:22000](http://localhost:22000)
 - Consumer2 Connector UI (KALDA Theme): [http://localhost:23000](http://localhost:23000)
+- KHU Connector UI (KHU Theme): [http://localhost:24000](http://localhost:24000)
 
 **Supporting Service UIs (Data Management):**
 - Provider Datasource/Sink UI: [http://localhost:4200](http://localhost:4200)
 - Consumer Datasource/Sink UI: [http://localhost:4201](http://localhost:4201)
-- Consumer2 Datasource/Sink UI : [http://localhost:4202](http://localhost:4202)
+- Consumer2 Datasource/Sink UI: [http://localhost:4202](http://localhost:4202)
+- KHU Datasource/Sink UI: [http://localhost:4203](http://localhost:4203)
 
 **Backend Service Endpoints (API):**
 - Provider Datasink Backend: `http://localhost:8000`
@@ -133,6 +138,8 @@ Once the Docker containers are up and running, you can access the services at th
 - Consumer Datasource Backend: `http://localhost:8003`
 - Consumer2 Datasink Backend: `http://localhost:8004`
 - Consumer2 Datasource Backend: `http://localhost:8005`
+- KHU Datasink Backend: `http://localhost:8006`
+- KHU Datasource Backend: `http://localhost:8007`
 
 ## License
 

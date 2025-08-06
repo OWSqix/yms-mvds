@@ -1,36 +1,415 @@
-.sidenav-container {
-  height: 100%;
+// Main app container
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
-.sidenav {
-  width: 300px;
-}
-
-.sidenav .mat-toolbar {
-  background: inherit;
-}
-
-.mat-toolbar.mat-primary {
-  position: sticky;
+// Top Navigation Bar
+.top-navbar {
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 230px;
+  overflow: hidden;
+}
+
+// Background Image Layer
+.navbar-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 1;
+  
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  
+  background-color: var(--primary-color, #f85c3c);
 }
 
-#contact-form {
-  text-align: center;
-  background: #ffffff;
+// Overlay for better text readability
+.navbar-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  
+  // 기본 오버레이
+  background: rgba(0, 0, 0, 0.65);
 }
 
-#contact-form a {
-  display: block;
-  margin: 16px 16px;
+// 테마별 오버레이 색상 정의
+::ng-deep .theme-sovity .navbar-overlay {
+  background: linear-gradient(135deg, rgba(68, 90, 245, 0.75), rgba(68, 90, 245, 0.85)); 
 }
 
-.custom-toolbar {
-  margin: 3px 3px;
+::ng-deep .theme-ymatics .navbar-overlay {
+  background: rgba(0, 0, 0, 0.2);
 }
 
-.is-active {
-  cursor: pointer;
-  background-color: #dedede;
+::ng-deep .theme-koti .navbar-overlay {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+::ng-deep .theme-kalda .navbar-overlay {
+  background: rgba(0, 0, 0, 0.65);
+}
+
+::ng-deep .theme-khu .navbar-overlay {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+::ng-deep .theme-mds .navbar-overlay {
+  background: linear-gradient(135deg, rgba(25, 118, 210, 0.75), rgba(25, 118, 210, 0.85));
+}
+
+// ===========================
+// Mobile Layout (Single Row)
+// ===========================
+.mobile-layout {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 16px;
+  height: 100%;
+  z-index: 3;
+
+  .navbar-start {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+    
+    .mobile-menu-button {
+      // 기본 스타일 사용
+    }
+  }
+
+  .navbar-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    
+    .current-page-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 20px; // 글자 크기 증가
+      font-weight: 600; // 더 굵게
+      color: white;
+      text-align: center;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+      white-space: nowrap;
+      
+      .page-icon {
+        font-size: 24px; // 아이콘 크기
+        width: 24px;
+        height: 24px;
+      }
+      
+      .page-text {
+        line-height: 24px; // 아이콘과 높이 맞춤
+      }
+    }
+  }
+
+  .navbar-end {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 0 0 auto;
+    
+    .navbar-brand .mobile-logo {
+      height: 80px;
+      width: auto;
+      object-fit: contain;
+    }
+  }
+}
+
+// ===========================
+// Desktop Layout (Two Rows)
+// ===========================
+.desktop-layout {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px 32px;
+  height: 100%;
+  z-index: 3;
+
+  // Top Row: Logo and Actions
+  .navbar-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    
+    .navbar-brand .desktop-logo {
+      height: 80px; // 데스크톱에서 더 크게
+      width: auto;
+      object-fit: contain;
+    }
+    
+    .navbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      
+      button {
+        mat-icon {
+          font-size: 28px;
+          width: 28px;
+          height: 28px;
+        }
+      }
+    }
+  }
+
+  // Bottom Row: Navigation Menu Only
+  .navbar-bottom-row {
+    display: flex;
+    justify-content: flex-start; // 네비게이션 메뉴를 왼쪽 정렬 (로고 밑에서 시작)
+    align-items: center;
+    flex: 1;
+    
+    .navbar-menu.desktop-menu {
+      display: flex;
+      align-items: center;
+      gap: 16px; // 데스크톱에서 간격 더 넓게
+      
+      .nav-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 20px; // 데스크톱에서 더 큰 패딩
+        border-radius: 6px;
+        text-decoration: none;
+        color: white;
+        transition: all 0.2s ease;
+        font-size: 16px; // 데스크톱에서 폰트 더 크게
+        font-weight: 500;
+        white-space: nowrap;
+
+        mat-icon {
+          font-size: 24px; // 아이콘도 더 크게
+          width: 24px;
+          height: 24px;
+        }
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.15);
+          transform: translateY(-1px);
+        }
+
+        &.active {
+          background-color: rgba(255, 255, 255, 0.25); // active 상태 더 강조
+          font-weight: 600;
+          box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+        }
+      }
+
+      .nav-dropdown {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 16px;
+        font-weight: 500;
+        color: white;
+        padding: 12px 20px;
+        
+        mat-icon {
+          margin-left: 6px;
+          font-size: 24px;
+          width: 24px;
+          height: 24px;
+        }
+        
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.15);
+        }
+      }
+    }
+  }
+}
+
+// Main content area
+.main-content {
+  flex: 1;
+  margin-top: 230px; // Height of navbar (230px)
+  background-color: #fafafa;
+  overflow-y: auto;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+// Mobile sidenav
+.mobile-sidenav-container {
+  position: fixed;
+  top: 230px; // Height of navbar (230px)
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  pointer-events: none;
+
+  &.mat-drawer-container {
+    background: transparent;
+  }
+
+  .mat-drawer-backdrop {
+    pointer-events: all;
+  }
+}
+
+.mobile-sidenav {
+  width: 280px;
+  pointer-events: all;
+
+  mat-nav-list {
+    padding-top: 0;
+
+    h3 {
+      margin: 16px 16px 8px;
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(0, 0, 0, 0.54);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .mat-list-item {
+      &.active {
+        background-color: rgba(0, 0, 0, 0.08);
+      }
+    }
+  }
+}
+
+// Mobile support section
+.mobile-support-section {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+
+  .support-content {
+    padding: 16px;
+    text-align: center;
+
+    strong {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    p {
+      margin-bottom: 16px;
+      font-size: 14px;
+      color: rgba(0, 0, 0, 0.54);
+    }
+
+    .support-button {
+      display: block;
+      width: 100%;
+      margin-bottom: 8px;
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .top-navbar {
+    height: 200px; // 모바일에서는 약간 작게
+  }
+  
+  .main-content {
+    margin-top: 200px;
+  }
+  
+  .mobile-sidenav-container {
+    top: 200px;
+  }
+  
+  .mobile-layout {
+    padding: 0 12px;
+    
+    .navbar-center {
+      .current-page-title {
+        font-size: 32px; // 작은 화면에서도 적절한 크기 유지
+        
+        .page-icon {
+          font-size: 32px;
+          width: 32px;
+          height: 32px;
+        }
+        
+        .page-text {
+          line-height: 20px;
+        }
+      }
+    }
+    
+    .navbar-end {
+      .navbar-brand .mobile-logo {
+        height: 32px;
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .desktop-layout {
+    .navbar-bottom-row {
+      .navbar-menu.desktop-menu {
+        gap: 24px; // 큰 화면에서 더 넓은 간격
+        
+        .nav-item {
+          font-size: 18px; // 큰 화면에서 폰트 더 크게
+          padding: 14px 24px;
+          
+          mat-icon {
+            font-size: 26px;
+            width: 26px;
+            height: 26px;
+          }
+        }
+        
+        .nav-dropdown {
+          font-size: 18px;
+          padding: 14px 24px;
+          
+          mat-icon {
+            font-size: 26px;
+            width: 26px;
+            height: 26px;
+          }
+        }
+      }
+    }
+  }
 }

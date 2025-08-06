@@ -23,10 +23,12 @@
  *     Fraunhofer FIT - contributed initial internationalization support
  */
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject, OnInit, ViewChild} from '@angular/core';
+import {MatSidenav} from '@angular/material/sidenav';
 import {Title} from '@angular/platform-browser';
+import {Router, NavigationEnd} from '@angular/router';
 import {Observable} from 'rxjs';
-import {map, shareReplay} from 'rxjs/operators';
+import {map, shareReplay, filter} from 'rxjs/operators';
 import {TranslateService} from '@ngx-translate/core';
 import {NavItemGroup} from 'src/app/core/services/models/nav-item-group';
 import {NavItemsBuilder} from 'src/app/core/services/nav-items-builder';
@@ -41,6 +43,8 @@ import {LoginPollingService} from '../../core/services/login-polling.service';
   styleUrls: ['./connector-ui.component.scss'],
 })
 export class ConnectorUiComponent implements OnInit {
+  @ViewChild('drawer') drawer!: MatSidenav;
+  
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(
@@ -49,6 +53,7 @@ export class ConnectorUiComponent implements OnInit {
     );
 
   navItemGroups: NavItemGroup[] = [];
+  currentPath: string = '';
 
   selectedLanguage = new LocalStoredValue<string>(
     'ko',
@@ -63,10 +68,18 @@ export class ConnectorUiComponent implements OnInit {
     private loginPollingService: LoginPollingService,
     private navItemsBuilder: NavItemsBuilder,
     private translateService: TranslateService,
+    private router: Router,
   ) {
     this.navItemGroups = this.navItemsBuilder.buildNavItemGroups();
     this.translateService.setDefaultLang('ko');
     this.translateService.use(this.selectedLanguage.value);
+    
+    // 현재 경로 추적
+    this.router.events.pipe(
+      filter((event): event is NavigationEnd => event instanceof NavigationEnd)
+    ).subscribe((event) => {
+      this.currentPath = event.urlAfterRedirects.split('/').pop() || '';
+    });
   }
 
   ngOnInit() {
@@ -75,5 +88,35 @@ export class ConnectorUiComponent implements OnInit {
 
   private startLoginPolling() {
     this.loginPollingService.startPolling();
+  }
+
+  // 모바일에서 현재 페이지 타이틀을 가져오는 메소드
+  getCurrentPageTitle(): string {
+    // 모든 네비게이션 아이템에서 현재 경로와 일치하는 것을 찾기
+    for (const group of this.navItemGroups) {
+      for (const item of group.items) {
+        if (item.path === this.currentPath) {
+          return item.title;
+        }
+      }
+    }
+    
+    // 기본값으로 대시보드 반환
+    return 'dashboard_page.title';
+  }
+
+  // 모바일에서 현재 페이지 아이콘을 가져오는 메소드
+  getCurrentPageIcon(): string {
+    // 모든 네비게이션 아이템에서 현재 경로와 일치하는 것을 찾기
+    for (const group of this.navItemGroups) {
+      for (const item of group.items) {
+        if (item.path === this.currentPath) {
+          return item.icon;
+        }
+      }
+    }
+    
+    // 기본값으로 대시보드 아이콘 반환
+    return 'data_usage';
   }
 }

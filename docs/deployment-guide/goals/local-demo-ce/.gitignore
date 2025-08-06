@@ -1,5 +1,7 @@
-./consumer
-./provider
-./frontend/node_modules
-./frontend/.angular
-./frontend/.vscode
+consumer/*
+provider/*
+consumer2/*
+khu/*
+frontend/node_modules
+frontend/.angular
+frontend/.vscode
