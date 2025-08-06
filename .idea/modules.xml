@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/sovity-edc-ce.iml" filepath="$PROJECT_DIR$/.idea/sovity-edc-ce.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/integrated-connector.iml" filepath="$PROJECT_DIR$/.idea/integrated-connector.iml" />
     </modules>
   </component>
 </project>

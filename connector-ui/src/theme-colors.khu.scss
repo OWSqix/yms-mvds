@@ -1,0 +1,82 @@
+@use '@angular/material' as mat;
+@use 'sass:map';
+
+/* Theming (KHU Theme) */
+
+$theme-colors-primary: (
+  50: #fce4e6,
+  100: #f7bcc0,
+  200: #f19097,
+  300: #eb646d,
+  400: #e7424e,
+  500: #a40f16, // KHU 메인 색상 (R164 G15 B22)
+  600: #950e14,
+  700: #840c11,
+  800: #73090e,
+  900: #5a0508,
+  A100: #ff8a80,
+  A200: #ff5252,
+  A400: #ff1744,
+  A700: #d50000,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #ffffff,
+    A700: #ffffff,
+  ),
+);
+
+$link-color: lighten(map.get($theme-colors-primary, 500), 10%);
+
+$theme-colors-accent: (
+  50: #ffffff,
+  100: #000000,
+  200: #000000,
+  300: #000000,
+  400: #000000,
+  500: #000000,
+  600: #000000,
+  700: #000000,
+  800: #000000,
+  900: #000000,
+  A100: #000000,
+  A200: #000000,
+  A400: #000000,
+  A700: #000000,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #ffffff,
+    A400: #ffffff,
+    A700: #ffffff,
+  ),
+);
+
+$theme-palette-primary: mat.define-palette($theme-colors-primary);
+$theme-palette-accent: mat.define-palette($theme-colors-accent);
+$theme-palette-warn: mat.define-palette(mat.$red-palette);
+
+$theme: mat.define-light-theme(
+  $theme-palette-primary,
+  $theme-palette-accent,
+  $theme-palette-warn
+);

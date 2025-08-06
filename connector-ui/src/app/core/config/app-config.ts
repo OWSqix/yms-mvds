@@ -34,6 +34,7 @@ export interface AppConfig {
   brandFaviconSrc: string;
   brandLogoSrc: string;
   brandLogoStyle: string;
+  brandBannerSrc: string;
 
   // EDC Backend Endpoints
   managementApiUrl: string;

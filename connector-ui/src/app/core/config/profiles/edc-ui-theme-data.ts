@@ -11,35 +11,48 @@ import {EdcUiThemeConfig} from './edc-ui-theme-config';
 
 export const SOVITY_THEME: EdcUiThemeConfig = {
   theme: 'theme-sovity',
-  brandFaviconSrc: '/assets/images/sovity_favicon-192x192.png',
-  brandLogoSrc: '/assets/images/sovity_logo.svg',
+  brandFaviconSrc: '/assets/images/favicon/sovity_favicon-192x192.png',
+  brandLogoSrc: '/assets/images/logo/sovity_logo.svg',
   brandLogoStyle: 'width: 70%;',
+  brandBannerSrc: '/assets/images/banners/sovity_banner.jpg',
 };
 
 export const YMATICS_THEME: EdcUiThemeConfig = {
   theme: 'theme-ymatics',
-  brandFaviconSrc: '/assets/images/ymatics_favicon.ico',
-  brandLogoSrc: '/assets/images/ymatics_logo.svg',
+  brandFaviconSrc: '/assets/images/favicon/ymatics_favicon.ico',
+  brandLogoSrc: '/assets/images/logo/ymatics_logo_white.png',
   brandLogoStyle: 'width: 70%;',
+  brandBannerSrc: '/assets/images/banners/ymatics_banner.png',
 };
 
 export const MDS_THEME: EdcUiThemeConfig = {
   theme: 'theme-mds',
-  brandFaviconSrc: '/assets/images/mds_favicon.ico',
-  brandLogoSrc: '/assets/images/mds_logo.svg',
+  brandFaviconSrc: '/assets/images/favicon/mds_favicon.ico',
+  brandLogoSrc: '/assets/images/logo/mds_logo.svg',
   brandLogoStyle: 'height: 57px; margin-top: 5px; margin-left: 5px;',
+  brandBannerSrc: '/assets/images/banners/mds_banner.jpg',
 };
 
 export const KOTI_THEME: EdcUiThemeConfig = {
   theme: 'theme-koti',
-  brandFaviconSrc: '/assets/images/koti_favicon.ico',
-  brandLogoSrc: '/assets/images/koti_logo.svg',
+  brandFaviconSrc: '/assets/images/favicon/koti_favicon.ico',
+  brandLogoSrc: '/assets/images/logo/koti_logo_white.png',
   brandLogoStyle: 'width: 70%;',
+  brandBannerSrc: '/assets/images/banners/koti_banner.jpg',
 };
 
 export const KALDA_THEME: EdcUiThemeConfig = {
   theme: 'theme-kalda',
-  brandFaviconSrc: '/assets/images/kalda_favicon.ico',
-  brandLogoSrc: '/assets/images/kalda_logo.svg',
-  brandLogoStyle: 'height: 40px; width: auto;',
+  brandFaviconSrc: '/assets/images/favicon/kalda_favicon.ico',
+  brandLogoSrc: '/assets/images/logo/kalda_logo_white.png',
+  brandLogoStyle: 'height: 80px; width: auto;',
+  brandBannerSrc: '/assets/images/banners/kalda_banner.png',
+};
+
+export const KHU_THEME: EdcUiThemeConfig = {
+  theme: 'theme-khu',
+  brandFaviconSrc: '/assets/images/favicon/khu_favicon.ico',
+  brandLogoSrc: '/assets/images/logo/khu_logo_white.png',
+  brandLogoStyle: 'height: 80px; width: auto;',
+  brandBannerSrc: '/assets/images/banners/khu_banner.jpg',
 };

@@ -7,7 +7,7 @@
  *
  *  SPDX-License-Identifier: Apache-2.0
  */
-import {MDS_THEME, YMATICS_THEME, KOTI_THEME, KALDA_THEME} from './edc-ui-theme-data';
+import {MDS_THEME, YMATICS_THEME, KOTI_THEME, KALDA_THEME, KHU_THEME} from './edc-ui-theme-data';
 import {COMMUNITY_EDITION_FEATURES} from './feature-sets/community-edition-features';
 import {ENTERPRISE_EDITION_FEATURES} from './feature-sets/enterprise-edition-features';
 import {MDS_FEATURES} from './feature-sets/mds-features';
@@ -31,6 +31,11 @@ export const EDC_UI_PROFILE_DATA = inferEdcUiProfileType({
   },
   'kalda-edc-connector': {
     ...KALDA_THEME,
+    routes: 'connector-ui',
+    features: new Set(COMMUNITY_EDITION_FEATURES),
+  },
+  'khu-edc-connector': {
+    ...KHU_THEME,
     routes: 'connector-ui',
     features: new Set(COMMUNITY_EDITION_FEATURES),
   },

@@ -22,7 +22,7 @@ That means, except for the information on how the UI connects to the backend's M
 
 | Env Var                                   | Required / Default                                    | Description                                                                                                                                                                                          |
 |-------------------------------------------|-------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `EDC_UI_ACTIVE_PROFILE`                   | Defaults to `sovity-open-source`                      | Customer-Specific Feature Set and/or Theme. Available values: `sovity-open-source`. See `edc-ui-profile-data.ts` |
+| `EDC_UI_ACTIVE_PROFILE`                   | Defaults to `ymatics-edc-connector`                      | Customer-Specific Feature Set and/or Theme. Available values: `ymatics-edc-connector`. See `edc-ui-profile-data.ts` |
 | `EDC_UI_MANAGEMENT_API_KEY`               | Optional                                              | Management API Key to authenticate against the Management API. Only required for deployment scenarios that use a hard-coded API key                                                                  |
 | `EDC_UI_MANAGEMENT_API_URL`               | Required                                              | Management API URL as reachable by the browser.                                                                                                                                                      |
 

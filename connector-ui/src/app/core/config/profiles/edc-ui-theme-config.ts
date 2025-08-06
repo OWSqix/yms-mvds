@@ -14,5 +14,5 @@ import {AppConfig} from '../app-config';
  */
 export type EdcUiThemeConfig = Pick<
   AppConfig,
-  'theme' | 'brandLogoStyle' | 'brandLogoSrc' | 'brandFaviconSrc'
+  'theme' | 'brandLogoStyle' | 'brandLogoSrc' | 'brandFaviconSrc' | 'brandBannerSrc'
 >;
