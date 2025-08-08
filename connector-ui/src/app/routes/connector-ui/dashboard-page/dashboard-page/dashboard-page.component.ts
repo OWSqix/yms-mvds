@@ -21,6 +21,7 @@
  *     Fraunhofer FIT - contributed initial internationalization support
  */
 import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 import {BehaviorSubject, Subject} from 'rxjs';
 import {switchMap, takeUntil} from 'rxjs/operators';
 import {APP_CONFIG, AppConfig} from 'src/app/core/config/app-config';
@@ -31,6 +32,7 @@ import {DashboardPageDataService} from './dashboard-page-data.service';
 @Component({
   selector: 'dashboard-page',
   templateUrl: './dashboard-page.component.html',
+  styleUrls: ['./dashboard-page.component.scss'],
   providers: [ConnectorInfoPropertyGridGroupBuilder],
 })
 export class DashboardPageComponent implements OnInit, OnDestroy {
@@ -40,6 +42,7 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
   constructor(
     @Inject(APP_CONFIG) public config: AppConfig,
     private dashboardDataService: DashboardPageDataService,
+    private router: Router,
   ) {}
 
   ngOnInit() {
@@ -58,5 +61,21 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.ngOnDestroy$.next(null);
     this.ngOnDestroy$.complete();
+  }
+
+  navigateToDataOffers() {
+    this.router.navigate(['/data-offers']);
+  }
+
+  navigateToAssets() {
+    this.router.navigate(['/my-assets']);
+  }
+
+  navigateToPolicies() {
+    this.router.navigate(['/policies']);
+  }
+
+  navigateToContracts() {
+    this.router.navigate(['/contracts']);
   }
 }

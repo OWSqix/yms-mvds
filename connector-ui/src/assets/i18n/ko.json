@@ -293,6 +293,7 @@
   "dashboard_page.failed_ui_build": "UI 마지막 빌드 정보를 불러오는 데 실패했습니다",
   "dashboard_page.failed_ui": "UI 마지막 커밋 정보를 불러오는 데 실패했습니다",
   "dashboard_page.inc_data": "수신 데이터",
+  "dashboard_page.kpi_cards_title": "KPI 현황",
   "dashboard_page.managed_edc": "Managed EDC 이용하기",
   "dashboard_page.marketing_about_ui_assets_view_and_create": "{}를 사용하여 자산을 확인하고 생성해보세요.",
   "dashboard_page.marketing_about_ui_catalog_negotiate": "{}를 사용하여 데이터 공간 내에서 데이터 공유를 위한 계약 협상을 진행해보세요.",

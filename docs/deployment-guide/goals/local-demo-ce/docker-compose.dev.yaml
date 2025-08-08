@@ -1,0 +1,502 @@
+services:
+  consumer:
+    container_name: edc-dev-consumer
+    image: 'caddy:2.8'
+    restart: 'always'
+    ports:
+      - '30000:80'
+    volumes:
+      - './caddyfiles/Caddyfile.cp-with-integrated-dp:/etc/caddy/Caddyfile'
+    environment:
+      CONNECTOR_UPSTREAM_HOST: 'consumer-connector'
+      FRONTEND_UPSTREAM_HOST: 'consumer-ui'
+    networks:
+      - edc-dev-network
+  consumer-ui:
+    container_name: edc-dev-consumer-ui
+    image: 'ymslogoui:dev'
+    restart: 'always'
+    networks:
+      - edc-dev-network
+    environment:
+      EDC_UI_MANAGEMENT_API_URL: '/api/management'
+      EDC_UI_MANAGEMENT_API_KEY: 'SomeOtherApiKey'
+      EDC_UI_CONFIG_URL: 'false'
+      NGINX_ACCESS_LOG: 'off'
+      EDC_UI_ACTIVE_PROFILE: 'ymatics-edc-connector'
+      EDC_UI_USE_FAKE_BACKEND: 'false'
+      EDC_UI_CONNECTOR_ENDPOINT: '/api/dsp'
+      EDC_UI_MANAGEMENT_API_URL_SHOWN_IN_DASHBOARD: '/api/management'
+      EDC_UI_CATALOG_URLS: 'http://provider/api/dsp,http://consumer2/api/dsp,http://khu/api/dsp'
+  consumer-connector:
+    container_name: edc-dev-consumer-connector
+    image: 'ghcr.io/sovity/edc-ce:latest'
+    restart: 'always'
+    networks:
+      - edc-dev-network
+    depends_on:
+      consumer-connector-db:
+        condition: 'service_healthy'
+    environment:
+      sovity.deployment.kind: 'control-plane-with-integrated-data-plane'
+      sovity.edc.fqdn.public: 'consumer'
+      sovity.edc.fqdn.internal: 'consumer-connector'
+      edc.control.endpoint: 'http://consumer-connector:11004/api/control'
+      sovity.jdbc.url: 'jdbc:postgresql://consumer-connector-db:5432/db-name'
+      sovity.jdbc.user: 'db-user'
+      sovity.jdbc.password: 'db-pass'
+      edc.ui.active.profile: 'ymatics-edc-connector'
+      edc.ui.logout.url: 'https://example.com'
+      edc.ui.catalog.urls: 'http://provider/api/dsp, http://consumer2/api/dsp, http://khu/api/dsp'
+      sovity.management.api.iam.kind: 'management-iam-api-key'
+      edc.api.auth.key: 'SomeOtherApiKey'
+      sovity.edc.title: 'consumer Title'
+      sovity.edc.description: 'consumer Description'
+      sovity.edc.maintainer.name: 'consumer Maintainer'
+      sovity.edc.maintainer.url: 'https://consumer/maintainer'
+      sovity.edc.curator.name: 'consumer Curator'
+      sovity.edc.curator.url: 'https://consumer/curator'
+      sovity.dataspace.kind: 'sovity-mock-iam'
+      edc.participant.id: 'consumer'
+      sovity.http.protocol: 'http://'
+      sovity.print.config: 'true'
+      sovity.logging.level: 'DEBUG'
+      sovity.logging.kind: 'console'
+      sovity.micrometer.enabled: 'true'
+  consumer-connector-db:
+    container_name: edc-dev-consumer-connector-db
+    image: 'docker.io/postgres:16-alpine'
+    restart: 'always'
+    networks:
+      - edc-dev-network
+    environment:
+      POSTGRES_USER: 'db-user'
+      POSTGRES_PASSWORD: 'db-pass'
+      POSTGRES_DB: 'db-name'
+    healthcheck:
+      test:
+        - 'CMD-SHELL'
+        - 'pg_isready -U db-user --dbname=db-name'
+      interval: '1s'
+      timeout: '5s'
+      retries: 10
+    volumes:
+      - 'consumer-connector-db-data:/var/lib/postgresql/data'
+  provider:
+    container_name: edc-dev-provider
+    image: 'caddy:2.8'
+    restart: 'always'
+    networks:
+      - edc-dev-network
+    ports:
+      - '30100:80'
+    volumes:
+      - './caddyfiles/Caddyfile.cp-with-integrated-dp:/etc/caddy/Caddyfile'
+    environment:
+      CONNECTOR_UPSTREAM_HOST: 'provider-connector'
+      FRONTEND_UPSTREAM_HOST: 'provider-ui'
+  provider-ui:
+    container_name: edc-dev-provider-ui
+    image: 'kotilogoui:dev'
+    restart: 'always'
+    networks:
+      - edc-dev-network
+    environment:
+      EDC_UI_MANAGEMENT_API_URL: '/api/management'
+      EDC_UI_MANAGEMENT_API_KEY: 'SomeOtherApiKey'
+      EDC_UI_CONFIG_URL: 'false'
+      NGINX_ACCESS_LOG: 'off'
+      EDC_UI_ACTIVE_PROFILE: 'koti-edc-connector'
+      EDC_UI_USE_FAKE_BACKEND: 'false'
+      EDC_UI_CONNECTOR_ENDPOINT: '/api/dsp'
+      EDC_UI_MANAGEMENT_API_URL_SHOWN_IN_DASHBOARD: '/api/management'
+      EDC_UI_CATALOG_URLS: 'http://consumer/api/dsp,http://consumer2/api/dsp,http://khu/api/dsp'
+  provider-connector:
+    container_name: edc-dev-provider-connector
+    image: 'ghcr.io/sovity/edc-ce:latest'
+    restart: 'always'
+    networks:
+      - edc-dev-network
+    depends_on:
+      provider-connector-db:
+        condition: 'service_healthy'
+    environment:
+      sovity.deployment.kind: 'control-plane-with-integrated-data-plane'
+      sovity.edc.fqdn.public: 'provider'
+      sovity.edc.fqdn.internal: 'provider-connector'
+      edc.control.endpoint: 'http://provider-connector:11004/api/control'
+      sovity.jdbc.url: 'jdbc:postgresql://provider-connector-db:5432/db-name'
+      sovity.jdbc.user: 'db-user'
+      sovity.jdbc.password: 'db-pass'
+      edc.ui.active.profile: 'koti-edc-connector'
+      edc.ui.logout.url: 'https://example.com'
+      edc.ui.catalog.urls: 'http://consumer/api/dsp, http://consumer2/api/dsp, http://khu/api/dsp'
+      sovity.management.api.iam.kind: 'management-iam-api-key'
+      edc.api.auth.key: 'SomeOtherApiKey'
+      sovity.edc.title: 'provider Title'
+      sovity.edc.description: 'provider Description'
+      sovity.edc.maintainer.name: 'provider Maintainer'
+      sovity.edc.maintainer.url: 'https://provider/maintainer'
+      sovity.edc.curator.name: 'provider Curator'
+      sovity.edc.curator.url: 'https://provider/curator'
+      sovity.dataspace.kind: 'sovity-mock-iam'
+      edc.participant.id: 'provider'
+      sovity.http.protocol: 'http://'
+      sovity.print.config: 'true'
+      sovity.logging.level: 'DEBUG'
+      sovity.logging.kind: 'console'
+      sovity.micrometer.enabled: 'true'
+  provider-connector-db:
+    container_name: edc-dev-provider-connector-db
+    image: 'docker.io/postgres:16-alpine'
+    restart: 'always'
+    networks:
+      - edc-dev-network
+    environment:
+      POSTGRES_USER: 'db-user'
+      POSTGRES_PASSWORD: 'db-pass'
+      POSTGRES_DB: 'db-name'
+    healthcheck:
+      test:
+        - 'CMD-SHELL'
+        - 'pg_isready -U db-user --dbname=db-name'
+      interval: '1s'
+      timeout: '5s'
+      retries: 10
+    volumes:
+      - 'provider-connector-db-data:/var/lib/postgresql/data'
+
+  provider-backend:
+    container_name: edc-dev-provider-backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: 'sovity-ce-local-demo-datasource-and-datasink-backend:dev'
+    restart: always
+    networks:
+      - edc-dev-network
+    ports:
+      - "30101:8002"  # Data Sink API
+      - "30102:8003"  # Data Source API
+    volumes:
+      - ./provider/data:/app/data
+      - ./provider/backend/logs:/app/backend/logs
+    environment:
+      - LOG_LEVEL=debug
+      - HOST=0.0.0.0
+
+  provider-frontend:
+    container_name: edc-dev-provider-frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        - DATA_SINK_API_URL=http://localhost:30101
+        - DATA_SOURCE_API_URL=http://localhost:30102
+    image: 'sovity-ce-local-demo-datasource-and-datasink-provider-frontend:dev'
+    networks:
+      - edc-dev-network
+    ports:
+      - "30110:4200"
+    environment:
+      - DATA_SINK_API_URL=http://localhost:30101
+      - DATA_SOURCE_API_URL=http://localhost:30102
+    depends_on:
+      - provider-backend
+
+  consumer-backend:
+    container_name: edc-dev-consumer-backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: 'sovity-ce-local-demo-datasource-and-datasink-backend:dev'
+    restart: always
+    networks:
+      - edc-dev-network
+    ports:
+      - "30001:8002"  # Data Sink API
+      - "30002:8003"  # Data Source API
+    volumes:
+      - ./consumer/data:/app/data
+      - ./consumer/backend/logs:/app/backend/logs
+    environment:
+      - LOG_LEVEL=debug
+      - HOST=0.0.0.0
+
+  consumer-frontend:
+    container_name: edc-dev-consumer-frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        - DATA_SINK_API_URL=http://localhost:30001
+        - DATA_SOURCE_API_URL=http://localhost:30002
+    image: 'sovity-ce-local-demo-datasource-and-datasink-consumer-frontend:dev'
+    networks:
+      - edc-dev-network
+    ports:
+      - "30010:4200"
+    environment:
+      - DATA_SINK_API_URL=http://localhost:30001
+      - DATA_SOURCE_API_URL=http://localhost:30002
+    depends_on:
+      - consumer-backend
+
+  consumer2:
+    container_name: edc-dev-consumer2
+    image: 'caddy:2.8'
+    restart: 'always'
+    networks:
+      - edc-dev-network
+    ports:
+      - '30200:80'
+    volumes:
+      - './caddyfiles/Caddyfile.cp-with-integrated-dp:/etc/caddy/Caddyfile'
+    environment:
+      CONNECTOR_UPSTREAM_HOST: 'consumer2-connector'
+      FRONTEND_UPSTREAM_HOST: 'consumer2-ui'
+  consumer2-ui:
+    container_name: edc-dev-consumer2-ui
+    image: 'kaldalogoui:dev'
+    restart: 'always'
+    networks:
+      - edc-dev-network
+    environment:
+      EDC_UI_MANAGEMENT_API_URL: '/api/management'
+      EDC_UI_MANAGEMENT_API_KEY: 'SomeOtherApiKey'
+      EDC_UI_CONFIG_URL: 'false'
+      NGINX_ACCESS_LOG: 'off'
+      EDC_UI_ACTIVE_PROFILE: 'kalda-edc-connector'
+      EDC_UI_USE_FAKE_BACKEND: 'false'
+      EDC_UI_CONNECTOR_ENDPOINT: '/api/dsp'
+      EDC_UI_MANAGEMENT_API_URL_SHOWN_IN_DASHBOARD: '/api/management'
+      EDC_UI_CATALOG_URLS: 'http://provider/api/dsp,http://consumer/api/dsp,http://khu/api/dsp'
+  consumer2-connector:
+    container_name: edc-dev-consumer2-connector
+    image: 'ghcr.io/sovity/edc-ce:latest'
+    restart: 'always'
+    networks:
+      - edc-dev-network
+    depends_on:
+      consumer2-connector-db:
+        condition: 'service_healthy'
+    environment:
+      sovity.deployment.kind: 'control-plane-with-integrated-data-plane'
+      sovity.edc.fqdn.public: 'consumer2'
+      sovity.edc.fqdn.internal: 'consumer2-connector'
+      edc.control.endpoint: 'http://consumer2-connector:11004/api/control'
+      sovity.jdbc.url: 'jdbc:postgresql://consumer2-connector-db:5432/db-name'
+      sovity.jdbc.user: 'db-user'
+      sovity.jdbc.password: 'db-pass'
+      edc.ui.active.profile: 'kalda-edc-connector'
+      edc.ui.logout.url: 'https://example.com'
+      edc.ui.catalog.urls: 'http://consumer/api/dsp, http://provider/api/dsp, http://khu/api/dsp'
+      sovity.management.api.iam.kind: 'management-iam-api-key'
+      edc.api.auth.key: 'SomeOtherApiKey'
+      sovity.edc.title: 'consumer2 Title'
+      sovity.edc.description: 'consumer2 Description'
+      sovity.edc.maintainer.name: 'consumer2 Maintainer'
+      sovity.edc.maintainer.url: 'https://consumer2/maintainer'
+      sovity.edc.curator.name: 'consumer2 Curator'
+      sovity.edc.curator.url: 'https://consumer2/curator'
+      sovity.dataspace.kind: 'sovity-mock-iam'
+      edc.participant.id: 'consumer2'
+      sovity.http.protocol: 'http://'
+      sovity.print.config: 'true'
+      sovity.logging.level: 'DEBUG'
+      sovity.logging.kind: 'console'
+      sovity.micrometer.enabled: 'true'
+  consumer2-connector-db:
+    container_name: edc-dev-consumer2-connector-db
+    image: 'docker.io/postgres:16-alpine'
+    restart: 'always'
+    networks:
+      - edc-dev-network
+    environment:
+      POSTGRES_USER: 'db-user'
+      POSTGRES_PASSWORD: 'db-pass'
+      POSTGRES_DB: 'db-name'
+    healthcheck:
+      test:
+        - 'CMD-SHELL'
+        - 'pg_isready -U db-user --dbname=db-name'
+      interval: '1s'
+      timeout: '5s'
+      retries: 10
+    volumes:
+      - 'consumer2-connector-db-data:/var/lib/postgresql/data'
+
+  consumer2-backend:
+    container_name: edc-dev-consumer2-backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: 'sovity-ce-local-demo-datasource-and-datasink-backend:dev'
+    restart: always
+    networks:
+      - edc-dev-network
+    ports:
+      - "30201:8002"  # Data Sink API for consumer2
+      - "30202:8003"  # Data Source API for consumer2
+    volumes:
+      - ./consumer2/data:/app/data
+      - ./consumer2/backend/logs:/app/backend/logs
+    environment:
+      - LOG_LEVEL=debug
+      - HOST=0.0.0.0
+
+  consumer2-frontend:
+    container_name: edc-dev-consumer2-frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        - DATA_SINK_API_URL=http://localhost:30201
+        - DATA_SOURCE_API_URL=http://localhost:30202
+    image: 'sovity-ce-local-demo-datasource-and-datasink-consumer2-frontend:dev'
+    networks:
+      - edc-dev-network
+    ports:
+      - "30210:4200"
+    environment:
+      - DATA_SINK_API_URL=http://localhost:30201
+      - DATA_SOURCE_API_URL=http://localhost:30202
+    depends_on:
+      - consumer2-backend
+
+  # KHU Services
+  khu:
+    container_name: edc-dev-khu
+    image: 'caddy:2.8'
+    restart: 'always'
+    networks:
+      - edc-dev-network
+    ports:
+      - '30300:80'
+    volumes:
+      - './caddyfiles/Caddyfile.cp-with-integrated-dp:/etc/caddy/Caddyfile'
+    environment:
+      CONNECTOR_UPSTREAM_HOST: 'khu-connector'
+      FRONTEND_UPSTREAM_HOST: 'khu-ui'
+  khu-ui:
+    container_name: edc-dev-khu-ui
+    image: 'khulogoui:dev'
+    restart: 'always'
+    networks:
+      - edc-dev-network
+    environment:
+      EDC_UI_MANAGEMENT_API_URL: '/api/management'
+      EDC_UI_MANAGEMENT_API_KEY: 'SomeOtherApiKey'
+      EDC_UI_CONFIG_URL: 'false'
+      NGINX_ACCESS_LOG: 'off'
+      EDC_UI_ACTIVE_PROFILE: 'khu-edc-connector'
+      EDC_UI_USE_FAKE_BACKEND: 'false'
+      EDC_UI_CONNECTOR_ENDPOINT: '/api/dsp'
+      EDC_UI_MANAGEMENT_API_URL_SHOWN_IN_DASHBOARD: '/api/management'
+      EDC_UI_CATALOG_URLS: 'http://provider/api/dsp,http://consumer/api/dsp,http://consumer2/api/dsp'
+  khu-connector:
+    container_name: edc-dev-khu-connector
+    image: 'ghcr.io/sovity/edc-ce:latest'
+    restart: 'always'
+    networks:
+      - edc-dev-network
+    depends_on:
+      khu-connector-db:
+        condition: 'service_healthy'
+    environment:
+      sovity.deployment.kind: 'control-plane-with-integrated-data-plane'
+      sovity.edc.fqdn.public: 'khu'
+      sovity.edc.fqdn.internal: 'khu-connector'
+      edc.control.endpoint: 'http://khu-connector:11004/api/control'
+      sovity.jdbc.url: 'jdbc:postgresql://khu-connector-db:5432/db-name'
+      sovity.jdbc.user: 'db-user'
+      sovity.jdbc.password: 'db-pass'
+      edc.ui.active.profile: 'khu-edc-connector'
+      edc.ui.logout.url: 'https://example.com'
+      edc.ui.catalog.urls: 'http://provider/api/dsp, http://consumer/api/dsp, http://consumer2/api/dsp'
+      sovity.management.api.iam.kind: 'management-iam-api-key'
+      edc.api.auth.key: 'SomeOtherApiKey'
+      sovity.edc.title: 'KHU Connector'
+      sovity.edc.description: 'Kyung Hee University EDC Connector'
+      sovity.edc.maintainer.name: 'KHU Maintainer'
+      sovity.edc.maintainer.url: 'https://khu.ac.kr'
+      sovity.edc.curator.name: 'KHU Curator'
+      sovity.edc.curator.url: 'https://khu.ac.kr'
+      sovity.dataspace.kind: 'sovity-mock-iam'
+      edc.participant.id: 'khu'
+      sovity.http.protocol: 'http://'
+      sovity.print.config: 'true'
+      sovity.logging.level: 'DEBUG'
+      sovity.logging.kind: 'console'
+      sovity.micrometer.enabled: 'true'
+  khu-connector-db:
+    container_name: edc-dev-khu-connector-db
+    image: 'docker.io/postgres:16-alpine'
+    restart: 'always'
+    networks:
+      - edc-dev-network
+    environment:
+      POSTGRES_USER: 'db-user'
+      POSTGRES_PASSWORD: 'db-pass'
+      POSTGRES_DB: 'db-name'
+    healthcheck:
+      test:
+        - 'CMD-SHELL'
+        - 'pg_isready -U db-user --dbname=db-name'
+      interval: '1s'
+      timeout: '5s'
+      retries: 10
+    volumes:
+      - 'khu-connector-db-data:/var/lib/postgresql/data'
+
+  khu-backend:
+    container_name: edc-dev-khu-backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: 'sovity-ce-local-demo-datasource-and-datasink-backend:dev'
+    restart: always
+    networks:
+      - edc-dev-network
+    ports:
+      - "30301:8002"  # Data Sink API for KHU
+      - "30302:8003"  # Data Source API for KHU
+    volumes:
+      - ./khu/data:/app/data
+      - ./khu/backend/logs:/app/backend/logs
+    environment:
+      - LOG_LEVEL=debug
+      - HOST=0.0.0.0
+
+  khu-frontend:
+    container_name: edc-dev-khu-frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        - DATA_SINK_API_URL=http://localhost:30301
+        - DATA_SOURCE_API_URL=http://localhost:30302
+    image: 'sovity-ce-local-demo-datasource-and-datasink-khu-frontend:dev'
+    networks:
+      - edc-dev-network
+    ports:
+      - "30310:4200"
+    environment:
+      - DATA_SINK_API_URL=http://localhost:30301
+      - DATA_SOURCE_API_URL=http://localhost:30302
+    depends_on:
+      - khu-backend
+
+networks:
+  edc-dev-network:
+    driver: bridge
+
+volumes:
+  consumer-connector-db-data:
+    driver: 'local'
+  provider-connector-db-data:
+    driver: 'local'
+  consumer2-connector-db-data:
+    driver: 'local'
+  khu-connector-db-data:
+    driver: 'local'

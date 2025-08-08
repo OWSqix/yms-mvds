@@ -154,3 +154,30 @@ def download_file(path: str, user: str = Depends(get_current_user)):
     except Exception as e:
         logger.error(f"Error occurred during file download: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Failed to download file: {str(e)}")
+
+
+@router.get("/public/download")
+def download_file_public(path: str):
+    """Public file download endpoint without authentication - USE WITH CAUTION"""
+    decoded_path = unquote(path)
+    logger.debug(f"Public file download request: '{decoded_path}'")
+
+    # Only allow downloads from uploaded directory for security
+    if not decoded_path.startswith("uploaded/"):
+        logger.warning(f"Public download attempt outside uploaded directory: {decoded_path}")
+        raise HTTPException(status_code=403, detail="Access denied: Only uploaded files are publicly accessible")
+
+    file_path = safe_path(decoded_path)
+    if not os.path.isfile(file_path):
+        logger.warning(f"Attempt to download non-existent public file: {path}")
+        raise HTTPException(status_code=404, detail="File not found")
+
+    try:
+        from fastapi.responses import FileResponse
+        file_size = os.path.getsize(file_path)
+        filename = os.path.basename(file_path)
+        logger.info(f"Starting public file download: '{filename}' ({file_size} bytes)")
+        return FileResponse(file_path, filename=filename)
+    except Exception as e:
+        logger.error(f"Error occurred during public file download: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Failed to download file: {str(e)}")

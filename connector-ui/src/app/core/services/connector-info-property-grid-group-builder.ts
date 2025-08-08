@@ -96,40 +96,15 @@ export class ConnectorInfoPropertyGridGroupBuilder {
         ...this.propertyGridUtils.guessValue(data.connectorEndpoint),
       },
       {
+        icon: 'link',
+        label: this.translateService.instant('dashboard_page.api_url'),
+        ...this.propertyGridUtils.guessValue(this.config.shownManagementApiUrl),
+      },
+      {
         icon: 'category',
         label: this.participantIdLocalization.participantId,
         ...this.propertyGridUtils.guessValue(data.connectorParticipantId),
-      },
-      {
-        icon: 'title',
-        label: this.translateService.instant('general.title'),
-        ...this.propertyGridUtils.guessValue(data.connectorTitle),
-      },
-      {
-        icon: 'apartment',
-        label: this.translateService.instant('services.curator_org'),
-        ...this.propertyGridUtils.guessValue(data.connectorCuratorName),
-      },
-      {
-        icon: 'apartment',
-        label: this.translateService.instant('services.curator_url'),
-        ...this.propertyGridUtils.guessValue(data.connectorCuratorUrl),
-      },
-      {
-        icon: 'title',
-        label: this.translateService.instant('general.description'),
-        ...this.propertyGridUtils.guessValue(data.connectorDescription),
-      },
-      {
-        icon: 'contact_support',
-        label: this.translateService.instant('services.maintainer'),
-        ...this.propertyGridUtils.guessValue(data.connectorMaintainerName),
-      },
-      {
-        icon: 'contact_support',
-        label: this.translateService.instant('services.main_url'),
-        ...this.propertyGridUtils.guessValue(data.connectorMaintainerUrl),
-      },
+      }
     ];
 
     if (data.connectorDapsConfig != null) {
@@ -225,7 +200,6 @@ export class ConnectorInfoPropertyGridGroupBuilder {
   ): PropertyGridGroup[] {
     const fieldGroups: PropertyGridGroup[] = [
       this.buildConnectorPropertyGridGroup(null, dashboardPageData),
-      this.buildConnectorVersionGroup(versionInfo),
     ];
 
     return fieldGroups.filter((it) => it.properties.length);

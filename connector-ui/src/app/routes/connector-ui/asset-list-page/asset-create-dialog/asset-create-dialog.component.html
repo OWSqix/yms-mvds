@@ -1,7 +1,7 @@
 <h1 mat-dialog-title>
   {{ 'asset_list_page.create_asset' | translate }}
 </h1>
-<mat-dialog-content class="w-[800px]">
+<mat-dialog-content class="w-full max-w-[800px]">
   <mat-vertical-stepper [linear]="true">
     <!-- Step: Metadata -->
     <mat-step [stepControl]="form.metadata">
@@ -10,7 +10,7 @@
           'create_data_offer_page.general_information' | translate
         }}</ng-template>
         <div class="flex flex-col mt-[10px]">
-          <div class="flex flex-row space-x-[10px]">
+          <div class="flex flex-col sm:flex-row sm:space-x-[10px] gap-4 sm:gap-0">
             <!-- Title -->
             <mat-form-field class="grow">
               <mat-label>{{ 'general.title' | translate }}</mat-label>
@@ -123,7 +123,7 @@
             [label]="'general.language' | translate"
             [control]="form.metadata.controls.language"></language-select>
 
-          <div class="flex flex-row space-x-[10px]">
+          <div class="flex flex-col sm:flex-row sm:space-x-[10px] gap-4 sm:gap-0">
             <!-- Content Type -->
             <mat-form-field class="grow mb-2">
               <mat-label>{{
@@ -168,7 +168,7 @@
             </mat-error>
           </mat-form-field>
 
-          <div class="flex flex-row space-x-[10px]">
+          <div class="flex flex-col sm:flex-row sm:space-x-[10px] gap-4 sm:gap-0">
             <!-- Publisher -->
             <mat-form-field
               *ngIf="form.metadata.controls.publisher; let ctrl"
@@ -223,7 +223,7 @@
           'general.ad_inf' | translate
         }}</ng-template>
         <div class="flex flex-col mt-[10px]">
-          <div class="flex flex-row space-x-[10px]">
+          <div class="flex flex-col sm:flex-row sm:space-x-[10px] gap-4 sm:gap-0">
             <!-- Data Category -->
             <data-category-select
               class="grow"

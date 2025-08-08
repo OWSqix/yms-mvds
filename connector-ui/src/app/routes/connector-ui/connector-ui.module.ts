@@ -23,6 +23,7 @@
 import {CommonModule} from '@angular/common';
 import {HttpClient} from '@angular/common/http';
 import {NgModule} from '@angular/core';
+import {LayoutModule} from '@angular/cdk/layout';
 import {SharedModule} from '../../shared/shared.module';
 import {AssetEditPageModule} from './asset-edit-page/asset-edit-page.module';
 import {AssetListPageModule} from './asset-list-page/asset-list-page.module';
@@ -44,6 +45,7 @@ import {TransferHistoryPageModule} from './transfer-history-page/transfer-histor
   imports: [
     // Angular
     CommonModule,
+    LayoutModule,
 
     // Features
     SharedModule,

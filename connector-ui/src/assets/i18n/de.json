@@ -236,6 +236,7 @@
     "failed_ui_build": "Abruf der Daten des letzten Baudatums der Benutzeroberfläche fehlgeschlagen",
     "failed_ui": "Abruf der letzten UI Commit Daten fehlgeschlagen",
     "inc_data": "Eingehende Daten",
+    "kpi_cards_title": "KPI Informationen",
     "managed_edc": "Managed  EDC",
     "marketing_about_ui_assets_view_and_create": "Betrachten und erstellen Sie Datenbstände indem Sie auf",
     "marketing_about_ui_catalog_negotiate": "Verhandeln Sie einen Vertrag für die gemeinsame Nutzung von Daten in Ihrem Datenraum unter",

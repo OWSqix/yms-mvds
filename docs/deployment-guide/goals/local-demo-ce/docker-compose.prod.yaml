@@ -1,14 +1,35 @@
+version: '3.8'
+
 services:
+  # Nginx 리버스 프록시 - 모든 트래픽을 처리
+  nginx-proxy:
+    image: nginx:alpine
+    restart: always
+    ports:
+      - "8080:80"    # HTTP (8080으로 변경)
+      - "8443:443"   # HTTPS (8443으로 변경)
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+    networks:
+      - edc-network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  # Consumer (Ymatics) - 포트 매핑 제거 (내부 통신만)
   consumer:
     image: 'caddy:2.8'
     restart: 'always'
-    ports:
-      - '22000:80'
+    expose:
+      - "80"
     volumes:
       - './caddyfiles/Caddyfile.cp-with-integrated-dp:/etc/caddy/Caddyfile'
     environment:
       CONNECTOR_UPSTREAM_HOST: 'consumer-connector'
       FRONTEND_UPSTREAM_HOST: 'consumer-ui'
+    networks:
+      - edc-network
+
   consumer-ui:
     image: 'ymslogoui:1.0'
     restart: 'always'
@@ -21,7 +42,11 @@ services:
       EDC_UI_USE_FAKE_BACKEND: 'false'
       EDC_UI_CONNECTOR_ENDPOINT: '/api/dsp'
       EDC_UI_MANAGEMENT_API_URL_SHOWN_IN_DASHBOARD: '/api/management'
-      EDC_UI_CATALOG_URLS: 'http://provider/api/dsp,http://consumer2/api/dsp,http://khu/api/dsp'
+      # 포트 없이 접근 가능한 URL
+      EDC_UI_CATALOG_URLS: 'http://koti.data-space.kr:8080/api/dsp,http://kalda.data-space.kr:8080/api/dsp,http://khu.data-space.kr:8080/api/dsp'
+    networks:
+      - edc-network
+
   consumer-connector:
     image: 'ghcr.io/sovity/edc-ce:latest'
     restart: 'always'
@@ -30,7 +55,8 @@ services:
         condition: 'service_healthy'
     environment:
       sovity.deployment.kind: 'control-plane-with-integrated-data-plane'
-      sovity.edc.fqdn.public: 'consumer'
+      # 포트 없이 접근
+      sovity.edc.fqdn.public: 'ymatics.data-space.kr'
       sovity.edc.fqdn.internal: 'consumer-connector'
       edc.control.endpoint: 'http://consumer-connector:11004/api/control'
       sovity.jdbc.url: 'jdbc:postgresql://consumer-connector-db:5432/db-name'
@@ -38,22 +64,25 @@ services:
       sovity.jdbc.password: 'db-pass'
       edc.ui.active.profile: 'ymatics-edc-connector'
       edc.ui.logout.url: 'https://example.com'
-      edc.ui.catalog.urls: 'http://provider/api/dsp, http://consumer2/api/dsp, http://khu/api/dsp'
+      edc.ui.catalog.urls: 'http://koti.data-space.kr:8080/api/dsp, http://kalda.data-space.kr:8080/api/dsp, http://khu.data-space.kr:8080/api/dsp'
       sovity.management.api.iam.kind: 'management-iam-api-key'
       edc.api.auth.key: 'SomeOtherApiKey'
-      sovity.edc.title: 'consumer Title'
-      sovity.edc.description: 'consumer Description'
-      sovity.edc.maintainer.name: 'consumer Maintainer'
-      sovity.edc.maintainer.url: 'https://consumer/maintainer'
-      sovity.edc.curator.name: 'consumer Curator'
-      sovity.edc.curator.url: 'https://consumer/curator'
+      sovity.edc.title: 'Ymatics Connector'
+      sovity.edc.description: 'Ymatics EDC Connector'
+      sovity.edc.maintainer.name: 'Ymatics'
+      sovity.edc.maintainer.url: 'https://ymatics.data-space.kr'
+      sovity.edc.curator.name: 'Ymatics Curator'
+      sovity.edc.curator.url: 'https://ymatics.data-space.kr'
       sovity.dataspace.kind: 'sovity-mock-iam'
-      edc.participant.id: 'consumer'
+      edc.participant.id: 'ymatics'
       sovity.http.protocol: 'http://'
       sovity.print.config: 'true'
       sovity.logging.level: 'DEBUG'
       sovity.logging.kind: 'console'
       sovity.micrometer.enabled: 'true'
+    networks:
+      - edc-network
+
   consumer-connector-db:
     image: 'docker.io/postgres:16-alpine'
     restart: 'always'
@@ -70,16 +99,23 @@ services:
       retries: 10
     volumes:
       - 'consumer-connector-db-data:/var/lib/postgresql/data'
+    networks:
+      - edc-network
+
+  # Provider (KOTI) - 포트 매핑 제거
   provider:
     image: 'caddy:2.8'
     restart: 'always'
-    ports:
-      - '11000:80'
+    expose:
+      - "80"
     volumes:
       - './caddyfiles/Caddyfile.cp-with-integrated-dp:/etc/caddy/Caddyfile'
     environment:
       CONNECTOR_UPSTREAM_HOST: 'provider-connector'
       FRONTEND_UPSTREAM_HOST: 'provider-ui'
+    networks:
+      - edc-network
+
   provider-ui:
     image: 'kotilogoui:1.0'
     restart: 'always'
@@ -92,7 +128,10 @@ services:
       EDC_UI_USE_FAKE_BACKEND: 'false'
       EDC_UI_CONNECTOR_ENDPOINT: '/api/dsp'
       EDC_UI_MANAGEMENT_API_URL_SHOWN_IN_DASHBOARD: '/api/management'
-      EDC_UI_CATALOG_URLS: 'http://consumer/api/dsp,http://consumer2/api/dsp,http://khu/api/dsp'
+      EDC_UI_CATALOG_URLS: 'http://ymatics.edu-dataspace.kr:8080/api/dsp,http://kalda.edu-dataspace.kr:8080/api/dsp,http://khu.edu-dataspace.kr:8080/api/dsp'
+    networks:
+      - edc-network
+
   provider-connector:
     image: 'ghcr.io/sovity/edc-ce:latest'
     restart: 'always'
@@ -101,7 +140,7 @@ services:
         condition: 'service_healthy'
     environment:
       sovity.deployment.kind: 'control-plane-with-integrated-data-plane'
-      sovity.edc.fqdn.public: 'provider'
+      sovity.edc.fqdn.public: 'koti.data-space.kr'
       sovity.edc.fqdn.internal: 'provider-connector'
       edc.control.endpoint: 'http://provider-connector:11004/api/control'
       sovity.jdbc.url: 'jdbc:postgresql://provider-connector-db:5432/db-name'
@@ -109,22 +148,25 @@ services:
       sovity.jdbc.password: 'db-pass'
       edc.ui.active.profile: 'koti-edc-connector'
       edc.ui.logout.url: 'https://example.com'
-      edc.ui.catalog.urls: 'http://consumer/api/dsp, http://consumer2/api/dsp, http://khu/api/dsp'
+      edc.ui.catalog.urls: 'http://ymatics.data-space.kr:8080/api/dsp, http://kalda.data-space.kr:8080/api/dsp, http://khu.data-space.kr:8080/api/dsp'
       sovity.management.api.iam.kind: 'management-iam-api-key'
       edc.api.auth.key: 'SomeOtherApiKey'
-      sovity.edc.title: 'provider Title'
-      sovity.edc.description: 'provider Description'
-      sovity.edc.maintainer.name: 'provider Maintainer'
-      sovity.edc.maintainer.url: 'https://provider/maintainer'
-      sovity.edc.curator.name: 'provider Curator'
-      sovity.edc.curator.url: 'https://provider/curator'
+      sovity.edc.title: 'KOTI Connector'
+      sovity.edc.description: 'Korea Transport Institute EDC Connector'
+      sovity.edc.maintainer.name: 'KOTI'
+      sovity.edc.maintainer.url: 'https://koti.data-space.kr'
+      sovity.edc.curator.name: 'KOTI Curator'
+      sovity.edc.curator.url: 'https://koti.data-space.kr'
       sovity.dataspace.kind: 'sovity-mock-iam'
-      edc.participant.id: 'provider'
+      edc.participant.id: 'koti'
       sovity.http.protocol: 'http://'
       sovity.print.config: 'true'
       sovity.logging.level: 'DEBUG'
       sovity.logging.kind: 'console'
       sovity.micrometer.enabled: 'true'
+    networks:
+      - edc-network
+
   provider-connector-db:
     image: 'docker.io/postgres:16-alpine'
     restart: 'always'
@@ -141,81 +183,23 @@ services:
       retries: 10
     volumes:
       - 'provider-connector-db-data:/var/lib/postgresql/data'
+    networks:
+      - edc-network
 
-  provider-backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
-    image: 'sovity-ce-local-demo-datasource-and-datasink-backend:latest'
-    restart: always
-    ports:
-      - "8000:8002"  # Data Sink API
-      - "8001:8003"  # Data Source API
-    volumes:
-      - ./provider/data:/app/data
-      - ./provider/backend/logs:/app/backend/logs
-    environment:
-      - LOG_LEVEL=debug
-      - HOST=0.0.0.0
-
-  provider-frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-      args:
-        - DATA_SINK_API_URL=http://192.168.0.220:8000
-        - DATA_SOURCE_API_URL=http://192.168.0.220:8001
-    image: 'sovity-ce-local-demo-datasource-and-datasink-provider-frontend:latest'
-    ports:
-      - "4200:4200"
-    environment:
-      - DATA_SINK_API_URL=http://192.168.0.220:8000
-      - DATA_SOURCE_API_URL=http://192.168.0.220:8001
-    depends_on:
-      - provider-backend
-
-  consumer-backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
-    image: 'sovity-ce-local-demo-datasource-and-datasink-backend:latest'
-    restart: always
-    ports:
-      - "8002:8002"  # Data Sink API
-      - "8003:8003"  # Data Source API
-    volumes:
-      - ./consumer/data:/app/data
-      - ./consumer/backend/logs:/app/backend/logs
-    environment:
-      - LOG_LEVEL=debug
-      - HOST=0.0.0.0
-
-  consumer-frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-      args:
-        - DATA_SINK_API_URL=http://192.168.0.220:8002
-        - DATA_SOURCE_API_URL=http://192.168.0.220:8003
-    image: 'sovity-ce-local-demo-datasource-and-datasink-consumer-frontend:latest'
-    ports:
-      - "4201:4200"
-    environment:
-      - DATA_SINK_API_URL=http://192.168.0.220:8002
-      - DATA_SOURCE_API_URL=http://192.168.0.220:8003
-    depends_on:
-      - consumer-backend
-
+  # Consumer2 (KALDA) - 포트 매핑 제거
   consumer2:
     image: 'caddy:2.8'
     restart: 'always'
-    ports:
-      - '23000:80'
+    expose:
+      - "80"
     volumes:
       - './caddyfiles/Caddyfile.cp-with-integrated-dp:/etc/caddy/Caddyfile'
     environment:
       CONNECTOR_UPSTREAM_HOST: 'consumer2-connector'
       FRONTEND_UPSTREAM_HOST: 'consumer2-ui'
+    networks:
+      - edc-network
+
   consumer2-ui:
     image: 'kaldalogoui:1.0'
     restart: 'always'
@@ -228,7 +212,10 @@ services:
       EDC_UI_USE_FAKE_BACKEND: 'false'
       EDC_UI_CONNECTOR_ENDPOINT: '/api/dsp'
       EDC_UI_MANAGEMENT_API_URL_SHOWN_IN_DASHBOARD: '/api/management'
-      EDC_UI_CATALOG_URLS: 'http://provider/api/dsp,http://consumer/api/dsp,http://khu/api/dsp'
+      EDC_UI_CATALOG_URLS: 'http://koti.data-space.kr:8080/api/dsp,http://ymatics.data-space.kr:8080/api/dsp,http://khu.data-space.kr:8080/api/dsp'
+    networks:
+      - edc-network
+
   consumer2-connector:
     image: 'ghcr.io/sovity/edc-ce:latest'
     restart: 'always'
@@ -237,7 +224,7 @@ services:
         condition: 'service_healthy'
     environment:
       sovity.deployment.kind: 'control-plane-with-integrated-data-plane'
-      sovity.edc.fqdn.public: 'consumer2'
+      sovity.edc.fqdn.public: 'kalda.data-space.kr'
       sovity.edc.fqdn.internal: 'consumer2-connector'
       edc.control.endpoint: 'http://consumer2-connector:11004/api/control'
       sovity.jdbc.url: 'jdbc:postgresql://consumer2-connector-db:5432/db-name'
@@ -245,22 +232,25 @@ services:
       sovity.jdbc.password: 'db-pass'
       edc.ui.active.profile: 'kalda-edc-connector'
       edc.ui.logout.url: 'https://example.com'
-      edc.ui.catalog.urls: 'http://consumer/api/dsp, http://provider/api/dsp, http://khu/api/dsp'
+      edc.ui.catalog.urls: 'http://ymatics.data-space.kr:8080/api/dsp, http://koti.data-space.kr:8080/api/dsp, http://khu.data-space.kr:8080/api/dsp'
       sovity.management.api.iam.kind: 'management-iam-api-key'
       edc.api.auth.key: 'SomeOtherApiKey'
-      sovity.edc.title: 'consumer2 Title'
-      sovity.edc.description: 'consumer2 Description'
-      sovity.edc.maintainer.name: 'consumer2 Maintainer'
-      sovity.edc.maintainer.url: 'https://consumer2/maintainer'
-      sovity.edc.curator.name: 'consumer2 Curator'
-      sovity.edc.curator.url: 'https://consumer2/curator'
+      sovity.edc.title: 'KALDA Connector'
+      sovity.edc.description: 'Korea Airports Corporation EDC Connector'
+      sovity.edc.maintainer.name: 'KALDA'
+      sovity.edc.maintainer.url: 'https://kalda.data-space.kr'
+      sovity.edc.curator.name: 'KALDA Curator'
+      sovity.edc.curator.url: 'https://kalda.data-space.kr'
       sovity.dataspace.kind: 'sovity-mock-iam'
-      edc.participant.id: 'consumer2'
+      edc.participant.id: 'kalda'
       sovity.http.protocol: 'http://'
       sovity.print.config: 'true'
       sovity.logging.level: 'DEBUG'
       sovity.logging.kind: 'console'
       sovity.micrometer.enabled: 'true'
+    networks:
+      - edc-network
+
   consumer2-connector-db:
     image: 'docker.io/postgres:16-alpine'
     restart: 'always'
@@ -277,50 +267,23 @@ services:
       retries: 10
     volumes:
       - 'consumer2-connector-db-data:/var/lib/postgresql/data'
+    networks:
+      - edc-network
 
-  consumer2-backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
-    image: 'sovity-ce-local-demo-datasource-and-datasink-backend:latest'
-    restart: always
-    ports:
-      - "8004:8002"  # Data Sink API for consumer2
-      - "8005:8003"  # Data Source API for consumer2
-    volumes:
-      - ./consumer2/data:/app/data
-      - ./consumer2/backend/logs:/app/backend/logs
-    environment:
-      - LOG_LEVEL=debug
-      - HOST=0.0.0.0
-
-  consumer2-frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-      args:
-        - DATA_SINK_API_URL=http://192.168.0.220:8004
-        - DATA_SOURCE_API_URL=http://192.168.0.220:8005
-    image: 'sovity-ce-local-demo-datasource-and-datasink-consumer2-frontend:latest'
-    ports:
-      - "4202:4200"
-    environment:
-      - DATA_SINK_API_URL=http://192.168.0.220:8004
-      - DATA_SOURCE_API_URL=http://192.168.0.220:8005
-    depends_on:
-      - consumer2-backend
-
-  # KHU Services
+  # KHU - 포트 매핑 제거
   khu:
     image: 'caddy:2.8'
     restart: 'always'
-    ports:
-      - '24000:80'
+    expose:
+      - "80"
     volumes:
       - './caddyfiles/Caddyfile.cp-with-integrated-dp:/etc/caddy/Caddyfile'
     environment:
       CONNECTOR_UPSTREAM_HOST: 'khu-connector'
       FRONTEND_UPSTREAM_HOST: 'khu-ui'
+    networks:
+      - edc-network
+
   khu-ui:
     image: 'khulogoui:1.0'
     restart: 'always'
@@ -333,7 +296,10 @@ services:
       EDC_UI_USE_FAKE_BACKEND: 'false'
       EDC_UI_CONNECTOR_ENDPOINT: '/api/dsp'
       EDC_UI_MANAGEMENT_API_URL_SHOWN_IN_DASHBOARD: '/api/management'
-      EDC_UI_CATALOG_URLS: 'http://provider/api/dsp,http://consumer/api/dsp,http://consumer2/api/dsp'
+      EDC_UI_CATALOG_URLS: 'http://koti.data-space.kr:8080/api/dsp,http://ymatics.data-space.kr:8080/api/dsp,http://kalda.data-space.kr:8080/api/dsp'
+    networks:
+      - edc-network
+
   khu-connector:
     image: 'ghcr.io/sovity/edc-ce:latest'
     restart: 'always'
@@ -342,7 +308,7 @@ services:
         condition: 'service_healthy'
     environment:
       sovity.deployment.kind: 'control-plane-with-integrated-data-plane'
-      sovity.edc.fqdn.public: 'khu'
+      sovity.edc.fqdn.public: 'khu.data-space.kr'
       sovity.edc.fqdn.internal: 'khu-connector'
       edc.control.endpoint: 'http://khu-connector:11004/api/control'
       sovity.jdbc.url: 'jdbc:postgresql://khu-connector-db:5432/db-name'
@@ -350,12 +316,12 @@ services:
       sovity.jdbc.password: 'db-pass'
       edc.ui.active.profile: 'khu-edc-connector'
       edc.ui.logout.url: 'https://example.com'
-      edc.ui.catalog.urls: 'http://provider/api/dsp, http://consumer/api/dsp, http://consumer2/api/dsp'
+      edc.ui.catalog.urls: 'http://koti.data-space.kr:8080/api/dsp, http://ymatics.data-space.kr:8080/api/dsp, http://kalda.data-space.kr:8080/api/dsp'
       sovity.management.api.iam.kind: 'management-iam-api-key'
       edc.api.auth.key: 'SomeOtherApiKey'
       sovity.edc.title: 'KHU Connector'
       sovity.edc.description: 'Kyung Hee University EDC Connector'
-      sovity.edc.maintainer.name: 'KHU Maintainer'
+      sovity.edc.maintainer.name: 'KHU'
       sovity.edc.maintainer.url: 'https://khu.ac.kr'
       sovity.edc.curator.name: 'KHU Curator'
       sovity.edc.curator.url: 'https://khu.ac.kr'
@@ -366,6 +332,9 @@ services:
       sovity.logging.level: 'DEBUG'
       sovity.logging.kind: 'console'
       sovity.micrometer.enabled: 'true'
+    networks:
+      - edc-network
+
   khu-connector-db:
     image: 'docker.io/postgres:16-alpine'
     restart: 'always'
@@ -382,38 +351,158 @@ services:
       retries: 10
     volumes:
       - 'khu-connector-db-data:/var/lib/postgresql/data'
+    networks:
+      - edc-network
+
+  # Backend Services (내부 접근용으로 변경)
+  provider-backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: 'sovity-ce-local-demo-datasource-and-datasink-backend:prod'
+    restart: always
+    expose:
+      - "8002"
+      - "8003"
+    volumes:
+      - ./provider/data:/app/data
+      - ./provider/backend/logs:/app/backend/logs
+    environment:
+      - LOG_LEVEL=debug
+      - HOST=0.0.0.0
+    networks:
+      - edc-network
+
+  consumer-backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: 'sovity-ce-local-demo-datasource-and-datasink-backend:prod'
+    restart: always
+    expose:
+      - "8002"
+      - "8003"
+    volumes:
+      - ./consumer/data:/app/data
+      - ./consumer/backend/logs:/app/backend/logs
+    environment:
+      - LOG_LEVEL=debug
+      - HOST=0.0.0.0
+    networks:
+      - edc-network
+
+  consumer2-backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: 'sovity-ce-local-demo-datasource-and-datasink-backend:prod'
+    restart: always
+    expose:
+      - "8002"
+      - "8003"
+    volumes:
+      - ./consumer2/data:/app/data
+      - ./consumer2/backend/logs:/app/backend/logs
+    environment:
+      - LOG_LEVEL=debug
+      - HOST=0.0.0.0
+    networks:
+      - edc-network
 
   khu-backend:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    image: 'sovity-ce-local-demo-datasource-and-datasink-backend:latest'
+    image: 'sovity-ce-local-demo-datasource-and-datasink-backend:prod'
     restart: always
-    ports:
-      - "8006:8002"  # Data Sink API for KHU
-      - "8007:8003"  # Data Source API for KHU
+    expose:
+      - "8002"
+      - "8003"
     volumes:
       - ./khu/data:/app/data
       - ./khu/backend/logs:/app/backend/logs
     environment:
       - LOG_LEVEL=debug
       - HOST=0.0.0.0
+    networks:
+      - edc-network
+
+  # Frontend Services (내부 접근용으로 변경)
+  provider-frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        - DATA_SINK_API_URL=http://api.data-space.kr/koti/sink
+        - DATA_SOURCE_API_URL=http://api.data-space.kr/koti/source
+    image: 'sovity-ce-local-demo-datasource-and-datasink-provider-frontend:prod'
+    expose:
+      - "4200"
+    environment:
+      - DATA_SINK_API_URL=http://api.data-space.kr/koti/sink
+      - DATA_SOURCE_API_URL=http://api.data-space.kr/koti/source
+    depends_on:
+      - provider-backend
+    networks:
+      - edc-network
+
+  consumer-frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        - DATA_SINK_API_URL=http://api.data-space.kr/ymatics/sink
+        - DATA_SOURCE_API_URL=http://api.data-space.kr/ymatics/source
+    image: 'sovity-ce-local-demo-datasource-and-datasink-consumer-frontend:prod'
+    expose:
+      - "4200"
+    environment:
+      - DATA_SINK_API_URL=http://api.data-space.kr/ymatics/sink
+      - DATA_SOURCE_API_URL=http://api.data-space.kr/ymatics/source
+    depends_on:
+      - consumer-backend
+    networks:
+      - edc-network
+
+  consumer2-frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        - DATA_SINK_API_URL=http://api.data-space.kr/kalda/sink
+        - DATA_SOURCE_API_URL=http://api.data-space.kr/kalda/source
+    image: 'sovity-ce-local-demo-datasource-and-datasink-consumer2-frontend:prod'
+    expose:
+      - "4200"
+    environment:
+      - DATA_SINK_API_URL=http://api.data-space.kr/kalda/sink
+      - DATA_SOURCE_API_URL=http://api.data-space.kr/kalda/source
+    depends_on:
+      - consumer2-backend
+    networks:
+      - edc-network
 
   khu-frontend:
     build:
       context: ./frontend
       dockerfile: Dockerfile
       args:
-        - DATA_SINK_API_URL=http://192.168.0.220:8006
-        - DATA_SOURCE_API_URL=http://192.168.0.220:8007
-    image: 'sovity-ce-local-demo-datasource-and-datasink-khu-frontend:latest'
-    ports:
-      - "4203:4200"
+        - DATA_SINK_API_URL=http://api.data-space.kr/khu/sink
+        - DATA_SOURCE_API_URL=http://api.data-space.kr/khu/source
+    image: 'sovity-ce-local-demo-datasource-and-datasink-khu-frontend:prod'
+    expose:
+      - "4200"
     environment:
-      - DATA_SINK_API_URL=http://192.168.0.220:8006
-      - DATA_SOURCE_API_URL=http://192.168.0.220:8007
+      - DATA_SINK_API_URL=http://api.data-space.kr/khu/sink
+      - DATA_SOURCE_API_URL=http://api.data-space.kr/khu/source
     depends_on:
       - khu-backend
+    networks:
+      - edc-network
+
+networks:
+  edc-network:
+    driver: bridge
 
 volumes:
   consumer-connector-db-data:

@@ -1,89 +1,93 @@
 <div id="wrapper">
-  <div class="flex flex-row">
-    <!-- Search Bar -->
-    <mat-form-field class="search-form-field" color="accent">
-      <mat-label>{{ 'catalog_browser_page.search' | translate }}</mat-label>
-      <mat-icon matPrefix>search</mat-icon>
-      <input matInput [formControl]="searchText" />
-      <button
-        *ngIf="searchText.value"
-        mat-icon-button
-        matSuffix
-        (click)="searchText.setValue('')">
-        <mat-icon>close</mat-icon>
-      </button>
-    </mat-form-field>
-
-    <!-- Connector Endpoints -->
-    <mat-form-field
-      class="search-form-field mat-hint-text-ellipsis"
-      color="accent"
-      style="margin-left: 15px"
-      matBadgeColor="warn"
-      [matBadge]="
-        data.requestTotals.isSomeFailed
-          ? data.requestTotals.numFailed
-          : undefined
-      ">
-      <mat-label>{{
-        'catalog_browser_page.con_endpoints' | translate
-      }}</mat-label>
-      <mat-icon matPrefix>link</mat-icon>
-      <input
-        matInput
-        placeholder="https://counter-party/api/dsp?participantId=1234, ..."
-        [(ngModel)]="customProviders"
-        (input)="onCatalogUrlsChange()" />
-      <mat-hint
-        *ngIf="presetProvidersMessage"
-        [matTooltip]="presetProvidersMessage"
-        >{{ presetProvidersMessage }}</mat-hint
-      >
-      <button
-        *ngIf="!data.requestTotals.isDone"
-        matSuffix
-        mat-icon-button
-        [matTooltip]="'tooltip.details' | translate"
-        (click)="onShowFetchDetails()">
-        <mat-progress-spinner
+  <!-- Mobile: Stack vertically, Desktop: Horizontal layout -->
+  <div class="flex flex-col xl:flex-row gap-4 xl:items-start">
+    
+    <!-- Search Fields Section -->
+    <div class="flex flex-col lg:flex-row gap-4 flex-grow">
+      <!-- Search Bar -->
+      <mat-form-field class="search-form-field flex-grow lg:max-w-[300px]" color="accent">
+        <mat-label>{{ 'catalog_browser_page.search' | translate }}</mat-label>
+        <mat-icon matPrefix>search</mat-icon>
+        <input matInput [formControl]="searchText" />
+        <button
+          *ngIf="searchText.value"
+          mat-icon-button
           matSuffix
-          style="width: 20px; height: 20px"
-          diameter="20"
+          (click)="searchText.setValue('')">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <!-- Connector Endpoints -->
+      <mat-form-field
+        class="search-form-field mat-hint-text-ellipsis flex-grow"
+        color="accent"
+        matBadgeColor="warn"
+        [matBadge]="
+          data.requestTotals.isSomeFailed
+            ? data.requestTotals.numFailed
+            : undefined
+        ">
+        <mat-label>{{
+          'catalog_browser_page.con_endpoints' | translate
+        }}</mat-label>
+        <mat-icon matPrefix>link</mat-icon>
+        <input
+          matInput
+          placeholder="https://counter-party/api/dsp?participantId=1234, ..."
+          [(ngModel)]="customProviders"
+          (input)="onCatalogUrlsChange()" />
+        <mat-hint
+          *ngIf="presetProvidersMessage"
+          [matTooltip]="presetProvidersMessage"
+          >{{ presetProvidersMessage }}</mat-hint
+        >
+        <button
+          *ngIf="!data.requestTotals.isDone"
+          matSuffix
+          mat-icon-button
+          [matTooltip]="'tooltip.details' | translate"
+          (click)="onShowFetchDetails()">
+          <mat-progress-spinner
+            matSuffix
+            class="!w-5 !h-5"
+            diameter="20"
+            color="primary"
+            mode="indeterminate">
+          </mat-progress-spinner>
+        </button>
+        <button
+          *ngIf="data.requestTotals.isDone && data.requestTotals.isSomeFailed"
+          matSuffix
+          color="warn"
+          mat-icon-button
+          [matTooltip]="'tooltip.failed_details' | translate"
+          (click)="onShowFetchDetails()">
+          <mat-icon>warning</mat-icon>
+        </button>
+        <button
+          *ngIf="data.requestTotals.isDone && !data.requestTotals.isSomeFailed"
+          matSuffix
           color="primary"
-          mode="indeterminate">
-        </mat-progress-spinner>
-      </button>
-      <button
-        *ngIf="data.requestTotals.isDone && data.requestTotals.isSomeFailed"
-        matSuffix
-        color="warn"
-        mat-icon-button
-        [matTooltip]="'tooltip.failed_details' | translate"
-        (click)="onShowFetchDetails()">
-        <mat-icon>warning</mat-icon>
-      </button>
-      <button
-        *ngIf="data.requestTotals.isDone && !data.requestTotals.isSomeFailed"
-        matSuffix
-        color="primary"
-        mat-icon-button
-        [matTooltip]="'tooltip.details' | translate"
-        (click)="onShowFetchDetails()">
-        <mat-icon>info</mat-icon>
-      </button>
-    </mat-form-field>
+          mat-icon-button
+          [matTooltip]="'tooltip.details' | translate"
+          (click)="onShowFetchDetails()">
+          <mat-icon>info</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
 
-    <!-- Spacer -->
-    <div style="flex-grow: 1"></div>
-
-    <!-- Pagination -->
-    <mat-paginator
-      *ngIf="data.requestTotals.isSomeReady"
-      [hidePageSize]="true"
-      [disabled]="true"
-      [pageSize]="data.filteredDataOffers.length"
-      [length]="data.numTotalContractOffers">
-    </mat-paginator>
+    <!-- Pagination - Mobile: Full width, Desktop: Aligned right -->
+    <div class="w-full xl:w-auto flex justify-center xl:justify-end">
+      <mat-paginator
+        *ngIf="data.requestTotals.isSomeReady"
+        [hidePageSize]="true"
+        [disabled]="true"
+        [pageSize]="data.filteredDataOffers.length"
+        [length]="data.numTotalContractOffers"
+        class="!p-0">
+      </mat-paginator>
+    </div>
   </div>
   <div class="flex flex-row justify-center">
     <empty-state

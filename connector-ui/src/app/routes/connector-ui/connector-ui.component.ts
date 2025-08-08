@@ -22,7 +22,7 @@
  *     sovity - continued development
  *     Fraunhofer FIT - contributed initial internationalization support
  */
-import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
+import {BreakpointObserver} from '@angular/cdk/layout';
 import {Component, Inject, OnInit, ViewChild} from '@angular/core';
 import {MatSidenav} from '@angular/material/sidenav';
 import {Title} from '@angular/platform-browser';
@@ -45,8 +45,9 @@ import {LoginPollingService} from '../../core/services/login-polling.service';
 export class ConnectorUiComponent implements OnInit {
   @ViewChild('drawer') drawer!: MatSidenav;
   
+  // SCSS와 동일 기준으로 통일: max-width: 767px
   isHandset$: Observable<boolean> = this.breakpointObserver
-    .observe(Breakpoints.Handset)
+    .observe(['(max-width: 767px)'])
     .pipe(
       map((result) => result.matches),
       shareReplay(),

@@ -4,10 +4,189 @@
 html,
 body {
   height: 100%;
+  // 모바일에서 가로 스크롤 방지
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
+  // iOS Safari에서 부드러운 스크롤
+  -webkit-overflow-scrolling: touch;
+}
+
+// 모바일 터치 최적화 스타일
+@media (max-width: 767px) {
+  // 모든 버튼의 최소 터치 영역 보장
+  .mat-raised-button,
+  .mat-stroked-button,
+  .mat-flat-button,
+  .mat-icon-button,
+  .mat-fab,
+  .mat-mini-fab {
+    min-height: 44px !important;
+    min-width: 44px !important;
+  }
+  
+  // 폼 필드 터치 최적화
+  .mat-form-field {
+    .mat-form-field-wrapper {
+      padding-bottom: 1.25em;
+    }
+    
+    .mat-input-element {
+      font-size: 16px; // iOS 줌 방지
+      line-height: 1.5;
+      padding: 12px 0;
+    }
+  }
+  
+  // 셀렉트 박스 터치 최적화
+  .mat-select {
+    min-height: 44px;
+    
+    .mat-select-trigger {
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+    }
+  }
+  
+  // 체크박스/라디오 버튼 터치 영역 확대
+  .mat-checkbox,
+  .mat-radio-button {
+    .mat-checkbox-inner-container,
+    .mat-radio-outer-circle {
+      width: 24px !important;
+      height: 24px !important;
+    }
+  }
+  
+  // 테이블 모바일 최적화
+  .mat-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    
+    .mat-header-row,
+    .mat-row {
+      min-width: 600px;
+    }
+    
+    .mat-cell,
+    .mat-header-cell {
+      padding: 12px 8px;
+      font-size: 14px;
+    }
+  }
+  
+  // 카드 모바일 최적화
+  .mat-card {
+    margin: 8px;
+    padding: 16px !important;
+    
+    .mat-card-title {
+      font-size: 18px !important;
+      margin-bottom: 8px !important;
+    }
+    
+    .mat-card-subtitle {
+      font-size: 14px !important;
+      margin-bottom: 12px !important;
+    }
+  }
+  
+  // 다이얼로그 모바일 최적화
+  .mat-dialog-container {
+    padding: 16px !important;
+    max-width: calc(100vw - 32px) !important;
+    max-height: calc(100vh - 64px) !important;
+  }
+}
+
+// 유용한 모바일 유틸리티 클래스
+.mobile-only {
+  @media (min-width: 768px) {
+    display: none !important;
+  }
+}
+
+.desktop-only {
+  @media (max-width: 767px) {
+    display: none !important;
+  }
+}
+
+.tablet-up {
+  @media (max-width: 767px) {
+    display: none !important;
+  }
+}
+
+// 모바일 전용 간격 조정
+.mobile-spacing {
+  @media (max-width: 767px) {
+    &.p-mobile {
+      padding: 16px !important;
+    }
+    
+    &.px-mobile {
+      padding-left: 16px !important;
+      padding-right: 16px !important;
+    }
+    
+    &.py-mobile {
+      padding-top: 16px !important;
+      padding-bottom: 16px !important;
+    }
+    
+    &.m-mobile {
+      margin: 16px !important;
+    }
+    
+    &.mx-mobile {
+      margin-left: 16px !important;
+      margin-right: 16px !important;
+    }
+    
+    &.my-mobile {
+      margin-top: 16px !important;
+      margin-bottom: 16px !important;
+    }
+  }
+}
+
+// 모바일에서 텍스트 크기 조정
+.mobile-text {
+  @media (max-width: 767px) {
+    &.text-sm-mobile {
+      font-size: 14px !important;
+    }
+    
+    &.text-base-mobile {
+      font-size: 16px !important;
+    }
+    
+    &.text-lg-mobile {
+      font-size: 18px !important;
+    }
+  }
+}
+
+// 스택형 레이아웃 (모바일에서 세로로 변경)
+.mobile-stack {
+  @media (max-width: 767px) {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    
+    > * {
+      width: 100% !important;
+      margin-bottom: 16px !important;
+      
+      &:last-child {
+        margin-bottom: 0 !important;
+      }
+    }
+  }
 }
 
 .snackbar-info-style {
@@ -41,6 +220,12 @@ body {
 
 .asset-card {
   width: 300px;
+  
+  // 모바일에서 반응형
+  @media (max-width: 767px) {
+    width: 100%;
+    min-width: 280px;
+  }
 }
 
 .list-style-material-icons-check {

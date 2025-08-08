@@ -1,55 +1,70 @@
 <div id="wrapper">
-  <div class="flex flex-row gap-4">
-    <!-- Search -->
-    <mat-form-field
-      class="search-form-field"
-      appearance="outline"
-      color="accent">
-      <mat-label>{{
-        'contract_agreement_page.search_agree' | translate
-      }}</mat-label>
-      <input matInput [formControl]="searchText" />
-      <mat-icon matPrefix>search</mat-icon>
-      <button
-        *ngIf="searchText.value"
-        mat-icon-button
-        matSuffix
-        (click)="searchText.setValue('')">
-        <mat-icon>close</mat-icon>
-      </button>
-    </mat-form-field>
+  <!-- Mobile: Stack vertically, Desktop: Horizontal layout -->
+  <div class="flex flex-col lg:flex-row gap-4 lg:items-start">
+    
+    <!-- Search and Filter Section -->
+    <div class="flex flex-col sm:flex-row gap-4 flex-grow items-stretch">
+      <!-- Search -->
+      <mat-form-field
+        class="search-form-field flex-grow sm:max-w-[300px]"
+        appearance="outline"
+        color="accent">
+        <mat-label>{{
+          'contract_agreement_page.search_agree' | translate
+        }}</mat-label>
+        <input matInput [formControl]="searchText" />
+        <mat-icon matPrefix>search</mat-icon>
+        <button
+          *ngIf="searchText.value"
+          mat-icon-button
+          matSuffix
+          (click)="searchText.setValue('')">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
 
-    <!-- Terminiation status filter -->
-    <div class="flex content-end h-[3.25rem] mt-[0.2rem]">
-      <mat-button-toggle-group
-        name="terminationFilter"
-        [formControl]="terminationFilterControl">
-        <mat-button-toggle
-          value="ONGOING"
-          (change)="onTerminationFilterChange()"
-          >{{ 'contract_agreement_page.active_contracts' | translate }}</mat-button-toggle
-        >
-        <mat-button-toggle
-          value="TERMINATED"
-          (change)="onTerminationFilterChange()"
-          >{{ 'contract_agreement_page.terminated_contracts' | translate }}</mat-button-toggle
-        >
-        <mat-button-toggle value="all" (change)="onTerminationFilterChange()"
-          >{{ 'contract_agreement_page.all_contracts' | translate }}</mat-button-toggle
-        >
-      </mat-button-toggle-group>
+      <!-- Termination status filter - Mobile: Full width, Desktop: Inline -->
+      <div class="flex justify-center sm:justify-start items-center">
+        <mat-button-toggle-group
+          name="terminationFilter"
+          [formControl]="terminationFilterControl"
+          class="!h-auto">
+          <mat-button-toggle
+            value="ONGOING"
+            (change)="onTerminationFilterChange()"
+            class="!text-xs sm:!text-sm !px-2 sm:!px-4">
+            <span class="hidden sm:inline">{{ 'contract_agreement_page.active_contracts' | translate }}</span>
+            <span class="sm:hidden">{{ 'general.active' | translate }}</span>
+          </mat-button-toggle>
+          <mat-button-toggle
+            value="TERMINATED"
+            (change)="onTerminationFilterChange()"
+            class="!text-xs sm:!text-sm !px-2 sm:!px-4">
+            <span class="hidden sm:inline">{{ 'contract_agreement_page.terminated_contracts' | translate }}</span>
+            <span class="sm:hidden">{{ 'general.terminated' | translate }}</span>
+          </mat-button-toggle>
+          <mat-button-toggle 
+            value="all" 
+            (change)="onTerminationFilterChange()"
+            class="!text-xs sm:!text-sm !px-2 sm:!px-4">
+            <span class="hidden sm:inline">{{ 'contract_agreement_page.all_contracts' | translate }}</span>
+            <span class="sm:hidden">{{ 'general.all' | translate }}</span>
+          </mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
     </div>
 
-    <!-- Spacer -->
-    <div class="grow"></div>
-
-    <!-- Paginator -->
-    <mat-paginator
-      *ngIf="page.isReady"
-      [hidePageSize]="true"
-      [disabled]="true"
-      [pageSize]="page.data.contractAgreements.length"
-      [length]="page.data.numTotalContractAgreements"></mat-paginator>
+    <!-- Paginator - Mobile: Full width, Desktop: Aligned right -->
+    <div class="w-full lg:w-auto flex justify-center lg:justify-end">
+      <mat-paginator
+        *ngIf="page.isReady"
+        [hidePageSize]="true"
+        [disabled]="true"
+        [pageSize]="page.data.contractAgreements.length"
+        [length]="page.data.numTotalContractAgreements"
+        class="!p-0">
+      </mat-paginator>
+    </div>
   </div>
 
   <div class="flex flex-row justify-center">

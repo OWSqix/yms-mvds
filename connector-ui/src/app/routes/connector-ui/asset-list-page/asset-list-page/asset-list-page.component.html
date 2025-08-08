@@ -1,46 +1,52 @@
 <div id="wrapper">
-  <div class="flex flex-row !space-x-[10px] items-start">
-    <!-- Search Bar -->
-    <mat-form-field
-      class="search-form-field"
-      appearance="outline"
-      color="primary">
-      <mat-label>{{ 'asset_list_page.search_assets' | translate }}</mat-label>
-      <input matInput [(ngModel)]="searchText" (input)="onSearch()" />
-      <mat-icon matPrefix>search</mat-icon>
+  <!-- Mobile: Stack vertically, Desktop: Horizontal layout -->
+  <div class="flex flex-col lg:flex-row gap-4 lg:!space-x-[10px] lg:space-y-0 items-stretch lg:items-start">
+    
+    <!-- Search and Create Section -->
+    <div class="flex flex-col sm:flex-row gap-4 flex-grow items-stretch">
+      <!-- Search Bar -->
+      <mat-form-field
+        class="search-form-field flex-grow"
+        appearance="outline"
+        color="primary">
+        <mat-label>{{ 'asset_list_page.search_assets' | translate }}</mat-label>
+        <input matInput [(ngModel)]="searchText" (input)="onSearch()" />
+        <mat-icon matPrefix>search</mat-icon>
+        <button
+          *ngIf="searchText"
+          mat-icon-button
+          matSuffix
+          (click)="searchText = ''; onSearch()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <!-- Create Button -->
       <button
-        *ngIf="searchText"
-        mat-icon-button
-        matSuffix
-        (click)="searchText = ''; onSearch()">
-        <mat-icon>close</mat-icon>
+        id="create-button"
+        color="primary"
+        mat-raised-button
+        class="!min-h-[56px] sm:!min-h-[44px] !px-6 whitespace-nowrap"
+        (click)="onCreate()">
+        <div class="flex justify-center items-center h-full gap-2">
+          <mat-icon>add_circle_outline</mat-icon>
+          <span class="hidden sm:inline">{{ 'asset_list_page.create_asset' | translate }}</span>
+          <span class="sm:hidden">{{ 'general.create' | translate }}</span>
+        </div>
       </button>
-    </mat-form-field>
+    </div>
 
-    <!-- Create Button -->
-    <button
-      id="create-button"
-      color="primary"
-      mat-raised-button
-      style="margin-top: 8px; height: 44px"
-      (click)="onCreate()">
-      <div class="flex justify-center items-center h-full gap-1">
-        <mat-icon class="mt-[1px]">add_circle_outline</mat-icon>
-        {{ 'asset_list_page.create_asset' | translate }}
-      </div>
-    </button>
-
-    <!-- Spacer -->
-    <div class="grow"></div>
-
-    <!-- Paginator -->
-    <mat-paginator
-      *ngIf="assetList.isReady"
-      [hidePageSize]="true"
-      [disabled]="true"
-      [pageSize]="assetList.data.numTotalAssets"
-      [length]="assetList.data.filteredAssets.length">
-    </mat-paginator>
+    <!-- Paginator - Mobile: Full width, Desktop: Aligned right -->
+    <div class="w-full lg:w-auto flex justify-center lg:justify-end">
+      <mat-paginator
+        *ngIf="assetList.isReady"
+        [hidePageSize]="true"
+        [disabled]="true"
+        [pageSize]="assetList.data.numTotalAssets"
+        [length]="assetList.data.filteredAssets.length"
+        class="!p-0">
+      </mat-paginator>
+    </div>
   </div>
 
   <div class="flex flex-row justify-center">
