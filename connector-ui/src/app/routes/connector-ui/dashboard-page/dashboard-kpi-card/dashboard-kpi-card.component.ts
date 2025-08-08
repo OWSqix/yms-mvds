@@ -16,7 +16,7 @@ import {Fetched} from '../../../../core/services/models/fetched';
     `
       :host {
         min-width: 200px;
-        height: 180px;
+        height: 140px;
       }
     `,
   ],
@@ -32,16 +32,19 @@ export class DashboardKpiCardComponent {
   @Input()
   label = 'Label';
 
+  @Input()
+  icon = 'dashboard';
+
   fontSize(data: number): number {
     const abs = Math.abs(data);
     if (abs < 100) {
-      return 81;
+      return 52;
     } else if (abs < 1000) {
-      return 72;
+      return 46;
     } else if (abs < 10000) {
-      return 64;
+      return 40;
     } else {
-      return 56;
+      return 36;
     }
   }
 }

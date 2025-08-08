@@ -1,32 +1,50 @@
-<mat-card class="grow !flex flex-col justify-start items-center">
-  <div class="flex flex-col justify-center items-center" style="height: 120px">
-    <mat-icon *ngIf="kpi.isError" class="mat-icon-[80px]" color="warn">{{
-      kpi.error.failureIcon
-    }}</mat-icon>
+<mat-card class="grow !flex flex-col justify-between p-4">
+  <!-- Header: Icon + Label -->
+  <div class="flex items-center gap-2 mb-3">
+    <mat-icon 
+      *ngIf="kpi.isReady" 
+      class="kpi-icon"
+      style="font-size: 24px; width: 24px; height: 24px; color: #667eea;">
+      {{ icon }}
+    </mat-icon>
+    <mat-icon 
+      *ngIf="kpi.isError" 
+      style="font-size: 24px; width: 24px; height: 24px;" 
+      color="warn">
+      error_outline
+    </mat-icon>
     <mat-progress-spinner
       *ngIf="kpi.isLoading"
-      style="width: 80px; height: 80px"
-      diameter="80"
+      style="width: 24px; height: 24px"
+      diameter="24"
       color="primary"
       mode="indeterminate">
     </mat-progress-spinner>
+    <span class="text-base font-semibold text-gray-700">
+      {{ kpi.isError ? kpi.error.failureMessage : label }}
+    </span>
+  </div>
+  
+  <!-- Number Section -->
+  <div class="flex flex-col justify-center items-center flex-grow">
     <div
       *ngIf="kpi.isReady"
-      class="flex flex-col justify-center items-center overflow-hidden w-full"
-      style="height: 80px">
+      class="kpi-value"
+      style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+             -webkit-background-clip: text;
+             -webkit-text-fill-color: transparent;
+             background-clip: text;
+             font-weight: 700;
+             line-height: 1;">
       <span [style.font-size.px]="fontSize(kpi.data)">{{
         kpi.data | number
       }}</span>
     </div>
-  </div>
-  <div
-    class="flex justify-center items-center uppercase text-center"
-    style="font-size: 0.9em; height: 40px">
-    <div *ngIf="kpi.isError" class="text-warn">
-      {{ kpi.error.failureMessage }}
+    <div *ngIf="kpi.isError" class="text-warn text-3xl font-bold">
+      !
     </div>
-    <div *ngIf="kpi.isLoading || kpi.isReady" class="text-slate">
-      {{ label }}
+    <div *ngIf="kpi.isLoading" class="text-gray-400 text-lg">
+      ...
     </div>
   </div>
 </mat-card>

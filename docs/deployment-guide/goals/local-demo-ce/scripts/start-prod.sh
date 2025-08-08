@@ -1,0 +1,1 @@
+docker compose -p edc-prod -f ../docker-compose.prod.yaml --env-file ../.env.prod up -d

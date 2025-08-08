@@ -20,6 +20,7 @@
  *     Eclipse Foundation - initial setup of the eclipse-edc/DataDashboard UI
  *     sovity - continued development
  */
+import 'zone.js/plugins/zone-error';
 import {EdcUiEnvironment} from './edc-ui-environment';
 
 export const environment: EdcUiEnvironment = {

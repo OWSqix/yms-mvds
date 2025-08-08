@@ -18,26 +18,27 @@
         </button>
       </div>
 
-      <!-- Center: Mobile Current Page Title -->
+      <!-- Center: Mobile Logo and Page Title (Vertical Layout) -->
       <div class="navbar-center">
-        <div class="current-page-title">
-          <mat-icon class="page-icon">{{ getCurrentPageIcon() }}</mat-icon>
-          <span class="page-text">{{ getCurrentPageTitle() | translate }}</span>
+        <div class="mobile-brand-section">
+          <div class="navbar-brand">
+            <img
+              class="brand-logo mobile-logo"
+              alt="Logo"
+              [attr.src]="config.brandLogoSrc"
+              [style]="config.brandLogoStyle"
+              [routerLink]="['/dashboard']"
+              style="cursor: pointer;"/>
+          </div>
+          <div class="current-page-title">
+            <mat-icon class="page-icon">{{ getCurrentPageIcon() }}</mat-icon>
+            <span class="page-text">{{ getCurrentPageTitle() | translate }}</span>
+          </div>
         </div>
       </div>
 
-      <!-- Right: Logo and Actions -->
+      <!-- Right: Actions Only -->
       <div class="navbar-end">
-        <div class="navbar-brand">
-          <img
-            class="brand-logo mobile-logo"
-            alt="Logo"
-            [attr.src]="config.brandLogoSrc"
-            [style]="config.brandLogoStyle"
-            [routerLink]="['/dashboard']"
-            style="cursor: pointer;"/>
-        </div>
-        
         <button mat-icon-button
                 *ngIf="'logout-button' | isActiveFeature"
                 [matTooltip]="'logout_page.title' | translate"

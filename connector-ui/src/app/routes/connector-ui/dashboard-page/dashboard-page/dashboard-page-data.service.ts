@@ -144,7 +144,20 @@ export class DashboardPageDataService {
           backgroundColor: amounts.map((it) => it.color),
         },
       ],
-      options: {responsive: false},
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        aspectRatio: 1,
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: {
+              padding: 20,
+              usePointStyle: true,
+            }
+          },
+        },
+      },
     };
   }
 

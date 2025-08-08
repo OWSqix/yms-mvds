@@ -1,14 +1,22 @@
 <div id="wrapper">
-  <div class="flex flex-row">
-    <div class="grow"></div>
-    <mat-paginator
-      *ngIf="transferProcessesList.isReady"
-      [hidePageSize]="true"
-      [disabled]="true"
-      [pageSize]="transferProcessesList.data.transferProcesses.length"
-      [length]="
-        transferProcessesList.data.transferProcesses.length
-      "></mat-paginator>
+  <!-- Mobile: Stack vertically, Desktop: Horizontal layout -->
+  <div class="flex flex-col lg:flex-row gap-4 lg:items-start">
+    <!-- Title Section - Mobile: Full width, Desktop: Grow -->
+    <div class="flex-grow">
+      <h2 class="text-xl font-medium">{{ 'transfer_history_page.title' | translate }}</h2>
+    </div>
+
+    <!-- Paginator - Mobile: Full width, Desktop: Aligned right -->
+    <div class="w-full lg:w-auto flex justify-center lg:justify-end">
+      <mat-paginator
+        *ngIf="transferProcessesList.isReady"
+        [hidePageSize]="true"
+        [disabled]="true"
+        [pageSize]="transferProcessesList.data.transferProcesses.length"
+        [length]="transferProcessesList.data.transferProcesses.length"
+        class="!p-0">
+      </mat-paginator>
+    </div>
   </div>
   <div class="flex flex-row justify-center">
     <loading-state

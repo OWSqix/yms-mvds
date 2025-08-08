@@ -1,0 +1,229 @@
+// Dashboard Page Styles
+
+// Color Palette
+$primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+$card-bg: #ffffff;
+$card-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+$hover-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+$border-radius: 16px;
+
+// Animation
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Page Title
+h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  position: relative;
+  
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: $primary-gradient;
+    border-radius: 2px;
+  }
+}
+
+// Transfer Charts Card Styling
+.transfer-chart-card {
+  border-radius: $border-radius !important;
+  box-shadow: $card-shadow !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: fadeInUp 0.6s ease-out;
+  background: $card-bg !important;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $hover-shadow !important;
+  }
+  
+  mat-card-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    
+    &:before {
+      content: '📊';
+      font-size: 1.25rem;
+      -webkit-text-fill-color: initial;
+    }
+  }
+  
+  .chart-container {
+    padding: 1rem;
+    background: linear-gradient(180deg, rgba(102, 126, 234, 0.03) 0%, rgba(255, 255, 255, 0) 100%);
+    border-radius: 12px;
+  }
+}
+
+// KPI Cards Styling
+.kpi-card {
+  cursor: pointer;
+  border-radius: $border-radius !important;
+  box-shadow: $card-shadow !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: $card-bg !important;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+  
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: $hover-shadow !important;
+    
+    .kpi-icon {
+      transform: scale(1.1);
+    }
+  }
+  
+  &:active {
+    transform: translateY(-1px);
+  }
+  
+  // Gradient backgrounds for each KPI type
+  &.kpi-offers {
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    }
+  }
+  
+  &.kpi-assets {
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    }
+  }
+  
+  &.kpi-policies {
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    }
+  }
+  
+  &.kpi-contracts {
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    }
+  }
+}
+
+// Connector Properties Card
+.properties-card {
+  border-radius: $border-radius !important;
+  box-shadow: $card-shadow !important;
+  background: $card-bg !important;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  animation: fadeInUp 0.8s ease-out;
+  
+  mat-card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f3f4f6;
+  }
+  
+  ::ng-deep .property-grid-group {
+    .property-grid {
+      .property {
+        padding: 12px 16px;
+        margin: 8px 0;
+        background: #f9fafb;
+        border-radius: 8px;
+        transition: all 0.2s ease;
+        
+        &:hover {
+          background: #f3f4f6;
+          transform: translateX(4px);
+        }
+        
+        .property-icon {
+          color: #667eea;
+        }
+        
+        .property-label {
+          font-weight: 600;
+          color: #4b5563;
+        }
+        
+        .property-value {
+          color: #1f2937;
+          font-family: 'Monaco', 'Menlo', monospace;
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+}
+
+// Animation delays for staggered effect
+@for $i from 1 through 4 {
+  .kpi-card:nth-child(#{$i}) {
+    animation: fadeInUp 0.6s ease-out;
+    animation-delay: #{$i * 0.1}s;
+    animation-fill-mode: both;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 767px) {
+  .kpi-card:hover {
+    transform: none;
+    box-shadow: $card-shadow !important;
+  }
+  
+  h2 {
+    font-size: 1.25rem;
+  }
+}

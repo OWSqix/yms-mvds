@@ -13,7 +13,7 @@ export const SOVITY_THEME: EdcUiThemeConfig = {
   theme: 'theme-sovity',
   brandFaviconSrc: '/assets/images/favicon/sovity_favicon-192x192.png',
   brandLogoSrc: '/assets/images/logo/sovity_logo.svg',
-  brandLogoStyle: 'width: 70%;',
+  brandLogoStyle: 'width: 100%;',
   brandBannerSrc: '/assets/images/banners/sovity_banner.jpg',
 };
 
@@ -21,7 +21,7 @@ export const YMATICS_THEME: EdcUiThemeConfig = {
   theme: 'theme-ymatics',
   brandFaviconSrc: '/assets/images/favicon/ymatics_favicon.ico',
   brandLogoSrc: '/assets/images/logo/ymatics_logo_white.png',
-  brandLogoStyle: 'width: 70%;',
+  brandLogoStyle: 'width: 100%;',
   brandBannerSrc: '/assets/images/banners/ymatics_banner.png',
 };
 
@@ -37,7 +37,7 @@ export const KOTI_THEME: EdcUiThemeConfig = {
   theme: 'theme-koti',
   brandFaviconSrc: '/assets/images/favicon/koti_favicon.ico',
   brandLogoSrc: '/assets/images/logo/koti_logo_white.png',
-  brandLogoStyle: 'width: 70%;',
+  brandLogoStyle: 'width: 100%;',
   brandBannerSrc: '/assets/images/banners/koti_banner.jpg',
 };
 

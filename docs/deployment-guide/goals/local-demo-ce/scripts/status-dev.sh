@@ -1,0 +1,1 @@
+docker compose -p edc-dev logs -f

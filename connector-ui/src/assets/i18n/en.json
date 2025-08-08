@@ -283,6 +283,7 @@
   "dashboard_page.failed_ui_build": "Failed fetching UI Last Build Date Data",
   "dashboard_page.failed_ui": "Failed fetching UI Last Commit Data",
   "dashboard_page.inc_data": "Incoming Data",
+  "dashboard_page.kpi_cards_title": "KPI Cards",
   "dashboard_page.managed_edc": "Get Managed EDC",
   "dashboard_page.marketing_about_ui_assets_view_and_create": "View and create assets using the {}",
   "dashboard_page.marketing_about_ui_catalog_negotiate": "Negotiate a contract for data sharing in your Dataspace using the {}",

@@ -26,4 +26,7 @@ export class DashboardDonutChartComponent {
 
   @Input()
   data = Fetched.empty<DonutChartData>();
+
+  // Use 'pie' chart type but cast to 'doughnut' for type compatibility
+  chartType: any = 'pie';
 }
