@@ -83,13 +83,14 @@
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 16px 12px 16px; // 하단에 패딩 추가
+  padding: 0 16px; // 하단 패딩 제거하여 수직 중앙 정렬 개선
   height: 100%;
   z-index: 3;
 
   .navbar-start {
     display: flex;
     align-items: center;
+    justify-content: center; // 햄버거 버튼 중앙 정렬
     flex: 0 0 auto;
   }
 
@@ -100,45 +101,13 @@
     flex: 1;
     width: auto;
 
-    .mobile-brand-section {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      width: auto;
+    .navbar-brand {
+      flex: 0 0 auto;
 
-      .navbar-brand {
-        flex: 0 0 auto;
-
-        .mobile-logo {
-          height: 50px; // 로고 크기 조정
-          width: auto;
-          object-fit: contain;
-        }
-      }
-
-      .current-page-title {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        font-size: 20px;
-        font-weight: 600;
-        color: white;
-        text-align: center;
-        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-        white-space: nowrap;
-        flex: 0 0 auto;
-
-        .page-icon {
-          font-size: 22px;
-          width: 22px;
-          height: 22px;
-        }
-
-        .page-text {
-          line-height: 22px;
-        }
+      .mobile-logo {
+        height: 50px; // 로고 크기 조정
+        width: auto;
+        object-fit: contain;
       }
     }
   }
@@ -276,7 +245,7 @@
 .container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 24px;
+  padding: 0px;
 }
 
 // Mobile sidenav
@@ -364,42 +333,26 @@
 // Mobile devices (max 767px)
 @media (max-width: 767px) {
   .top-navbar {
-    height: 110px; // 모바일에서 더 컴팩트하게
+    height: 70px; // page title 제거로 더욱 컴팩트하게
   }
   
   .main-content {
-    margin-top: 110px;
+    margin-top: 70px;
     padding: 16px 8px; // 모바일 전용 패딩
   }
   
   .mobile-sidenav-container {
-    top: 110px;
+    top: 70px;
   }
   
   .mobile-layout {
-    padding: 0 8px 12px 8px;
+    padding: 0 8px; // 좌우 패딩만 유지
     
     .navbar-center {
-      .mobile-brand-section {
-        .navbar-brand {
-          .mobile-logo {
-            height: 40px; // 작은 화면용 로고 크기
-          }
-        }
-        
-        .current-page-title {
-          font-size: 18px; // 14px + 4px = 18px (요청사항 반영)
-          
-          .page-icon {
-            font-size: 20px; // 16px + 4px = 20px
-            width: 20px;
-            height: 20px;
-          }
-          
-          .page-text {
-            font-size: 18px;
-            line-height: 20px;
-          }
+      .navbar-brand {
+        .mobile-logo {
+          height: 40px; // 작은 화면용 로고 크기
+          max-width: 280px; // md 미만 화면에서 최대 너비 제한
         }
       }
     }
@@ -407,9 +360,18 @@
   
   // 모바일 터치 친화적 버튼 크기
   .mobile-menu-button {
-    min-width: 44px !important;
-    min-height: 44px !important;
-    padding: 12px !important;
+    width: 48px !important;
+    height: 48px !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .mobile-menu-button mat-icon {
+    font-size: 24px !important;
+    width: 24px !important;
+    height: 24px !important;
+    line-height: 24px !important;
   }
   
   // 모바일 사이드네비게이션 개선

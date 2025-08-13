@@ -1,46 +1,424 @@
-#wrapper {
-  margin: 20px;
+// Transfer History Page Styles
+
+// Color Palette (matching dashboard)
+$primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+$success-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+$warning-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+$error-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+$card-bg: #ffffff;
+$card-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+$hover-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+$border-radius: 16px;
+
+// Animation
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Wrapper - 넓은 화면에서 전체 너비 활용
+#wrapper {
+  margin: 20px;
+  max-width: none; // 컨테이너 제약 해제
+  
+  // 큰 화면에서 좌우 패딩 조정
+  @media (min-width: 1200px) {
+    margin: 20px 40px; // 좌우 여백 확보
+  }
+}
+
+// Page Title (matching dashboard style)
+h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  position: relative;
+  
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: $primary-gradient;
+    border-radius: 2px;
+  }
+}
+
+// Results Section
+.results-section {
+  animation: fadeInUp 0.8s ease-out;
+  animation-fill-mode: both;
+}
+
+// Pagination Container
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  
+  .paginator-styled {
+    background: $card-bg;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    padding: 0.5rem 1rem;
+    
+    ::ng-deep {
+      .mat-paginator-container {
+        padding: 0;
+      }
+      
+      .mat-paginator-range-label {
+        color: #6b7280;
+      }
+      
+      .mat-paginator-navigation-first,
+      .mat-paginator-navigation-last,
+      .mat-paginator-navigation-previous,
+      .mat-paginator-navigation-next {
+        color: #667eea;
+        
+        &:hover {
+          background: rgba(102, 126, 234, 0.1);
+        }
+      }
+    }
+  }
+}
+
+// Content Container
+.content-container {
+  min-height: 35rem;
+  
+  .state-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 35rem;
+    background: $card-bg;
+    border-radius: $border-radius;
+    box-shadow: $card-shadow;
+    animation: fadeInUp 0.6s ease-out;
+  }
+}
+
+// Table Card
+.mat-card {
+  padding: 0;
+}
+
+// Transfer History Table
 .transfer-history-table {
+  width: 100%;
+  background: transparent !important;
+  table-layout: fixed; // 넓은 화면에서 남는 여백 없이 전체 너비 사용
+  
+  ::ng-deep {
+    // Table Header
+    .mat-header-row {
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+      border-bottom: 2px solid #f3f4f6;
+      
+      .mat-header-cell {
+        color: #4b5563;
+        font-weight: 700 !important;
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        padding: 1rem;
+        border: none;
+      }
+    }
+    
+    // Table Rows
+    .mat-row {
+      border-bottom: 1px solid #f3f4f6;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.03) 0%, rgba(118, 75, 162, 0.03) 100%);
+        transform: translateX(4px);
+      }
+      
+      &:last-child {
+        border-bottom: none;
+      }
+      
+      .mat-cell {
+        color: #1f2937;
+        font-size: 0.9375rem;
+        padding: 1rem;
+        border: none;
+      }
+    }
+    
+    // Direction Column Icons
+    .mat-column-direction {
+      .mat-icon {
+        color: #667eea;
+        font-size: 24px !important;
+        width: 24px !important;
+        height: 24px !important;
+        
+        &:contains('upload') {
+          color: #10b981;
+        }
+        
+        &:contains('download') {
+          color: #3b82f6;
+        }
+      }
+    }
+    
+    // State Column
+    .mat-column-state {
+      .mat-icon {
+        &.text-warn {
+          color: #ef4444 !important;
+        }
+      }
+      
+      .mat-progress-spinner {
+        display: inline-block;
+        vertical-align: middle;
+        
+        circle {
+          stroke: #667eea;
+        }
+      }
+    }
+    
+    // Asset Name Column
+    .mat-column-assetName {
+      .link {
+        color: #667eea;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        
+        &:hover {
+          color: #764ba2;
+          transform: translateX(2px);
+          
+          .mat-icon {
+            transform: scale(1.1);
+          }
+        }
+        
+        .mat-icon {
+          font-size: 14px !important;
+          width: 14px !important;
+          height: 14px !important;
+          transition: all 0.3s ease;
+        }
+      }
+    }
+    
+    // Details Column
+    .mat-column-details {
+      .link {
+        color: #667eea;
+        text-decoration: none;
+        font-weight: 600;
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+        transition: all 0.3s ease;
+        display: inline-block;
+        
+        &:hover {
+          background: $primary-gradient;
+          color: white;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+      }
+    }
+    
+    // Counter Party Columns
+    .mat-column-counterPartyParticipantId,
+    .mat-column-counterPartyConnectorEndpoint {
+      font-family: 'Monaco', 'Menlo', monospace;
+      font-size: 0.875rem;
+      color: #6b7280;
+    }
+    
+    // Last Updated Column
+    .mat-column-lastUpdated {
+      color: #6b7280;
+      font-size: 0.875rem;
+    }
+  }
+}
+
+// Responsive Table Wrapper
+.mat-table {
+  display: table; // 기본 테이블 레이아웃 유지
   width: 100%;
 }
 
-.transfer-history-table-header th {
-  font-weight: bold;
+@media (max-width: 1024px) {
+  .mat-table {
+    overflow-x: auto;
+    display: block; // 작은 화면에서 가로 스크롤 허용
+  }
+  
+  .transfer-history-table {
+    table-layout: auto; // 작은 화면에서는 내용 기반 레이아웃
+    
+    ::ng-deep {
+      .mat-header-cell,
+      .mat-cell {
+        padding: 0.75rem 0.5rem;
+      }
+    }
+  }
 }
 
-.mat-table {
-  overflow-x: scroll;
+// Mobile Responsive Design (md breakpoint - 768px)
+@media (max-width: 767px) {
+  #wrapper {
+    margin: 10px;
+  }
+  
+  h2 {
+    font-size: 1.25rem;
+  }
+  
+  .table-card {
+    border-radius: 12px !important;
+    
+    &:hover {
+      transform: none;
+      box-shadow: $card-shadow !important;
+    }
+  }
+  
+  .transfer-history-table {
+    ::ng-deep {
+      .mat-header-cell {
+        font-size: 0.75rem;
+        padding: 0.75rem 0.5rem;
+      }
+      
+      .mat-cell {
+        font-size: 0.8125rem;
+        padding: 0.75rem 0.5rem;
+      }
+      
+      // Hide less important columns on mobile
+      .mat-column-counterPartyConnectorEndpoint {
+        display: none;
+      }
+    }
+  }
+  
+  // Mobile scroll indicator
+  .mat-table {
+    position: relative;
+    
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 30px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.9));
+      pointer-events: none;
+    }
+  }
 }
 
-.mat-cell,
-.mat-header-cell {
-  padding: 0px 10px;
+// Small mobile (sm breakpoint - 640px)
+@media (max-width: 639px) {
+  .transfer-history-table {
+    ::ng-deep {
+      // Further hide columns on small screens
+      .mat-column-counterPartyParticipantId {
+        display: none;
+      }
+      
+      .mat-column-assetName {
+        max-width: 150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+  }
 }
 
-.singleline-cell {
-  white-space: nowrap;
+// Loading and Error states styling
+::ng-deep {
+  loading-state,
+  error-state,
+  empty-state {
+    .mat-spinner {
+      circle {
+        stroke: #667eea;
+      }
+    }
+    
+    .error-icon,
+    .empty-icon {
+      color: #667eea;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    
+    .message {
+      color: #4b5563;
+      font-size: 1.125rem;
+    }
+  }
 }
 
-mat-paginator {
+// Status Badge Styles
+.status-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
   display: inline-block;
-  background-color: transparent;
-}
-
-.info-box {
-  display: flex;
-  align-items: center;
-
-  .text {
-    padding-left: 10px;
+  
+  &.running {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(99, 102, 241, 0.2) 100%);
+    color: #3b82f6;
   }
-
-  .button {
-    margin-left: auto;
+  
+  &.completed {
+    background: linear-gradient(135deg, rgba(67, 233, 123, 0.2) 0%, rgba(56, 249, 215, 0.2) 100%);
+    color: #059669;
   }
-}
-
-.action-button {
-  margin-right: 5px;
+  
+  &.error {
+    background: linear-gradient(135deg, rgba(240, 147, 251, 0.2) 0%, rgba(245, 87, 108, 0.2) 100%);
+    color: #dc2626;
+  }
 }

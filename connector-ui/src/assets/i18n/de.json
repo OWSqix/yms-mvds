@@ -1,6 +1,10 @@
 {
   "general": {
     "access_pol": "Zugriffsrichtlinie",
+    "active": "Aktiv",
+    "status": "Status",
+    "terminated": "Beendet",
+    "transfers": "Übertragungen",
     "ad_info": "Weitere Informationen",
     "add_add_header": "Füge zusätzliche Kopfzeile hinzu",
     "add_auth": "Authentifizierung hinzufügen",
@@ -282,6 +286,12 @@
     "counter_id": "Gegenpart Teilnehmer ID",
     "no_trans": "Keine Übertragungshistorie gefunden.",
     "subtitle": "Übertragungshistorie Details"
+  },
+  "create_data_offer_page": {
+    "title": "Datenangebot erstellen",
+    "edit_title": "Datenangebot bearbeiten",
+    "create_description": "Konfigurieren Sie Ihre Datenangebot-Einstellungen und Veröffentlichungsoptionen",
+    "edit_description": "Aktualisieren Sie Ihre Datenangebot-Konfiguration"
   },
   "connector_ui": {
     "assets": "Datenbestände",

@@ -18,22 +18,16 @@
         </button>
       </div>
 
-      <!-- Center: Mobile Logo and Page Title (Vertical Layout) -->
+      <!-- Center: Mobile Logo Only (Horizontal Layout) -->
       <div class="navbar-center">
-        <div class="mobile-brand-section">
-          <div class="navbar-brand">
-            <img
-              class="brand-logo mobile-logo"
-              alt="Logo"
-              [attr.src]="config.brandLogoSrc"
-              [style]="config.brandLogoStyle"
-              [routerLink]="['/dashboard']"
-              style="cursor: pointer;"/>
-          </div>
-          <div class="current-page-title">
-            <mat-icon class="page-icon">{{ getCurrentPageIcon() }}</mat-icon>
-            <span class="page-text">{{ getCurrentPageTitle() | translate }}</span>
-          </div>
+        <div class="navbar-brand">
+          <img
+            class="brand-logo mobile-logo"
+            alt="Logo"
+            [attr.src]="config.brandLogoSrc"
+            [style]="config.brandLogoStyle"
+            [routerLink]="['/dashboard']"
+            style="cursor: pointer;"/>
         </div>
       </div>
 

@@ -1,0 +1,101 @@
+// Edit Asset Form Group Styles
+
+// Color Palette (matching dashboard)
+$primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+$card-bg: #ffffff;
+$card-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+$hover-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+$border-radius: 16px;
+
+.form-section-container {
+  background: $card-bg;
+  border-radius: $border-radius;
+  box-shadow: $card-shadow;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $hover-shadow;
+  }
+}
+
+.form-section-header {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #f3f4f6;
+}
+
+.form-section-title {
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  background: $primary-gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 0.5rem 0 !important;
+  position: relative;
+  
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: $primary-gradient;
+    border-radius: 2px;
+  }
+}
+
+.form-section-description {
+  color: #6b7280 !important;
+  font-size: 0.9375rem !important;
+  margin: 0 !important;
+  line-height: 1.6 !important;
+  font-weight: 400 !important;
+}
+
+.form-section-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .form-section-container {
+    padding: 1.5rem;
+    
+    &:hover {
+      transform: none;
+      box-shadow: $card-shadow;
+    }
+  }
+  
+  .form-section-title {
+    font-size: 1.125rem !important;
+    
+    &:after {
+      width: 40px;
+      height: 2px;
+    }
+  }
+  
+  .form-section-description {
+    font-size: 0.875rem !important;
+  }
+  
+  .form-section-content {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .form-section-container {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+}

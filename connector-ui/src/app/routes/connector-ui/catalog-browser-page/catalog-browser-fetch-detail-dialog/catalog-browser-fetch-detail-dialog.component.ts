@@ -33,6 +33,7 @@ import {CatalogBrowserFetchDetailDialogData} from './catalog-browser-fetch-detai
 @Component({
   selector: 'app-catalog-browser-fetch-detail-dialog',
   templateUrl: './catalog-browser-fetch-detail-dialog.component.html',
+  styleUrls: ['./catalog-browser-fetch-detail-dialog.component.scss'],
 })
 export class CatalogBrowserFetchDetailDialogComponent
   implements OnInit, OnDestroy

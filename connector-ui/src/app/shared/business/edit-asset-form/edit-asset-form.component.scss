@@ -1,0 +1,629 @@
+// Edit Asset Form Styles (Data Offer Creation)
+
+// Color Palette (matching dashboard)
+$primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+$success-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+$warning-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+$info-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+$card-bg: #ffffff;
+$card-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+$hover-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+$border-radius: 16px;
+
+// Animation
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Main Container
+#edit-asset-form {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+// Page Header
+.page-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.75rem;
+  position: relative;
+  
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: $primary-gradient;
+    border-radius: 2px;
+  }
+}
+
+.page-description {
+  color: #6b7280;
+  font-size: 1.125rem;
+  margin: 0;
+  line-height: 1.6;
+}
+
+// Form Container
+.asset-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+// Form Groups (Sections)
+::ng-deep {
+  edit-asset-form-group {
+    display: block;
+    background: $card-bg;
+    border-radius: $border-radius;
+    box-shadow: $card-shadow;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    animation: fadeInUp 0.6s ease-out;
+    animation-fill-mode: both;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: $hover-shadow;
+    }
+    
+    // Section title
+    .form-section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      background: $primary-gradient;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 2rem;
+      position: relative;
+      padding-bottom: 1rem;
+      
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background: $primary-gradient;
+        border-radius: 2px;
+      }
+    }
+    
+    // Section description
+    .form-section-description {
+      color: #6b7280;
+      font-size: 0.9375rem;
+      margin-bottom: 1.5rem;
+      margin-top: -0.5rem; // Adjust spacing after title
+      line-height: 1.6;
+    }
+  }
+}
+
+// Form Fields Styling
+::ng-deep {
+  // Material Form Field
+  .mat-form-field {
+    width: 100%;
+    
+    .mat-form-field-wrapper {
+      padding-bottom: 1.25em;
+    }
+    
+    .mat-form-field-flex {
+      background: #f9fafb;
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        background: #f3f4f6;
+      }
+    }
+    
+    &.mat-focused .mat-form-field-flex {
+      background: white;
+      box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+    }
+    
+    .mat-form-field-label {
+      color: #6b7280;
+    }
+    
+    .mat-form-field-underline {
+      display: none;
+    }
+    
+    .mat-input-element {
+      color: #1f2937;
+    }
+    
+    .mat-icon {
+      color: #667eea;
+    }
+    
+    .mat-hint {
+      color: #9ca3af;
+      font-size: 0.875rem;
+    }
+    
+    .mat-error {
+      color: #ef4444;
+      font-size: 0.875rem;
+    }
+  }
+  
+  // Text Area
+  textarea.mat-input-element {
+    min-height: 100px;
+    resize: vertical;
+  }
+  
+  // Select Dropdowns
+  .mat-select {
+    .mat-select-trigger {
+      padding: 0.5rem 0;
+    }
+    
+    .mat-select-value {
+      color: #1f2937;
+    }
+    
+    .mat-select-arrow {
+      color: #667eea;
+    }
+  }
+  
+  // Radio Groups
+  .mat-radio-group {
+    .mat-radio-button {
+      margin: 0.5rem 0;
+      
+      .mat-radio-label {
+        color: #4b5563;
+        font-weight: 500;
+      }
+      
+      &.mat-radio-checked .mat-radio-label {
+        color: #1f2937;
+        font-weight: 600;
+      }
+      
+      .mat-radio-outer-circle {
+        border-color: #cbd5e1;
+      }
+      
+      &.mat-radio-checked {
+        .mat-radio-outer-circle {
+          border-color: #667eea;
+        }
+        
+        .mat-radio-inner-circle {
+          background-color: #667eea;
+        }
+      }
+    }
+  }
+  
+  // Checkboxes
+  .mat-checkbox {
+    .mat-checkbox-frame {
+      border-color: #cbd5e1;
+      border-radius: 4px;
+    }
+    
+    &.mat-checkbox-checked {
+      .mat-checkbox-frame {
+        border-color: #667eea;
+      }
+      
+      .mat-checkbox-background {
+        background-color: #667eea;
+      }
+    }
+    
+    .mat-checkbox-label {
+      color: #4b5563;
+      font-weight: 500;
+    }
+  }
+  
+  // Date Range Picker
+  .mat-date-range-input {
+    .mat-date-range-input-container {
+      background: #f9fafb;
+      border-radius: 8px;
+      padding: 0.5rem;
+    }
+    
+    .mat-date-range-input-separator {
+      color: #9ca3af;
+    }
+  }
+}
+
+// Buttons Styling
+::ng-deep {
+  button {
+    &.mat-button,
+    &.mat-raised-button,
+    &.mat-flat-button {
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border-radius: 8px;
+      padding: 0 1.5rem;
+      
+      &[color="primary"] {
+        background: $primary-gradient;
+        color: white;
+        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        
+        &:hover:not([disabled]) {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        &:active {
+          transform: translateY(0);
+        }
+      }
+      
+      &[color="accent"] {
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+        color: #667eea;
+        
+        &:hover:not([disabled]) {
+          background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
+          transform: translateY(-1px);
+        }
+      }
+      
+      &[color="warn"] {
+        background: linear-gradient(135deg, rgba(240, 147, 251, 0.1) 0%, rgba(245, 87, 108, 0.1) 100%);
+        color: #dc2626;
+        
+        &:hover:not([disabled]) {
+          background: linear-gradient(135deg, rgba(240, 147, 251, 0.2) 0%, rgba(245, 87, 108, 0.2) 100%);
+        }
+      }
+      
+      &[disabled] {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
+    
+    &.mat-icon-button {
+      color: #667eea;
+      
+      &:hover {
+        background: rgba(102, 126, 234, 0.1);
+      }
+    }
+  }
+}
+
+// Custom Form Labels
+::ng-deep {
+  edit-asset-form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    
+    label {
+      color: #374151;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      
+      &.required:after {
+        content: '*';
+        color: #ef4444;
+      }
+    }
+  }
+}
+
+// Form Inputs and Textareas
+::ng-deep {
+  edit-asset-form-input,
+  edit-asset-form-textarea {
+    display: block;
+    margin-bottom: 1.5rem;
+    animation: slideIn 0.4s ease-out;
+  }
+}
+
+// Dynamic Form Fields (Headers, Query Params, etc.)
+.dynamic-form-field {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.03) 0%, rgba(118, 75, 162, 0.03) 100%);
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+    transform: translateX(4px);
+  }
+}
+
+// Info tooltips
+::ng-deep {
+  .mat-icon[matTooltip] {
+    cursor: help;
+    color: #9ca3af;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      color: #667eea;
+      transform: scale(1.1);
+    }
+  }
+}
+
+// Form Actions
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 2rem 0;
+  margin-top: 1rem;
+  border-top: 2px solid #f3f4f6;
+  animation: fadeInUp 0.8s ease-out;
+  animation-delay: 0.8s;
+  animation-fill-mode: both;
+}
+
+.submit-button {
+  min-width: 200px !important;
+  height: 56px !important;
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.5px !important;
+  text-transform: uppercase !important;
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important;
+  
+  &:hover:not([disabled]) {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 30px rgba(102, 126, 234, 0.4) !important;
+  }
+  
+  &[disabled] {
+    opacity: 0.6 !important;
+    cursor: not-allowed !important;
+  }
+  
+  mat-icon {
+    animation: spin 1s linear infinite;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Policy Expression Section
+::ng-deep {
+  policy-form-expression {
+    display: block;
+    padding: 1rem;
+    background: #f9fafb;
+    border-radius: 8px;
+    margin-top: 1rem;
+    border: 1px solid #e5e7eb;
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  #edit-asset-form {
+    padding: 10px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  .page-title {
+    font-size: 1.5rem;
+    
+    &:after {
+      width: 60px;
+      height: 3px;
+    }
+  }
+  
+  .page-description {
+    font-size: 1rem;
+  }
+  
+  .form-actions {
+    padding: 1.5rem 0;
+    justify-content: center;
+  }
+  
+  .submit-button {
+    min-width: 200px !important;
+    width: 100% !important;
+    height: 48px !important;
+    font-size: 0.9375rem !important;
+  }
+  
+  ::ng-deep {
+    edit-asset-form-group {
+      padding: 1rem;
+      margin-left: 0;
+      margin-right: 0;
+      
+      &:hover {
+        transform: none;
+        box-shadow: $card-shadow;
+      }
+    }
+    
+    .mat-form-field {
+      .mat-form-field-flex {
+        padding: 0.5rem 0.75rem;
+      }
+    }
+    
+    button {
+      &.mat-button,
+      &.mat-raised-button,
+      &.mat-flat-button {
+        padding: 0.5rem;
+        font-size: 0.75rem;
+        white-space: normal;
+        line-height: 1.2;
+        text-align: center;
+        min-height: 40px;
+      }
+    }
+  }
+  
+  .dynamic-form-field {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: stretch;
+    
+    .mat-form-field {
+      width: 100% !important;
+    }
+    
+    button {
+      width: 100%;
+      margin-top: 0.5rem !important;
+      align-self: stretch;
+    }
+    
+    .w-min {
+      width: 100% !important;
+      flex: none !important;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .submit-button {
+    min-width: 150px !important;
+  }
+  
+  ::ng-deep {
+    edit-asset-form-group {
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      
+      .form-section-title {
+        font-size: 1.125rem;
+      }
+      
+      .form-section-description {
+        font-size: 0.875rem;
+      }
+    }
+    
+    button {
+      &.mat-button,
+      &.mat-raised-button,
+      &.mat-flat-button {
+        font-size: 0.7rem !important;
+        padding: 0.4rem !important;
+        min-height: 36px !important;
+      }
+    }
+  }
+}
+
+// Loading State
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  
+  .mat-spinner {
+    circle {
+      stroke: #667eea;
+    }
+  }
+}
+
+// Animations for form sections
+::ng-deep {
+  edit-asset-form-group {
+    &:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+    &:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+    &:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+    &:nth-child(4) {
+      animation-delay: 0.4s;
+    }
+    &:nth-child(5) {
+      animation-delay: 0.5s;
+    }
+    &:nth-child(6) {
+      animation-delay: 0.6s;
+    }
+    &:nth-child(7) {
+      animation-delay: 0.7s;
+    }
+  }
+}

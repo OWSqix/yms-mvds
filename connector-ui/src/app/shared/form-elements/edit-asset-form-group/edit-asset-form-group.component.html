@@ -1,17 +1,16 @@
-<div
-  class="grid grid-cols-1 gap-x-6 gap-y-6 md:gap-x-8 md:gap-y-10 !border-b !border-gray-900/10 pb-8 md:pb-12 lg:grid-cols-3">
-  <!-- Form Section Header - Mobile First -->
-  <div class="md:col-span-1">
-    <h2 class="!text-base !font-medium !leading-7 !text-gray-900 !m-0 md:!text-lg">
+<div class="form-section-container">
+  <!-- Form Section Header -->
+  <div class="form-section-header">
+    <h2 class="form-section-title">
       {{ myTitle }}
     </h2>
-    <p class="!mt-2 !text-sm !leading-6 !text-gray-600 !font-light md:!mt-1">
+    <p class="form-section-description">
       {{ description }}
     </p>
   </div>
 
-  <!-- Form Controls - Responsive -->
-  <div class="grid gap-4 md:gap-6 md:col-span-2 lg:col-span-2">
+  <!-- Form Controls -->
+  <div class="form-section-content">
     <ng-content></ng-content>
   </div>
 </div>

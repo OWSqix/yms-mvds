@@ -5,6 +5,10 @@
 
 echo "🚀 Building KOTI Frontend for Production..."
 
+# Angular 애플리케이션 빌드 (koti 경로로 설정)
+rm -rf dist
+ng build --base-href /koti/ --configuration production
+
 # 프로덕션용 빌드 실행
 docker buildx build \
   --no-cache \
