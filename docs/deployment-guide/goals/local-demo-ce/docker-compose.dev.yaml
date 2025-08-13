@@ -190,19 +190,25 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
+      target: development  # 개발 모드 사용
       args:
-        - DATA_SINK_API_URL=http://localhost:30101
-        - DATA_SOURCE_API_URL=http://localhost:30102
+        - DATA_SINK_API_URL=http://data-space.kr/koti/sink/api
+        - DATA_SOURCE_API_URL=http://data-space.kr/koti/source/api
+        - BASE_HREF=/koti/sink/
+        - DEPLOY_URL=/koti/sink/
     image: 'sovity-ce-local-demo-datasource-and-datasink-provider-frontend:dev'
     networks:
       - edc-dev-network
     ports:
       - "30110:4200"
     environment:
-      - DATA_SINK_API_URL=http://localhost:30101
-      - DATA_SOURCE_API_URL=http://localhost:30102
+      - DATA_SINK_API_URL=http://data-space.kr/koti/sink/api
+      - DATA_SOURCE_API_URL=http://data-space.kr/koti/source/api
     depends_on:
       - provider-backend
+    volumes:
+      - ./frontend:/app:rw  # 실시간 코드 변경 반영
+      - /app/node_modules   # node_modules 보호
 
   consumer-backend:
     container_name: edc-dev-consumer-backend
@@ -228,19 +234,25 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
+      target: development  # 개발 모드 사용
       args:
-        - DATA_SINK_API_URL=http://localhost:30001
-        - DATA_SOURCE_API_URL=http://localhost:30002
+        - DATA_SINK_API_URL=http://data-space.kr/ymatics/sink/api
+        - DATA_SOURCE_API_URL=http://data-space.kr/ymatics/source/api
+        - BASE_HREF=/ymatics/sink/
+        - DEPLOY_URL=/ymatics/sink/
     image: 'sovity-ce-local-demo-datasource-and-datasink-consumer-frontend:dev'
     networks:
       - edc-dev-network
     ports:
       - "30010:4200"
     environment:
-      - DATA_SINK_API_URL=http://localhost:30001
-      - DATA_SOURCE_API_URL=http://localhost:30002
+      - DATA_SINK_API_URL=http://data-space.kr/ymatics/sink/api
+      - DATA_SOURCE_API_URL=http://data-space.kr/ymatics/source/api
     depends_on:
       - consumer-backend
+    volumes:
+      - ./frontend:/app:rw  # 실시간 코드 변경 반영
+      - /app/node_modules   # node_modules 보호
 
   consumer2:
     container_name: edc-dev-consumer2
@@ -350,19 +362,25 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
+      target: development  # 개발 모드 사용
       args:
-        - DATA_SINK_API_URL=http://localhost:30201
-        - DATA_SOURCE_API_URL=http://localhost:30202
+        - DATA_SINK_API_URL=http://data-space.kr/kalda/sink/api
+        - DATA_SOURCE_API_URL=http://data-space.kr/kalda/source/api
+        - BASE_HREF=/kalda/sink/
+        - DEPLOY_URL=/kalda/sink/
     image: 'sovity-ce-local-demo-datasource-and-datasink-consumer2-frontend:dev'
     networks:
       - edc-dev-network
     ports:
       - "30210:4200"
     environment:
-      - DATA_SINK_API_URL=http://localhost:30201
-      - DATA_SOURCE_API_URL=http://localhost:30202
+      - DATA_SINK_API_URL=http://data-space.kr/kalda/sink/api
+      - DATA_SOURCE_API_URL=http://data-space.kr/kalda/source/api
     depends_on:
       - consumer2-backend
+    volumes:
+      - ./frontend:/app:rw  # 실시간 코드 변경 반영
+      - /app/node_modules   # node_modules 보호
 
   # KHU Services
   khu:
@@ -473,19 +491,25 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
+      target: development  # 개발 모드 사용
       args:
-        - DATA_SINK_API_URL=http://localhost:30301
-        - DATA_SOURCE_API_URL=http://localhost:30302
+        - DATA_SINK_API_URL=http://data-space.kr/khu/sink/api
+        - DATA_SOURCE_API_URL=http://data-space.kr/khu/source/api
+        - BASE_HREF=/khu/sink/
+        - DEPLOY_URL=/khu/sink/
     image: 'sovity-ce-local-demo-datasource-and-datasink-khu-frontend:dev'
     networks:
       - edc-dev-network
     ports:
       - "30310:4200"
     environment:
-      - DATA_SINK_API_URL=http://localhost:30301
-      - DATA_SOURCE_API_URL=http://localhost:30302
+      - DATA_SINK_API_URL=http://data-space.kr/khu/sink/api
+      - DATA_SOURCE_API_URL=http://data-space.kr/khu/source/api
     depends_on:
       - khu-backend
+    volumes:
+      - ./frontend:/app:rw  # 실시간 코드 변경 반영
+      - /app/node_modules   # node_modules 보호
 
 networks:
   edc-dev-network:

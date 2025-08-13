@@ -216,11 +216,31 @@ h2 {
   }
 }
 
+// Container wrapper (matches other pages)
+#wrapper {
+  margin: 20px;
+}
+
 // Responsive adjustments
 @media (max-width: 767px) {
-  .kpi-card:hover {
-    transform: none;
-    box-shadow: $card-shadow !important;
+  #wrapper {
+    margin: 10px;
+  }
+  
+  .kpi-card {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    
+    &:hover {
+      transform: none;
+      box-shadow: $card-shadow !important;
+    }
+  }
+  
+  .transfer-chart-card,
+  .properties-card {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
   }
   
   h2 {

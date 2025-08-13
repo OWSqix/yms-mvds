@@ -1,13 +1,14 @@
 <div id="wrapper">
-  <!-- Mobile: Stack vertically, Desktop: Horizontal layout -->
-  <div class="flex flex-col lg:flex-row gap-4 lg:items-start">
-    
+  <!-- Page Title -->
+  <h2>{{ 'policy_definition_page.title' | translate }}</h2>
+  
+  <!-- Search and Create Card -->
+  <mat-card class="search-create-card">
     <!-- Search and Create Section -->
-    <div class="flex flex-col sm:flex-row gap-4 flex-grow items-stretch">
-      <!-- Search -->
+    <div class="search-create-container">
+      <!-- Search Bar (80%) -->
       <mat-form-field
-        class="search-form-field flex-grow"
-        appearance="outline"
+        class="search-form-field"
         color="accent">
         <mat-label>{{
           'policy_definition_page.search_pol' | translate
@@ -23,56 +24,61 @@
         </button>
       </mat-form-field>
 
-      <!-- Create Button -->
+      <!-- Create Button (20%) -->
       <button
         id="create-button"
         color="primary"
         mat-raised-button
-        class="!min-h-[56px] sm:!min-h-[44px] !px-6 whitespace-nowrap"
+        class="create-policy-button"
         routerLink="/policies/create">
-        <div class="flex justify-center items-center h-full gap-2">
-          <mat-icon>add_circle_outline</mat-icon>
-          <span class="hidden sm:inline">{{ 'policy_definition_page.create_policy' | translate }}</span>
-          <span class="sm:hidden">{{ 'general.create' | translate }}</span>
-        </div>
+        <mat-icon>add_circle_outline</mat-icon>
+        <span class="button-text">{{ 'policy_definition_page.create_policy' | translate }}</span>
+        <span class="button-text-mobile">{{ 'general.create' | translate }}</span>
       </button>
     </div>
+  </mat-card>
 
-    <!-- Paginator - Mobile: Full width, Desktop: Aligned right -->
-    <div class="w-full lg:w-auto flex justify-center lg:justify-end">
+  <!-- Results Section -->
+  <div class="results-section">
+    <!-- Paginator -->
+    <div class="pagination-container" *ngIf="policyList.isReady && policyList.data.numTotalPolicies">
       <mat-paginator
-        *ngIf="policyList.isReady"
         [hidePageSize]="true"
         [disabled]="true"
         [pageSize]="policyList.data.policyCards.length"
         [length]="policyList.data.numTotalPolicies"
-        class="!p-0">
+        class="paginator-styled">
       </mat-paginator>
     </div>
-  </div>
 
-  <div class="flex flex-row justify-center">
-    <loading-state
-      *ngIf="policyList.isLoading"
-      class="min-h-[35rem]"></loading-state>
-    <error-state
-      *ngIf="policyList.isError"
-      class="min-h-[35rem]"
-      [error]="policyList.errorOrUndefined"></error-state>
-    <empty-state
-      *ngIf="
-        policyList.isReady &&
-        (!policyList.data.numTotalPolicies ||
-          !policyList.data.policyCards.length)
-      "
-      class="min-h-[35rem]"
-      [emptyMessage]="
-        'policy_definition_page.no_pol' | translate
-      "></empty-state>
+    <div class="content-container">
+      <loading-state
+        *ngIf="policyList.isLoading"
+        class="state-container"></loading-state>
+      <error-state
+        *ngIf="policyList.isError"
+        class="state-container"
+        [error]="policyList.errorOrUndefined"></error-state>
+      <empty-state
+        *ngIf="
+          policyList.isReady &&
+          (!policyList.data.numTotalPolicies ||
+            !policyList.data.policyCards.length)
+        "
+        class="state-container"
+        [emptyMessage]="
+          'policy_definition_page.no_pol' | translate
+        "></empty-state>
+      
+      <div
+        *ngIf="policyList.isReady && !!policyList.data.numTotalPolicies"
+        class="policies-grid">
+        <policy-cards
+          [policyCards]="policyList.data.policyCards"
+          [deleteBusy]="deleteBusy"
+          (deleteDone)="refresh()"
+          class="policy-cards-container"></policy-cards>
+      </div>
+    </div>
   </div>
-  <policy-cards
-    *ngIf="policyList.isReady && !!policyList.data.numTotalPolicies"
-    [policyCards]="policyList.data.policyCards"
-    [deleteBusy]="deleteBusy"
-    (deleteDone)="refresh()"></policy-cards>
 </div>

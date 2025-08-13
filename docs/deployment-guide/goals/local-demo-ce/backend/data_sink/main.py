@@ -56,9 +56,12 @@ app.add_middleware(
         "http://provider-frontend:4200",  # Docker service name for provider frontend
         "http://consumer-frontend:4200",  # Docker service name for consumer frontend (internal port)
         "http://consumer2-frontend:4200", # Added for consumer2-frontend (service name)
+        "http://khu-frontend:4200",  # Added for khu-frontend
         "http://provider:11000",  # Caddy proxy for provider
         "http://consumer:22000",  # Caddy proxy for consumer
         "http://consumer2:23000",  # Added for consumer2 caddy proxy
+        "http://data-space.kr",  # Production domain
+        "http://data-space.kr:8080",  # Production domain with port
         "*",  # Allow all origins temporarily for testing
     ],
     # 모든 IP 주소를 허용하도록 정규식 패턴 수정

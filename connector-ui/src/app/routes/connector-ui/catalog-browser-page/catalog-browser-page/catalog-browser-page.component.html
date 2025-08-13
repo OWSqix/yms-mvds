@@ -1,11 +1,13 @@
 <div id="wrapper">
-  <!-- Mobile: Stack vertically, Desktop: Horizontal layout -->
-  <div class="flex flex-col xl:flex-row gap-4 xl:items-start">
-    
-    <!-- Search Fields Section -->
-    <div class="flex flex-col lg:flex-row gap-4 flex-grow">
+  <!-- Page Title -->
+  <h2>{{ 'catalog_browser_page.title' | translate }}</h2>
+  
+  <!-- Search Section Card -->
+  <mat-card class="search-card">
+    <!-- Mobile: Stack vertically at md breakpoint, Desktop: Horizontal layout -->
+    <div class="flex flex-col md:flex-row gap-4 md:items-start">
       <!-- Search Bar -->
-      <mat-form-field class="search-form-field flex-grow lg:max-w-[300px]" color="accent">
+      <mat-form-field class="search-form-field w-full md:w-auto md:flex-1" color="accent">
         <mat-label>{{ 'catalog_browser_page.search' | translate }}</mat-label>
         <mat-icon matPrefix>search</mat-icon>
         <input matInput [formControl]="searchText" />
@@ -20,7 +22,7 @@
 
       <!-- Connector Endpoints -->
       <mat-form-field
-        class="search-form-field mat-hint-text-ellipsis flex-grow"
+        class="search-form-field mat-hint-text-ellipsis w-full md:w-auto md:flex-1"
         color="accent"
         matBadgeColor="warn"
         [matBadge]="
@@ -76,49 +78,52 @@
         </button>
       </mat-form-field>
     </div>
+  </mat-card>
 
-    <!-- Pagination - Mobile: Full width, Desktop: Aligned right -->
-    <div class="w-full xl:w-auto flex justify-center xl:justify-end">
+  <!-- Results Section -->
+  <div class="results-section">
+    <!-- Pagination -->
+    <div class="pagination-container" *ngIf="data.requestTotals.isSomeReady">
       <mat-paginator
-        *ngIf="data.requestTotals.isSomeReady"
         [hidePageSize]="true"
         [disabled]="true"
         [pageSize]="data.filteredDataOffers.length"
         [length]="data.numTotalContractOffers"
-        class="!p-0">
+        class="paginator-styled">
       </mat-paginator>
     </div>
-  </div>
-  <div class="flex flex-row justify-center">
-    <empty-state
-      *ngIf="data.requestTotals.isNothingReady && !data.requests.length"
-      class="min-h-[35rem]"
-      [emptyMessage]="
-        'catalog_browser_page.enter_endpoints' | translate
-      "></empty-state>
-    <loading-state
-      *ngIf="
-        data.requestTotals.isNothingReady &&
-        data.requests.length &&
-        !data.requestTotals.isDone
-      "
-      class="min-h-[35rem]"></loading-state>
-    <error-state
-      *ngIf="data.requestTotals.isAllFailed"
-      class="min-h-[35rem]"
-      [error]="data.requestTotals.results[0].errorOrUndefined"></error-state>
-    <empty-state
-      *ngIf="data.requestTotals.isSomeReady && !data.filteredDataOffers.length"
-      class="min-h-[35rem]"
-      [emptyMessage]="
-        'catalog_browser_page.no_contract_offers' | translate
-      "></empty-state>
-  </div>
-  <div
-    *ngIf="data.requestTotals.isSomeReady && !!data.numTotalContractOffers"
-    class="flex flex-row flex-wrap">
-    <data-offer-cards
-      [dataOffers]="data.filteredDataOffers"
-      (dataOfferClick)="onDataOfferClick($event)"></data-offer-cards>
+    <div class="content-container">
+      <empty-state
+        *ngIf="data.requestTotals.isNothingReady && !data.requests.length"
+        class="state-container"
+        [emptyMessage]="
+          'catalog_browser_page.enter_endpoints' | translate
+        "></empty-state>
+      <loading-state
+        *ngIf="
+          data.requestTotals.isNothingReady &&
+          data.requests.length &&
+          !data.requestTotals.isDone
+        "
+        class="state-container"></loading-state>
+      <error-state
+        *ngIf="data.requestTotals.isAllFailed"
+        class="state-container"
+        [error]="data.requestTotals.results[0].errorOrUndefined"></error-state>
+      <empty-state
+        *ngIf="data.requestTotals.isSomeReady && !data.filteredDataOffers.length"
+        class="state-container"
+        [emptyMessage]="
+          'catalog_browser_page.no_contract_offers' | translate
+        "></empty-state>
+      
+      <div
+        *ngIf="data.requestTotals.isSomeReady && !!data.numTotalContractOffers"
+        class="data-offers-grid">
+        <data-offer-cards
+          [dataOffers]="data.filteredDataOffers"
+          (dataOfferClick)="onDataOfferClick($event)"></data-offer-cards>
+      </div>
+    </div>
   </div>
 </div>

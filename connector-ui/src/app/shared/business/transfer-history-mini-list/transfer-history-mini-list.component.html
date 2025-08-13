@@ -3,7 +3,7 @@
 </i>
 <div
   *ngFor="let transfer of contractAgreement!.transferProcesses"
-  class="flex flex-row space-x-[10px]"
+  class="dynamic-form-field"
   trackByField="transferProcessId">
   <mat-icon class="mat-icon-[28px]" style="flex-shrink: 0; margin-top: 6px">{{
     contractAgreement!.direction === 'PROVIDING' ? 'upload' : 'download'

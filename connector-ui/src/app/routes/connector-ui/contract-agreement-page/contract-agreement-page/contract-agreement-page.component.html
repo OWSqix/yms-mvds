@@ -1,13 +1,14 @@
 <div id="wrapper">
-  <!-- Mobile: Stack vertically, Desktop: Horizontal layout -->
-  <div class="flex flex-col lg:flex-row gap-4 lg:items-start">
-    
-    <!-- Search and Filter Section -->
-    <div class="flex flex-col sm:flex-row gap-4 flex-grow items-stretch">
+  <!-- Page Title -->
+  <h2>{{ 'contract_agreement_page.title' | translate }}</h2>
+  
+  <!-- Search and Filter Card -->
+  <mat-card class="search-card">
+    <!-- Mobile: Stack vertically at md breakpoint, Desktop: Horizontal layout -->
+    <div class="flex flex-col md:flex-row gap-4 md:items-center">
       <!-- Search -->
       <mat-form-field
-        class="search-form-field flex-grow sm:max-w-[300px]"
-        appearance="outline"
+        class="search-form-field w-full md:flex-1"
         color="accent">
         <mat-label>{{
           'contract_agreement_page.search_agree' | translate
@@ -24,7 +25,7 @@
       </mat-form-field>
 
       <!-- Termination status filter - Mobile: Full width, Desktop: Inline -->
-      <div class="flex justify-center sm:justify-start items-center">
+      <div class="filter-container w-full md:w-auto flex justify-center md:justify-start items-center">
         <mat-button-toggle-group
           name="terminationFilter"
           [formControl]="terminationFilterControl"
@@ -53,72 +54,78 @@
         </mat-button-toggle-group>
       </div>
     </div>
+  </mat-card>
 
-    <!-- Paginator - Mobile: Full width, Desktop: Aligned right -->
-    <div class="w-full lg:w-auto flex justify-center lg:justify-end">
+  <!-- Results Section -->
+  <div class="results-section">
+    <!-- Paginator -->
+    <div class="pagination-container" *ngIf="page.isReady">
       <mat-paginator
-        *ngIf="page.isReady"
         [hidePageSize]="true"
         [disabled]="true"
         [pageSize]="page.data.contractAgreements.length"
         [length]="page.data.numTotalContractAgreements"
-        class="!p-0">
+        class="paginator-styled">
       </mat-paginator>
     </div>
-  </div>
 
-  <div class="flex flex-row justify-center">
-    <loading-state *ngIf="page.isLoading" class="min-h-[35rem]"></loading-state>
-    <error-state
-      *ngIf="page.isError"
-      class="min-h-[35rem]"
-      [error]="page.errorOrUndefined"></error-state>
-    <empty-state
-      *ngIf="page.isReady && !page.data.numTotalContractAgreements"
-      class="min-h-[35rem]"
-      [emptyMessage]="
-        'contract_agreement_page.no_agree' | translate
-      "></empty-state>
-    <empty-state
-      *ngIf="
-        page.isReady &&
-        page.data.numTotalContractAgreements &&
-        !(
-          page.data.consumingContractAgreements.length +
-          page.data.providingContractAgreements.length
-        )
-      "
-      class="min-h-[35rem]"
-      [emptyMessage]="
-        'contract_agreement_page.no_agree_found' | translate
-      "></empty-state>
-  </div>
+    <div class="content-container">
+      <loading-state *ngIf="page.isLoading" class="state-container"></loading-state>
+      <error-state
+        *ngIf="page.isError"
+        class="state-container"
+        [error]="page.errorOrUndefined"></error-state>
+      <empty-state
+        *ngIf="page.isReady && !page.data.numTotalContractAgreements"
+        class="state-container"
+        [emptyMessage]="
+          'contract_agreement_page.no_agree' | translate
+        "></empty-state>
+      <empty-state
+        *ngIf="
+          page.isReady &&
+          page.data.numTotalContractAgreements &&
+          !(
+            page.data.consumingContractAgreements.length +
+            page.data.providingContractAgreements.length
+          )
+        "
+        class="state-container"
+        [emptyMessage]="
+          'contract_agreement_page.no_agree_found' | translate
+        "></empty-state>
 
-  <div
-    *ngIf="page.isReady && !!page.data.contractAgreements.length"
-    class="flex flex-col space-y-[20px]">
-    <ng-container *ngIf="page.data.consumingContractAgreements.length">
-      <horizontal-section-divider
-        [text]="'contract_agreement_page.con_agree' | translate">
-      </horizontal-section-divider>
+      <div
+        *ngIf="page.isReady && !!page.data.contractAgreements.length"
+        class="agreements-container">
+        <ng-container *ngIf="page.data.consumingContractAgreements.length">
+          <horizontal-section-divider
+            [text]="'contract_agreement_page.con_agree' | translate"
+            class="section-divider">
+          </horizontal-section-divider>
 
-      <contract-agreement-cards
-        [contractAgreements]="page.data.consumingContractAgreements"
-        (contractAgreementClick)="
-          onContractAgreementClick($event)
-        "></contract-agreement-cards>
-    </ng-container>
+          <contract-agreement-cards
+            [contractAgreements]="page.data.consumingContractAgreements"
+            (contractAgreementClick)="
+              onContractAgreementClick($event)
+            "
+            class="agreement-cards-grid"></contract-agreement-cards>
+        </ng-container>
 
-    <ng-container *ngIf="page.data.providingContractAgreements.length">
-      <horizontal-section-divider
-        [text]="'contract_agreement_page.prov_agree' | translate">
-      </horizontal-section-divider>
+        <ng-container *ngIf="page.data.providingContractAgreements.length">
+          <horizontal-section-divider
+            [text]="'contract_agreement_page.prov_agree' | translate"
+            class="section-divider">
+          </horizontal-section-divider>
 
-      <contract-agreement-cards
-        [contractAgreements]="page.data.providingContractAgreements"
-        (contractAgreementClick)="
-          onContractAgreementClick($event)
-        "></contract-agreement-cards>
-    </ng-container>
+          <contract-agreement-cards
+            [contractAgreements]="page.data.providingContractAgreements"
+            (contractAgreementClick)="
+              onContractAgreementClick($event)
+            "
+            class="agreement-cards-grid"></contract-agreement-cards>
+        </ng-container>
+      </div>
+    </div>
   </div>
 </div>

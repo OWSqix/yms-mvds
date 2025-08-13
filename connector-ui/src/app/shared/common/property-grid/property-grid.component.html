@@ -4,7 +4,7 @@
   emptyMessage="No properties."></empty-state>
 <div
   *ngFor="let prop of props; trackBy: trackByIndex"
-  class="flex flex-row space-x-[10px] overflow-hidden"
+  class="dynamic-form-field overflow-hidden"
   [ngClass]="prop.additionalContainerClasses">
   <!-- Property Icon -->
   <mat-icon

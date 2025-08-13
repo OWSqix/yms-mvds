@@ -51,9 +51,12 @@ app.add_middleware(
         "http://provider-frontend:4200",
         "http://consumer-frontend:4200",
         "http://consumer2-frontend:4200",
+        "http://khu-frontend:4200",
         "http://provider:11000",
         "http://consumer:22000",
         "http://consumer2:23000",
+        "http://data-space.kr",
+        "http://data-space.kr:8080",
         "*",  # Allow all origins temporarily for testing
     ],
     # 모든 IP 주소를 허용하도록 정규식 패턴 수정

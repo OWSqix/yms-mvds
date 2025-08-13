@@ -32,6 +32,7 @@ def safe_path(subpath: str) -> str:
 
 
 @router.get("/", response_model=DirectoryContents)
+@router.get("", response_model=DirectoryContents)  # /files 경로도 직접 처리
 def list_directory(dir: Optional[str] = None, user: str = Depends(get_current_user)):
     logger.debug(f"Directory listing request: '{dir or 'root'}' (user: {user})")
 
@@ -57,6 +58,7 @@ def list_directory(dir: Optional[str] = None, user: str = Depends(get_current_us
 
 
 @router.post("/", dependencies=[Depends(get_current_user)])
+@router.post("", dependencies=[Depends(get_current_user)])  # /files 경로도 직접 처리
 def upload_file(dir: Optional[str] = Form(None), file: UploadFile = File(...), user: str = Depends(get_current_user)):
     logger.debug(f"File upload request: '{file.filename}' -> '{dir or 'root'}' (user: {user})")
 
@@ -109,6 +111,7 @@ def create_directory(request: DirectoryRequest, user: str = Depends(get_current_
 
 
 @router.delete("/", dependencies=[Depends(get_current_user)])
+@router.delete("", dependencies=[Depends(get_current_user)])  # /files 경로도 직접 처리
 def delete_item(path: str, user: str = Depends(get_current_user)):
     logger.debug(f"Deletion request: '{path}' (user: {user})")
 

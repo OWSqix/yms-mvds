@@ -1,13 +1,507 @@
+// Contract Agreement Page Styles
+
+// Color Palette (matching dashboard)
+$primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+$success-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+$warning-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+$card-bg: #ffffff;
+$card-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+$hover-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+$border-radius: 16px;
+
+// Animation
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Wrapper
 #wrapper {
   margin: 20px;
 }
 
-mat-paginator {
-  display: inline-block;
-  background-color: transparent;
+// Page Title (matching dashboard style)
+h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  position: relative;
+  
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: $primary-gradient;
+    border-radius: 2px;
+  }
 }
 
+// Search and Filter Card
+.search-card {
+  border-radius: $border-radius !important;
+  box-shadow: $card-shadow !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: fadeInUp 0.6s ease-out;
+  background: $card-bg !important;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $hover-shadow !important;
+  }
+}
+
+// Search Form Field (높이 56px로 통일, 너비 최대화)
 .search-form-field {
-  min-width: 200px;
-  width: 30%;
+  display: flex;
+  align-items: center;
+  height: 56px;
+  flex: 1; // 기본적으로 flex 적용
+  
+  &.w-full {
+    width: 100% !important;
+    max-width: none !important;
+  }
+  
+  // md 이상에서 flex-1 클래스가 있을 때
+  @media (min-width: 768px) {
+    &.md\\:flex-1 {
+      flex: 1 !important;
+      width: auto !important;
+      max-width: none !important;
+    }
+  }
+  
+  ::ng-deep {
+    .mat-form-field {
+      width: 100%;
+      min-width: 0; // 컨테이너에 맞게 축소 가능
+    }
+
+    .mat-form-field-wrapper {
+      padding-bottom: 0;
+      height: 56px; // 56px로 통일
+      width: 100%;
+      display: block; // wrapper가 콘텐츠 너비로 수축되지 않도록 기본 block으로 유지
+    }
+    
+    .mat-form-field-flex {
+      background: #f9fafb;
+      border-radius: 8px;
+      padding: 0.75rem 1rem; // 자산 페이지와 동일한 패딩
+      transition: all 0.3s ease;
+      height: 56px; // 56px로 통일
+      display: flex !important;
+      align-items: center !important;
+      min-height: 56px;
+      width: 100%;
+      
+      &:hover {
+        background: #f3f4f6;
+      }
+    }
+
+    .mat-form-field-infix {
+      width: 100% !important; // 기본 고정 폭(180px/xx px) 무시
+      min-width: 0;
+    }
+    
+    .mat-form-field-label {
+      color: #6b7280;
+      line-height: 1;
+    }
+    
+    .mat-form-field-underline {
+      display: none;
+    }
+    
+    .mat-input-element {
+      color: #1f2937;
+    }
+    
+    .mat-icon {
+      color: #667eea;
+      flex-shrink: 0;
+    }
+  }
+}
+
+// Filter Container (Toggle Group) - 56px로 통일
+.filter-container {
+  height: 56px; // 자산 페이지와 동일한 높이
+  display: flex;
+  align-items: center;
+  
+  ::ng-deep {
+    .mat-button-toggle-group {
+      background: #f9fafb;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e5e7eb;
+      overflow: hidden;
+      height: 56px; // 56px로 통일
+      display: flex;
+      align-items: center;
+    }
+    
+    .mat-button-toggle {
+      border: none !important;
+      background: transparent;
+      transition: all 0.3s ease;
+      height: 56px; // 56px로 통일
+      display: flex;
+      align-items: center;
+      
+      &.mat-button-toggle-checked {
+        background: $primary-gradient !important;
+        color: white !important;
+        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        
+        .mat-button-toggle-label-content {
+          color: white !important;
+        }
+      }
+      
+      &:not(.mat-button-toggle-checked):hover {
+        background: rgba(102, 126, 234, 0.1);
+      }
+      
+      .mat-button-toggle-label-content {
+        padding: 0.75rem 1rem; // 패딩 조정
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        height: 56px; // 56px로 통일
+        transition: all 0.3s ease;
+      }
+    }
+  }
+}
+
+// Results Section
+.results-section {
+  animation: fadeInUp 0.8s ease-out;
+  animation-delay: 0.2s;
+  animation-fill-mode: both;
+}
+
+// Pagination Container
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  
+  .paginator-styled {
+    background: $card-bg;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    padding: 0.5rem 1rem;
+    
+    ::ng-deep {
+      .mat-paginator-container {
+        padding: 0;
+      }
+      
+      .mat-paginator-range-label {
+        color: #6b7280;
+      }
+      
+      .mat-paginator-navigation-first,
+      .mat-paginator-navigation-last,
+      .mat-paginator-navigation-previous,
+      .mat-paginator-navigation-next {
+        color: #667eea;
+        
+        &:hover {
+          background: rgba(102, 126, 234, 0.1);
+        }
+      }
+    }
+  }
+}
+
+// Content Container
+.content-container {
+  min-height: 35rem;
+  
+  .state-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 35rem;
+    background: $card-bg;
+    border-radius: $border-radius;
+    box-shadow: $card-shadow;
+    animation: fadeInUp 0.6s ease-out;
+  }
+}
+
+// Agreements Container
+.agreements-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  animation: slideIn 0.8s ease-out;
+  animation-delay: 0.3s;
+  animation-fill-mode: both;
+}
+
+// Section Divider
+.section-divider {
+  ::ng-deep {
+    .divider-container {
+      position: relative;
+      margin: 2rem 0;
+      
+      &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 50%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #e5e7eb, transparent);
+      }
+      
+      .divider-text {
+        position: relative;
+        background: white;
+        padding: 0 1.5rem;
+        font-weight: 700;
+        font-size: 1.125rem;
+        background: $primary-gradient;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        display: inline-block;
+      }
+    }
+  }
+}
+
+// Agreement Cards Grid
+.agreement-cards-grid {
+  ::ng-deep {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+    
+    .agreement-card {
+      background: $card-bg !important;
+      border-radius: $border-radius !important;
+      box-shadow: $card-shadow !important;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: $hover-shadow !important;
+      }
+      
+      // Status indicator gradient bar
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+      }
+      
+      &.ongoing:before {
+        background: $success-gradient;
+      }
+      
+      &.terminated:before {
+        background: $warning-gradient;
+      }
+      
+      // Card content styling
+      .card-header {
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid #f3f4f6;
+        
+        .card-title {
+          font-size: 1rem;
+          font-weight: 600;
+          color: #1f2937;
+          margin-bottom: 0.25rem;
+        }
+        
+        .card-subtitle {
+          font-size: 0.875rem;
+          color: #6b7280;
+        }
+      }
+      
+      .card-body {
+        padding: 1rem 1.5rem;
+        
+        .info-row {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0.5rem 0;
+          
+          .info-label {
+            font-size: 0.875rem;
+            color: #6b7280;
+            font-weight: 500;
+          }
+          
+          .info-value {
+            font-size: 0.875rem;
+            color: #1f2937;
+            font-weight: 600;
+            font-family: 'Monaco', 'Menlo', monospace;
+          }
+        }
+      }
+      
+      .card-footer {
+        padding: 1rem 1.5rem;
+        background: #fafafa;
+        border-top: 1px solid #f3f4f6;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        .status-badge {
+          padding: 0.25rem 0.75rem;
+          border-radius: 20px;
+          font-size: 0.75rem;
+          font-weight: 600;
+          text-transform: uppercase;
+          
+          &.ongoing {
+            background: linear-gradient(135deg, rgba(67, 233, 123, 0.2) 0%, rgba(56, 249, 215, 0.2) 100%);
+            color: #059669;
+          }
+          
+          &.terminated {
+            background: linear-gradient(135deg, rgba(250, 112, 154, 0.2) 0%, rgba(254, 225, 64, 0.2) 100%);
+            color: #dc2626;
+          }
+        }
+        
+        .action-icon {
+          color: #667eea;
+          transition: all 0.3s ease;
+          
+          &:hover {
+            transform: translateX(4px);
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsive Design - md breakpoint (768px)
+@media (max-width: 767px) {
+  #wrapper {
+    margin: 10px;
+  }
+  
+  h2 {
+    font-size: 1.25rem;
+  }
+  
+  .search-card {
+    padding: 1rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    
+    &:hover {
+      transform: none;
+      box-shadow: $card-shadow !important;
+    }
+  }
+  
+  .search-form-field {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: unset !important;
+  }
+  
+  .filter-container {
+    width: 100% !important;
+    
+    ::ng-deep .mat-button-toggle-group {
+      width: 100%;
+      display: flex;
+      
+      .mat-button-toggle {
+        flex: 1;
+        
+        .mat-button-toggle-label-content {
+          padding: 0.25rem 0.5rem;
+          font-size: 0.75rem;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+  
+  .agreement-cards-grid {
+    margin: 0 0.5rem;
+    
+    ::ng-deep {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+}
+
+// Loading and Error states styling
+::ng-deep {
+  loading-state,
+  error-state,
+  empty-state {
+    .mat-spinner {
+      circle {
+        stroke: #667eea;
+      }
+    }
+    
+    .error-icon,
+    .empty-icon {
+      color: #667eea;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    
+    .message {
+      color: #4b5563;
+      font-size: 1.125rem;
+    }
+  }
 }

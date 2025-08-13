@@ -1,5 +1,5 @@
-<div class="mat-card-header" mat-dialog-title removeClass="mat-dialog-title">
-  <mat-icon class="mat-card-avatar-icon">view_timeline </mat-icon>
+<div class="mat-card-header" mat-dialog-title>
+  <mat-icon class="mat-card-avatar-icon">view_timeline</mat-icon>
   <div class="mat-card-header-text">
     <div class="mat-card-title">
       {{ 'catalog_browser_page.fetch' | translate }}
@@ -11,26 +11,33 @@
 </div>
 
 <div mat-dialog-content>
-  <ul>
+  <ul *ngIf="data?.requests?.length; else noRequests">
     <li *ngFor="let request of data?.requests">
-      {{ request.url }}
+      <div class="url-text">{{ request.url }}</div>
       <ul>
-        <li *ngIf="!request.data.isError">
+        <li *ngIf="!request.data.isError" class="success-state">
           {{ request.data.state }}
         </li>
-        <li *ngFor="let errorMessage of errorMessages(request.data)">
+        <li *ngFor="let errorMessage of errorMessages(request.data)" class="error-state">
           {{ errorMessage }}
         </li>
       </ul>
     </li>
   </ul>
+  <ng-template #noRequests>
+    <div class="empty-state">
+      <mat-icon>info_outline</mat-icon>
+      <p>{{ 'catalog_browser_page.no_requests' | translate }}</p>
+    </div>
+  </ng-template>
 </div>
 
-<div class="w-full flex flex-row justify-end" mat-dialog-actions>
-  <button mat-button color="default" [mat-dialog-close]="null">
-    {{ 'general.cancel' | translate }}
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="null">
+    {{ 'general.close' | translate }}
   </button>
   <button mat-flat-button color="primary" (click)="dialogData.refresh()">
+    <mat-icon>refresh</mat-icon>
     {{ 'general.refresh' | translate }}
   </button>
 </div>

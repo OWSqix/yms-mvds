@@ -1,17 +1,16 @@
 <div id="wrapper">
-  <!-- Mobile: Stack vertically, Desktop: Horizontal layout -->
-  <div class="flex flex-col lg:flex-row gap-4 lg:items-start">
-    
+  <!-- Page Title -->
+  <h2>{{ 'contract_definition_page.title' | translate }}</h2>
+  
+  <!-- Search and Create Card -->
+  <mat-card class="search-create-card">
     <!-- Search and Create Section -->
-    <div class="flex flex-col sm:flex-row gap-4 flex-grow items-stretch">
-      <!-- Search -->
+    <div class="search-create-container">
+      <!-- Search Bar (80%) -->
       <mat-form-field
-        class="search-form-field flex-grow"
-        appearance="outline"
+        class="search-form-field"
         color="accent">
-        <mat-label>
-          {{ 'contract_agreement_page.search_def' | translate }}
-        </mat-label>
+        <mat-label>{{ 'contract_agreement_page.search_def' | translate }}</mat-label>
         <input matInput [formControl]="searchText" />
         <mat-icon matPrefix>search</mat-icon>
         <button
@@ -23,61 +22,59 @@
         </button>
       </mat-form-field>
 
-      <!-- Create Button -->
+      <!-- Create Button (20%) -->
       <button
         id="create-button"
         color="primary"
         mat-raised-button
-        class="!min-h-[56px] sm:!min-h-[44px] !px-6 whitespace-nowrap"
+        class="create-contract-button"
         (click)="onCreate()">
-        <div class="flex justify-center items-center h-full gap-2">
-          <mat-icon>add_circle_outline</mat-icon>
-          <span class="hidden sm:inline">{{ 'contract_agreement_page.create_def' | translate }}</span>
-          <span class="sm:hidden">{{ 'general.create' | translate }}</span>
-        </div>
+        <mat-icon>add_circle_outline</mat-icon>
+        <span class="button-text">{{ 'contract_agreement_page.create_def' | translate }}</span>
+        <span class="button-text-mobile">{{ 'general.create' | translate }}</span>
       </button>
     </div>
+  </mat-card>
 
-    <!-- Paginator - Mobile: Full width, Desktop: Aligned right -->
-    <div class="w-full lg:w-auto flex justify-center lg:justify-end">
+  <!-- Results Section -->
+  <div class="results-section">
+    <!-- Paginator -->
+    <div class="pagination-container" *ngIf="contractDefinitionList.isReady && contractDefinitionList.data.numTotalContractDefinitions">
       <mat-paginator
-        *ngIf="contractDefinitionList.isReady"
         [hidePageSize]="true"
         [disabled]="true"
         [pageSize]="contractDefinitionList.data.contractDefinitionCards.length"
         [length]="contractDefinitionList.data.numTotalContractDefinitions"
-        class="!p-0">
+        class="paginator-styled">
       </mat-paginator>
     </div>
-  </div>
 
-  <div class="flex flex-row justify-center">
-    <loading-state
-      *ngIf="contractDefinitionList.isLoading"
-      class="min-h-[35rem]"></loading-state>
-    <error-state
-      *ngIf="contractDefinitionList.isError"
-      class="min-h-[35rem]"
-      [error]="contractDefinitionList.errorOrUndefined"></error-state>
-    <empty-state
-      *ngIf="
-        contractDefinitionList.isReady &&
-        (!contractDefinitionList.data.numTotalContractDefinitions ||
-          !contractDefinitionList.data.contractDefinitionCards.length)
-      "
-      class="min-h-[35rem]"
-      [emptyMessage]="
-        'contract_agreement_page.con_def' | translate
-      "></empty-state>
+    <div class="content-container">
+      <loading-state
+        *ngIf="contractDefinitionList.isLoading"
+        class="state-container"></loading-state>
+      <error-state
+        *ngIf="contractDefinitionList.isError"
+        class="state-container"
+        [error]="contractDefinitionList.errorOrUndefined"></error-state>
+      <empty-state
+        *ngIf="
+          contractDefinitionList.isReady &&
+          (!contractDefinitionList.data.numTotalContractDefinitions ||
+            !contractDefinitionList.data.contractDefinitionCards.length)
+        "
+        class="state-container"
+        [emptyMessage]="'contract_agreement_page.con_def' | translate"></empty-state>
+      
+      <div
+        *ngIf="contractDefinitionList.isReady && !!contractDefinitionList.data.numTotalContractDefinitions"
+        class="contracts-grid">
+        <contract-definition-cards
+          [contractDefinitionCards]="contractDefinitionList.data.contractDefinitionCards"
+          [deleteBusy]="deleteBusy"
+          (deleteDone)="refresh()"
+          class="contract-cards-container"></contract-definition-cards>
+      </div>
+    </div>
   </div>
-  <contract-definition-cards
-    *ngIf="
-      contractDefinitionList.isReady &&
-      !!contractDefinitionList.data.contractDefinitionCards.length
-    "
-    [contractDefinitionCards]="
-      contractDefinitionList.data.contractDefinitionCards
-    "
-    [deleteBusy]="deleteBusy"
-    (deleteDone)="refresh()"></contract-definition-cards>
 </div>

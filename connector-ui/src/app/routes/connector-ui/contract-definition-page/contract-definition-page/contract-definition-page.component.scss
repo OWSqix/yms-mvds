@@ -1,21 +1,515 @@
+// Contract Definition Page Styles
+
+// Color Palette (matching dashboard)
+$primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+$success-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+$warning-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+$info-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+$card-bg: #ffffff;
+$card-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+$hover-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+$border-radius: 16px;
+
+// Animation
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Wrapper
 #wrapper {
   margin: 20px;
 }
 
+// Page Title (matching dashboard style)
+h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  position: relative;
+  
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: $primary-gradient;
+    border-radius: 2px;
+  }
+}
+
+// Search and Create Card
+.search-create-card {
+  border-radius: $border-radius !important;
+  box-shadow: $card-shadow !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: fadeInUp 0.6s ease-out;
+  background: $card-bg !important;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 1.5rem !important;
+  margin-bottom: 2rem;
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $hover-shadow !important;
+  }
+}
+
+// Search and Create Container (80:20 ratio)
+.search-create-container {
+  display: flex;
+  gap: 1rem;
+  align-items: stretch;
+  height: 56px; // Fixed height for both elements
+  
+  .search-form-field {
+    flex: 4; // 80% (4/5)
+    height: 56px;
+    
+    ::ng-deep {
+      .mat-form-field-wrapper {
+        height: 56px;
+        padding-bottom: 0;
+      }
+      
+      .mat-form-field-flex {
+        background: #f9fafb;
+        border-radius: 8px;
+        padding: 0.75rem 1rem;
+        transition: all 0.3s ease;
+        height: 56px;
+        display: flex !important;
+        align-items: center !important;
+        min-height: 56px;
+        
+        &:hover {
+          background: #f3f4f6;
+        }
+      }
+      
+      .mat-form-field-label {
+        color: #6b7280;
+        line-height: 1;
+      }
+      
+      .mat-form-field-underline {
+        display: none;
+      }
+      
+      .mat-input-element {
+        color: #1f2937;
+      }
+      
+      .mat-icon {
+        color: #667eea;
+        flex-shrink: 0;
+      }
+    }
+  }
+  
+  .create-contract-button {
+    flex: 1; // 20% (1/5)
+    height: 56px !important;
+    font-weight: 600 !important;
+    background: $primary-gradient !important;
+    color: white !important;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3) !important;
+    transition: all 0.3s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+    white-space: nowrap !important;
+    
+    &:hover:not([disabled]) {
+      transform: translateY(-2px) !important;
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4) !important;
+    }
+    
+    &:active {
+      transform: translateY(0) !important;
+    }
+    
+    mat-icon {
+      font-size: 1.25rem !important;
+      width: 1.25rem !important;
+      height: 1.25rem !important;
+    }
+    
+    .button-text {
+      font-size: 0.9375rem;
+      font-weight: 600;
+    }
+    
+    .button-text-mobile {
+      display: none;
+      font-size: 0.9375rem;
+      font-weight: 600;
+    }
+  }
+}
+
+// Results Section
+.results-section {
+  animation: fadeInUp 0.8s ease-out;
+  animation-delay: 0.2s;
+  animation-fill-mode: both;
+}
+
+// Pagination Container
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  
+  .paginator-styled {
+    background: $card-bg;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    padding: 0.5rem 1rem;
+    
+    ::ng-deep {
+      .mat-paginator-container {
+        padding: 0;
+      }
+      
+      .mat-paginator-range-label {
+        color: #6b7280;
+      }
+      
+      .mat-paginator-navigation-first,
+      .mat-paginator-navigation-last,
+      .mat-paginator-navigation-previous,
+      .mat-paginator-navigation-next {
+        color: #667eea;
+        
+        &:hover {
+          background: rgba(102, 126, 234, 0.1);
+        }
+      }
+    }
+  }
+}
+
+// Content Container
+.content-container {
+  min-height: 35rem;
+  
+  .state-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 35rem;
+    background: $card-bg;
+    border-radius: $border-radius;
+    box-shadow: $card-shadow;
+    animation: fadeInUp 0.6s ease-out;
+  }
+}
+
+// Contracts Grid
+.contracts-grid {
+  animation: slideIn 0.8s ease-out;
+  animation-delay: 0.3s;
+  animation-fill-mode: both;
+  
+  .contract-cards-container {
+    ::ng-deep {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      
+      .contract-definition-card {
+        background: $card-bg !important;
+        border-radius: $border-radius !important;
+        box-shadow: $card-shadow !important;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        flex: 0 0 calc(50% - 0.75rem); // 2 columns with gap
+        
+        &:hover {
+          transform: translateY(-4px);
+          box-shadow: $hover-shadow !important;
+        }
+        
+        // Status indicator gradient bar
+        &:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 4px;
+          background: $success-gradient;
+        }
+        
+        // Card content styling
+        .card-header {
+          padding: 1.5rem;
+          border-bottom: 1px solid #f3f4f6;
+          
+          .card-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            
+            mat-icon {
+              color: #667eea;
+              font-size: 1.25rem;
+              width: 1.25rem;
+              height: 1.25rem;
+            }
+          }
+          
+          .card-subtitle {
+            font-size: 0.875rem;
+            color: #6b7280;
+          }
+        }
+        
+        .card-body {
+          padding: 1rem 1.5rem;
+          
+          .contract-description {
+            color: #4b5563;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+            max-height: 3rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+          }
+          
+          .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            
+            .info-label {
+              font-size: 0.875rem;
+              color: #6b7280;
+              font-weight: 500;
+            }
+            
+            .info-value {
+              font-size: 0.875rem;
+              color: #1f2937;
+              font-weight: 600;
+              font-family: 'Monaco', 'Menlo', monospace;
+            }
+          }
+        }
+        
+        .card-footer {
+          padding: 1rem 1.5rem;
+          background: #fafafa;
+          border-top: 1px solid #f3f4f6;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          
+          .contract-actions {
+            display: flex;
+            gap: 0.5rem;
+            
+            button {
+              padding: 0.25rem 0.75rem;
+              border-radius: 20px;
+              font-size: 0.75rem;
+              font-weight: 600;
+              transition: all 0.3s ease;
+              
+              &.edit-button {
+                background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+                color: #667eea;
+                
+                &:hover {
+                  background: $primary-gradient;
+                  color: white;
+                  transform: translateY(-2px);
+                  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+                }
+              }
+              
+              &.delete-button {
+                background: linear-gradient(135deg, rgba(240, 147, 251, 0.1) 0%, rgba(245, 87, 108, 0.1) 100%);
+                color: #dc2626;
+                
+                &:hover {
+                  background: $warning-gradient;
+                  color: white;
+                  transform: translateY(-2px);
+                  box-shadow: 0 4px 12px rgba(250, 112, 154, 0.3);
+                }
+              }
+            }
+          }
+          
+          .action-icon {
+            color: #667eea;
+            transition: all 0.3s ease;
+            
+            &:hover {
+              transform: translateX(4px);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Legacy contract definition card support
 .contract-definition-card {
-  width: calc(100% / 2 - 48px);
+  background: $card-bg !important;
+  border-radius: $border-radius !important;
+  box-shadow: $card-shadow !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  width: calc(50% - 0.75rem) !important;
+  margin: 0 0 1.5rem 0;
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $hover-shadow !important;
+  }
 }
 
-#create-button {
-  margin-left: 10px;
+// Responsive Design - md breakpoint (768px)
+@media (max-width: 767px) {
+  #wrapper {
+    margin: 10px;
+  }
+  
+  h2 {
+    font-size: 1.25rem;
+  }
+  
+  .search-create-card {
+    padding: 1rem !important;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    
+    &:hover {
+      transform: none;
+      box-shadow: $card-shadow !important;
+    }
+  }
+  
+  .search-create-container {
+    flex-direction: column;
+    gap: 0.75rem;
+    height: auto;
+    
+    .search-form-field {
+      flex: none;
+      width: 100%;
+      
+      ::ng-deep .mat-form-field-flex {
+        height: 48px;
+      }
+    }
+    
+    .create-contract-button {
+      flex: none;
+      width: 100%;
+      height: 48px !important;
+      
+      .button-text {
+        display: none;
+      }
+      
+      .button-text-mobile {
+        display: inline;
+      }
+    }
+  }
+  
+  .contracts-grid {
+    margin: 0 0.5rem;
+    
+    .contract-cards-container ::ng-deep {
+      gap: 1rem;
+      
+      .contract-definition-card {
+        flex: 0 0 100%; // Single column on mobile
+        width: 100% !important;
+        margin: 0 0 1rem 0;
+      }
+    }
+  }
+  
+  .contract-definition-card {
+    width: 100% !important;
+    margin: 0 0 1rem 0 !important;
+  }
 }
 
-mat-paginator {
-  display: inline-block;
-  background-color: transparent;
+// Small mobile (sm breakpoint - 640px)
+@media (max-width: 639px) {
+  .search-create-container {
+    .create-contract-button {
+      .button-text-mobile {
+        font-size: 0.875rem;
+      }
+    }
+  }
 }
 
-.search-form-field {
-  min-width: 200px;
-  width: 30%;
+// Loading and Error states styling
+::ng-deep {
+  loading-state,
+  error-state,
+  empty-state {
+    .mat-spinner {
+      circle {
+        stroke: #667eea;
+      }
+    }
+    
+    .error-icon,
+    .empty-icon {
+      color: #667eea;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    
+    .message {
+      color: #4b5563;
+      font-size: 1.125rem;
+    }
+  }
 }
